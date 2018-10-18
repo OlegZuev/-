@@ -9,9 +9,9 @@ int main() {
     for (int i = 0; i < 4; ++i)
     {
         cin >> num >> dem;
-        fr.add(*new Fraction(num, dem));
+        fr.add(Fraction(num, dem));
         cout << fr << endl;
     }
-    cout << fr.divide(*new Fraction(5, 1));
+    cout << fr.divide(Fraction(5, 1));
     return 0;
 }
