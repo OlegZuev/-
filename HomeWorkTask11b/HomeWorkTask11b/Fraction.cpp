@@ -1,11 +1,13 @@
 #include "Fraction.h"
 
+
 Fraction::Fraction(long long numerator, long long denominator)
 {
-    this->numerator = numerator;
-    if (denominator == 0) {
-        denominator = 1;
+    while (denominator == 0) {
+        std::cout << "Данной дроби не существует. Введите новую:\n";
+        std::cin >> numerator >> denominator;
     }
+    this->numerator = numerator;
     this->denominator = denominator;
     reduceFraction();
 }
