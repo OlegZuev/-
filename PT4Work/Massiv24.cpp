@@ -25,7 +25,7 @@ void Solve()
 
 void initArray(double* arr, int n)
 {
-    int divider = 2;
+    long long divider = 2;
     arr[0] = 1;
     for (int i = 1; i < n; ++i) {
         arr[i] = 1. / divider;

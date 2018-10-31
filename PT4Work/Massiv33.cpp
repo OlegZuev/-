@@ -45,10 +45,10 @@ void initArray(int* arr, int& n, ifstream& fin)
 
 bool isPrimeNumber(int i)
 {
-    if (i % 2 == 0 || i == 1) {
+    if ((i % 2 == 0 || i == 1) && i != 2) {
         return false;
     }
-    for (int j = 3; j * j < i; j += 2) {
+    for (int j = 3; j * j <= i; j += 2) {
         if (i % j == 0) {
             return false;
         }
