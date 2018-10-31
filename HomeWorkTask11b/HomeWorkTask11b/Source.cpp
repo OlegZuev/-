@@ -10,7 +10,7 @@ int main() {
     {
         cin >> num >> dem;
         fr.add(Fraction(num, dem));
-        cout << fr << endl;
+        //cout << fr << endl;
     }
     cout << fr.divide(Fraction(5, 1));
     return 0;
