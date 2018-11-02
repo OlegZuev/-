@@ -4,7 +4,7 @@ using namespace std;
 
 void initArray(int* arr, int& n, ifstream& fin);
 
-int find(int* arr, int n, int x);
+int binarySearchLeft(int* arr, int n, int x);
 
 void Solve()
 {
@@ -16,7 +16,7 @@ void Solve()
     int* arr = new int[n];
     n = 0;
     initArray(arr, n, fin);
-    pt << find(arr, n, x);
+    pt << binarySearchLeft(arr, n, x);
 }
 
 void initArray(int* arr, int& n, ifstream& fin)
@@ -27,13 +27,13 @@ void initArray(int* arr, int& n, ifstream& fin)
     }
 }
 
-int find(int* arr, int n, int x)
+int binarySearchLeft(int* arr, int n, int x)
 {
+    if (x < arr[0] || x > arr[n - 1]) {
+        return -1;
+    }
     int start = 0, end = n;
-    while (start < end) {
-        if (end - start == 1) {
-            end = start;
-        }
+    while (start < end - 1) {
         int pivot = start + (end - start) / 2;
         if (x <= arr[pivot]) {
             end = pivot;
@@ -41,11 +41,5 @@ int find(int* arr, int n, int x)
             start = pivot;
         } 
     }
-    int index = -1;
-    if (x == arr[start]) {
-        index = start;
-    } else if (x == arr[start + 1]) {
-        index = start + 1;
-    }
-    return index;
+    return x == arr[start] ? start : (x == arr[start + 1] ? start + 1 : -1);
 }
