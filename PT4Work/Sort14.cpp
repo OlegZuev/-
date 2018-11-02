@@ -29,21 +29,23 @@ void initArray(int* arr, int& n, ifstream& fin)
 
 int find(int* arr, int n, int x)
 {
-    int index = -1;
     int start = 0, end = n;
     while (start < end) {
         if (end - start == 1) {
             end = start;
         }
         int pivot = start + (end - start) / 2;
-        if (x == arr[pivot]) {
-            index = pivot;
-        }
         if (x <= arr[pivot]) {
             end = pivot;
         } else {
             start = pivot;
         } 
+    }
+    int index = -1;
+    if (x == arr[start]) {
+        index = start;
+    } else if (x == arr[start + 1]) {
+        index = start + 1;
     }
     return index;
 }
