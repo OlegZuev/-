@@ -29,17 +29,14 @@ void initArray(int* arr, int& n, ifstream& fin)
 
 int binarySearchLeft(int* arr, int n, int x)
 {
-    if (x < arr[0] || x > arr[n - 1]) {
-        return -1;
-    }
-    int start = 0, end = n;
-    while (start < end - 1) {
+    int start = -1, end = n - 1;
+    while (end - start > 1) {
         int pivot = start + (end - start) / 2;
-        if (x <= arr[pivot]) {
-            end = pivot;
-        } else {
+        if (x > arr[pivot]) {
             start = pivot;
+        } else {
+            end = pivot;
         } 
     }
-    return x == arr[start] ? start : (x == arr[start + 1] ? start + 1 : -1);
+    return x == arr[end] ? end : -1;
 }
