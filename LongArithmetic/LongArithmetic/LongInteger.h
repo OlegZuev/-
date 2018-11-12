@@ -1,26 +1,50 @@
 #pragma once
 #include <fstream>
 
+const int maxSize = 128;
+
 class LongInteger {
-    int* arr = new int[65];
+    int* arr = new int[maxSize];
     int length = 0;
-    int sign(LongInteger n);
-    void reduce(LongInteger& n);
-    LongInteger subtract(LongInteger a, LongInteger b);
+
+    //Utilities
+    int sign(const LongInteger& n) const;
+    void reduce();
+    void initialize() const;
+    LongInteger subtract(LongInteger a, const LongInteger& b) const;
+    int dichotomy(const LongInteger& n);
 
 public:
+    //Constructors
     LongInteger();
     LongInteger(int n);
-    LongInteger operator+(LongInteger n);
-    LongInteger operator-(LongInteger n);
-    LongInteger operator*(LongInteger n);
-    LongInteger operator/(LongInteger n);
-    LongInteger operator%(LongInteger n);
-    friend std::ostream& operator<<(std::ostream& out, LongInteger& n);
+
+    //Arithmetic operations
+    LongInteger operator+(const LongInteger& n) const;
+    LongInteger operator-(const LongInteger& n) const;
+    LongInteger operator*(const LongInteger& n) const;
+    LongInteger operator/(const LongInteger& n) const;
+    LongInteger operator%(const LongInteger& n) const;
+
+    LongInteger operator+(const int& n) const;
+    LongInteger operator-(const int& n) const;
+    LongInteger operator*(const int& n) const;
+    LongInteger operator/(const int& n) const;
+    LongInteger operator%(const int& n) const;
+
+    //Input and output
+    friend std::ostream& operator<<(std::ostream& out, const LongInteger& n);
     friend std::istream& operator>>(std::istream& in, LongInteger& n);
-    bool operator>(LongInteger n);
-    bool operator<(LongInteger n);
-    bool operator==(LongInteger n);
+    
+    //Boolean operation
+    bool operator>(const LongInteger& n) const;
+    bool operator<(const LongInteger& n) const;
+    bool operator==(const LongInteger& n) const;
+    bool operator!=(const LongInteger& n) const;
+    bool operator>=(const LongInteger& n) const;
+    bool operator<=(const LongInteger& n) const;
+
+    //Getters and setters
     int getLength() const;
     void setLength(int length);
     int* getArr() const;

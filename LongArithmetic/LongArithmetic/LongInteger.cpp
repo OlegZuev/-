@@ -11,23 +11,26 @@ LongInteger::LongInteger(int n)
         n /= 10;
     }
     length = i;
+    initialize();
 }
 
-LongInteger LongInteger::operator+(LongInteger n)
+LongInteger LongInteger::operator+(const LongInteger& n) const
 {
     const int length = this->length > n.getLength() ? this->length : n.getLength();
+    LongInteger foo = *this;
+    foo.setLength(length + 1);
     for (int i = 0; i < length; ++i) {
-        arr[i] += n.getArr()[i];
-        arr[i + 1] += n.getArr()[i] / 10;
-        arr[i] %= 10;
+        foo.getArr()[i] += n.getArr()[i];
+        foo.getArr()[i + 1] += foo.getArr()[i] / 10;
+        foo.getArr()[i] %= 10;
     }
-    reduce(*this);
-    return *this;
+    foo.reduce();
+    return foo;
 }
 
-LongInteger LongInteger::operator-(LongInteger n)
+LongInteger LongInteger::operator-(const LongInteger& n) const
 {
-    if (*this > n || *this == n) {
+    if (*this >= n) {
         return subtract(*this, n);
     }
     LongInteger l = subtract(n, *this);
@@ -35,7 +38,7 @@ LongInteger LongInteger::operator-(LongInteger n)
     return l;
 }
 
-LongInteger LongInteger::operator*(LongInteger n)
+LongInteger LongInteger::operator*(const LongInteger& n) const
 {
     LongInteger l(0);
     const int length = this->length + n.getLength() + 1;
@@ -52,41 +55,83 @@ LongInteger LongInteger::operator*(LongInteger n)
         l.getArr()[i] %= 10;
     }
     l.setLength(length);
-    reduce(l);
+    l.reduce();
     return l;
 }
 
-LongInteger LongInteger::operator/(LongInteger n)
+LongInteger LongInteger::operator/(const LongInteger& n) const
 {
     int count = 0;
-    while (*this > n) {
-        *this = *this - n;
+    LongInteger foo = *this;
+    while (foo >= n) {
+        foo = foo - n;
         count++;
     }
-    return LongInteger(count);
+    return {count};
 }
 
-LongInteger LongInteger::operator%(LongInteger n)
+LongInteger LongInteger::operator%(const LongInteger& n) const
 {
-    while (*this > n) {
-        *this = *this - n;
+    LongInteger foo = *this;
+    while (foo >= n) {
+        foo = foo - n;
     }
     return *this;
 }
 
-bool LongInteger::operator>(LongInteger n)
+LongInteger LongInteger::operator+(const int& n) const
+{
+    return *this + LongInteger(n);
+}
+
+LongInteger LongInteger::operator-(const int& n) const
+{
+    return *this - LongInteger(n);
+}
+
+LongInteger LongInteger::operator*(const int& n) const
+{
+    return *this * LongInteger(n);
+}
+
+LongInteger LongInteger::operator/(const int& n) const
+{
+    return *this / LongInteger(n);
+}
+
+LongInteger LongInteger::operator%(const int& n) const
+{
+    return *this % LongInteger(n);
+}
+
+bool LongInteger::operator>(const LongInteger& n) const
 {
     return sign(n) == 1;
 }
 
-bool LongInteger::operator<(LongInteger n)
+bool LongInteger::operator<(const LongInteger& n) const
 {
     return sign(n) == 2;
 }
 
-bool LongInteger::operator==(LongInteger n)
+bool LongInteger::operator==(const LongInteger& n) const
 {
     return sign(n) == 3;
+}
+
+bool LongInteger::operator!=(const LongInteger& n) const
+{
+    return !(*this == n);
+}
+
+bool LongInteger::operator>=(const LongInteger& n) const
+{
+    return *this > n || *this == n;
+}
+
+bool LongInteger::operator<=(const LongInteger& n) const
+{
+    return *this < n || *this == n;
 }
 
 int LongInteger::getLength() const
@@ -104,7 +149,7 @@ int* LongInteger::getArr() const
     return arr;
 }
 
-int LongInteger::sign(LongInteger n)
+int LongInteger::sign(const LongInteger& n) const
 {
     int flag = 3; // если flag == 3, значит числа одинаковой длинны
     int length = this->length;
@@ -130,17 +175,24 @@ int LongInteger::sign(LongInteger n)
     return flag;
 }
 
-void LongInteger::reduce(LongInteger& n)
+void LongInteger::reduce()
 {
-    if (n.getArr()[n.getLength() - 1] == 0) {
-        n.setLength(n.getLength() - 1);
-        reduce(n);
+    if (arr[length - 1] == 0) {
+        length--;
+        reduce();
     }
 }
 
-LongInteger LongInteger::subtract(LongInteger a, LongInteger b)
+void LongInteger::initialize() const
 {
-    int countDigit = a.getLength() - b.getLength();
+    for (int i = length; i < maxSize; ++i) {
+        arr[i] = 0;
+    }
+}
+
+LongInteger LongInteger::subtract(LongInteger a, const LongInteger& b) const
+{
+    const int countDigit = a.getLength() - b.getLength();
     for (int i = 0; i < b.getLength(); ++i) {
         if (countDigit == 0 && i == b.getLength() - 1) {
             a.getArr()[i] -= b.getArr()[i];
@@ -151,12 +203,28 @@ LongInteger LongInteger::subtract(LongInteger a, LongInteger b)
         a.getArr()[i + 1] += a.getArr()[i] / 10;
         a.getArr()[i] %= 10;
     }
-    reduce(a);
+    a.reduce();
     return a;
 }
 
-std::ostream& operator<<(std::ostream& out, LongInteger& n)
+int LongInteger::dichotomy(const LongInteger& n)
 {
+    const int powerOfTen = this->length - n.getLength();
+    int start = 0;
+    int end = pow(10, powerOfTen);
+    while (end - start > 1) {
+        if (*this - n * end < 0) {
+            end = start + (end - start) / 2;
+        }
+    }
+    return 0;
+}
+
+std::ostream& operator<<(std::ostream& out, const LongInteger& n)
+{
+    if (n.getLength() == 0) {
+        out << 0;
+    }
     for (int i = n.getLength() - 1; i >= 0; --i) {
         out << n.getArr()[i];
     }
