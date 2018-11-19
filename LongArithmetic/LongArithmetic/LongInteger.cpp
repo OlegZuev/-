@@ -116,19 +116,6 @@ LongInteger LongInteger::operator/(const LongInteger& n) const
     return result;
 }
 
-// const int powerOfTen = this->length - n.getLength() + 1;
-// int start = 0;
-// int end = pow(10, powerOfTen);
-// while (end - start > 1) {
-//     int pivot = start + (end - start) / 2;
-//     if (*this < n * pivot) {
-//         end = pivot;
-//     } else {
-//         start = pivot;
-//     }
-// }
-// return start * sign * n.getSign();
-
 LongInteger LongInteger::operator%(const LongInteger& n) const
 {
     LongInteger foo = *this;
