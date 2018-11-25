@@ -1,4 +1,5 @@
 #include "LongInteger.h"
+#include <string>
 
 LongInteger::LongInteger()
 = default;
@@ -20,6 +21,39 @@ LongInteger::LongInteger(int n)
     initialize();
 }
 
+LongInteger::LongInteger(std::string& n)
+{
+    int flag = 0;
+    if (n[0] == '-') {
+        sign = negative;
+        flag++;
+    } else if (n[0] != '0') {
+        sign = positive;
+    }
+    length = n.length() - flag;
+    for (int i = 0; i < length; ++i) {
+        arr[length - i - 1] = n[i + flag] - '0';
+    }
+    initialize();
+}
+
+LongInteger::LongInteger(const char n[])
+{
+    const int tempLength = strlen(n);
+    int flag = 0;
+    if (n[0] == '-') {
+        sign = negative;
+        flag++;
+    } else if (n[0] != '0') {
+        sign = positive;
+    }
+    length = tempLength - flag;
+    for (int i = 0; i < length; ++i) {
+        arr[length - i - 1] = n[i + flag] - '0';
+    }
+    initialize();
+}
+
 LongInteger::LongInteger(const LongInteger& n)
 {
     sign = n.getSign();
@@ -28,6 +62,31 @@ LongInteger::LongInteger(const LongInteger& n)
     }
     length = n.getLength();
     initialize();
+}
+
+int LongInteger::getLength() const
+{
+    return length;
+}
+
+void LongInteger::setLength(int length)
+{
+    this->length = length;
+}
+
+int* LongInteger::getArr() const
+{
+    return arr;
+}
+
+LongInteger::numberSign LongInteger::getSign() const
+{
+    return sign;
+}
+
+void LongInteger::setSign(numberSign sign)
+{
+    this->sign = sign;
 }
 
 LongInteger LongInteger::operator+(const LongInteger& n) const
@@ -79,10 +138,6 @@ LongInteger LongInteger::operator*(const LongInteger& n) const
 
 LongInteger LongInteger::operator/(const LongInteger& n) const
 {
-    //Деление столбиком
-    //Из всего числа берётся его часть, которая делится на n
-    //Результат деления записывается в конечное число
-    //В конце число перевернуть
     LongInteger result(0);
     LongInteger foo(0);
     foo.setSign(positive);
@@ -94,16 +149,24 @@ LongInteger LongInteger::operator/(const LongInteger& n) const
             foo.setLength(n.getLength() + 1);
             extractPart(copy, foo, n);
         }
-
         result.getArr()[i] = divide(foo, n);
+        int tempLength = foo.getLength();
         result.setLength(result.getLength() + 1);
-        if (foo.isZero()) {
+        returnRemainder(foo, copy);
+        if (copy.isZero()) {
+            break;
+        }
+
+        foo.setLength(++tempLength);
+        extractPart(copy, foo, n);
+        while (foo.isZero()) {
             i++;
             result.getArr()[i] = 0;
             result.setLength(result.getLength() + 1);
+            foo.setLength(++tempLength);
+            extractPart(copy, foo, n);
         }
         returnRemainder(foo, copy);
-
     }
     result.reverse();
     if (result.getLength() == 0) {
@@ -118,11 +181,24 @@ LongInteger LongInteger::operator/(const LongInteger& n) const
 
 LongInteger LongInteger::operator%(const LongInteger& n) const
 {
-    LongInteger foo = *this;
-    while (foo >= n) {
-        foo = foo - n;
+    LongInteger foo(0);
+    foo.setSign(positive);
+    LongInteger copy = *this;
+    for (int i = 0; copy.compareAbsoluteValues(n) != 2; ++i) {
+        foo.setLength(n.getLength());
+        extractPart(copy, foo, n);
+        if (foo < abs(n)) {
+            foo.setLength(n.getLength() + 1);
+            extractPart(copy, foo, n);
+        }
+        divide(foo, n);
+        int tempLength = foo.getLength();
+        returnRemainder(foo, copy);
+        if (copy.isZero()) {
+            break;
+        }
     }
-    return *this;
+    return copy;
 }
 
 LongInteger LongInteger::operator+(const int& n) const
@@ -210,29 +286,99 @@ bool LongInteger::operator<=(const int& n) const
     return *this <= LongInteger(n);
 }
 
-int LongInteger::getLength() const
+std::ostream& operator<<(std::ostream& out, const LongInteger& n)
 {
-    return length;
+    if (n.getLength() == 0) {
+        out << 0;
+    }
+    if (n.getSign() == LongInteger::negative) {
+        out << '-';
+    }
+    for (int i = n.getLength() - 1; i >= 0; --i) {
+        out << n.getArr()[i];
+    }
+    return out;
 }
 
-void LongInteger::setLength(int length)
+std::istream& operator>>(std::istream& in, LongInteger& n)
 {
-    this->length = length;
+    std::string temp;
+    std::getline(in, temp);
+    n = LongInteger(temp);
+    return in;
 }
 
-int* LongInteger::getArr() const
+void LongInteger::initialize() const
 {
-    return arr;
+    for (int i = length; i < maxSize; ++i) {
+        arr[i] = 0;
+    }
 }
 
-LongInteger::numberSign LongInteger::getSign() const
+void LongInteger::reduce()
 {
-    return sign;
+    if (arr[length - 1] == 0) {
+        length--;
+        reduce();
+    }
 }
 
-void LongInteger::setSign(numberSign sign)
+void LongInteger::changeSign()
 {
-    this->sign = sign;
+    if (sign == positive) {
+        sign = negative;
+    } else if (sign == negative) {
+        sign = positive;
+    }
+}
+
+void LongInteger::reverse()
+{
+    for (int i = 0; i < length / 2; ++i) {
+        std::swap(arr[i], arr[length - i - 1]);
+    }
+}
+
+void LongInteger::extractPart(LongInteger& a, LongInteger& b, const LongInteger& c) const
+{
+    int i = 0;
+    for (; i < b.getLength(); ++i) {
+        b.getArr()[b.getLength() - i - 1] = a.getArr()[a.getLength() - i - 1];
+        a.getArr()[a.getLength() - i - 1] = 0;
+    }
+    if (b < abs(c)) {
+        for (; i > 0; --i) {
+            a.getArr()[a.getLength() - i] = b.getArr()[b.getLength() - i];
+            b.getArr()[b.getLength() - i] = 0;
+        }
+        return;
+    }
+    a.reduce();
+}
+
+void LongInteger::returnRemainder(LongInteger& a, LongInteger& b) const
+{
+    if (a.isZero()) {
+        return;
+    }
+    int i = 0;
+    for (; i < a.getLength(); ++i) {
+        b.getArr()[b.getLength() + i] = a.getArr()[i];
+        a.getArr()[i] = 0;
+    }
+    b.setLength(b.getLength() + i);
+    a.reduce();
+}
+
+bool LongInteger::isZero() const
+{
+    bool flag = true;
+    for (int i = 0; i < length; ++i) {
+        if (arr[i] != 0) {
+            flag = false;
+        }
+    }
+    return flag;
 }
 
 int LongInteger::compareAbsoluteValues(const LongInteger& n) const
@@ -274,19 +420,32 @@ int LongInteger::compareSigns(const LongInteger& n) const
     return flag;
 }
 
-void LongInteger::reduce()
+int LongInteger::divide(LongInteger& a, const LongInteger& b) const
 {
-    if (arr[length - 1] == 0) {
-        length--;
-        reduce();
+    int count = 0;
+    if (a.isZero()) {
+        return count;
     }
+    while (a.compareAbsoluteValues(b) == 1 || a.compareAbsoluteValues(b) == 3) {
+        a = a - abs(b);
+        count++;
+    }
+    return count;
 }
 
-void LongInteger::initialize() const
+LongInteger LongInteger::add(const LongInteger& a, const LongInteger& b) const
 {
-    for (int i = length; i < maxSize; ++i) {
-        arr[i] = 0;
+    const int length = a.getLength() > b.getLength() ? a.getLength() : b.getLength();
+    LongInteger foo = a;
+    foo.initialize();
+    foo.setLength(length + 1);
+    for (int i = 0; i < length; ++i) {
+        foo.getArr()[i] += b.getArr()[i];
+        foo.getArr()[i + 1] += foo.getArr()[i] / 10;
+        foo.getArr()[i] %= 10;
     }
+    foo.reduce();
+    return foo;
 }
 
 LongInteger LongInteger::subtract(const LongInteger& a, const LongInteger& b) const
@@ -307,134 +466,9 @@ LongInteger LongInteger::subtract(const LongInteger& a, const LongInteger& b) co
     return foo;
 }
 
-LongInteger LongInteger::add(const LongInteger& a, const LongInteger& b) const
-{
-    const int length = a.getLength() > b.getLength() ? a.getLength() : b.getLength();
-    LongInteger foo = a;
-    foo.initialize();
-    foo.setLength(length + 1);
-    for (int i = 0; i < length; ++i) {
-        foo.getArr()[i] += b.getArr()[i];
-        foo.getArr()[i + 1] += foo.getArr()[i] / 10;
-        foo.getArr()[i] %= 10;
-    }
-    foo.reduce();
-    return foo;
-}
-
-int LongInteger::dichotomy(const LongInteger& n) const
-{
-    const int powerOfTen = this->length - n.getLength() + 1;
-    int start = 0;
-    int end = pow(10, powerOfTen);
-    while (end - start > 1) {
-        int pivot = start + (end - start) / 2;
-        if (*this < n * pivot) {
-            end = pivot;
-        } else {
-            start = pivot;
-        }
-    }
-    return start;
-}
-
-void LongInteger::changeSign()
-{
-    if (sign == positive) {
-        sign = negative;
-    } else if (sign == negative) {
-        sign = positive;
-    }
-}
-
-void LongInteger::extractPart(LongInteger& a, LongInteger& b, const LongInteger& c) const
-{
-    int i = 0;
-    for (; i < b.getLength(); ++i) {
-        b.getArr()[b.getLength() - i - 1] = a.getArr()[a.getLength() - i - 1];
-        a.getArr()[a.getLength() - i - 1] = 0;
-    }
-    if (b < abs(c)) {
-        for (; i > 0; --i) {
-            a.getArr()[a.getLength() - i] = b.getArr()[b.getLength() - i];
-            b.getArr()[b.getLength() - i] = 0;
-        }
-        return;
-    }
-    a.reduce();
-}
-
-int LongInteger::divide(LongInteger& a, const LongInteger& b) const
-{
-    int count = 0;
-    if (a.isZero()) {
-        return count;
-    }
-    while (a.compareAbsoluteValues(b) == 1 || a.compareAbsoluteValues(b) == 3) {
-        a = a - abs(b);
-        count++;
-    }
-    return count;
-}
-
-void LongInteger::returnRemainder(LongInteger& a, LongInteger& b) const
-{
-    if (a.isZero()) {
-        return;
-    }
-    int i = 0;
-    for (; i < a.getLength(); ++i) {
-        b.getArr()[b.getLength() + i] = a.getArr()[i];
-        a.getArr()[i] = 0;
-    }
-    b.setLength(b.getLength() + i);
-    a.reduce();
-}
-
-void LongInteger::reverse()
-{
-    for (int i = 0; i < length / 2; ++i) {
-        std::swap(arr[i], arr[length - i - 1]);
-    }
-}
-
 LongInteger LongInteger::abs(const LongInteger& n) const
 {
     LongInteger foo = n;
     foo.setSign(positive);
     return foo;
-}
-
-bool LongInteger::isZero() const
-{
-    bool flag = true;
-    for (int i = 0; i < length; ++i) {
-        if (arr[i] != 0) {
-            flag = false;
-        }
-    }
-    return flag;
-}
-
-
-std::ostream& operator<<(std::ostream& out, const LongInteger& n)
-{
-    if (n.getLength() == 0) {
-        out << 0;
-    }
-    if (n.getSign() == LongInteger::negative) {
-        out << '-';
-    }
-    for (int i = n.getLength() - 1; i >= 0; --i) {
-        out << n.getArr()[i];
-    }
-    return out;
-}
-
-std::istream& operator>>(std::istream& in, LongInteger& n)
-{
-    int temp;
-    in >> temp;
-    n = LongInteger(temp);
-    return in;
 }
