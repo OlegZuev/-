@@ -77,6 +77,24 @@ TEST(LongIntegerTest, TestZero3)
     EXPECT_EQ(flag, true);
 }
 
+TEST(LongIntegerTest, TestMinValues)
+{
+    bool flag = runTest(4);
+    EXPECT_EQ(flag, true);
+}
+
+TEST(LongIntegerTest, TestMaxValues)
+{
+    bool flag = runTest(5);
+    EXPECT_EQ(flag, true);
+}
+
+TEST(LongIntegerTest, TestDefault)
+{
+    bool flag = runTest(6);
+    EXPECT_EQ(flag, true);
+}
+
 int main(int argc, char** argv)
 {
     ::testing::InitGoogleTest(&argc, argv);
