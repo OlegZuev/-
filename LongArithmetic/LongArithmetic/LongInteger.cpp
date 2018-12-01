@@ -1,11 +1,15 @@
 #include "LongInteger.h"
-#include <string>
+
 
 LongInteger::LongInteger()
 = default;
 
 LongInteger::LongInteger(int n)
 {
+    if (!isInputCorrect(std::to_string(n))) {
+        std::cout << "Input error." << std::endl;
+        throw 1;
+    }
     if (n > 0) {
         sign = positive;
     } else if (n < 0) {
@@ -23,6 +27,11 @@ LongInteger::LongInteger(int n)
 
 LongInteger::LongInteger(std::string& n)
 {
+    if (!isInputCorrect(n)) {
+        std::cout << "Привет Input error. Please, enter number again: ";
+        std::cin >> *this;
+        return;
+    }
     int flag = 0;
     if (n[0] == '-') {
         sign = negative;
@@ -40,6 +49,10 @@ LongInteger::LongInteger(std::string& n)
 LongInteger::LongInteger(const char n[])
 {
     const int tempLength = strlen(n);
+    if (!isInputCorrect(std::string(n, tempLength))) {
+        std::cout << "Input error." << std::endl;
+        throw 1;
+    }
     int flag = 0;
     if (n[0] == '-') {
         sign = negative;
@@ -306,6 +319,18 @@ std::istream& operator>>(std::istream& in, LongInteger& n)
     in >> temp;
     n = LongInteger(temp);
     return in;
+}
+
+bool LongInteger::isInputCorrect(std::string n)
+{
+    bool flag = true;
+    for (int i = 0; i < n.length(); ++i) {
+        if (n[i] - '0' < 0 || n[i] - '0' > 9) {
+            flag = false;
+            break;
+        }
+    }
+    return flag;
 }
 
 void LongInteger::initialize() const
