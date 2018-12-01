@@ -1,5 +1,7 @@
 #pragma once
 #include <fstream>
+#include <string>
+#include <iostream>
 
 const int maxSize = 128;
 
@@ -10,6 +12,7 @@ class LongInteger {
     numberSign sign = zero;
 
     //Utilities
+    bool isInputCorrect(std::string n);
     void initialize() const;
     void reduce();
     void changeSign();

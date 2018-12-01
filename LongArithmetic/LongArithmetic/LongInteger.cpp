@@ -7,7 +7,7 @@ LongInteger::LongInteger()
 LongInteger::LongInteger(int n)
 {
     if (!isInputCorrect(std::to_string(n))) {
-        std::cout << "Input error." << std::endl;
+        std::cout << "Ошибка ввода." << std::endl;
         throw 1;
     }
     if (n > 0) {
@@ -28,7 +28,7 @@ LongInteger::LongInteger(int n)
 LongInteger::LongInteger(std::string& n)
 {
     if (!isInputCorrect(n)) {
-        std::cout << "Привет Input error. Please, enter number again: ";
+        std::cout << "Ошибка ввода. Пожалуйста, введите значение заново: ";
         std::cin >> *this;
         return;
     }
@@ -50,7 +50,7 @@ LongInteger::LongInteger(const char n[])
 {
     const int tempLength = strlen(n);
     if (!isInputCorrect(std::string(n, tempLength))) {
-        std::cout << "Input error." << std::endl;
+        std::cout << "Ошибка ввода." << std::endl;
         throw 1;
     }
     int flag = 0;
@@ -406,41 +406,53 @@ bool LongInteger::isZero() const
     return flag;
 }
 
+/**
+ * Функция сравнивает абсолютное значение длинных чисел.
+ * @param n - число, с которым сравнивают
+ * @return flag - целое число, которое имеет три значения:
+ *         1) 1 - первое число больше второго
+ *         2) 2 - первое число меньше второго
+ *         3) 3 - числа равны
+ */
 int LongInteger::compareAbsoluteValues(const LongInteger& n) const
 {
-    int flag = 3; // если flag == 3, значит числа одинаковой длинны
+    int flag = 3;
     int length = this->length;
     if (this->length > n.getLength()) {
-        flag = 1; // если flag == 1, значит первое число длиннее второго
+        flag = 1;
     } else if (n.getLength() > this->length) {
-        flag = 2; // если flag == 2, значит второе число длиннее первого
-    } else {// если числа одинаковой длинны, то необходимо сравнить их вес
-        for (int i = length - 1; i >= 0; --i) { // поразрядное сравнение веса чисел
-            if (arr[i] > n.getArr()[i]) // если разряд первого числа больше
-            {
-                flag = 1; // значит первое число длиннее второго
-                break; // выход из цикла for
+        flag = 2;
+    } else {
+        for (int i = length - 1; i >= 0; --i) {
+            if (arr[i] > n.getArr()[i]) {
+                flag = 1;
+                break;
             }
 
-            if (n.getArr()[i] > arr[i]) // если разряд второго числа больше
-            {
-                flag = 2; // значит второе число длиннее первого
-                break; // выход из цикла for
+            if (n.getArr()[i] > arr[i]) {
+                flag = 2;
+                break;
             }
         }
     }
     return flag;
 }
 
+/**
+ * Функция сравнивает знаки длинных чисел.
+ * @param n - число, с которым сравнивают
+ * @return flag - целое число, которое имеет три значения:
+ *         1) 1 - знак первого числа "больше" второго
+ *         2) 2 - знак первого числа "меньше" второго
+ *         3) 3 - знаки чисел равны
+ */
 int LongInteger::compareSigns(const LongInteger& n) const
 {
-    int flag = 3; // знаки одинаковые
-    if (sign > n.getSign()) { //проверка знака
-        flag = 1; // если flag == 1, значит первое число положительное и второе число ноль или отрицательное
-                  // либо первое число ноль, а второе отрицательное
+    int flag = 3;
+    if (sign > n.getSign()) {
+        flag = 1;
     } else if (sign < n.getSign()) {
-        flag = 2; // если flag == 2, значит первое число ноль или отрицательное и второе число положительное
-                  // либо первое число отрицательное, а второе ноль
+        flag = 2;
     }
     return flag;
 }
