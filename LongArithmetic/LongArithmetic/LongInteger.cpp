@@ -303,7 +303,7 @@ std::ostream& operator<<(std::ostream& out, const LongInteger& n)
 std::istream& operator>>(std::istream& in, LongInteger& n)
 {
     std::string temp;
-    std::getline(in, temp);
+    in >> temp;
     n = LongInteger(temp);
     return in;
 }
