@@ -45,7 +45,7 @@ bool runTest(const int n)
 {
     std::ifstream fin("input" + std::to_string(n) + ".txt");
     if (!fin.is_open()) {
-        std::cout << "Ошибка открытия файла.";
+        std::cout << "Ошибка открытия файла." << std::endl;
         return false;
     }
     std::ofstream fout("output" + std::to_string(n) + ".txt");
