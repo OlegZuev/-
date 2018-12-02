@@ -44,6 +44,10 @@ void writeArray(std::ofstream& fout, const int* arr, const int n)
 bool runTest(const int n)
 {
     std::ifstream fin("input" + std::to_string(n) + ".txt");
+    if (!fin.is_open()) {
+        std::cout << "Ошибка открытия файла.";
+        return false;
+    }
     std::ofstream fout("output" + std::to_string(n) + ".txt");
     LongInteger M;
     LongInteger Q;

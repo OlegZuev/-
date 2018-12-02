@@ -1,6 +1,5 @@
 #include "LongInteger.h"
 
-
 LongInteger::LongInteger()
 = default;
 
@@ -77,6 +76,16 @@ LongInteger::LongInteger(const LongInteger& n)
     initialize();
 }
 
+LongInteger::LongInteger(LongInteger&& n) noexcept : LongInteger()
+{
+    swap(*this, n);
+}
+
+LongInteger::~LongInteger()
+{
+    delete[] arr;
+}
+
 int LongInteger::getLength() const
 {
     return length;
@@ -100,6 +109,20 @@ LongInteger::numberSign LongInteger::getSign() const
 void LongInteger::setSign(numberSign sign)
 {
     this->sign = sign;
+}
+
+LongInteger& LongInteger::operator=(LongInteger n)
+{
+    swap(*this, n);
+    return *this;
+}
+
+void swap(LongInteger& first, LongInteger& second) noexcept
+{
+    using std::swap;
+    swap(first.arr, second.arr);
+    swap(first.length, second.length);
+    swap(first.sign, second.sign);
 }
 
 LongInteger LongInteger::operator+(const LongInteger& n) const
@@ -128,9 +151,8 @@ LongInteger LongInteger::operator-(const LongInteger& n) const
 
 LongInteger LongInteger::operator*(const LongInteger& n) const
 {
-    LongInteger foo(0);
+    LongInteger foo = 0;
     const int length = this->length + n.getLength() + 1;
-    foo.initialize();
     foo.setSign(positive);
     if (sign * n.getSign() == -1) {
         foo.changeSign();
@@ -151,8 +173,8 @@ LongInteger LongInteger::operator*(const LongInteger& n) const
 
 LongInteger LongInteger::operator/(const LongInteger& n) const
 {
-    LongInteger result(0);
-    LongInteger foo(0);
+    LongInteger result = 0;
+    LongInteger foo = 0;
     foo.setSign(positive);
     LongInteger copy = *this;
     for (int i = 0; copy.compareAbsoluteValues(n) != 2; ++i) {
@@ -205,7 +227,6 @@ LongInteger LongInteger::operator%(const LongInteger& n) const
             extractPart(copy, foo, n);
         }
         divide(foo, n);
-        int tempLength = foo.getLength();
         returnRemainder(foo, copy);
         if (copy.isZero()) {
             break;
@@ -324,8 +345,8 @@ std::istream& operator>>(std::istream& in, LongInteger& n)
 bool LongInteger::isInputCorrect(std::string n)
 {
     bool flag = true;
-    for (int i = 0; i < n.length(); ++i) {
-        if (n[i] - '0' < 0 || n[i] - '0' > 9) {
+    for (char с : n) {
+        if (с - '0' < 0 || с - '0' > 9) {
             flag = false;
             break;
         }
@@ -474,7 +495,6 @@ LongInteger LongInteger::add(const LongInteger& a, const LongInteger& b) const
 {
     const int length = a.getLength() > b.getLength() ? a.getLength() : b.getLength();
     LongInteger foo = a;
-    foo.initialize();
     foo.setLength(length + 1);
     for (int i = 0; i < length; ++i) {
         foo.getArr()[i] += b.getArr()[i];
@@ -487,13 +507,8 @@ LongInteger LongInteger::add(const LongInteger& a, const LongInteger& b) const
 
 LongInteger LongInteger::subtract(const LongInteger& a, const LongInteger& b) const
 {
-    const int countDigit = a.getLength() - b.getLength();
     LongInteger foo = a;
     for (int i = 0; i < b.getLength(); ++i) {
-        if (countDigit == 0 && i == b.getLength() - 1) {
-            foo.getArr()[i] -= b.getArr()[i];
-            break;
-        }
         foo.getArr()[i + 1]--;
         foo.getArr()[i] += 10 - b.getArr()[i];
         foo.getArr()[i + 1] += foo.getArr()[i] / 10;

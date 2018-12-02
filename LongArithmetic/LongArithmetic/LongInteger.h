@@ -1,5 +1,4 @@
 #pragma once
-#include <fstream>
 #include <string>
 #include <iostream>
 
@@ -30,12 +29,14 @@ class LongInteger {
     LongInteger abs(const LongInteger& n) const;
 
 public:
-    //Constructors
+    //Constructors and destructor
     LongInteger();
     LongInteger(int n);
     LongInteger(std::string& n);
     LongInteger(const char n[]);
     LongInteger(const LongInteger& n);
+    LongInteger(LongInteger&& n) noexcept;
+    ~LongInteger();
 
     //Getters and setters
     int getLength() const;
@@ -43,6 +44,10 @@ public:
     int* getArr() const;
     numberSign getSign() const;
     void setSign(numberSign sign);
+
+    //Assignment operator and swap
+    LongInteger& operator=(const LongInteger n);
+    friend void swap(LongInteger& first, LongInteger& second) noexcept;
 
     //Arithmetic operations
     LongInteger operator+(const LongInteger& n) const;
