@@ -2,7 +2,8 @@
 
 /**
  * Процедура инициализирует массив нулями.
- * @param arr - входной массив, n - размер массива
+ * @param arr входной массив
+ * @param n размер массива
  */
 static void initArray(int* arr, const int n)
 {
@@ -13,7 +14,8 @@ static void initArray(int* arr, const int n)
 
 /**
  * Процедура показывает содержимое массива в отформатированном формате.
- * @param arr - входной массив, n - размер массива
+ * @param arr входной массив
+ * @param n размер массива
  */
 static void showArray(int* arr, const int n)
 {
@@ -24,7 +26,8 @@ static void showArray(int* arr, const int n)
 
 /**
  * Процедура процедура подсчитывает количество нулей, единиц и тд. до девяток числа.
- * @param result - входной массив, являющийся результирующим; sum - подсчитываемое число 
+ * @param result входной массив, являющийся результирующим
+ * @param sum подсчитываемое число 
  */
 static void counting(int* result, const LongInteger& sum)
 {
@@ -35,8 +38,10 @@ static void counting(int* result, const LongInteger& sum)
 
 /**
  * Функция, вычисляющая сумму геометрической прогрессии.
- * @param M - первый элемент, Q - множитель, N - номер суммы геометрической прогрессии
- * @return sum - сумма геометрической прогрессии
+ * @param M первый элемент
+ * @param Q множитель
+ * @param N номер суммы геометрической прогрессии
+ * @return sum сумма геометрической прогрессии
  */
 static LongInteger sumOfGeometricProgression(LongInteger M, const LongInteger& Q, const int N)
 {

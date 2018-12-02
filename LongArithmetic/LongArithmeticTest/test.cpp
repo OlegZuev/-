@@ -57,7 +57,7 @@ bool runTest(const int n)
     fin.open("answer" + std::to_string(n) + ".txt");
     int* actualArray = ::actualArray(M, Q, N);
     int* expectedArray = ::expectedArray(fin);
-    bool flag = compareArrays(actualArray, expectedArray, 10);
+    const bool flag = compareArrays(actualArray, expectedArray, 10);
     writeArray(fout, actualArray, 10);
     fin.close();
     fout.close();

@@ -11,7 +11,7 @@ class LongInteger {
     numberSign sign = zero;
 
     //Utilities
-    bool isInputCorrect(std::string n);
+    bool isInputCorrect(std::string n) const;
     void initialize() const;
     void reduce();
     void changeSign();
@@ -46,7 +46,7 @@ public:
     void setSign(numberSign sign);
 
     //Assignment operator and swap
-    LongInteger& operator=(const LongInteger n);
+    LongInteger& operator=(LongInteger n);
     friend void swap(LongInteger& first, LongInteger& second) noexcept;
 
     //Arithmetic operations

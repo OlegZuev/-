@@ -342,7 +342,7 @@ std::istream& operator>>(std::istream& in, LongInteger& n)
     return in;
 }
 
-bool LongInteger::isInputCorrect(std::string n)
+bool LongInteger::isInputCorrect(std::string n) const
 {
     bool flag = true;
     for (char с : n) {
@@ -438,7 +438,7 @@ bool LongInteger::isZero() const
 int LongInteger::compareAbsoluteValues(const LongInteger& n) const
 {
     int flag = 3;
-    int length = this->length;
+    const int length = this->length;
     if (this->length > n.getLength()) {
         flag = 1;
     } else if (n.getLength() > this->length) {
