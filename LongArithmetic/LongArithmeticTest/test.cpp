@@ -99,6 +99,24 @@ TEST(LongIntegerTest, TestDefault)
     EXPECT_EQ(flag, true);
 }
 
+TEST(LongIntegerTest, TestNegativeValue1)
+{
+    bool flag = runTest(7);
+    EXPECT_EQ(flag, true);
+}
+
+TEST(LongIntegerTest, TestNegativeValue2)
+{
+    bool flag = runTest(8);
+    EXPECT_EQ(flag, true);
+}
+
+TEST(LongIntegerTest, TestNegativeValue3)
+{
+    bool flag = runTest(9);
+    EXPECT_EQ(flag, true);
+}
+
 int main(int argc, char** argv)
 {
     ::testing::InitGoogleTest(&argc, argv);

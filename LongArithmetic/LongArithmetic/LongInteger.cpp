@@ -1,7 +1,7 @@
 #include "LongInteger.h"
 
 LongInteger::LongInteger()
-= default;
+    = default;
 
 LongInteger::LongInteger(int n)
 {
@@ -70,13 +70,14 @@ LongInteger::LongInteger(const LongInteger& n)
 {
     sign = n.getSign();
     for (int i = 0; i < n.getLength(); ++i) {
-        arr[i] = n.getArr()[i]; 
+        arr[i] = n.getArr()[i];
     }
     length = n.getLength();
     initialize();
 }
 
-LongInteger::LongInteger(LongInteger&& n) noexcept : LongInteger()
+LongInteger::LongInteger(LongInteger&& n) noexcept
+    : LongInteger()
 {
     swap(*this, n);
 }
@@ -345,8 +346,12 @@ std::istream& operator>>(std::istream& in, LongInteger& n)
 bool LongInteger::isInputCorrect(std::string n) const
 {
     bool flag = true;
-    for (char с : n) {
-        if (с - '0' < 0 || с - '0' > 9) {
+    int i = 0;
+    if (n[0] == '-') {
+        i++;
+    }
+    for (; i < n.length(); ++i) {
+        if (n[i] - '0' < 0 || n[i] - '0' > 9) {
             flag = false;
             break;
         }
@@ -495,6 +500,9 @@ LongInteger LongInteger::add(const LongInteger& a, const LongInteger& b) const
 {
     const int length = a.getLength() > b.getLength() ? a.getLength() : b.getLength();
     LongInteger foo = a;
+    if (foo.getSign() == zero && b.getSign() != zero) {
+        foo.setSign(b.getSign());
+    }
     foo.setLength(length + 1);
     for (int i = 0; i < length; ++i) {
         foo.getArr()[i] += b.getArr()[i];
