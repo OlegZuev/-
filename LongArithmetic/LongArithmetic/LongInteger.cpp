@@ -112,12 +112,22 @@ void LongInteger::setSign(numberSign sign)
     this->sign = sign;
 }
 
+/**
+ * Функция переопределяет оператор присваивания для LongInteger. Основан на идее copy-and-swap idiom.
+ * @param n длинное число
+ * @return *this, значение которого обменялось с n
+ */
 LongInteger& LongInteger::operator=(LongInteger n)
 {
     swap(*this, n);
     return *this;
 }
 
+/**
+ * Процедура обменивает внутренние значения двух переменных типа LongInteger
+ * @param first первое длинное число
+ * @param second второе длинное число
+ */
 void swap(LongInteger& first, LongInteger& second) noexcept
 {
     using std::swap;
@@ -126,6 +136,13 @@ void swap(LongInteger& first, LongInteger& second) noexcept
     swap(first.sign, second.sign);
 }
 
+/**
+ * Функция для сложения длинных чисел. В зависимости от знака переменных вызывает subtract или add
+ * и возвращает результат этих функций как ответ
+ * @param n длинное число
+ * @return вызов функции subtract, если значения разных знаков
+ * @return вызов функции add, если значения одинаковых знаков
+ */
 LongInteger LongInteger::operator+(const LongInteger& n) const
 {
     if (sign * n.getSign() == -1) {
@@ -137,6 +154,13 @@ LongInteger LongInteger::operator+(const LongInteger& n) const
     return add(*this, n);
 }
 
+/**
+ * Функция для вычитания длинных чисел. В зависимости от знака переменных вызывает subtract или add
+ * и возвращает результат этих функций как ответ
+ * @param n длинное число
+ * @return вызов функции subtract, если значения одинаковых знаков
+ * @return вызов функции add, если значения разных знаков
+ */
 LongInteger LongInteger::operator-(const LongInteger& n) const
 {
     if (sign * n.getSign() == -1) {
@@ -150,6 +174,11 @@ LongInteger LongInteger::operator-(const LongInteger& n) const
     return subtract(*this, n);
 }
 
+/**
+ * Функция для умножения длинных чисел. Реализовано обычное умножение столбиком
+ * @param n длинное число
+ * @return произведение *this на n
+ */
 LongInteger LongInteger::operator*(const LongInteger& n) const
 {
     LongInteger foo = 0;
@@ -169,9 +198,17 @@ LongInteger LongInteger::operator*(const LongInteger& n) const
     }
     foo.setLength(length);
     foo.reduce();
+    if (foo.isZero()) {
+        foo.setSign(zero);
+    }
     return foo;
 }
 
+/**
+ * Функция для деления длинных чисел. Реализовано сложное деление столбиком нацело
+ * @param n длинное число
+ * @return частное *this и n
+ */
 LongInteger LongInteger::operator/(const LongInteger& n) const
 {
     LongInteger result = 0;
@@ -215,6 +252,11 @@ LongInteger LongInteger::operator/(const LongInteger& n) const
     return result;
 }
 
+/**
+ * Функция для взятия остатка от длинного числа. Реализация вытекает из сложного деления столбиком
+ * @param n длинное число
+ * @return остаток при делении *this на n
+ */
 LongInteger LongInteger::operator%(const LongInteger& n) const
 {
     LongInteger foo(0);
@@ -232,6 +274,9 @@ LongInteger LongInteger::operator%(const LongInteger& n) const
         if (copy.isZero()) {
             break;
         }
+    }
+    if (copy.isZero()) {
+        copy.setSign(zero);
     }
     return copy;
 }
@@ -321,6 +366,12 @@ bool LongInteger::operator<=(const int& n) const
     return *this <= LongInteger(n);
 }
 
+/**
+ * Функция для вывода длинных чисел. Посимвольно выводит цифры длинного числа.
+ * @param out поток вывода
+ * @param n длинное число, которое выводится
+ * @return изменённый поток вывода
+ */
 std::ostream& operator<<(std::ostream& out, const LongInteger& n)
 {
     if (n.getLength() == 0) {
@@ -335,6 +386,13 @@ std::ostream& operator<<(std::ostream& out, const LongInteger& n)
     return out;
 }
 
+/**
+ * Функция для ввода длинных чисел. Вводится значение как строка, которая передаётся в конструктор
+ * длинных чисел. После чего новое длинное число присваивается n
+ * @param in поток ввода
+ * @param n длинное число, которому присваивается значение
+ * @return изменённый поток ввода
+ */
 std::istream& operator>>(std::istream& in, LongInteger& n)
 {
     std::string temp;
@@ -343,12 +401,20 @@ std::istream& operator>>(std::istream& in, LongInteger& n)
     return in;
 }
 
+/**
+ * Функция проверяет корректность входных данных.
+ * @param n длинное число в виде строки для избежания переполнения
+ * @return flag - является ли число корректным
+ */
 bool LongInteger::isInputCorrect(std::string n) const
 {
     bool flag = true;
     int i = 0;
     if (n[0] == '-') {
         i++;
+        if (i == n.length()) {
+            flag = false;
+        }
     }
     for (; i < n.length(); ++i) {
         if (n[i] - '0' < 0 || n[i] - '0' > 9) {
@@ -359,6 +425,9 @@ bool LongInteger::isInputCorrect(std::string n) const
     return flag;
 }
 
+/**
+ * Процедура для инициализации пустых значений внутреннего массива цифр arr нулями
+ */
 void LongInteger::initialize() const
 {
     for (int i = length; i < maxSize; ++i) {
@@ -366,6 +435,9 @@ void LongInteger::initialize() const
     }
 }
 
+/**
+ * Процедура для сокращения length числа из нулевых значений
+ */
 void LongInteger::reduce()
 {
     if (arr[length - 1] == 0) {
@@ -374,6 +446,9 @@ void LongInteger::reduce()
     }
 }
 
+/**
+ * Процедура для смены знака числа на противоположный
+ */
 void LongInteger::changeSign()
 {
     if (sign == positive) {
@@ -383,6 +458,9 @@ void LongInteger::changeSign()
     }
 }
 
+/**
+ * Процедура, которая переворачивает длинное число
+ */
 void LongInteger::reverse()
 {
     for (int i = 0; i < length / 2; ++i) {
@@ -390,6 +468,13 @@ void LongInteger::reverse()
     }
 }
 
+/**
+ * Процедура для извлечения части длинного числа в другое длинное число.
+ * С условием, что полученное число больше третьего
+ * @param a длинное число, из которого извлекаем часть
+ * @param b длинное число, в которое извлекается часть
+ * @param c длинное число, с которым сравнивается b
+ */
 void LongInteger::extractPart(LongInteger& a, LongInteger& b, const LongInteger& c) const
 {
     int i = 0;
@@ -407,6 +492,11 @@ void LongInteger::extractPart(LongInteger& a, LongInteger& b, const LongInteger&
     a.reduce();
 }
 
+/**
+ * Процедура для извлечения(возвращения) части длинного числа в другое длинное число.
+ * @param a длинное число, из которого извлекаем часть
+ * @param b длинное число, в которое извлекается часть
+ */
 void LongInteger::returnRemainder(LongInteger& a, LongInteger& b) const
 {
     if (a.isZero()) {
@@ -421,6 +511,10 @@ void LongInteger::returnRemainder(LongInteger& a, LongInteger& b) const
     a.reduce();
 }
 
+/**
+ * Функция проверяет значения числа на ноль
+ * @return flag - является ли число нулём
+ */
 bool LongInteger::isZero() const
 {
     bool flag = true;
@@ -436,9 +530,9 @@ bool LongInteger::isZero() const
  * Функция сравнивает абсолютное значение длинных чисел.
  * @param n - число, с которым сравнивают
  * @return flag - целое число, которое имеет три значения:
- *         1) 1 - первое число больше второго
- *         2) 2 - первое число меньше второго
- *         3) 3 - числа равны
+ * @return 1) 1 - первое число больше второго
+ * @return 2) 2 - первое число меньше второго
+ * @return 3) 3 - числа равны
  */
 int LongInteger::compareAbsoluteValues(const LongInteger& n) const
 {
@@ -468,9 +562,9 @@ int LongInteger::compareAbsoluteValues(const LongInteger& n) const
  * Функция сравнивает знаки длинных чисел.
  * @param n - число, с которым сравнивают
  * @return flag - целое число, которое имеет три значения:
- *         1) 1 - знак первого числа "больше" второго
- *         2) 2 - знак первого числа "меньше" второго
- *         3) 3 - знаки чисел равны
+ * @return 1) 1 - знак первого числа "больше" второго
+ * @return 2) 2 - знак первого числа "меньше" второго
+ * @return 3) 3 - знаки чисел равны
  */
 int LongInteger::compareSigns(const LongInteger& n) const
 {
@@ -496,6 +590,13 @@ int LongInteger::divide(LongInteger& a, const LongInteger& b) const
     return count;
 }
 
+/**
+ * Приватная функция для сложения двух длинных чисел.
+ * Реализована основная логика через сложение столбиком.
+ * @param a первое длинное число 
+ * @param b второе длинное число
+ * @return результат сложения двух чисел 
+ */
 LongInteger LongInteger::add(const LongInteger& a, const LongInteger& b) const
 {
     const int length = a.getLength() > b.getLength() ? a.getLength() : b.getLength();
@@ -513,6 +614,13 @@ LongInteger LongInteger::add(const LongInteger& a, const LongInteger& b) const
     return foo;
 }
 
+/**
+ * Приватная функция для вычитания двух длинных чисел.
+ * Реализована основная логика через вычитание столбиком.
+ * @param a первое длинное число 
+ * @param b второе длинное число
+ * @return результат вычитания двух чисел 
+ */
 LongInteger LongInteger::subtract(const LongInteger& a, const LongInteger& b) const
 {
     LongInteger foo = a;
@@ -526,9 +634,18 @@ LongInteger LongInteger::subtract(const LongInteger& a, const LongInteger& b) co
     return foo;
 }
 
+/**
+ * Функция возвращает абсолютное значение числа
+ * @param n длинное число
+ * @return абсолютное значение числа
+ */
 LongInteger LongInteger::abs(const LongInteger& n) const
 {
     LongInteger foo = n;
-    foo.setSign(positive);
+    if (foo.isZero()) {
+        foo.setSign(zero);
+    } else {
+        foo.setSign(positive);    
+    }
     return foo;
 }
