@@ -440,7 +440,7 @@ void LongInteger::initialize() const
  */
 void LongInteger::reduce()
 {
-    if (arr[length - 1] == 0) {
+    if (arr[length - 1] == 0 && length != 1) {
         length--;
         reduce();
     }
