@@ -117,6 +117,12 @@ TEST(LongIntegerTest, TestNegativeValue3)
     EXPECT_EQ(flag, true);
 }
 
+TEST(LongIntegerTest, TestOneOneOne)
+{
+    bool flag = runTest(10);
+    EXPECT_EQ(flag, true);
+}
+
 int main(int argc, char** argv)
 {
     ::testing::InitGoogleTest(&argc, argv);
