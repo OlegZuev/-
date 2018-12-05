@@ -117,9 +117,15 @@ TEST(LongIntegerTest, TestNegativeValue3)
     EXPECT_EQ(flag, true);
 }
 
-TEST(LongIntegerTest, TestOneOneOne)
+TEST(LongIntegerTest, TestMinValueNegative)
 {
     bool flag = runTest(10);
+    EXPECT_EQ(flag, true);
+}
+
+TEST(LongIntegerTest, TestMaxValuesNegative)
+{
+    bool flag = runTest(11);
     EXPECT_EQ(flag, true);
 }
 
