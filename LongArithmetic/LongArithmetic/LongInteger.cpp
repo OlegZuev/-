@@ -120,6 +120,9 @@ void LongInteger::setSign(numberSign sign)
 LongInteger& LongInteger::operator=(LongInteger n)
 {
     swap(*this, n);
+    if (length == 0) {
+        length = 1;
+    }
     return *this;
 }
 
@@ -211,6 +214,10 @@ LongInteger LongInteger::operator*(const LongInteger& n) const
  */
 LongInteger LongInteger::operator/(const LongInteger& n) const
 {
+    if (n.isZero()) {
+        std::cout << "Ошибка. Деление на ноль.";
+        throw 1;
+    }
     LongInteger result = 0;
     LongInteger foo = 0;
     foo.setSign(positive);
@@ -224,6 +231,9 @@ LongInteger LongInteger::operator/(const LongInteger& n) const
         }
         result.getArr()[i] = divide(foo, n);
         int tempLength = foo.getLength();
+        if (foo.isZero() && copy.compareAbsoluteValues(n) == 2) {
+            tempLength = 0;
+        }
         result.setLength(result.getLength() + 1);
         returnRemainder(foo, copy);
         if (copy.isZero()) {
@@ -232,12 +242,19 @@ LongInteger LongInteger::operator/(const LongInteger& n) const
 
         foo.setLength(++tempLength);
         extractPart(copy, foo, n);
+        bool flag = false;
         while (foo.isZero()) {
+            if (copy.getLength() == foo.getLength() && flag) { // Необходимо при делении числа с большим количеством
+                copy.reduce();                                 // нулей 20000001 / 5
+                foo.setLength(0);
+                break;
+            }
             i++;
             result.getArr()[i] = 0;
             result.setLength(result.getLength() + 1);
             foo.setLength(++tempLength);
             extractPart(copy, foo, n);
+            flag = true;
         }
         returnRemainder(foo, copy);
     }
@@ -271,6 +288,7 @@ LongInteger LongInteger::operator%(const LongInteger& n) const
         }
         divide(foo, n);
         returnRemainder(foo, copy);
+        copy.reduce();
         if (copy.isZero()) {
             break;
         }
@@ -440,7 +458,7 @@ void LongInteger::initialize() const
  */
 void LongInteger::reduce()
 {
-    if (arr[length - 1] == 0 && length != 1) {
+    if (arr[length - 1] == 0) {
         length--;
         reduce();
     }
@@ -482,14 +500,14 @@ void LongInteger::extractPart(LongInteger& a, LongInteger& b, const LongInteger&
         b.getArr()[b.getLength() - i - 1] = a.getArr()[a.getLength() - i - 1];
         a.getArr()[a.getLength() - i - 1] = 0;
     }
-    if (b < abs(c)) {
+    if (b.getArr()[b.getLength() - 1] == 0 || b < abs(c)) {
         for (; i > 0; --i) {
             a.getArr()[a.getLength() - i] = b.getArr()[b.getLength() - i];
             b.getArr()[b.getLength() - i] = 0;
         }
         return;
     }
-    a.reduce();
+    a.setLength(a.getLength() - i);
 }
 
 /**
