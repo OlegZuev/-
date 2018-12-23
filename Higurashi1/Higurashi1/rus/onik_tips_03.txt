@@ -1,0 +1,366 @@
+﻿void main()
+{
+
+
+//■前原屋敷
+
+
+//*Sub_Tips_003
+//gosub *tip_s
+//gosub *data_tati
+
+	EnableJumpingOfReturnIcon();
+
+	FadeOutBGM( 0, 1000, FALSE );
+	FadeOutBGM( 1, 1000, FALSE );
+	FadeOutBGM( 2, 1000, TRUE );
+
+	DisableWindow();
+	DrawScene( "black", 1000 );
+
+	PlayBGM( 1, "msys02", 128, 0 );
+	DrawScene( "bg_108", 1000 );
+	DrawBustshotWithFiltering( 1, "me_se_wi_a1", "left", 1, -160, 0, FALSE, 0, 0, 0, 0, 0, 0, 300, TRUE );
+
+
+//「...圭ちゃんってさ、すごいお金持ちってわけでもないの？＠
+	PlaySE(3, "s20/03/440300016", 128, 64);
+	OutputLine(NULL, "「…圭ちゃんってさ、すごいお金持ちってわけでもないの？」",
+		   NULL, "\"Кей-тян, а ты точно не богач?\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「何だよ、突然＠...俺がいつリムジンで登校したよ？￥
+	PlaySE(3, "s20/01/440100023", 128, 64);	
+	OutputLine(NULL, "「何だよ、突然。",
+		   NULL, "\"С чего вдруг такие вопросы?", Line_WaitForInput);
+	OutputLine(NULL, "…俺がいつリムジンで登校したよ？」",
+		   NULL, " Когда это я в школу на лимузине приезжал?\"", Line_Normal);
+	ClearMessage();
+	DisableWindow();
+	DrawBustshot( 1, "me_se_wi_b1", -160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 0, 200, TRUE );
+
+//「月の小遣いはいくらもらってる？＠
+	PlaySE(3, "s20/03/440300017", 128, 64);
+	OutputLine(NULL, "「月の小遣いはいくらもらってる？」",
+		   NULL, "\"Ну а сколько тебе дают на карманные расходы в месяц?\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「１０００円。＠
+	PlaySE(3, "s20/01/440100024", 128, 64);		
+	OutputLine(NULL, "「１０００円。」",
+		   NULL, "\"Тысячу йен.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+	DisableWindow();
+	DrawBustshotWithFiltering( 3, "sa_se_aw_a1", "right", 1, 160, 0, FALSE, 0, 0, 0, 0, 0, 20, 300, TRUE );
+
+//「あら。結構、小市民的ですのねぇ。＠
+	PlaySE(3, "s20/04/440400008", 128, 64);
+	OutputLine(NULL, "「あら。結構、小市民的ですのねぇ。」",
+		   NULL, "\"Ого. Вполне себе средненько.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+	DisableWindow();
+	DrawBustshot( 2, "ri_se_de_a1", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 10, 400, TRUE );
+
+//「......お弁当のおかずも普通ですよ＠お金持ちじゃないです。￥
+	PlaySE(3, "s20/05/440500001", 128, 64);		
+	OutputLine(NULL, "「……お弁当のおかずも普通ですよ。",
+		   NULL, "\"...И приносит он вполне обычную пищу.", Line_WaitForInput);
+	Wait( 1800 );
+	OutputLine(NULL, "お金持ちじゃないです。」",
+		   NULL, " Не похож на богатого.\"", Line_Normal);
+	ClearMessage();
+	DisableWindow();
+	DrawSceneWithMask( "bg_109", "left", 0, 0, 300 );
+
+//　一体の何の話だ？＠
+	OutputLine(NULL, "　一体の何の話だ？！",
+		   NULL, "Да чё это с ними?!", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　いきなり小遣いの額を聞かれ、それで小市民だの金持ちじゃないだの￥
+	OutputLine(NULL, "　いきなり小遣いの額を聞かれ、それで小市民だの金持ちじゃないだの！",
+		   NULL, "Сначала спросили, сколько мне дают денег в месяц, а теперь обсуждают наше благосостояние!", Line_Normal);
+	ClearMessage();
+	DisableWindow();
+	DrawBustshotWithFiltering( 3, "re_se_wa_a1", "right", 1, 160, 0, FALSE, 0, 0, 0, 0, 0, 20, 300, TRUE );
+
+//「あはははは。ごめんねごめんね！＠
+	PlaySE(3, "s20/02/440200030", 128, 64);
+	OutputLine(NULL, "「あはははは。ごめんねごめんね！」",
+		   NULL, "\"А-ха-ха-ха-ха. Прости, прости!\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　俺の怪訝な表情を悟ったらしく、レナがカラカラと笑った＠
+	OutputLine(NULL, "　俺の怪訝な表情を悟ったらしく、レナがカラカラと笑った。",
+		   NULL, "Рэна поймала мой недоумевающий взгляд и звонко рассмеялась.", Line_WaitForInput);
+
+	DisableWindow();
+	DrawBustshotWithFiltering( 1, "me_se_wa_a1", "left", 1, -160, 0, FALSE, 0, 0, 0, 0, 0, 0, 300, TRUE );
+
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+
+//「圭ちゃん家ってさ、すっごく大きいでしょ＠　だから建築中から雛見沢中で前原屋敷って呼ばれて注目の的だったんだよ。＠
+	PlaySE(3, "s20/03/440300018", 128, 64);	
+	OutputLine(NULL, "「圭ちゃん家ってさ、すっごく大きいでしょ？",
+		   NULL, "\"Уж больно дом у тебя здоровый, понимаешь?", Line_WaitForInput);
+	Wait( 1800 );
+	OutputLine(NULL, "　だから建築中から雛見沢中で前原屋敷って呼ばれて注目の的だったんだよ。」",
+		   NULL, " Стало быть, ещё с начала работ он слыл в деревне как «Особняк Маэбара».\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　ま、前原屋敷ぃ～？＠
+	OutputLine(NULL, "　ま、前原屋敷ぃ〜？！",
+		   NULL, "О-Особняк Маэбара-а?!", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+	DisableWindow();
+	DrawBustshot( 3, "re_se_de_a1", 160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 20, 200, TRUE );
+
+//「あんなに大きいお家だから、どんなお金持ちなのかなって、みんなで噂し合ってたの。＠
+	PlaySE(3, "s20/02/440200031", 128, 64);
+	OutputLine(NULL, "「あんなに大きいお家だから、どんなお金持ちなのかなって、みんなで噂し合ってたの。」",
+		   NULL, "\"Дом вышел большой, и мы всё гадали, что за богатей к нам приедет.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+
+//　あぁなるほど＠納得＠
+	OutputLine(NULL, "　あぁなるほど。",
+		   NULL, "А, вот оно как.", Line_WaitForInput);
+	OutputLine(NULL, "納得。",
+		   NULL, " Понимаю.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　......確かに家は図体だけはでかいからな＠そういう誤解もありえるな￥
+	OutputLine(NULL, "　……確かに家は図体だけはでかいからな。",
+		   NULL, "......Мой дом и вправду большой,", Line_WaitForInput);
+	OutputLine(NULL, "そういう誤解もありえるな。",
+		   NULL, " этого не отнимешь.", Line_Normal);
+	ClearMessage();
+	DisableWindow();
+	DrawSceneWithMask( "bg_108", "right", 0, 0, 300 );
+	DrawBustshotWithFiltering( 1, "sa_se_aw_b1", "left", 1, -160, 0, FALSE, 0, 0, 0, 0, 0, 0, 300, TRUE );
+
+//「私の推理では、お家を建てるのにお金をかけ過ぎて、貧乏になってしまったと考えてますのよ～！＠
+	PlaySE(3, "s20/04/440400009", 128, 64);
+	OutputLine(NULL, "「私の推理では、お家を建てるのにお金をかけ過ぎて、貧乏になってしまったと考えてますのよ〜！」",
+		   NULL, "\"Полагаю, потративши все деньги на постройку дома, они в конце концов стали бедняками!\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+	DisableWindow();
+	DrawBustshotWithFiltering( 3, "ri_se_wa_a1", "right", 1, 160, 0, FALSE, 0, 0, 0, 0, 0, 20, 300, TRUE );
+
+//「......貧乏でかわいそかわいそです。＠
+	PlaySE(3, "s20/05/440500002", 128, 64);
+	OutputLine(NULL, "「……貧乏でかわいそかわいそです。」",
+		   NULL, "\"......Так ты обнищал, бедненький ты, бедняжечка.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　...梨花ちゃんが哀れみながら俺の頭をなでなでしてくれる＠金持ち扱いから瞬時に貧乏人扱いかよ...￥
+	OutputLine(NULL, "　…梨花ちゃんが哀れみながら俺の頭をなでなでしてくれる。",
+		   NULL, "...Рика-тян сочувственно погладила меня по голове.", Line_WaitForInput);
+	OutputLine(NULL, "金持ち扱いから瞬時に貧乏人扱いかよ…。",
+		   NULL, " Ну вообще блеск — то я богач, то в бедняки записывают, моргнуть не успеешь...", Line_Normal);
+	ClearMessage();
+
+//「あー、諸君らの楽しい想像をぶち壊すようで悪いが、うちは金持ちでも貧乏でもないぞ＠極めて平均的な普通の家庭だ。＠
+	PlaySE(3, "s20/01/440100025", 128, 64);	
+	OutputLine(NULL, "「あー、諸君らの楽しい想像をぶち壊すようで悪いが、うちは金持ちでも貧乏でもないぞ。",
+		   NULL, "\"Не хочется обрывать полёт вашего воображения, но моя семья ни богата ни бедна.", Line_WaitForInput);
+	Wait( 4200 );
+	OutputLine(NULL, "極めて平均的な普通の家庭だ。」",
+		   NULL, " Мы — самая обычная семья со средним достатком.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+	DisableWindow();
+	FadeBustshotWithFiltering( 1, "left", 1, FALSE, 0, 0, 300, TRUE );
+	DrawBustshotWithFiltering( 1, "me_se_to_b2", "left", 1, -160, 0, FALSE, 0, 0, 0, 0, 0, 0, 300, TRUE );
+
+//「あれだけ大きな家は普通とは言わないって＠　しかも玄関は立派で、門は大型車も入れるようになってるし！＠　絶対、普通じゃないって！＠
+	PlaySE(3, "s20/03/440300019", 128, 64);	
+	OutputLine(NULL, "「あれだけ大きな家は普通とは言わないって！",
+		   NULL, "\"Ну да, как же! С таким-то домишком, да так мы и поверили!", Line_WaitForInput);
+	Wait( 2800 );
+	OutputLine(NULL, "　しかも玄関は立派で、門は大型車も入れるようになってるし！！",
+		   NULL, " Парадное — во какое, а через ворота вполне проедет хоть дорогое авто, хоть грузовик!!!", Line_WaitForInput);
+	PlaySE(3, "s20/03/440300020", 128, 64);
+	OutputLine(NULL, "　絶対、普通じゃないって！」",
+		   NULL, " Для меня это никакая не «обычность»!\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　家のでかさが裕福さの尺度だとでも言わんばかりだな￥
+	OutputLine(NULL, "　家のでかさが裕福さの尺度だとでも言わんばかりだな。",
+		   NULL, "То есть чем больше дом, тем богаче владелец?", Line_Normal);
+	ClearMessage();
+	DisableWindow();
+	DrawScene( "bg_119", 1000 );
+
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+//　我が家がやたらとでかいのは、親父のアトリエを含むからだ＠
+	OutputLine(NULL, "　我が家がやたらとでかいのは、親父のアトリエを含むからだ。",
+		   NULL, "Наш дом так велик из-за папиной мастерской.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　作業場はいくつもあるし、過去の作品があちこちに飾られ...＠しかもサイズはどれもデカイ＠
+	OutputLine(NULL, "　作業場はいくつもあるし、過去の作品があちこちに飾られ…。",
+		   NULL, "Вместе со стоящими повсюду картинами она занимает значительное пространство...", Line_WaitForInput);
+	OutputLine(NULL, "しかもサイズはどれもデカイ。",
+		   NULL, " Очень значительное.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+
+//　そんなこんなで、家族が生活する部分はせいぜい全体の三分の一ってところか￥
+	OutputLine(NULL, "　そんなこんなで、家族が生活する部分はせいぜい全体の三分の一ってところか。",
+		   NULL, "Короче говоря, жилого пространства там не больше трети от всего дома.", Line_Normal);
+	ClearMessage();
+
+//　将来、自宅で個展を開くことも考えての設計なので、人や車の出入りに気遣ったものになっているのだ＠
+	OutputLine(NULL, "　将来、自宅で個展を開くことも考えての設計なので、人や車の出入りに気遣ったものになっているのだ。",
+		   NULL, "Батя мечтает в будущем устраивать у себя дома художественные выставки, потому и построены широкие ворота, чтоб как люди могли пройти, так и машины.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　......ちなみに魅音が立派な玄関と言ってるのはこのアトリエ側の玄関で、普段は締め切られている＠
+	OutputLine(NULL, "　……ちなみに魅音が立派な玄関と言ってるのはこのアトリエ側の玄関で、普段は締め切られている。",
+		   NULL, "......А упомянутое Мион парадное ведёт в мастерскую отца, посему оно практически всегда закрыто.", Line_Normal);
+
+//　実際に前原家が使用している玄関はごくごく平均的な、ささやかなものなのだ＠
+	OutputLine(NULL, "　実際に前原家が使用している玄関はごくごく平均的な、ささやかなものなのだ。",
+		   NULL, "Мы же пользуемся самым что ни на есть обыкновеннейшим входом.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+
+//　見かけと中身は大違い、ってことだな￥
+	OutputLine(NULL, "　見かけと中身は大違い、ってことだな。",
+		   NULL, "Хороший, полагаю, пример поговорки: «По обложке книгу не судят».", Line_Normal);
+	ClearMessage();
+	DisableWindow();
+	DrawScene( "bg_110", 400 );
+	DrawBustshotWithFiltering( 1, "me_se_de_a1", "left", 1, -160, 0, FALSE, 0, 0, 0, 0, 0, 0, 300, TRUE );
+
+//「ぜひ今度、圭ちゃんの家を探検してみたいよなぁ＠...お金持ちじゃないと主張しながらもあの邸宅！＠　一体何が隠されているのか！！＠
+	PlaySE(3, "s20/03/440300021", 128, 64);	
+	OutputLine(NULL, "「ぜひ今度、圭ちゃんの家を探検してみたいよなぁ。",
+		   NULL, "\"А-а-а, хотела бы я как-нибудь порыскать в доме Кей-тяна.", Line_WaitForInput);
+	Wait( 1600 );
+	OutputLine(NULL, "…お金持ちじゃないと主張しながらもあの邸宅！！",
+		   NULL, " Он заявляет, что не богат, живя в таких-то хоромах!", Line_WaitForInput);
+	PlaySE(3, "s20/03/440300022", 128, 64);
+	OutputLine(NULL, "　一体何が隠されているのか！！」",
+		   NULL, " Только представьте, что там может быть спрятано!\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+	DisableWindow();
+	DrawBustshotWithFiltering( 3, "re_se_ha_a1", "right", 1, 160, 0, FALSE, 0, 0, 0, 0, 0, 20, 300, TRUE );
+
+//「か、かぁいいものが隠されてるといいなぁ！　はぅ～！＠
+	PlaySE(3, "s20/02/440200032", 128, 64);
+	OutputLine(NULL, "「か、かぁいいものが隠されてるといいなぁ！　はぅ〜！」",
+		   NULL, "\"Н-надеюсь, что-нибудь миииленькое! Хау-у-у!\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+	DisableWindow();
+	FadeBustshotWithFiltering( 1, "right", 1, FALSE, 0, 0, 300, TRUE );
+	DrawBustshotWithFiltering( 1, "sa_se_aw_b1", "left", 1, -160, 0, FALSE, 0, 0, 0, 0, 0, 0, 300, TRUE );
+
+//「きっと家具を買うお金もなくなってて、殺風景な部屋がいっぱいなのですわ！＠
+	PlaySE(3, "s20/04/440400010", 128, 64);
+	OutputLine(NULL, "「きっと家具を買うお金もなくなってて、殺風景な部屋がいっぱいなのですわ！」",
+		   NULL, "\"Я б ожидала пустых комнат, ведь они же не могут себе позволить покупку мебели!\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+	DisableWindow();
+	DrawBustshot( 2, "ri_se_wa_a1", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 10, 400, TRUE );
+
+//「......絨毯のお部屋なら、ぜひごろごろしてみたいですよ。＠
+	PlaySE(3, "s20/05/440500003", 128, 64);	
+	OutputLine(NULL, "「……絨毯のお部屋なら、ぜひごろごろしてみたいですよ。」",
+		   NULL, "\"......А я бы хотела поваляться на большом ковре.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「わぁぁ～！　それいいねそれいいね！　レナもごろごろしたい～！￥
+	PlaySE(3, "s20/02/440200033", 128, 64);
+	OutputLine(NULL, "「わぁぁ〜！　それいいねそれいいね！　レナもごろごろしたい〜！」",
+		   NULL, "\"О-о-о! Отличная задумка, Рика-тян, отличная задумка! Рэна тоже поваляться хооочет!\"", Line_Normal);
+	ClearMessage();
+
+//　...なんか楽しそうに想像が膨らんでいってるな...＠
+	OutputLine(NULL, "　…なんか楽しそうに想像が膨らんでいってるな…。",
+		   NULL, "...Да им же просто нравится дразнить воображение...", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　でもまぁ。...遠くない将来、みんなを自宅に招待してもいいかもな＠
+	OutputLine(NULL, "　でもまぁ。…遠くない将来、みんなを自宅に招待してもいいかもな。",
+		   NULL, "Ну что ж... думаю, стоит когда-нибудь их к себе пригласить.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+
+//　...親父は女の子には甘いから、アトリエの見学を許してくれるかもしれない￥
+	OutputLine(NULL, "　…親父は女の子には甘いから、アトリエの見学を許してくれるかもしれない。",
+		   NULL, "...Мой отец питает слабость к таким девочкам, потому он может и показать им свою мастерскую.", Line_Normal);
+	ClearMessage();
+	DisableWindow();
+	DrawScene( "bg_093", 1000 );
+	PlayBGM( 2, "lsys12", 128, 0 );
+
+//　セミの声はいよいよにぎやかで、空はどこまでも高い＠
+	OutputLine(NULL, "　セミの声はいよいよにぎやかで、空はどこまでも高い。",
+		   NULL, "Цикады кричат всё громче, а небо стоит в недосягаемой вышине.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　暑いけど澄んだ、初夏の匂いがした￥
+	OutputLine(NULL, "　暑いけど澄んだ、初夏の匂いがした。",
+		   NULL, "Жара. И пахнет она ранним летом.", Line_Normal);
+	ClearMessage();
+
+	SetValidityOfInput( FALSE );
+	Wait( 1000 );
+	SetValidityOfInput( TRUE );
+	DisableWindow();
+	DrawScene( "black", 1000 );
+	FadeOutBGM( 0, 1000, FALSE );
+	FadeOutBGM( 1, 1000, FALSE );
+	FadeOutBGM( 2, 1000, TRUE );
+
+//gosub *tip_e
+//return
+
+
+}

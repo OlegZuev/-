@@ -1,0 +1,189 @@
+void main()
+{
+
+//■回覧板
+//*Sub_Tips_008
+//gosub *tip_s
+	EnableJumpingOfReturnIcon();
+	FadeOutBGM( 0, 1000, FALSE );
+	FadeOutBGM( 1, 1000, FALSE );
+	FadeOutBGM( 2, 1000, TRUE );
+
+	DisableWindow();
+	DrawScene("black", 1000 );
+	PlayBGM( 1, "msys12", 128, 0 );
+	DrawScene("background/ji6", 1000 );
+
+	if (GetGlobalFlag(GADVMode) == 0) { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+//　例年になく早い梅雨明けを迎え、早くも夏の訪れを感じる今日この頃、皆さんにおかれましてはますますご清祥のこととお喜び申し上げます＠
+	ClearMessage();
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　例年になく早い梅雨明けを迎え、早くも夏の訪れを感じる今日この頃、皆さんにおかれましてはますますご清祥のこととお喜び申し上げます。",
+		   NULL, "Встречая необычно ранний конец сезона дождей, мы желаем всем доброго здравия и веселья в течение всего рано пришедшего лета.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　いよいよ今年も「綿流し」のシーズンがやってまいりました＠
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　いよいよ今年も「綿流し」のシーズンがやってまいりました。",
+		   NULL, "Пришло время праздновать «Ватанагаси».", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+
+//　町会の皆さんで協力して、楽しいお祭りにしていきたいと思います＠
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　町会の皆さんで協力して、楽しいお祭りにしていきたいと思います。",
+		   NULL, "Мы, сельская администрация, постараемся сделать его приятным для всех.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+
+//　つきましては、皆さんのご協力をよろしくお願いいたします￥
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　つきましては、皆さんのご協力をよろしくお願いいたします。",
+		   NULL, "Конечно, мы благодарны любой помощи.", Line_Normal);
+	ClearMessage();
+
+	PlaySE( 4, "wa_021", 128, 64 );
+
+
+	if (GetGlobalFlag(GADVMode) == 0) { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+//（１） バザー品募集中＠
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "（１）バザー品募集中！",
+		   NULL, "(1) Принимаем пожертвованья на базар!", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+//　毎年好評の雛見沢大バザーへの出品をお待ちしています＠
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　毎年好評の雛見沢大バザーへの出品をお待ちしています。",
+		   NULL, "Мы собираем пожертвованья на Большой Хинамидзавский базар.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+//　お中元の余り物や着れなくなってしまった古着などを大々募集中です＠
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　お中元の余り物や着れなくなってしまった古着などを大々募集中です！",
+		   NULL, "Если у вас есть ненужные гостинцы или старые одежды, которые вы носить не собираетесь, мы с радостью их примем!", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+
+//　なま物はご遠慮ください＠
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　なま物はご遠慮ください。",
+		   NULL, "Пожалуйста, воздержитесь от приноса любых скоропортящихся предметов.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　担当：牧野　Ｔｅｌ（Ｘ）ＸＸＸ￥
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　担当：牧野　Ｔｅｌ（Ｘ）ＸＸＸＸ",
+		   NULL, "Связь: Макино, тел. н. (X)XXXX", Line_Normal);
+	ClearMessage();
+
+	PlaySE( 4, "wa_021", 128, 64 );
+
+	if (GetGlobalFlag(GADVMode) == 0) { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//（２） ちびっ子祭り太鼓募集中＠
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "（２）ちびっ子祭り太鼓募集中！",
+		   NULL, "(2) Ищем добровольцев-барабанщиков из числа детей!", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　丁寧な指導と実績で定評のあるちびっ子祭り太鼓サークル「蕉風会」が飛び入り参加を募集しています＠
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　丁寧な指導と実績で定評のあるちびっ子祭り太鼓サークル「蕉風会」が飛び入り参加を募集しています。",
+		   NULL, "Известный за свои опыт и добросовестность в обучении кружок игры на тайко «Сёфу-кай» с радостью примет в свои ряды детишек, желающих присоединиться на время фестиваля.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　小学生から中学生の目立ちたがり屋さんを待ってます＠
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　小学生から中学生の目立ちたがり屋さんを待ってます！",
+		   NULL, "Ждём любых заинтересовавшихся с начальных классов до средней школы включительно!", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　担当：公由　Ｔｅｌ（Ｘ）ＸＸＸ￥
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　担当：公由　Ｔｅｌ（Ｘ）ＸＸＸＸ",
+		   NULL, "Связь: Кимиёси, тел. н. (X)XXXX", Line_Normal);
+	ClearMessage();
+
+	PlaySE( 4, "wa_021", 128, 64 );
+
+	if (GetGlobalFlag(GADVMode) == 0) { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+//（３） 義援金募集中！＠
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "（３）義援金募集中！！",
+		   NULL, "(3) Денежные пожертвования!", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+//　一口千円からの義援金を募集しています＠
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　一口千円からの義援金を募集しています。",
+		   NULL, "Принимаются взносы банкнотами по 1000 йен и больше.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+
+//　一口につき模擬店券シートを１枚進呈しています＠
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　一口につき模擬店券シートを１枚進呈しています！",
+		   NULL, "За каждую банкноту вы получите один бесплатный билет, который можно использовать во всех киосках на празднике!", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　担当：園崎　Ｔｅｌ（Ｘ）ＸＸＸ￥
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　担当：園崎　Ｔｅｌ（Ｘ）ＸＸＸＸ",
+		   NULL, "Связь: Сонодзаки, тел. н. (X)XXXX", Line_Normal);
+	ClearMessage();
+
+	PlaySE( 4, "wa_021", 128, 64 );
+
+	if (GetGlobalFlag(GADVMode) == 0) { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　お祭りの楽しいアイデアも随時募集しています＠
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　お祭りの楽しいアイデアも随時募集しています。",
+		   NULL, "Мы всегда рады любым предложениям по тому, как сделать фестиваль интереснее.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+
+//　おもしろいアイデアがありましたら村長宅　公由（Ｘ）ＸＸＸＸまでどうぞ＠
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　おもしろいアイデアがありましたら村長宅　公由（Ｘ）ＸＸＸＸまでどうぞ！",
+		   NULL, "Если у вас есть идея, не стесняйтесь позвонить деревенскому старосте, Кимиёси, по номеру (X)XXXX!", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n\n", Line_ContinueAfterTyping); }
+
+
+//（キリトリ線の下に模擬店券が２００円分付いている。￥
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "（キリトリ線の下に模擬店券が２００円分付いている。）",
+		   NULL, "(Под пунктирной линией — билет в 200 йен для фестивальных киосков.)", Line_Normal);
+	ClearMessage();
+
+	SetValidityOfInput( FALSE );
+	Wait( 1000 );
+	SetValidityOfInput( TRUE );
+	DisableWindow();
+	DrawScene("black", 1000 );
+	FadeOutBGM( 0, 1000, FALSE );
+	FadeOutBGM( 1, 1000, FALSE );
+	FadeOutBGM( 2, 1000, TRUE );
+//gosub *tip_e
+//return
+
+
+}
+

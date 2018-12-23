@@ -1,6 +1,7 @@
 #include <fstream>
 #include <iostream>
 #include <string>
+#include <iomanip>
 using namespace std;
 
 void initMatrix(ifstream& fin, int** matrix, int n, int m);
@@ -14,19 +15,19 @@ void writeMatrix(ofstream& fout, int** matrix, int n, int m);
 void deleteMatrix(int** matrix, int n);
 
 int main() {
-    string input, output;
-    cout << "¬ведите им€ файла: ";
-    cin >> input;
-    ifstream fin(input);
-    cout << "¬ведите размер матрицы (n, m): ";
-    int n, m;
-    cin >> n >> m;
-    int** matrix = new int*[n];
-    initMatrix(fin, matrix, n, m);
-    changeMatrix(matrix, n, m);
-    fin.close();
-    ofstream fout(input, ios::app);
-    writeMatrix(fout, matrix, n, m);
+    //cout << '\a';
+    // string input, output;
+    // cout << "¬ведите им€ файла: ";
+    // cin >> input;
+    // ifstream fin(input);
+    // int n, m;
+    // fin >> n >> m;
+    // int** matrix = new int*[n];
+    // initMatrix(fin, matrix, n, m);
+    // changeMatrix(matrix, n, m);
+    // fin.close();
+    // ofstream fout(input, ios::app);
+    // writeMatrix(fout, matrix, n, m);
     return 0;
 }
 
@@ -75,7 +76,7 @@ void writeMatrix(ofstream& fout, int** matrix, int n, int m)
     fout << endl;
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < m; ++j) {
-            fout << matrix[i][j] << " ";
+            fout << setw(3) << matrix[i][j];
         }
         fout << endl;
     }

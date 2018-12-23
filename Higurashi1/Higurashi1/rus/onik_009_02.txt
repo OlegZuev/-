@@ -1,0 +1,2658 @@
+void main()
+{
+
+
+//■沢のほとりにて…昔話
+////*Onikakusi_day9_2
+
+	PlayBGM( 1, "msys13", 128, 0 );
+	PlayBGM( 2, "lsys19", 128, 0 );
+
+//　沢の流れをぼんやりと見詰めていた俺は、いつのまにかレナとはぐれていた￥
+	OutputLine(NULL, "　沢の流れをぼんやりと見詰めていた俺は、いつのまにかレナとはぐれていた。",
+		   NULL, "Зачарованно пялясь на реку, я как-то пропустил тот миг, когда Рэна рядом уже не стояла.", Line_Normal);
+	ClearMessage();
+
+
+//　そんなに心細いとは思わない＠
+	OutputLine(NULL, "　そんなに心細いとは思わない。",
+		   NULL, "Никогда не думал, что почувствую себя настолько беспомощным.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　もうここは知らないところじゃないんだ＠…自分が住む、地元だ￥
+	OutputLine(NULL, "　もうここは知らないところじゃないんだ。",
+		   NULL, "Раз уж я теперь здешний,", Line_WaitForInput);
+	OutputLine(NULL, "…自分が住む、地元だ。",
+		   NULL, " надо бы получше узнать окрестности...", Line_Normal);
+	ClearMessage();
+
+
+//　ヘタにうろちょろしないで、ここで待っていた方がいいだろう＠
+	OutputLine(NULL, "　ヘタにうろちょろしないで、ここで待っていた方がいいだろう。",
+		   NULL, "Лучше подождать здесь, нежели бродить по округе.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　きっと夕涼みでもしている内に誰かが見つけてくれるに違いない￥
+	OutputLine(NULL, "　きっと夕涼みでもしている内に誰かが見つけてくれるに違いない。",
+		   NULL, "Уверен, кто-либо из любителей ночной прохлады меня вскоре найдёт.", Line_Normal);
+	ClearMessage();
+
+
+//　…ふと、知っている声が聞こえた＠富竹さんの声だった＠
+	OutputLine(NULL, "　…ふと、知っている声が聞こえた。",
+		   NULL, "...Вдруг послышалась знакомая речь.", Line_WaitForInput);
+	OutputLine(NULL, "富竹さんの声だった。",
+		   NULL, " Голос Томитаке-сана.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　俺はそちらへ足を向ける￥
+	OutputLine(NULL, "　俺はそちらへ足を向ける。",
+		   NULL, "Я пошёл к нему.", Line_Normal);
+	ClearMessage();
+
+
+	DisableWindow();
+	DrawSceneWithMask( "bg_247", "right", 0, 0, 1300 );
+	DrawBustshotWithFiltering( 3, "night/tm_si_de_a1", "left", 1, 160, 0, FALSE, 0, 0, 0, 0, 0, 20, 1300, TRUE );
+
+//「どうですか富竹さん、いい写真はいっぱい撮れましたか？＠
+	PlaySE(3, "s01/01/120100001", 256, 64);
+	OutputLine(NULL, "「どうですか富竹さん、いい写真はいっぱい撮れましたか？」",
+		   NULL, "\"Как дела, Томитаке-сан? Много хороших снимков наснимали?\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「あぁ。御陰様でね！＠
+	PlaySE(3, "s01/08/120800001", 256, 64);
+	OutputLine(NULL, "「あぁ。御陰様でね！」",
+		   NULL, "\"Да, немало! Спасибо!\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　富竹さんは女の人と一緒だった＠……ちょっと悪いことをした気がするな￥
+	OutputLine(NULL, "　富竹さんは女の人と一緒だった。",
+		   NULL, "С Томитаке-саном была какая-то женщина.", Line_WaitForInput);
+	OutputLine(NULL, "……ちょっと悪いことをした気がするな。",
+		   NULL, " ......Стало слегка неловко за то, что им помешал.", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	DrawBustshotWithFiltering( 1, "night/ta_si_de_a1", "left", 1, -160, 0, FALSE, 0, 0, 0, 0, 0, 0, 300, TRUE );
+
+//「圭一くんはどうだったかしら＠お祭りは楽しめた？＠
+	PlaySE(3, "s01/09/120900001", 256, 64);
+	OutputLine(NULL, "「圭一くんはどうだったかしら。",
+		   NULL, "\"О, Кейти-кун, и как тебе фестиваль?", Line_WaitForInput);
+	PlaySE(3, "s01/09/120900002", 256, 64);
+	OutputLine(NULL, "お祭りは楽しめた？」",
+		   NULL, " Понравился ли?\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　その女性の口調からすると雛見沢の人のようだ＠
+	OutputLine(NULL, "　その女性の口調からすると雛見沢の人のようだ。",
+		   NULL, "Судя по речи, она местная, из Хинамидзавы.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　……そろそろいい加減、俺も住人の顔を覚える努力をしないといけないな…＠
+	OutputLine(NULL, "　……そろそろいい加減、俺も住人の顔を覚える努力をしないといけないな…。",
+		   NULL, "......Пожалуй, лица уже стоит запоминать...", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　この人は何て名前だっけ……￥
+	OutputLine(NULL, "　この人は何て名前だっけ……。",
+		   NULL, "Как там её зовут-то?.....", Line_Normal);
+	ClearMessage();
+
+
+//「その………えぇと…、楽しかったです。＠
+	PlaySE(3, "s01/01/120100002", 256, 64);
+	OutputLine(NULL, "「その………えぇと…、楽しかったです。」",
+		   NULL, "\"Ну......... э... ну, понравилось.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　俺が必死に名前を思い出そうとする様子がよっぽど表情に出ていたのだろうか、女性は愉快そうに笑った￥
+	OutputLine(NULL, "　俺が必死に名前を思い出そうとする様子がよっぽど表情に出ていたのだろうか、女性は愉快そうに笑った。",
+		   NULL, "Должно быть, по напряжённому лицу стало понятно, как мучительно я пытался вспомнить её имя. Женщина хихикнула.", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	DrawBustshot( 3, "night/tm_si_wa_a1", 160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 20, 200, TRUE );
+
+//「圭一くんはまだ引っ越してきて日が浅いんだそうだね＠他の子たちととても親しげだったから、とてもそうは思えなかったよ。＠
+	PlaySE(3, "s01/08/120800002", 256, 64);
+	OutputLine(NULL, "「圭一くんはまだ引っ越してきて日が浅いんだそうだね。",
+		   NULL, "\"А, так ты ж недавно сюда переехал?", Line_WaitForInput);
+	PlaySE(3, "s01/08/120800003", 256, 64);
+	OutputLine(NULL, "他の子たちととても親しげだったから、とてもそうは思えなかったよ。」",
+		   NULL, " Ты, как погляжу, так сдружился с другими детьми, что в подобное сложно поверить.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　もしもそう見えたなら、それはレナや魅音や、みんなのお陰だろう￥
+	OutputLine(NULL, "　もしもそう見えたなら、それはレナや魅音や、みんなのお陰だろう。",
+		   NULL, "Ежели действительно похоже на то со стороны, то всё благодаря Рэне, Мион и остальным.", Line_Normal);
+	ClearMessage();
+
+
+//「あなたも今日のお祭りに参加して、自分が雛見沢の人間になれたんだ、って自覚できたんじゃないかしら…？＠
+	PlaySE(3, "s01/09/120900003", 256, 64);
+	OutputLine(NULL, "「あなたも今日のお祭りに参加して、自分が雛見沢の人間になれたんだ、って自覚できたんじゃないかしら…？」",
+		   NULL, "\"Скажи-ка, после завершения фестиваля не подумалось ли тебе: «Я стал частичкой Хинамидзавы»?..\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「………うーん!w300…どうなんでしょうね。＠
+	PlaySE(3, "s01/01/120100003", 256, 64);
+	OutputLine(NULL, "「………うーん",
+		   NULL, "\".........Да", Line_ContinueAfterTyping);
+
+	SetValidityOfInput( FALSE );
+	Wait( 300 );
+	SetValidityOfInput( TRUE );
+
+	OutputLine(NULL, "…どうなんでしょうね。」",
+		   NULL, "... как сказать.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+	DisableWindow();
+	DrawBustshot( 3, "night/tm_si_de_a1", 160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 20, 200, TRUE );
+
+//「おや、圭一くんらしくない返事だね。＠
+	PlaySE(3, "s01/08/120800004", 256, 64);
+	OutputLine(NULL, "「おや、圭一くんらしくない返事だね。」",
+		   NULL, "\"Ого. Не похоже на тебя, Кейти-кун.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　自分ではもう雛見沢に馴染めたつもりでいる＠
+	OutputLine(NULL, "　自分ではもう雛見沢に馴染めたつもりでいる。",
+		   NULL, "Я уже принял решение влиться в Хинамидзаву.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　だが…俺にはまだまだ知らないことが多過ぎる＠
+	OutputLine(NULL, "　だが…俺にはまだまだ知らないことが多過ぎる。",
+		   NULL, "Однако... здесь всё ещё чересчур много вещей, о которых у меня знания нет.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　例えば、こうして出会う人たちの顔とか＠……過去の出来事とか￥
+	OutputLine(NULL, "　例えば、こうして出会う人たちの顔とか。",
+		   NULL, "Например, с кем я пересекаюсь на улице, вот как сейчас.", Line_WaitForInput);
+	OutputLine(NULL, "……過去の出来事とか。",
+		   NULL, " ......Или то, что случалось в прошлом.", Line_Normal);
+	ClearMessage();
+
+
+//「…なぁんだ＠その程度のことで君は疎遠に感じていたのかい？＠
+	PlaySE(3, "s01/08/120800005", 256, 64);
+	OutputLine(NULL, "「…なぁんだ。",
+		   NULL, "\"...Да ладно?", Line_WaitForInput);
+	PlaySE(3, "s01/08/120800006", 256, 64);
+	OutputLine(NULL, "その程度のことで君は疎遠に感じていたのかい？」",
+		   NULL, " И ты только потому чувствуешь себя посторонним?\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「疎遠なんて大袈裟なもんじゃないですよ＠…ただその、……なんていうのか……。￥
+	PlaySE(3, "s01/01/120100004", 256, 64);
+	OutputLine(NULL, "「疎遠なんて大袈裟なもんじゃないですよ。",
+		   NULL, "\"Нет, «посторонний» — преувеличение.", Line_WaitForInput);
+	PlaySE(3, "s01/01/120100005", 256, 64);
+	OutputLine(NULL, "…ただその、……なんていうのか……。」",
+		   NULL, " Просто... как бы сказать...\"", Line_Normal);
+	ClearMessage();
+
+
+//　この村の大事件、ダム工事のこととか＠それを巡る戦いのこととか＠
+	OutputLine(NULL, "　この村の大事件、ダム工事のこととか。",
+		   NULL, "Мне хотелось знать больше о серьёзных событиях в жизни деревни,", Line_WaitForInput);
+	OutputLine(NULL, "それを巡る戦いのこととか。",
+		   NULL, " навроде строительства дамбы и войны, развернувшейся вокруг него.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　…聞いても知らないふりをされる、過去の残酷な事件のこととか＠
+	OutputLine(NULL, "　…聞いても知らないふりをされる、過去の残酷な事件のこととか。",
+		   NULL, "...Или о том жестоком преступлении, про что даже на вопросы не отвечают.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　終わったこととは言え。…雛見沢に住まう人間として、明るい部分だけでなく、暗い部分についても知っておきたいと思ったのは間違いなかった￥
+	OutputLine(NULL, "　終わったこととは言え。…雛見沢に住まう人間として、明るい部分だけでなく、暗い部分についても知っておきたいと思ったのは間違いなかった。",
+		   NULL, "Хоть с той поры утекло много времени... Раз уж я собирался жить в Хинамидзаве, мне нужно знать не только её светлую сторону, но также и тёмную.", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	DrawBustshot( 3, "night/tm_si_wa_a1", 160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 20, 200, TRUE );
+
+//「それを知ることで君が納得するなら……僕の知っている範囲で何でも教えるよ。＠
+	PlaySE(3, "s01/08/120800007", 256, 64);
+	OutputLine(NULL, "「それを知ることで君が納得するなら……僕の知っている範囲で何でも教えるよ。」",
+		   NULL, "\"Если знание поможет тебе понять...... я расскажу всё, что знаю.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　富竹さんの笑顔がいつになく頼もしい＠
+	OutputLine(NULL, "　富竹さんの笑顔がいつになく頼もしい。",
+		   NULL, "Улыбка Томитаке-сана внушала доверие, как никогда.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　だが、いざ何でも聞いてくれと言われるとなかなか考えがまとまらない＠
+	OutputLine(NULL, "　だが、いざ何でも聞いてくれと言われるとなかなか考えがまとまらない。",
+		   NULL, "Но я не ожидал, что мне пойдут навстречу, и потому никак не мог собраться с мыслями.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　…聞きたいことは山ほどあるはずなのに￥
+	OutputLine(NULL, "　…聞きたいことは山ほどあるはずなのに。",
+		   NULL, "...Мне хотелось расспросить о многом, об очень многом.", Line_Normal);
+	ClearMessage();
+
+
+//「じゃあ………ダム工事について聞かせて下さい＠雛見沢が水没するとかいう、大事件だったんですよね…？＠
+	PlaySE(3, "s01/01/120100006", 256, 64);
+	OutputLine(NULL, "「じゃあ………ダム工事について聞かせて下さい。",
+		   NULL, "\"Хорошо, тогда...... расскажите, пожалуйста, о строительстве дамбы.", Line_WaitForInput);
+	PlaySE(3, "s01/01/120100007", 256, 64);
+	OutputLine(NULL, "雛見沢が水没するとかいう、大事件だったんですよね…？」",
+		   NULL, " Она, говорят, потопила бы Хинамидзаву, а потому вокруг ней кипел большой переполох, верно?..\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+	DisableWindow();
+	DrawBustshot( 3, "night/tm_si_ko_a1", 160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 20, 200, TRUE );
+
+//「ダムについては……多分、ここの人に聞いたほうが詳しいと思うけどなぁ＠ま、僕が知っている範囲でいいんなら＠…新聞で読んだ程度だけどね。＠
+	PlaySE(3, "s01/08/120800008", 256, 64);
+	OutputLine(NULL, "「ダムについては……多分、ここの人に聞いたほうが詳しいと思うけどなぁ。",
+		   NULL, "\"Думаю, местные тебе лучше расскажут...", Line_WaitForInput);
+	PlaySE(3, "s01/08/120800009", 256, 64);
+	OutputLine(NULL, "ま、僕が知っている範囲でいいんなら。",
+		   NULL, " Ну, впрочем, и я могу кое-чем поделиться", Line_WaitForInput);
+	PlaySE(3, "s01/08/120800010", 256, 64);
+	OutputLine(NULL, "…新聞で読んだ程度だけどね。」",
+		   NULL, " — правда, всё вычитано из газет.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　富竹さんは遠くを見るような目で記憶を辿ると、それを語ってくれた￥
+	OutputLine(NULL, "　富竹さんは遠くを見るような目で記憶を辿ると、それを語ってくれた。",
+		   NULL, "Глядя вдаль, Томитаке-сан повёл свой рассказ.", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	DrawScene( "bg_238", 3000 );
+
+//「ダムの計画が決まったのは７～８年くらい前なんだ＠黒部に次ぐ巨大な計画だったと聞いてるね。￥
+	PlaySE(3, "s01/08/120800011", 256, 64);
+	OutputLine(NULL, "「ダムの計画が決まったのは７〜８年くらい前なんだ。",
+		   NULL, "\"Проект строительства дамбы родился около семи-восьми лет тому назад.", Line_WaitForInput);
+	PlaySE(3, "s01/08/120800012", 256, 64);
+	OutputLine(NULL, "黒部に次ぐ巨大な計画だったと聞いてるね。」",
+		   NULL, " Она обещала стать огромной, второй в стране после дамбы Куробэ.\"", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	FadeOutBGM( 2, 1000, TRUE );
+	DrawBustshotWithFiltering( 5, "black", "down", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 25, 1300, TRUE );
+
+//　当時の日本の重点課題は３つ＠
+	OutputLine(NULL, "　当時の日本の重点課題は３つ。",
+		   NULL, "В то время перед Японией стояли три важные цели:", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　交通網整備による列島改造と需要の高まる電力供給＠そして治水だった＠
+	OutputLine(NULL, "　交通網整備による列島改造と需要の高まる電力供給。",
+		   NULL, "Достроить сеть дорог, соединяющую острова; обеспечить растущие потребности в электроэнергии;", Line_WaitForInput);
+	OutputLine(NULL, "そして治水だった。",
+		   NULL, " наконец, совладать с половодьем.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+//　中でも発電と治水、そして莫大な経済効果を生み出すダム建設はラッシュだったという＠
+	OutputLine(NULL, "　中でも発電と治水、そして莫大な経済効果を生み出すダム建設はラッシュだったという。",
+		   NULL, "Среди всех способов решения заметно выделялись гидроэлектростанции, способные управлять речными потоками, добывать электричество и приносить огромный доход одновременно.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　そしてこの地でもダム建設の気運が高まり、この雛見沢に白羽の矢が立ったのだった￥
+	OutputLine(NULL, "　そしてこの地でもダム建設の気運が高まり、この雛見沢に白羽の矢が立ったのだった。",
+		   NULL, "Повальное строительство ГЭС пришло и сюда, и на Хинамидзаву пала стрела с белым пером.", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	FadeBustshotWithFiltering( 5, "down", 0, FALSE, 0, 0, 1300, TRUE );
+	PlayBGM( 2, "lsys19", 128, 0 );
+
+//「ダムの完成に伴って生まれるダム湖はかなりの面積になったらしいね＠この雛見沢からずーっと上流の谷河内（やごうち）辺りまでが全部沈むことになったらしい。＠
+	PlaySE(3, "s01/08/120800013", 256, 64);
+	OutputLine(NULL, "「ダムの完成に伴って生まれるダム湖はかなりの面積になったらしいね。",
+		   NULL, "\"Рассчитанная площадь образовавшегося бы после завершения работ озера покрывала значительное пространство.", Line_WaitForInput);
+	PlaySE(3, "s01/08/120800014", 256, 64);
+	OutputLine(NULL, "この雛見沢からずーっと上流の谷河内（やごうち）辺りまでが全部沈むことになったらしい。」",
+		   NULL, " Всё — от Хинамидзавы до Яготи вверх по течению — погрузилось бы под воду.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「…しかし…なんだって人が住んでる雛見沢にわざわざダムを作るんすか＠　もっと他の、人が住んでないところに作ればいいのに。＠
+	PlaySE(3, "s01/01/120100008", 256, 64);
+	OutputLine(NULL, "「…しかし…なんだって人が住んでる雛見沢にわざわざダムを作るんすか？",
+		   NULL, "\"...Но... зачем понадобилось возводить плотину во столь населённых местах?", Line_WaitForInput);
+	PlaySE(3, "s01/01/120100009", 256, 64);
+	OutputLine(NULL, "　もっと他の、人が住んでないところに作ればいいのに。」",
+		   NULL, " Разве не могли построить её где-нибудь, где никто не живёт?\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「んん～…、…よくは知らないんだが…ダムを造るのに適した地形ってのがあったって聞いてるね。￥
+	PlaySE(3, "s01/08/120800015", 256, 64);
+	OutputLine(NULL, "「んん〜…、…よくは知らないんだが…ダムを造るのに適した地形ってのがあったって聞いてるね。」",
+		   NULL, "\"Хммм... Не знаю точно, однако ж... я слыхал, что здешний ландшафт для постройки плотины подходил идеально.\"", Line_Normal);
+	ClearMessage();
+
+//　雛見沢では当然、反対運動が起こった＠
+	OutputLine(NULL, "　雛見沢では当然、反対運動が起こった。",
+		   NULL, "Конечно, население Хинамидзавы противилось.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+//　以前、梨花ちゃんが「戦った」と表現したが、それからも激しいものだったことが伺える￥
+	OutputLine(NULL, "　以前、梨花ちゃんが「戦った」と表現したが、それからも激しいものだったことが伺える。",
+		   NULL, "Помнится, Рика-тян говорила, что «все сражались как один», — можно понять, КАК яростно сопротивлялись жители.", Line_Normal);
+	ClearMessage();
+
+//「裁判にもなったし議会でも取り上げられたんだ＠東京の新聞にも載ったよ。＠
+	PlaySE(3, "s01/08/120800016", 256, 64);
+	OutputLine(NULL, "「裁判にもなったし議会でも取り上げられたんだ。",
+		   NULL, "\"Дело дошло до суда, затем до Парламента.", Line_WaitForInput);
+	PlaySE(3, "s01/08/120800017", 256, 64);
+	OutputLine(NULL, "東京の新聞にも載ったよ。」",
+		   NULL, " О нём писали даже в токийских газетах.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　魅音も確かそんなことを話してたな＠
+	OutputLine(NULL, "　魅音も確かそんなことを話してたな。",
+		   NULL, "Мион что-то такое упоминала.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　きっと雛見沢住民は一丸となって戦ったんだろうな＠
+	OutputLine(NULL, "　きっと雛見沢住民は一丸となって戦ったんだろうな。",
+		   NULL, "Уверен, вся Хинамидзава поднялась против дамбы единым духом.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+//　…雛見沢の、アットホームの一言だけでは言い表せない連帯感は、きっとこの戦いの賜物なんだろう￥
+	OutputLine(NULL, "　…雛見沢の、アットホームの一言だけでは言い表せない連帯感は、きっとこの戦いの賜物なんだろう。",
+		   NULL, "...Наверняка именно из-за схватки между жителями такие прочные узы.", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	DrawSceneWithMask( "bg_247", "down", 0, 0, 1300 );
+	DrawBustshot( 3, "night/tm_si_de_a1", 160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 20, 400, TRUE );
+
+//「で、いろいろな不祥事や汚職が発覚してね＠ややこしいことになっている内に工事中止が決まったんだそうだよ。￥
+	PlaySE(3, "s01/08/120800018", 256, 64);
+	OutputLine(NULL, "「で、いろいろな不祥事や汚職が発覚してね。",
+		   NULL, "\"Тогда-то и вскрылись политические скандалы, многих обвинили во взяточничестве.", Line_WaitForInput);
+	PlaySE(3, "s01/08/120800019", 256, 64);
+	OutputLine(NULL, "ややこしいことになっている内に工事中止が決まったんだそうだよ。」",
+		   NULL, " Правительству пришлось остановить стройку.\"", Line_Normal);
+	ClearMessage();
+
+
+//　聞いてみるなら今しかないだろう＠
+	OutputLine(NULL, "　聞いてみるなら今しかないだろう。",
+		   NULL, "Пожалуй, только сейчас я смогу задать вопрос об убийстве.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　いかにも年頃の男の子が興味を持ちそうな猟奇事件＠
+	OutputLine(NULL, "　いかにも年頃の男の子が興味を持ちそうな猟奇事件。",
+		   NULL, "Всё-таки пацану моего возраста привлекательны всякие там загадочные преступления.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+//　レナや魅音にちょっとお預けをくらったからといって、かえって興味を持つ自分の安っぽさがちょっぴり恥ずかしかった＠
+	OutputLine(NULL, "　レナや魅音にちょっとお預けをくらったからといって、かえって興味を持つ自分の安っぽさがちょっぴり恥ずかしかった。",
+		   NULL, "Пусть Рэны с Мион рядом нет, мне всё так же неловко показывать свою заинтересованность в подобных вещах.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+//　でもせっかくなので聞いてみる＠それでこの妙な好奇心が引っ込むなら￥
+	OutputLine(NULL, "　でもせっかくなので聞いてみる。",
+		   NULL, "Но раз я зашёл так далеко, лишний вопрос не повредит.", Line_WaitForInput);
+	OutputLine(NULL, "それでこの妙な好奇心が引っ込むなら。",
+		   NULL, " Может быть, ответ на него успокоит моё разбушевавшееся любопытство.", Line_Normal);
+	ClearMessage();
+
+
+//「あの………バラバラ殺人って…ありましたよね？＠
+	PlaySE(3, "s01/01/120100010", 256, 64);
+	OutputLine(NULL, "「あの………バラバラ殺人って…ありましたよね？」",
+		   NULL, "\"Эм...... то убийство с расчленением трупа... оно произошло на самом деле?\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+
+
+//「あったよ＠偶然、その時期に雛見沢にいてね＠だからよく覚えてるよ。＠
+	PlaySE(3, "s01/08/120800020", 256, 64);
+	OutputLine(NULL, "「あったよ。",
+		   NULL, "\"Да, не сомневайся.", Line_WaitForInput);
+	PlaySE(3, "s01/08/120800021", 256, 64);
+	OutputLine(NULL, "偶然、その時期に雛見沢にいてね。",
+		   NULL, " Тогда я как раз находился в Хинамидзаве,", Line_WaitForInput);
+	PlaySE(3, "s01/08/120800022", 256, 64);
+	OutputLine(NULL, "だからよく覚えてるよ。」",
+		   NULL, " потому очень хорошо всё помню.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　恐る恐るの切り出しに、富竹さんはさも何でもなさそうに答えてくれた￥
+	OutputLine(NULL, "　恐る恐るの切り出しに、富竹さんはさも何でもなさそうに答えてくれた。",
+		   NULL, "Томитаке-сан отозвался охотно, без малейшего признака недовольства.", Line_Normal);
+	ClearMessage();
+
+
+	PlayBGM( 1, "msys15", 128, 0 );
+//「……ちょうど４年前の今頃だったかなぁ＠あれも確か綿流しの日だったね。＠
+	PlaySE(3, "s01/08/120800023", 256, 64);
+	OutputLine(NULL, "「……ちょうど４年前の今頃だったかなぁ。",
+		   NULL, "\"......Насколько помню, оно произошло ровно четыре года назад,", Line_WaitForInput);
+	PlaySE(3, "s01/08/120800024", 256, 64);
+	OutputLine(NULL, "あれも確か綿流しの日だったね。」",
+		   NULL, " в день фестиваля Ватанагаси.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　ダム工事の継続を巡って論議が紛糾、相次ぐ不祥事に揺れに揺れたダム騒動の末期の出来事＠
+	OutputLine(NULL, "　ダム工事の継続を巡って論議が紛糾、相次ぐ不祥事に揺れに揺れたダム騒動の末期の出来事。",
+		   NULL, "Произошло в последние дни повстанческого движения, когда проект уже увяз в грязи, готовясь вот-вот закрыться.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+//　…ダム計画に終止符を打った事件だった￥
+	OutputLine(NULL, "　…ダム計画に終止符を打った事件だった。",
+		   NULL, "...Именно преступление и добило постройку.", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	DrawSceneWithMask( "bg_239", "up", 0, 0, 1300 );
+
+//　ダム工事の現場の人たちで喧嘩があり、被害者を殺してしまったという＠
+	OutputLine(NULL, "　ダム工事の現場の人たちで喧嘩があり、被害者を殺してしまったという。",
+		   NULL, "Насколько известно, на стройплощадке разразилась пьяная драка, закончившаяся убийством.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　発覚を恐れた加害者６人は遺体を６分割し、それぞれが遺体を隠したらしい￥
+	OutputLine(NULL, "　発覚を恐れた加害者６人は遺体を６分割し、それぞれが遺体を隠したらしい。",
+		   NULL, "Боясь обнаружения, шестеро нападавших расчленили труп на шесть частей, чтобы каждому досталось зарыть свою.", Line_Normal);
+	ClearMessage();
+
+
+//　結局、良心の呵責に耐えられなくなり６人の犯人の内、５人は自首したというが、残ったひとりは依然逃亡中＠
+	OutputLine(NULL, "　結局、良心の呵責に耐えられなくなり６人の犯人の内、５人は自首したというが、残ったひとりは依然逃亡中。",
+		   NULL, "В итоге пятеро из шести, будучи неспособными выдержать угрызений совести, сдались полиции, однако шестой из убийц по-прежнему в бегах.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　彼の隠した右腕部分は今でも見つかっていないという￥
+	OutputLine(NULL, "　彼の隠した右腕部分は今でも見つかっていないという。",
+		   NULL, "Правая рука, которую он должен был закопать, не найдена до сих пор.", Line_Normal);
+	ClearMessage();
+
+
+//　大まかな内容は、以前拾った写真週刊誌で読んだのと同じだ＠
+	OutputLine(NULL, "　大まかな内容は、以前拾った写真週刊誌で読んだのと同じだ。",
+		   NULL, "Всё то же самое, что и в статье.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+//　確かに悲惨な事件だが……レナや魅音が俺にひた隠すほどのものとは思わなかった＠
+	OutputLine(NULL, "　確かに悲惨な事件だが……レナや魅音が俺にひた隠すほどのものとは思わなかった。",
+		   NULL, "Да, преступление кошмарное, но...... не настолько страшное, чтоб Рэне и Мион понадобилось его скрывать.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　引っ越してきたばかりの俺に雛見沢のマイナスイメージを持たせたくなかったんだろうな…＠
+	OutputLine(NULL, "　引っ越してきたばかりの俺に雛見沢のマイナスイメージを持たせたくなかったんだろうな…。",
+		   NULL, "Возможно, им просто не хотелось представлять Хинамидзаву в плохом свете тому, кто лишь только сюда переехал...", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+//　そんな友人たちの気遣いに感謝すると共に、にも関わらず興味をもたげてしまった自分をちょっぴり悔いた￥
+	OutputLine(NULL, "　そんな友人たちの気遣いに感謝すると共に、にも関わらず興味をもたげてしまった自分をちょっぴり悔いた。",
+		   NULL, "Будучи благодарен им за внимательность, я в то же время жалел, что не могу заткнуть любопытство.", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	DrawSceneWithMask( "bg_246", "down", 0, 0, 1300 );
+	DrawBustshotWithFiltering( 3, "night/tm_si_wa_a1", "m1", 1, 160, 0, FALSE, 0, 0, 0, 0, 0, 20, 300, TRUE );
+
+//「当時はダムのトラブルの末期だったからね＠オヤシロさまの祟りだ、って言ってずいぶん騒がれたんだよ。￥
+	PlaySE(3, "s01/08/120800025", 256, 64);
+	OutputLine(NULL, "「当時はダムのトラブルの末期だったからね。",
+		   NULL, "\"Оно случилось как раз в последние дни вызванного дамбой смятения.", Line_WaitForInput);
+	PlaySE(3, "s01/08/120800026", 256, 64);
+	OutputLine(NULL, "オヤシロさまの祟りだ、って言ってずいぶん騒がれたんだよ。」",
+		   NULL, " Народ поднял большой шум, назвав его «Проклятием Оясиро-сама».\"", Line_Normal);
+	ClearMessage();
+
+
+//「オヤシロさまの祟り…か。＠
+	PlaySE(3, "s01/01/120100011", 256, 64);
+	OutputLine(NULL, "「オヤシロさまの祟り…か。」",
+		   NULL, "\"Проклятие Оясиро-сама?..\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+//　オヤシロさまってのは確か…今日のお祭りをやったあの神社で祭られている神さまの名前だったと思う￥
+	OutputLine(NULL, "　オヤシロさまってのは確か…今日のお祭りをやったあの神社で祭られている神さまの名前だったと思う。",
+		   NULL, "Помнится, «Оясиро-сама» — бог, которому посвящено святилище, где проходил сегодняшний фестиваль.", Line_Normal);
+	ClearMessage();
+
+
+//　なるほど＠
+	OutputLine(NULL, "　なるほど。",
+		   NULL, "Понятно теперь.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　雛見沢を水没させようとする悪のダム工事に守り神さまがバチを当てた、ってことなのだろう￥
+	OutputLine(NULL, "　雛見沢を水没させようとする悪のダム工事に守り神さまがバチを当てた、ってことなのだろう。",
+		   NULL, "Все поверили, что их бог наслал божественное проклятие для защиты Хинамидзавы от злой силы, проекта строительства дамбы.", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	DrawSceneWithMask( "103a", "down", 0, 0, 1300 );
+
+//	DrawBustshotWithFiltering( 1, "night/ta_si_wa_a1", "left", 1, -160, 0, FALSE, 0, 0, 0, 0, 0, 0, 300, TRUE );
+
+//「若い人たちはそうは思わなかったみたいだけれど…＠お年寄りたちはオヤシロさまの祟りだと疑わなかったみたいね。＠
+	PlaySE(3, "s01/09/120900004", 256, 64);
+	OutputLine(NULL, "「若い人たちはそうは思わなかったみたいだけれど…。",
+		   NULL, "\"Молодёжь, похоже, так не считала, однако...", Line_WaitForInput);
+	PlaySE(3, "s01/09/120900005", 256, 64);
+	OutputLine(NULL, "お年寄りたちはオヤシロさまの祟りだと疑わなかったみたいね。」",
+		   NULL, " старики не сомневались — то было Проклятие Оясиро-сама.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　富竹さんの連れの女の人が、そう言いながらいたずらっぽく笑った＠
+	OutputLine(NULL, "　富竹さんの連れの女の人が、そう言いながらいたずらっぽく笑った。",
+		   NULL, "Так сказала с озорным смешком спутница Томитаке-сана.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　合わせて富竹さんも笑ったので、俺もつられて笑うことにする￥
+	OutputLine(NULL, "　合わせて富竹さんも笑ったので、俺もつられて笑うことにする。",
+		   NULL, "Томитаке-сан тоже усмехнулся, что, в свою очередь, заразило смехом и меня.", Line_Normal);
+	ClearMessage();
+
+//	DisableWindow();
+//	DrawBustshot( 1, "night/ta_si_de_a1", -160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 0, 200, TRUE );
+
+//「…でも、…今ではどうかしらね＠結構いるんじゃないかしら＠若い人にも。＠
+	PlaySE(3, "s01/09/120900006", 256, 64);
+	OutputLine(NULL, "「…でも、…今ではどうかしらね。",
+		   NULL, "\"...Но вот что любопытно... как нынче оно?", Line_WaitForInput);
+	PlaySE(3, "s01/09/120900007", 256, 64);
+	OutputLine(NULL, "結構いるんじゃないかしら。",
+		   NULL, " Возможно, среди молодёжи тоже многие", Line_WaitForInput);
+	PlaySE(3, "s01/09/120900008", 256, 64);
+	OutputLine(NULL, "若い人にも。」",
+		   NULL, " верят.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「いるって、…何がですか？＠
+	PlaySE(3, "s01/01/120100012", 256, 64);
+	OutputLine(NULL, "「いるって、…何がですか？」",
+		   NULL, "\"Верят... во что?\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//	DisableWindow();
+//	DrawBustshot( 3, "night/tm_si_de_a1", 160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 20, 200, TRUE );
+
+//「信じてる人だよ＠…オヤシロさまの、祟り。＠
+	PlaySE(3, "s01/08/120800027", 256, 64);
+	OutputLine(NULL, "「信じてる人だよ。",
+		   NULL, "\"...В Проклятие Оясиро-сама,", Line_WaitForInput);
+	PlaySE(3, "s01/08/120800028", 256, 64);
+	OutputLine(NULL, "…オヤシロさまの、祟り。」",
+		   NULL, " конечно.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　富竹さんも女の人も、笑顔のままだったが、目からは笑いは消えていた￥
+	OutputLine(NULL, "　富竹さんも女の人も、笑顔のままだったが、目からは笑いは消えていた。",
+		   NULL, "Томитаке-сан и его подруга, как и раньше, улыбались, но из глаз улыбки пропали.", Line_Normal);
+	ClearMessage();
+
+
+//「その後ね＠毎年起こるんだよ＠……決まって今頃にね。＠
+	PlaySE(3, "s01/08/120800029", 256, 64);
+	OutputLine(NULL, "「その後ね。",
+		   NULL, "\"С того самого случая...", Line_WaitForInput);
+	PlaySE(3, "s01/08/120800030", 256, 64);
+	OutputLine(NULL, "毎年起こるんだよ。",
+		   NULL, " каждый год оно разражалось.", Line_WaitForInput);
+	PlaySE(3, "s01/08/120800031", 256, 64);
+	OutputLine(NULL, "……決まって今頃にね。」",
+		   NULL, " ......На тот же самый день.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「起こる、って…何が。＠
+	PlaySE(3, "s01/01/120100013", 256, 64);
+	OutputLine(NULL, "「起こる、って…何が。」",
+		   NULL, "\"Разражалось?.. Что разражалось?\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　富竹さんはそこで少し、もったいぶるように間を置き。周りを伺うようにしてから小声で続けた￥
+	OutputLine(NULL, "　富竹さんはそこで少し、もったいぶるように間を置き。周りを伺うようにしてから小声で続けた。",
+		   NULL, "Томитаке-сан малость помолчал, словно для пущей важности. Оглядевшись, он приглушённо продолжил.", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	DrawSceneWithMask( "103b", "down", 0, 0, 1300 );
+//	DrawBustshot( 3, "night/tm_si_ko_a1", 160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 20, 200, TRUE );
+
+//「毎年…綿流しの日になるとね。!w1500/
+	PlaySE(3, "s01/08/120800032", 256, 64);	
+	OutputLine(NULL, "「毎年…綿流しの日になるとね。",
+		   NULL, "\"Каждый год... в день фестиваля Ватанагаси...", Line_ContinueAfterTyping);
+	FadeOutBGM( 1, 1000, TRUE );
+	SetValidityOfInput( FALSE );
+	Wait( 1500 );
+	SetValidityOfInput( TRUE );
+
+//………誰かが死ぬんだよ。￥
+	OutputLine(NULL, "………誰かが死ぬんだよ。」",
+		   NULL, " ...кто-то погибает.\"", Line_Normal);
+	ClearMessage();
+
+
+
+	PlayBGM( 1, "msys07", 128, 0 );
+
+//「バラバラ殺人の翌年の綿流しの日＠
+	PlaySE(3, "s01/08/120800033", 256, 64);
+	OutputLine(NULL, "「バラバラ殺人の翌年の綿流しの日。",
+		   NULL, "\"Через год после убийства с расчленением, в день Ватанагаси...", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　雛見沢の住人でありながらダムの誘致派だった男が旅行先で崖下の濁流に転落して死亡した＠奥さんに至っては死体もあがってない。＠
+	PlaySE(3, "s01/08/120800034", 256, 64);	
+	OutputLine(NULL, "　雛見沢の住人でありながらダムの誘致派だった男が旅行先で崖下の濁流に転落して死亡した。",
+		   NULL, "Поехав тем днём на прогулку, семейная пара, жившая в Хинамидзаве, но поддерживавшая строительство дамбы, упала со скал в горную реку.", Line_WaitForInput);
+	PlaySE(3, "s01/08/120800035", 256, 64);
+	OutputLine(NULL, "奥さんに至っては死体もあがってない。」",
+		   NULL, " Муж умер, а тело жены не нашёл никто.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+//「雛見沢の人間でありながらダムに賛成していた男だからね＠事故当時、お年寄りたちはオヤシロさまの祟りだと囁きあったものよ。＠
+	PlaySE(3, "s01/09/120900009", 256, 64);	
+	OutputLine(NULL, "「雛見沢の人間でありながらダムに賛成していた男だからね。",
+		   NULL, "\"Даже являясь жителями Хинамидзавы, они одобряли постройку.", Line_WaitForInput);
+	PlaySE(3, "s01/09/120900010", 256, 64);
+	OutputLine(NULL, "事故当時、お年寄りたちはオヤシロさまの祟りだと囁きあったものよ。」",
+		   NULL, " Старые люди шептались, что их настигло Проклятие Оясиро-сама.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+//　女の人はやはりいたずらっぽく笑って言った￥
+	OutputLine(NULL, "　女の人はやはりいたずらっぽく笑って言った。",
+		   NULL, "Женщина снова хихикнула.", Line_Normal);
+	ClearMessage();
+
+
+//「さらに翌年＠綿流しの晩＠今度は神社の神主が原因不明の奇病で急死した＠奥さんはその晩の内に沼に入水自殺した。＠
+	PlaySE(3, "s01/08/120800036", 256, 64);
+	OutputLine(NULL, "「さらに翌年。",
+		   NULL, "\"Ещё через год,", Line_WaitForInput);
+	PlaySE(3, "s01/08/120800037", 256, 64);
+	OutputLine(NULL, "綿流しの晩。",
+		   NULL, " вечером Ватанагаси.", Line_WaitForInput);
+	PlaySE(3, "s01/08/120800038", 256, 64);	
+	OutputLine(NULL, "今度は神社の神主が原因不明の奇病で急死した。",
+		   NULL, " В тот раз неожиданно умер от странной, никому не известной хвори синтоистский священник.", Line_WaitForInput);
+	PlaySE(3, "s01/08/120800039", 256, 64);	
+	OutputLine(NULL, "奥さんはその晩の内に沼に入水自殺した。」",
+		   NULL, " Той же ночью жена его, бросившись в болото, покончила жизнь самоубийством.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「神社の神主って……今日のこの神社の神主ですか？＠
+	PlaySE(3, "s01/01/120100014", 256, 64);
+	OutputLine(NULL, "「神社の神主って……今日のこの神社の神主ですか？」",
+		   NULL, "\"Синтоистский священник... священник нашего храма?\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　女の人は頷いた￥
+	OutputLine(NULL, "　女の人は頷いた。",
+		   NULL, "Женщина кивнула.", Line_Normal);
+	ClearMessage();
+
+
+//「村人たちは、オヤシロさまのお怒りを鎮めきれなかったんだ、って噂したわね。＠
+	PlaySE(3, "s01/09/120900011", 256, 64);
+	OutputLine(NULL, "「村人たちは、オヤシロさまのお怒りを鎮めきれなかったんだ、って噂したわね。」",
+		   NULL, "\"Среди жителей поползли слухи, что тот попросту не сумел смягчить гнев Оясиро-сама.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+//「さらに翌年。これもまた綿流しの晩＠今度は近所の主婦が撲殺体で発見された。￥
+	PlaySE(3, "s01/08/120800040", 256, 64);
+	OutputLine(NULL, "「さらに翌年。これもまた綿流しの晩。",
+		   NULL, "\"Следующий год. Вечером дня Ватанагаси", Line_WaitForInput);
+	PlaySE(3, "s01/08/120800041", 256, 64);
+	OutputLine(NULL, "今度は近所の主婦が撲殺体で発見された。」",
+		   NULL, " нашли местную домохозяйку, забитую до смерти.\"", Line_Normal);
+	ClearMessage();
+
+
+//　…主婦＠
+	OutputLine(NULL, "　…主婦？",
+		   NULL, "...Домохозяйку?", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　これまで怪死した人々は、みんなダム関係者やオヤシロさまに縁がある人ばかりだった＠
+	OutputLine(NULL, "　これまで怪死した人々は、みんなダム関係者やオヤシロさまに縁がある人ばかりだった。",
+		   NULL, "Но до сих пор все загадочные смерти так или иначе были связаны либо с плотиной, либо с Оясиро-сама?", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　それを思うと……ひょっとしてこの主婦も何か関係があるのでは……と思ってしまう￥
+	OutputLine(NULL, "　それを思うと……ひょっとしてこの主婦も何か関係があるのでは……と思ってしまう。",
+		   NULL, "Никак... и домохозяйка с ними какую-то связь имела...", Line_Normal);
+	ClearMessage();
+
+//	DisableWindow();
+//	DrawBustshot( 1, "night/ta_si_wa_a1", -160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 0, 200, TRUE );
+
+//「その通りよ。＠
+	PlaySE(3, "s01/09/120900012", 256, 64);
+	OutputLine(NULL, "「その通りよ。」",
+		   NULL, "\"В точку.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　女の人はいたずらっぽく、!w800…いや、むしろ残酷にそう断じた￥
+	OutputLine(NULL, "　女の人はいたずらっぽく、",
+		   NULL, "Женщина шутливо", Line_ContinueAfterTyping);
+
+	SetValidityOfInput( FALSE );
+	Wait( 800 );
+	SetValidityOfInput( TRUE );
+
+	OutputLine(NULL, "…いや、むしろ残酷にそう断じた。",
+		   NULL, "... нет, жестокосердно подтвердила моё подозрение.", Line_Normal);
+	ClearMessage();
+
+
+//「被害者の一家はね、!w800…その２年前に転落死したダム誘致派の男の弟一家に当たるのよ。＠
+	PlaySE(3, "s01/09/120900013", 256, 64);	
+	OutputLine(NULL, "「被害者の一家はね、",
+		   NULL, "\"Супруг жертвы...", Line_ContinueAfterTyping);
+
+	SetValidityOfInput( FALSE );
+	Wait( 800 );
+	SetValidityOfInput( TRUE );
+
+	OutputLine(NULL, "…その２年前に転落死したダム誘致派の男の弟一家に当たるのよ。」",
+		   NULL, " приходился младшим братом человеку, который упал со скалы двумя годами раньше, — стороннику дамбы.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+	DisableWindow();
+	DrawSceneWithMask( "103a", "down", 0, 0, 1300 );
+//	DrawBustshot( 3, "night/tm_si_de_a1", 160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 20, 200, TRUE );
+
+//「弟本人はまだ生きてるらしいね＠でもやはり……かなり気にしてね。近隣の町に引っ越してったらしいよ。￥
+	PlaySE(3, "s01/08/120800042", 256, 64);
+	OutputLine(NULL, "「弟本人はまだ生きてるらしいね。",
+		   NULL, "\"Сам брат, по слухам, жив и здоров.", Line_WaitForInput);
+	PlaySE(3, "s01/08/120800043", 256, 64);
+	OutputLine(NULL, "でもやはり……かなり気にしてね。近隣の町に引っ越してったらしいよ。」",
+		   NULL, " Но, конечно... такие события заставили его волноваться, и он покинул деревню, переехав жить в квартиру в соседнем городе.\"", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	FadeOutBGM( 2, 1000, TRUE );
+	DrawBustshotWithFiltering( 5, "black", "down", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 25, 1300, TRUE );
+
+
+
+//　…しばらくの間、開いた口を閉じることができなかった￥
+	OutputLine(NULL, "　…しばらくの間、開いた口を閉じることができなかった。",
+		   NULL, "...Моя челюсть отвисла от изумления.", Line_Normal);
+	ClearMessage();
+
+
+//　雛見沢存亡を賭けたダム工事との戦い＠
+	OutputLine(NULL, "　雛見沢存亡を賭けたダム工事との戦い。",
+		   NULL, "Сначала — смертная битва против постройки.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　そしてその最中に起きた凄惨なバラバラ殺人事件＠
+	OutputLine(NULL, "　そしてその最中に起きた凄惨なバラバラ殺人事件。",
+		   NULL, "Затем — случившееся посреди неё зверское расчленение.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+//　俺が知っているのはそれだけだったし、また聞きたかったこともそれだけだったはずだ￥
+	OutputLine(NULL, "　俺が知っているのはそれだけだったし、また聞きたかったこともそれだけだったはずだ。",
+		   NULL, "Про них я знал, и только про них я хотел расспросить.", Line_Normal);
+	ClearMessage();
+
+
+//　だが…実際はそれだけではなかった＠
+	OutputLine(NULL, "　だが…実際はそれだけではなかった。",
+		   NULL, "А там... оказалось, что случаев больше.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+//　殺人＠死体遺棄＠事故死＠病死＠自殺＠撲殺￥
+	OutputLine(NULL, "　殺人。",
+		   NULL, "Убийство.", Line_WaitForInput);
+	OutputLine(NULL, "死体遺棄。",
+		   NULL, " Расчленение и сокрытие трупа.", Line_WaitForInput);
+	OutputLine(NULL, "事故死。",
+		   NULL, " Смерть в результате несчастного случая.", Line_WaitForInput);
+	OutputLine(NULL, "病死。",
+		   NULL, " Смерть от незнакомой болезни.", Line_WaitForInput);
+	OutputLine(NULL, "自殺。",
+		   NULL, " Самоубийство.", Line_WaitForInput);
+	OutputLine(NULL, "撲殺。",
+		   NULL, " Избиение до смерти.", Line_Normal);
+	ClearMessage();
+
+
+//　……俺は、基本的に現代っ子だ＠
+	OutputLine(NULL, "　……俺は、基本的に現代っ子だ。",
+		   NULL, "...Как дитя современного века...", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　祟りなんて本当は信じたくない…＠
+	OutputLine(NULL, "　祟りなんて本当は信じたくない…。",
+		   NULL, "Я действительно не хотел верить во что-то наподобье проклятий...", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+//　…だが…こんな怪死が毎年、それも綿流しの日に起こり、しかも死ぬ人がいつもダム工事の関係者だなんて……？￥
+	OutputLine(NULL, "　…だが…こんな怪死が毎年、それも綿流しの日に起こり、しかも死ぬ人がいつもダム工事の関係者だなんて……？！",
+		   NULL, "...И всё же... каждый год — и всякий раз в день Ватанагаси — происходят странные смерти, а умершие всегда оказываются причастны к строительству дамбы?!...", Line_Normal);
+	ClearMessage();
+
+
+//　そのいずれも個々に偶然だと断じるのはあまりに容易だ＠
+	OutputLine(NULL, "　そのいずれも個々に偶然だと断じるのはあまりに容易だ。",
+		   NULL, "Легко сказать, что на всё воля случая, что всё произошло по стечению обстоятельств.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　だが……それらもこうして積み重なっていくと……!w800それを偶然だと決め付けることの方がよっぽど冷静を欠いているように思えてくる…￥
+	OutputLine(NULL, "　だが……それらもこうして積み重なっていくと……",
+		   NULL, "Однако... коли несколько лет подряд всякий год кто-то гибнет......", Line_ContinueAfterTyping);
+
+	SetValidityOfInput( FALSE );
+	Wait( 800 );
+	SetValidityOfInput( TRUE );
+
+
+
+	OutputLine(NULL, "それを偶然だと決め付けることの方がよっぽど冷静を欠いているように思えてくる…。",
+		   NULL, " скептикам становится всё неуютнее защищать свою точку зрения...", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	DrawScene( "bg_238", 3000 );
+	DrawBustshot( 1, "night/ta_si_de_a1", -160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 0, 0, TRUE );
+
+	FadeBustshotWithFiltering( 5, "down", 0, FALSE, 0, 0, 1300, TRUE );
+	PlayBGM( 2, "lsys19", 128, 0 );
+
+//　祟りなんか、信じない＠…だけど……毎年、綿流しの日に何かが起こるという「意思」だけは確実に、!w300……ある￥
+	OutputLine(NULL, "　祟りなんか、信じない。",
+		   NULL, "Я не верю в проклятия.", Line_WaitForInput);
+	OutputLine(NULL, "…だけど……毎年、綿流しの日に何かが起こるという「意思」だけは確実に、",
+		   NULL, " ...Но...... нельзя отрицать, что некая «сила» желает, чтобы каждый год в день Ватанагаси...", Line_ContinueAfterTyping);
+
+	SetValidityOfInput( FALSE );
+	Wait( 300 );
+	SetValidityOfInput( TRUE );
+
+	OutputLine(NULL, "……ある。",
+		   NULL, " что-то произошло.", Line_Normal);
+	ClearMessage();
+
+
+//　俺のそんな様子を見て取ったのか、女の人はくすりと笑った＠
+	OutputLine(NULL, "　俺のそんな様子を見て取ったのか、女の人はくすりと笑った。",
+		   NULL, "Похоже, поняв, что у меня на уме, женщина негромко хихикнула.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　あたかも、怖がらせ過ぎちゃったかしら、とでも言わんばかりだ＠
+	OutputLine(NULL, "　あたかも、怖がらせ過ぎちゃったかしら、とでも言わんばかりだ。",
+		   NULL, "Словно собираясь спросить: «Ох, не слишком ли мы тебя напугали?»", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　内心を見透かされたのが恥ずかしくなり、少し苛立つような、急かすような口調で富竹さんに先を促した￥
+	OutputLine(NULL, "　内心を見透かされたのが恥ずかしくなり、少し苛立つような、急かすような口調で富竹さんに先を促した。",
+		   NULL, "Неловко и раздражённо я попросил Томитаке-сана продолжать, застыдившись того, что мой страх открылся.", Line_Normal);
+	ClearMessage();
+
+
+	FadeOutBGM( 1, 1000, TRUE );
+
+//「で＠　その翌年の綿流しの晩にもまた人が死ぬわけですよね…＠　今度は誰です？＠
+	PlaySE(3, "s01/01/120100015", 256, 64);
+	OutputLine(NULL, "「で？",
+		   NULL, "\"И?", Line_WaitForInput);
+	PlaySE(3, "s01/01/120100016", 256, 64);
+	OutputLine(NULL, "　その翌年の綿流しの晩にもまた人が死ぬわけですよね…？",
+		   NULL, " Стало быть, кто-то умер и на следующий Ватанагаси, правда ведь?..", Line_WaitForInput);
+	PlaySE(3, "s01/01/120100017", 256, 64);
+	OutputLine(NULL, "　今度は誰です？」",
+		   NULL, " Кто же?\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+	DisableWindow();
+	DrawBustshot( 3, "night/tm_si_wa_a1", 160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 20, 200, TRUE );
+
+//「さぁてね!s200………!sd圭一くんは誰だと思うかな？＠
+	PlaySE(3, "s01/08/120800044", 256, 64);
+	OutputLine(NULL, "「さぁてね",
+		   NULL, "\"Ну, хм......", Line_ContinueAfterTyping);
+//!s200
+
+	SetSpeedOfMessage( TRUE, 0, );
+
+	OutputLine(NULL, "………",
+		   NULL, "...", Line_ContinueAfterTyping);
+//!sd
+
+	SetSpeedOfMessage( FALSE, 0, );
+
+	OutputLine(NULL, "圭一くんは誰だと思うかな？」",
+		   NULL, " Кейти-кун, а ты как считаешь?\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「は……はぁ？！＠
+	PlaySE(3, "s01/01/120100018", 256, 64);
+	OutputLine(NULL, "「は……はぁ？！」",
+		   NULL, "\"Ч...... эээээ?!\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　自分の口調とは釣り合わない、嫌味な言い方にちょっとかちんと来た＠
+	OutputLine(NULL, "　自分の口調とは釣り合わない、嫌味な言い方にちょっとかちんと来た。",
+		   NULL, "В его тоне отчётливо прозвучала издёвочка. Он что, надо мной смеётся?!!", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「はぐらかさないで下さいよ…！　俺は結構、真剣に…！＠
+	PlaySE(3, "s01/01/120100019", 256, 64);
+	OutputLine(NULL, "「はぐらかさないで下さいよ…！　俺は結構、真剣に…！」",
+		   NULL, "\"Эй, пожалуйста, не уклоняйтесь от ответа на мой вопрос!.. Я серьёзно!..\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「…まぁまぁ圭一くん、落ち付いて。＠
+	PlaySE(3, "s01/09/120900014", 256, 64);
+	OutputLine(NULL, "「…まぁまぁ圭一くん、落ち付いて。」",
+		   NULL, "\"...Ну-ну, Кейти-кун, успокойся.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　女の人にやんわりとなだめられ、自分が取り乱していたことに気付く￥
+	OutputLine(NULL, "　女の人にやんわりとなだめられ、自分が取り乱していたことに気付く。",
+		   NULL, "Мягко и спокойно произнесла женщина. Тут я понял, что слишком погорячился.", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	DrawBustshot( 3, "night/tm_si_de_a1", 160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 20, 200, TRUE );
+
+//「別にはぐらかしたつもりはないんだよ圭一くん＠つまり……その翌年の綿流しってのはつまり…、￥
+	PlaySE(3, "s01/08/120800045", 256, 64);
+	OutputLine(NULL, "「別にはぐらかしたつもりはないんだよ圭一くん。",
+		   NULL, "\"Кейти-кун, я не уклоняюсь от вопроса.", Line_WaitForInput);
+	PlaySE(3, "s01/08/120800046", 256, 64);
+	OutputLine(NULL, "つまり……その翌年の綿流しってのはつまり…、」",
+		   NULL, " Просто...... «следующий Ватанагаси», он, так сказать...\"", Line_Normal);
+	ClearMessage();
+
+
+	FadeOutBGM( 1, 1000, TRUE );
+	FadeOutBGM( 2, 1000, TRUE );
+	DisableWindow();
+	DrawBustshot( 1, "night/ta_si_aw_a1", -160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 0, 200, TRUE );
+
+	PlaySE( 4, "wa_026", 128, 64 );
+
+//「今日よ。」!w1500@
+	PlaySE(3, "s01/09/120900015", 256, 64);
+	OutputLine(NULL, "「今日よ。」",
+		   NULL, "\"Сегодня.\"", Line_ContinueAfterTyping);
+
+	SetValidityOfInput( FALSE );
+	Wait( 500 );
+	SetValidityOfInput( TRUE );
+
+	OutputLineAll(NULL, "", Line_WaitForInput);
+
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　富竹さんの躊躇をあっさりと女の人が片付けた＠
+	OutputLine(NULL, "　富竹さんの躊躇をあっさりと女の人が片付けた。",
+		   NULL, "Она легко выдала ответ, покончив с мучениями Томитаке-сана.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　……じっとりとした汗を誘う、嫌な風がどっと吹く￥
+	OutputLine(NULL, "　……じっとりとした汗を誘う、嫌な風がどっと吹く。",
+		   NULL, "......Вдруг подул тёплый, сырой ветер, обдав холодной испариной.", Line_Normal);
+	ClearMessage();
+
+
+	PlayBGM( 2, "lsys19", 128, 0 );
+
+//「みんな口にしないけど……今夜また何か起こるんじゃないかって思ってる。＠
+	PlaySE(3, "s01/09/120900016", 256, 64);
+	OutputLine(NULL, "「みんな口にしないけど……今夜また何か起こるんじゃないかって思ってる。」",
+		   NULL, "\"Никто не скажет вслух, но...... все размышляют о том, случится ли что-нибудь и сегодня вечером.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「こ、こんなにお祭りで賑わっているのに？！￥
+	PlaySE(3, "s01/01/120100020", 256, 64);
+	OutputLine(NULL, "「こ、こんなにお祭りで賑わっているのに？！」",
+		   NULL, "\"Д-Даже несмотря на праздничную толпу?!\"", Line_Normal);
+	ClearMessage();
+
+
+//「あのね、去年の被害者の主婦は不信心者だったらしくてね＠綿流しのお祭りに参加しなかったらしいの。＠
+	PlaySE(3, "s01/09/120900017", 256, 64);
+	OutputLine(NULL, "「あのね、去年の被害者の主婦は不信心者だったらしくてね。",
+		   NULL, "\"Ну, видишь ли, жертва прошлого лета, домохозяйка, не отличалась особой верой.", Line_WaitForInput);
+	PlaySE(3, "s01/09/120900018", 256, 64);
+	OutputLine(NULL, "綿流しのお祭りに参加しなかったらしいの。」",
+		   NULL, " На фестиваль Хлопковых Корабликов она не пришла.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「今年の綿流しに参加しないと…オヤシロさまの怒りに触れるかもしれない、って噂＠…圭一くんなら聞いてるんじゃないかい？＠
+	PlaySE(3, "s01/08/120800047", 256, 64);
+	OutputLine(NULL, "「今年の綿流しに参加しないと…オヤシロさまの怒りに触れるかもしれない、って噂。",
+		   NULL, "\"По слухам, если в этом году не пойдёшь на Ватанагаси... тебя может коснуться гнев Оясиро-сама.", Line_WaitForInput);
+	PlaySE(3, "s01/08/120800048", 256, 64);
+	OutputLine(NULL, "…圭一くんなら聞いてるんじゃないかい？」",
+		   NULL, " ...Кейти-кун, ты ведь слыхал про такое?\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　そんな噂、微塵も聞いていない￥
+	OutputLine(NULL, "　そんな噂、微塵も聞いていない。",
+		   NULL, "Ни разу не слышал.", Line_Normal);
+	ClearMessage();
+
+
+//「…じゃ、じゃあみんなのお祭りの参加は…………祟りを恐れて？！＠
+	PlaySE(3, "s01/01/120100021", 256, 64);
+	OutputLine(NULL, "「…じゃ、じゃあみんなのお祭りの参加は…………祟りを恐れて？！」",
+		   NULL, "\"...Зна-значит, все, пришедшие на праздник...... просто боялись Проклятия?!\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「そうなんじゃないかと思うね…＠…今年の綿流しは例年になく参加者が多いよ。＠
+	PlaySE(3, "s01/08/120800049", 256, 64);
+	OutputLine(NULL, "「そうなんじゃないかと思うね…。",
+		   NULL, "\"Кто знает, кто знает...", Line_WaitForInput);
+	PlaySE(3, "s01/08/120800050", 256, 64);
+	OutputLine(NULL, "…今年の綿流しは例年になく参加者が多いよ。」",
+		   NULL, " В этом году на Ватанагаси народу пришло необычно много.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「やっぱりみんな、……怖いんでしょうね＠オヤシロさまの祟り。＠
+	PlaySE(3, "s01/09/120900019", 256, 64);
+	OutputLine(NULL, "「やっぱりみんな、……怖いんでしょうね。",
+		   NULL, "\"И, разумеется, их всех устрашило", Line_WaitForInput);
+	PlaySE(3, "s01/09/120900020", 256, 64);
+	OutputLine(NULL, "オヤシロさまの祟り。」",
+		   NULL, " Проклятие Оясиро-сама.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「………………。＠
+	PlaySE(3, "s01/01/120100022", 256, 64);
+	OutputLine(NULL, "「………………。」",
+		   NULL, "\"..................\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　絶句するしかなかった……￥
+	OutputLine(NULL, "　絶句するしかなかった……。",
+		   NULL, "Потеряв дар речи, я мог только стоять столбом...", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	DrawBustshotWithFiltering( 5, "black", "down", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 25, 1300, TRUE );
+	FadeBustshot( 1, FALSE, 0, 0, 0, 0, 0, TRUE );
+
+	StopSE( 4 );
+
+//　この昭和の時代＠
+	OutputLine(NULL, "　この昭和の時代。",
+		   NULL, "Мы в эре Сёва. Во второй половине 20-го столетия по западному календарю.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　あらゆる分野が目覚しい進歩を遂げ、無知と未知の闇を照らし出してきた＠
+	OutputLine(NULL, "　あらゆる分野が目覚しい進歩を遂げ、無知と未知の闇を照らし出してきた。",
+		   NULL, "Во всех областях познания мы достигли выдающихся успехов, осветив тьму невежества и страх неведомого.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　白黒テレビは絶滅したし、宇宙ロケットは人類を月へ運んだ＠
+	OutputLine(NULL, "　白黒テレビは絶滅したし、宇宙ロケットは人類を月へ運んだ。",
+		   NULL, "Чёрно-белые телевизоры вымерли, а ракеты доставили человечество на Луну.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+//　なのに…＠そんな近代社会なのに……￥
+	OutputLine(NULL, "　なのに…。",
+		   NULL, "И всё же...", Line_WaitForInput);
+	OutputLine(NULL, "そんな近代社会なのに……？",
+		   NULL, " даже в сегодняшнем обществе?..", Line_Normal);
+	ClearMessage();
+
+
+//「サクラってことで近隣の町の子供会をかなり招待したらしいけど＠やっぱり一連の事件を受けて…あんまり参加はなかったみたいね＠
+	PlaySE(3, "s01/09/120900021", 256, 64);
+	OutputLine(NULL, "「サクラってことで近隣の町の子供会をかなり招待したらしいけど、",
+		   NULL, "\"Значительное число детских кружков пригласили из близлежащих деревень и посёлков, чтоб создать впечатление живости,", Line_WaitForInput);
+	PlaySE(3, "s01/09/120900022", 256, 64);
+	OutputLine(NULL, "やっぱり一連の事件を受けて…あんまり参加はなかったみたいね。",
+		   NULL, " но, как и следовало ждать, у многих «появились неотложные дела»... и они не приехали.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　人集めに苦労してる、って町会の人がぼやいてたもの。＠
+	PlaySE(3, "s01/09/120900023", 256, 64);
+	OutputLine(NULL, "　人集めに苦労してる、って町会の人がぼやいてたもの。」",
+		   NULL, "Мне довелось услышать, как старейшины из деревенского совета жаловались, что слишком трудно собрать людей.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「警察もね、過去の事件は全て別個のもので関連性はないとしてるみたいだけどね＠……警備ってことで私服警官をだいぶ立たせてたみたいだよ。￥
+	PlaySE(3, "s01/08/120800051", 256, 64);
+	OutputLine(NULL, "「警察もね、過去の事件は全て別個のもので関連性はないとしてるみたいだけどね。",
+		   NULL, "\"Пускай полиция вроде бы не считает прошлые преступления связанными друг с другом...", Line_WaitForInput);
+	PlaySE(3, "s01/08/120800052", 256, 64);
+	OutputLine(NULL, "……警備ってことで私服警官をだいぶ立たせてたみたいだよ。」",
+		   NULL, " сколько-то полицейских в штатском выделили на обеспечение охраны фестиваля.\"", Line_Normal);
+	ClearMessage();
+
+
+//　レナや魅音の口が重かった理由が…少しずつ見えてきた気がした＠
+	OutputLine(NULL, "　レナや魅音の口が重かった理由が…少しずつ見えてきた気がした。",
+		   NULL, "Понемногу я начал понимать, почему Рэна с Мион отмалчивались.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　今年の綿流しで何も起こらなかったなら、俺には何も知らせずに済むのだろう￥
+	OutputLine(NULL, "　今年の綿流しで何も起こらなかったなら、俺には何も知らせずに済むのだろう。",
+		   NULL, "Если на Ватанагаси в нынешнем году ничего не случится, мне знать ничего не надо, всё пойдёт хорошо и так.", Line_Normal);
+	ClearMessage();
+
+
+//　……何も起こらなければそれでいい＠そうすれば、全ては杞憂だ＠
+	OutputLine(NULL, "　……何も起こらなければそれでいい。",
+		   NULL, "......Если ничего не случится,", Line_WaitForInput);
+	OutputLine(NULL, "そうすれば、全ては杞憂だ。",
+		   NULL, " говорить мне — лишь вызывать беспочвенные опасения.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　俺は始めから何も知らないふりをすればいい＠彼女らも何もなかったかのように振舞うだろう＠
+	OutputLine(NULL, "　俺は始めから何も知らないふりをすればいい。",
+		   NULL, "Тогда лучше притвориться, что мне до сих пор ничего не известно.", Line_WaitForInput);
+	OutputLine(NULL, "彼女らも何もなかったかのように振舞うだろう。",
+		   NULL, " Девочки, со своей стороны, поведут себя так, словно ничего и не случалось вообще.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+//　…そしてまた、いつもの日常が戻ってくるんだ￥
+	OutputLine(NULL, "　…そしてまた、いつもの日常が戻ってくるんだ。",
+		   NULL, "...И всё пойдёт обычно, точь-в-точь как раньше.", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	DrawBustshot( 3, "night/ta_si_wa_a1", 160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 20, 0, TRUE );
+
+	FadeBustshotWithFiltering( 5, "down", 0, FALSE, 0, 0, 1300, TRUE );
+	PlayBGM( 2, "lsys19", 128, 0 );
+	PlayBGM( 1, "msys13", 128, 0 );
+
+//「…やっぱり刺激が強過ぎたかしら？＠
+	PlaySE(3, "s01/09/120900024", 256, 64);
+	OutputLine(NULL, "「…やっぱり刺激が強過ぎたかしら？」",
+		   NULL, "\"...Не слишком ли страшные для него разговоры?\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　女の人は緩く髪をかきあげながらため息をつく＠
+	OutputLine(NULL, "　女の人は緩く髪をかきあげながらため息をつく。",
+		   NULL, "Женщина вздохнула, медленно расчёсывая волосы.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「い、いえ、…そんな、!w300全然…、￥
+	PlaySE(3, "s01/01/120100023", 256, 64);
+	OutputLine(NULL, "「い、いえ、…そんな、",
+		   NULL, "\"Н-Нет... совсем,", Line_ContinueAfterTyping);
+
+	SetValidityOfInput( FALSE );
+	Wait( 300 );
+	SetValidityOfInput( TRUE );
+
+	OutputLine(NULL, "全然…、」",
+		   NULL, " совсем нет...\"", Line_Normal);
+	ClearMessage();
+
+
+//　精一杯強がったつもりだったが、かえって狼狽ぶりを露呈するだけだ＠
+	OutputLine(NULL, "　精一杯強がったつもりだったが、かえって狼狽ぶりを露呈するだけだ。",
+		   NULL, "Я-то собирался показать свою сильную волю, а вместо этого показал свои слабость и замешательство.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　富竹さんはそんな俺の様子を見て、少し後悔しているようだった＠
+	OutputLine(NULL, "　富竹さんはそんな俺の様子を見て、少し後悔しているようだった。",
+		   NULL, "Томитаке-сан, похоже, начал раскаиваться, что вообще мне такое рассказал.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　そしてひとつ息を吐くと、いやに明るく振舞いながら言った￥
+	OutputLine(NULL, "　そしてひとつ息を吐くと、いやに明るく振舞いながら言った。",
+		   NULL, "Тяжко вздохнув, он заговорил веселее.", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	DrawBustshotWithFiltering( 1, "night/tm_si_wa_a1", "right", 1, -160, 0, FALSE, 0, 0, 0, 0, 0, 0, 300, TRUE );
+
+//「まさか圭一くん、祟りなんて信じてるわけじゃないだろ？＠
+	PlaySE(3, "s01/08/120800053", 256, 64);
+	OutputLine(NULL, "「まさか圭一くん、祟りなんて信じてるわけじゃないだろ？」",
+		   NULL, "\"Кейти-кун, ты же не веришь в проклятия, правда?\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「…そりゃ…まぁ……。＠
+	PlaySE(3, "s01/01/120100024", 256, 64);
+	OutputLine(NULL, "「…そりゃ…まぁ……。」",
+		   NULL, "\"...Ну-у-у.......\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「全ての事件が原因不明で犯人も手口もナゾ、っていうなら僕も祟りを疑ってもいいよ＠
+	PlaySE(3, "s01/08/120800054", 256, 64);
+	OutputLine(NULL, "「全ての事件が原因不明で犯人も手口もナゾ、っていうなら僕も祟りを疑ってもいいよ。",
+		   NULL, "\"Да, будь они до сих пор загадками — я бы тоже подумал о стоящем за ними проклятии.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　だけど実際には違う＠どの事件もちゃんと警察が捜査して真相や犯人を究明してる。￥
+	PlaySE(3, "s01/08/120800055", 256, 64);	
+	OutputLine(NULL, "　だけど実際には違う。",
+		   NULL, "Но в нашем случае подобного нет.", Line_WaitForInput);
+	PlaySE(3, "s01/08/120800056", 256, 64);
+	OutputLine(NULL, "どの事件もちゃんと警察が捜査して真相や犯人を究明してる。」",
+		   NULL, " Полиция тщательно расследовала и раскрыла каждое преступление.\"", Line_Normal);
+	ClearMessage();
+
+
+//　警察という単語がなんだかとても頼もしく感じられた＠
+	OutputLine(NULL, "　警察という単語がなんだかとても頼もしく感じられた。",
+		   NULL, "От слова «полиция» мне значительно полегчало.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　祟りというキーワードと最も対に位置すると思ったからだ￥
+	OutputLine(NULL, "　祟りというキーワードと最も対に位置すると思ったからだ。",
+		   NULL, "Неплохой антоним для слова «проклятие».", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	DrawBustshot( 1, "night/tm_si_de_a1", -160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 0, 200, TRUE );
+
+//「……例えば、一番最初のバラバラ殺人＠言ったよね＠　犯人は１人を残して全員逮捕されてる＠残った１人だって時間の問題さ＠動機だって、酒の上での口論からと判明してる＠祟りなんかじゃない＠……だろ？＠
+	PlaySE(3, "s01/08/120800057", 256, 64);	
+	OutputLine(NULL, "「……例えば、一番最初のバラバラ殺人。",
+		   NULL, "\"......К примеру, убийство с расчленением, самое первое дело.", Line_WaitForInput);
+	PlaySE(3, "s01/08/120800058", 256, 64);
+	OutputLine(NULL, "言ったよね？",
+		   NULL, " Помнишь?", Line_WaitForInput);
+	PlaySE(3, "s01/08/120800059", 256, 64);
+	OutputLine(NULL, "　犯人は１人を残して全員逮捕されてる。",
+		   NULL, " Полиция схватила почти всех, кроме одного.", Line_WaitForInput);
+	PlaySE(3, "s01/08/120800060", 256, 64);
+	OutputLine(NULL, "残った１人だって時間の問題さ。",
+		   NULL, " Когда схватят и его — вопрос лишь времени.", Line_Normal);
+	PlaySE(3, "s01/08/120800061", 256, 64);
+	OutputLine(NULL, "動機だって、酒の上での口論からと判明してる。",
+		   NULL, " Что до причины — они сами признались, что развязали потасовку, будучи пьяны.", Line_WaitForInput);
+	PlaySE(3, "s01/08/120800062", 256, 64);
+	OutputLine(NULL, "祟りなんかじゃない。",
+		   NULL, " Как видишь, проклятия никакого нет.", Line_WaitForInput);
+	PlaySE(3, "s01/08/120800063", 256, 64);
+	OutputLine(NULL, "……だろ？」",
+		   NULL, " ...Сам как считаешь?\"", Line_WaitForInput);
+
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+//　確かに…綿流しの日に起こった事件でさえなければ、祟りとは無縁な事件だと思う…￥
+	OutputLine(NULL, "　確かに…綿流しの日に起こった事件でさえなければ、祟りとは無縁な事件だと思う…。",
+		   NULL, "Верно... если не брать в расчёт, что преступление произошло в день Ватанагаси, то никто в здравом уме не связал бы его с проклятием...", Line_Normal);
+	ClearMessage();
+
+
+//「次の、誘致派の男の夫婦の事故死だってそうさ＠恨みを買う立場だったからね、警察が特に入念に捜査したと思うよ＠それで発表は事故＠他殺じゃない。＠
+	PlaySE(3, "s01/08/120800064", 256, 64);	
+	OutputLine(NULL, "「次の、誘致派の男の夫婦の事故死だってそうさ。",
+		   NULL, "\"Смерть четы сторонников дамбы в следующем году такова же.", Line_WaitForInput);
+	PlaySE(3, "s01/08/120800065", 256, 64);
+	OutputLine(NULL, "恨みを買う立場だったからね、警察が特に入念に捜査したと思うよ。",
+		   NULL, " Раз они умудрились навлечь на себя враждебность других жителей, полиция расследовала дело с особым вниманием.", Line_WaitForInput);
+	PlaySE(3, "s01/08/120800066", 256, 64);
+	OutputLine(NULL, "それで発表は事故。",
+		   NULL, " И объявила, что то был несчастный случай,", Line_WaitForInput);
+	PlaySE(3, "s01/08/120800067", 256, 64);
+	OutputLine(NULL, "他殺じゃない。」",
+		   NULL, " а не убийство.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「でも……また綿流しの日に起きたんですよね…？￥
+	PlaySE(3, "s01/01/120100025", 256, 64);
+	OutputLine(NULL, "「でも……また綿流しの日に起きたんですよね…？」",
+		   NULL, "\"Но...... он же произошёл в день Ватанагаси?..\"", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	DrawBustshot( 1, "night/tm_si_wa_a1", -160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 0, 200, TRUE );
+
+//「ははは＠考えてもみなよ圭一くん＠…雛見沢に敵が多かった彼が、地元のお祭りにおちおち参加できると思うかい＠
+	PlaySE(3, "s01/08/120800068", 256, 64);
+	OutputLine(NULL, "「ははは。",
+		   NULL, "\"Ха-ха-ха.", Line_WaitForInput);
+	PlaySE(3, "s01/08/120800069", 256, 64);
+	OutputLine(NULL, "考えてもみなよ圭一くん。",
+		   NULL, " Подумай сам, Кейти-кун.", Line_WaitForInput);
+	PlaySE(3, "s01/08/120800070", 256, 64);	
+	OutputLine(NULL, "…雛見沢に敵が多かった彼が、地元のお祭りにおちおち参加できると思うかい？",
+		   NULL, " ...Ты думаешь, они бы так взяли да пришли на фестиваль, где собралась толпа их врагов?", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　彼にとっては綿流しの時期は特に雛見沢に居ずらい時期に違いないよ＠
+	PlaySE(3, "s01/08/120800071", 256, 64);		
+	OutputLine(NULL, "　彼にとっては綿流しの時期は特に雛見沢に居ずらい時期に違いないよ。",
+		   NULL, "С их точки зрения, Ватанагаси — далеко не лучшее время для пребывания в деревне.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　だからわざわざこの時期に旅行をし、意図的に雛見沢を離れようとしたんじゃないかな？＠
+	PlaySE(3, "s01/08/120800072", 256, 64);		
+	OutputLine(NULL, "　だからわざわざこの時期に旅行をし、意図的に雛見沢を離れようとしたんじゃないかな？」",
+		   NULL, "Так почему б им не отправиться в путешествие куда-нибудь подальше отсюда?\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+//　いまひとつピンと来ない説明だったが、富竹さんが何を言おうとしているのかはなんとなく伝わった￥
+	OutputLine(NULL, "　いまひとつピンと来ない説明だったが、富竹さんが何を言おうとしているのかはなんとなく伝わった。",
+		   NULL, "Объяснение меня не то чтоб устроило, но суть его слов понятна.", Line_Normal);
+	ClearMessage();
+
+
+//　だから俺は敢えて素直に、そうだと思えるに足る疑問をぶつけてみた＠
+	OutputLine(NULL, "　だから俺は敢えて素直に、そうだと思えるに足る疑問をぶつけてみた。",
+		   NULL, "Потому я решил спросить начистоту, чтобы прогнать сомнения.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「じゃあ富竹さん…その次に死んだ神主さんはどうです＠　原因不明の奇病だ、って＠…それも、またしても綿流しの日に…。￥
+	PlaySE(3, "s01/01/120100026", 256, 64);
+	OutputLine(NULL, "「じゃあ富竹さん…その次に死んだ神主さんはどうです？",
+		   NULL, "\"Так, Томитаке-сан... что насчёт священника, погибшего на следующий год?", Line_WaitForInput);
+	PlaySE(3, "s01/01/120100027", 256, 64);	
+	OutputLine(NULL, "　原因不明の奇病だ、って。",
+		   NULL, " Который от неведомой болезни помер.", Line_WaitForInput);
+	PlaySE(3, "s01/01/120100028", 256, 64);
+	OutputLine(NULL, "…それも、またしても綿流しの日に…。」",
+		   NULL, " ...И опять же на день Ватанагаси...\"", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	DrawBustshot( 1, "night/tm_si_de_a1", -160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 0, 200, TRUE );
+
+//「神主さんはもっと説明が付き易いよ＠綿流しのお祭りは神主さんにとっては年に一度の大行事。過労に体調不良が重なったんだろうね＠あるいは元々持病持ちだったのかもしれない。＠
+	PlaySE(3, "s01/08/120800073", 256, 64);
+	OutputLine(NULL, "「神主さんはもっと説明が付き易いよ。",
+		   NULL, "\"Случай со священником объяснить ещё легче.", Line_WaitForInput);
+	PlaySE(3, "s01/08/120800074", 256, 64);
+	OutputLine(NULL, "綿流しのお祭りは神主さんにとっては年に一度の大行事。過労に体調不良が重なったんだろうね。",
+		   NULL, " Для него фестиваль Хлопковых Корабликов был главным событием в году, потому он мог просто заработаться и устать сверх всякой меры.", Line_WaitForInput);
+	PlaySE(3, "s01/08/120800075", 256, 64);
+	OutputLine(NULL, "あるいは元々持病持ちだったのかもしれない。」",
+		   NULL, " Или же хроническая болезнь его подточила.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「でも、奇病ですよ＠　この医学の進歩した時代に原因不明なんて…。￥
+	PlaySE(3, "s01/01/120100029", 256, 64);	
+	OutputLine(NULL, "「でも、奇病ですよ？",
+		   NULL, "\"Но ведь недуг-то никому не известен?", Line_WaitForInput);
+	OutputLine(NULL, "　この医学の進歩した時代に原因不明なんて…。」",
+		   NULL, " Как он мог умереть по «неизвестной» причине в сегодняшний век, с нашей-то медициной?..\"", Line_Normal);
+	ClearMessage();
+
+
+//「尾ひれだよ＠噂が噂を呼んだだけさ＠
+	PlaySE(3, "s01/08/120800076", 256, 64);
+	OutputLine(NULL, "「尾ひれだよ。",
+		   NULL, "\"Все любят привирать.", Line_WaitForInput);
+	PlaySE(3, "s01/08/120800077", 256, 64);
+	OutputLine(NULL, "噂が噂を呼んだだけさ。",
+		   NULL, " Сплетни, просто сплетни.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　２年立て続けに事件が起これば誰だって過敏になるよ＠……急死は確かに不自然だったかもしれないけど＠
+	PlaySE(3, "s01/08/120800078", 256, 64);	
+	OutputLine(NULL, "　２年立て続けに事件が起これば誰だって過敏になるよ。",
+		   NULL, "Если два года подряд происходят убийства, любой начнёт бояться собственной тени.", Line_WaitForInput);
+	PlaySE(3, "s01/08/120800079", 256, 64);	
+	OutputLine(NULL, "……急死は確かに不自然だったかもしれないけど。",
+		   NULL, " ......Конечно, внезапная смерть сама по себе неестественна, оно так.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+//　こういう死に方をすると必ず警察が検死をする＠…で、事件性は発見されなかったんだろ＠　本当に偶然の病死なんだよ。￥
+	PlaySE(3, "s01/08/120800080", 256, 64);	
+	OutputLine(NULL, "　こういう死に方をすると必ず警察が検死をする。",
+		   NULL, "Полиция провела вскрытие...", Line_WaitForInput);
+	PlaySE(3, "s01/08/120800081", 256, 64);
+	OutputLine(NULL, "…で、事件性は発見されなかったんだろ？",
+		   NULL, " и ничего сверхъестественного, насколько помню, не нашла?", Line_WaitForInput);
+	PlaySE(3, "s01/08/120800082", 256, 64);
+	OutputLine(NULL, "　本当に偶然の病死なんだよ。」",
+		   NULL, " Так сошлись обстоятельства, что смерть кажется странноватой.\"", Line_Normal);
+	ClearMessage();
+
+
+//「…確か神主の奥さんが自殺してますよね＠　じゃあこれは？＠
+	PlaySE(3, "s01/01/120100031", 256, 64);
+	OutputLine(NULL, "「…確か神主の奥さんが自殺してますよね？",
+		   NULL, "\"...Но ведь жена священника убила себя, верно?", Line_WaitForInput);
+	PlaySE(3, "s01/01/120100032", 256, 64);
+	OutputLine(NULL, "　じゃあこれは？」",
+		   NULL, " Что на её счёт?\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「すでに説明したとおりさ＠３年目の事件に村人たちは動揺していた＠信心深い人たちはすぐに祟りだと決めてかかったのさ＠……もちろん、神主の奥さんもね＠
+	PlaySE(3, "s01/08/120800083", 256, 64);
+	OutputLine(NULL, "「すでに説明したとおりさ。",
+		   NULL, "\"Как я уже объяснял.", Line_WaitForInput);
+	PlaySE(3, "s01/08/120800084", 256, 64);
+	OutputLine(NULL, "３年目の事件に村人たちは動揺していた。",
+		   NULL, " Три года несчастий запугали местных.", Line_WaitForInput);
+	PlaySE(3, "s01/08/120800085", 256, 64);
+	OutputLine(NULL, "信心深い人たちはすぐに祟りだと決めてかかったのさ。",
+		   NULL, " Набожные люди быстро поверили в проклятие...", Line_WaitForInput);
+	PlaySE(3, "s01/08/120800086", 256, 64);	
+	OutputLine(NULL, "……もちろん、神主の奥さんもね。",
+		   NULL, " и жена священника не стала исключением.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　自殺の際に、死んでオヤシロさまの怒りをお鎮めする!s200……!sdみたいな遺書が見つかったらしいし。￥
+	PlaySE(3, "s01/08/120800087", 256, 64);	
+	OutputLine(NULL, "　自殺の際に、死んでオヤシロさまの怒りをお鎮めする",
+		   NULL, "Судя по найденной записке...", Line_ContinueAfterTyping);
+//!s200
+
+	SetSpeedOfMessage( TRUE, 0, );
+	OutputLine(NULL, "……",
+		   NULL, "...", Line_ContinueAfterTyping);
+	SetSpeedOfMessage( FALSE, 0, );
+
+// みたいな遺書が見つかったらしいし。
+	OutputLine(NULL, "みたいな遺書が見つかったらしいし。」",
+		   NULL, " она желала смягчить самопожертвованием гнев Оясиро-сама.\"", Line_Normal);
+
+	ClearMessage();
+
+//「じゃあじゃあ……次の主婦の事件は＠　またしても綿流しの日に！＠
+	PlaySE(3, "s01/01/120100033", 256, 64);
+	OutputLine(NULL, "「じゃあじゃあ……次の主婦の事件は？",
+		   NULL, "\"Хорошо, хорошо...... а что скажете про убийство домохозяйки?", Line_WaitForInput);
+	PlaySE(3, "s01/01/120100034", 256, 64);
+	OutputLine(NULL, "　またしても綿流しの日に！」",
+		   NULL, " Опять на Ватанагаси!\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「この事件は犯人も逮捕されて解決してるよ＠一種の異常者で、雛見沢の祟り騒ぎを面白がって再現したと自供してる。￥
+	PlaySE(3, "s01/08/120800088", 256, 64);
+	OutputLine(NULL, "「この事件は犯人も逮捕されて解決してるよ。",
+		   NULL, "\"Преступник, попавшись, признался в содеянном.", Line_WaitForInput);
+	PlaySE(3, "s01/08/120800089", 256, 64);
+	OutputLine(NULL, "一種の異常者で、雛見沢の祟り騒ぎを面白がって再現したと自供してる。」",
+		   NULL, " Псих, очарованный Проклятием Хинамидзавы, решил его возродить.\"", Line_Normal);
+	ClearMessage();
+
+
+//「じゃあじゃあじゃあ！…次の年の事件は？！!w300　…あ、えぇと…。＠
+	PlaySE(3, "s01/01/120100035", 256, 64);	
+	OutputLine(NULL, "「じゃあじゃあじゃあ！…次の年の事件は？！",
+		   NULL, "\"Ладно, ладно, верю! ...И что с проклятием следующего лета?!", Line_ContinueAfterTyping);
+
+	SetValidityOfInput( FALSE );
+	Wait( 300 );
+	SetValidityOfInput( TRUE );
+
+	OutputLine(NULL, "　…あ、えぇと…。」",
+		   NULL, " ...А, то есть...\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　そうだ。その次の年は今年だ＠
+	OutputLine(NULL, "　そうだ。その次の年は今年だ。",
+		   NULL, "Верно. Следующее лето — нынешнее лето.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　富竹さんが明るく笑う￥
+	OutputLine(NULL, "　富竹さんが明るく笑う。",
+		   NULL, "Томитаке-сан ослепительно заулыбался.", Line_Normal);
+	ClearMessage();
+
+
+//「もう何も起こらないよ＠今度こそね＠…オヤシロさまの祟りなんて元々ない＠一連の偶然を、あると信じている人たちがそうだと吹聴しているだけさ。￥
+	PlaySE(3, "s01/08/120800090", 256, 64);
+	OutputLine(NULL, "「もう何も起こらないよ。",
+		   NULL, "\"Ничего не случится.", Line_WaitForInput);
+	PlaySE(3, "s01/08/120800091", 256, 64);
+	OutputLine(NULL, "今度こそね。",
+		   NULL, " Только не теперь.", Line_WaitForInput);
+	PlaySE(3, "s01/08/120800092", 256, 64);
+	OutputLine(NULL, "…オヤシロさまの祟りなんて元々ない。",
+		   NULL, " ...«Проклятия Оясиро-сама» не было никогда.", Line_WaitForInput);
+	PlaySE(3, "s01/08/120800093", 256, 64);
+	OutputLine(NULL, "一連の偶然を、あると信じている人たちがそうだと吹聴しているだけさ。」",
+		   NULL, " Те, кто в него верят, просто играют на серии случайностей, распространяя слухи о том, что всё случилось из-за проклятия.\"", Line_Normal);
+	ClearMessage();
+
+
+//　…ようやく、脳のコンピューターが冷静を取り戻してきた＠
+	OutputLine(NULL, "　…ようやく、脳のコンピューターが冷静を取り戻してきた。",
+		   NULL, "...Процессор в мозгу наконец остыл, вернувшись к нормальной работе.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　冷静を失い、ややもするとパニックを起こしていた自分のお子様加減が恥ずかしい…￥
+	OutputLine(NULL, "　冷静を失い、ややもするとパニックを起こしていた自分のお子様加減が恥ずかしい…。",
+		   NULL, "Мне уже неловко — увлекаемый дурным ребячеством, я почти растерял хладнокровие...", Line_Normal);
+	ClearMessage();
+
+
+//「僕は圭一くんが雛見沢をとても好きだと思ってること、よく知ってるよ＠……仮にオヤシロさまの祟りが実在したとしても＠そんな圭一くんに祟りがあるなんてとても思えないね。￥
+	PlaySE(3, "s01/08/120800094", 256, 64);
+	OutputLine(NULL, "「僕は圭一くんが雛見沢をとても好きだと思ってること、よく知ってるよ。",
+		   NULL, "\"Кейти-кун, я понимаю, как тебе нравится Хинамидзава.", Line_WaitForInput);
+	PlaySE(3, "s01/08/120800095", 256, 64);
+	OutputLine(NULL, "……仮にオヤシロさまの祟りが実在したとしても。",
+		   NULL, " ......Если б даже и существовало Проклятие Оясиро-сама,", Line_WaitForInput);
+	PlaySE(3, "s01/08/120800096", 256, 64);
+	OutputLine(NULL, "そんな圭一くんに祟りがあるなんてとても思えないね。」",
+		   NULL, " тебя оно не затронет, ручаюсь.\"", Line_Normal);
+	ClearMessage();
+
+
+//　心が軽くなる＠
+	OutputLine(NULL, "　心が軽くなる。",
+		   NULL, "С души словно камень упал.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　今夜聞いた話は早く忘れるべきなんだろうな＠
+	OutputLine(NULL, "　今夜聞いた話は早く忘れるべきなんだろうな。",
+		   NULL, "Лучше поскорее забыть о том, что я сегодняшней ночью слышал.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　レナや魅音たちには明日、いつものように笑顔で向かい合おう＠
+	OutputLine(NULL, "　レナや魅音たちには明日、いつものように笑顔で向かい合おう。",
+		   NULL, "Завтра на наших — с Рэной, Мион и остальными — лицах, как всегда, заиграют улыбки.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+//　みんなだって今夜が無事過ぎ去り、俺を不安がらせることなく明日からを過ごして行くことを望んでいるはずだ￥
+	OutputLine(NULL, "　みんなだって今夜が無事過ぎ去り、俺を不安がらせることなく明日からを過ごして行くことを望んでいるはずだ。",
+		   NULL, "Единственное моё желание — жить дальше без тревог, стоит пройти сегодняшней ночи без происшествий.", Line_Normal);
+	ClearMessage();
+
+
+//　俺のそんな様子を見て取ったのか、岩に腰掛けて耳を傾けていた女の人が、伸びをしながら立ちあがった￥
+	OutputLine(NULL, "　俺のそんな様子を見て取ったのか、岩に腰掛けて耳を傾けていた女の人が、伸びをしながら立ちあがった。",
+		   NULL, "Словно увидев мою решимость, подруга Томитаке-сана, сидевшая на большом камне, слушая нас, потянулась и встала.", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	DrawBustshot( 3, "night/ta_si_de_a1", 160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 20, 200, TRUE );
+
+//「……さて、と＠そろそろ私は戻らないとね。＠
+	PlaySE(3, "s01/09/120900025", 256, 64);
+	OutputLine(NULL, "「……さて、と。",
+		   NULL, "\"......Что ж.", Line_WaitForInput);
+	PlaySE(3, "s01/09/120900026", 256, 64);
+	OutputLine(NULL, "そろそろ私は戻らないとね。」",
+		   NULL, " Мне пора.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「おっと…！　僕も少々長くお喋りし過ぎたかな！＠
+	PlaySE(3, "s01/08/120800097", 256, 64);
+	OutputLine(NULL, "「おっと…！　僕も少々長くお喋りし過ぎたかな！」",
+		   NULL, "\"Ох!.. Вот чёрт, заболтался!\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　あれだけいた大勢の人々の姿はすっかり減り、今では夕涼みを楽しむ何組かの家族連れが目に留まるだけだ＠
+	OutputLine(NULL, "　あれだけいた大勢の人々の姿はすっかり減り、今では夕涼みを楽しむ何組かの家族連れが目に留まるだけだ。",
+		   NULL, "Толпа истончилась; под вечерним небом оставалось лишь несколько семей.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+//　時計を見ると…たっぷり小一時間くらいは話しこんでしまったようだった￥
+	OutputLine(NULL, "　時計を見ると…たっぷり小一時間くらいは話しこんでしまったようだった。",
+		   NULL, "Часы говорят, что... мы почти целый час пробеседовали.", Line_Normal);
+	ClearMessage();
+
+
+//「圭一くんもお友達といっしょに来たんでしょ＠　みんなを探したら？＠
+	PlaySE(3, "s01/09/120900027", 256, 64);
+	OutputLine(NULL, "「圭一くんもお友達といっしょに来たんでしょ？",
+		   NULL, "\"Кейти-кун, ты же с друзьями пришёл, не так ли?", Line_WaitForInput);
+	PlaySE(3, "s01/09/120900028", 256, 64);	
+	OutputLine(NULL, "　みんなを探したら？」",
+		   NULL, " Они тебя ищут небось?\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「…そうだった…＠　みんな、俺のことを探してるかもしれない！＠
+	PlaySE(3, "s01/01/120100036", 256, 64);
+	OutputLine(NULL, "「…そうだった…！",
+		   NULL, "\"...И правда!..", Line_WaitForInput);
+	PlaySE(3, "s01/01/120100037", 256, 64);	
+	OutputLine(NULL, "　みんな、俺のことを探してるかもしれない！」",
+		   NULL, " Меня, наверно, все ищут!\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「はははは＠　女の子に探させるなんてなかなかの罪人だねぇ。＠
+	PlaySE(3, "s01/08/120800098", 256, 64);
+	OutputLine(NULL, "「はははは！",
+		   NULL, "\"Ха-ха-ха-ха!", Line_WaitForInput);
+	PlaySE(3, "s01/08/120800099", 256, 64);	
+	OutputLine(NULL, "　女の子に探させるなんてなかなかの罪人だねぇ。」",
+		   NULL, " Тебя разыскивают девочки? Во ты негодник!\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+	DisableWindow();
+	DrawBustshot( 3, "night/ta_si_wa_a1", 160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 20, 200, TRUE );
+
+//「じゃあね、おやすみなさい圭一くん＠…ジロウさんもね。また後ほど。＠
+	PlaySE(3, "s01/09/120900029", 256, 64);
+	OutputLine(NULL, "「じゃあね、おやすみなさい圭一くん。",
+		   NULL, "\"Что же, спокойной ночи, Кейти-кун.", Line_WaitForInput);
+	PlaySE(3, "s01/09/120900030", 256, 64);
+	OutputLine(NULL, "…ジロウさんもね。また後ほど。」",
+		   NULL, " И вам, Дзиро-сан. До встречи.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　…富竹さんも充分に罪人みたいだぞ。（そうか、ジロウさんて言うのか…￥
+	OutputLine(NULL, "　…富竹さんも充分に罪人みたいだぞ。（そうか、ジロウさんて言うのか…）",
+		   NULL, "...Да и вы, Томитаке-сан, ещё тот негодник. (Хм, она же назвала его «Дзиро-саном»...)", Line_Normal);
+	ClearMessage();
+
+
+	FadeBustshotWithFiltering( 3, "left", 1, FALSE, 0, 0, 300, TRUE );
+
+//　女の人はお尻の埃を払うと、まだ撤収で賑わう境内の方へ去っていった￥
+	OutputLine(NULL, "　女の人はお尻の埃を払うと、まだ撤収で賑わう境内の方へ去っていった。",
+		   NULL, "Женщина охлопала пыль с ягодиц и направилась к святилищу, где торговцы собирали палатки.", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	DrawSceneWithMask( "bg_246", "left", 0, 0, 1300 );
+	PlayBGM( 1, "msys02", 128, 0 );
+	StopBGM( 2 );
+	DrawBustshotWithFiltering( 3, "night/re_si_ko_a1", "right", 1, 160, 0, FALSE, 0, 0, 0, 0, 0, 20, 1300, TRUE );
+
+//「圭一く～ん！＠　ごめんなさぁ～い！！＠
+	PlaySE(3, "s01/02/120200001", 256, 64);
+	OutputLine(NULL, "「圭一く〜ん！！",
+		   NULL, "\"Кейти-кууун!!!", Line_WaitForInput);
+	PlaySE(3, "s01/02/120200002", 256, 64);
+	OutputLine(NULL, "　ごめんなさぁ〜い！！」",
+		   NULL, " Простиии!!!\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　入れ替わりでレナが駆けて来るのが見えた＠
+	OutputLine(NULL, "　入れ替わりでレナが駆けて来るのが見えた。",
+		   NULL, "Вместо неё прибежала Рэна.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　その後にはみんなの姿も見える＠
+	OutputLine(NULL, "　その後にはみんなの姿も見える。",
+		   NULL, "За ней виднелись остальные.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　噂すればなんとやらだな￥
+	OutputLine(NULL, "　噂すればなんとやらだな。",
+		   NULL, "Помяни чёрта, называется.", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	DrawBustshotWithFiltering( 1, "night/me_si_wi_a1", "left", 1, -160, 0, FALSE, 0, 0, 0, 0, 0, 0, 1300, TRUE );
+
+//「悪ぃ悪ぃ圭ちゃん…＠　すっかり話しこんじゃっててさ！＠
+	PlaySE(3, "s01/03/120300001", 256, 64);
+	OutputLine(NULL, "「悪ぃ悪ぃ圭ちゃん…！",
+		   NULL, "\"Звиняй-звиняй, Кей-тян!..", Line_WaitForInput);
+	PlaySE(3, "s01/03/120300002", 256, 64);
+	OutputLine(NULL, "　すっかり話しこんじゃっててさ！」",
+		   NULL, " Мы в разговоре забылись!\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　俺の方だってみんなのことをすっかり忘れて話しこんでいたからな、おあいこだ＠
+	OutputLine(NULL, "　俺の方だってみんなのことをすっかり忘れて話しこんでいたからな、おあいこだ。",
+		   NULL, "Со мной то же самое, так что мы квиты.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+	DisableWindow();
+	FadeBustshotWithFiltering( 3, "left", 1, FALSE, 0, 0, 300, TRUE );
+	DrawBustshotWithFiltering( 3, "night/sa_si_aw_a1", "right", 1, 160, 0, FALSE, 0, 0, 0, 0, 0, 20, 1300, TRUE );
+
+//「あぁら、富竹さんもご一緒でございましたの＠　丁度よかったですわぁ～！！＠
+	PlaySE(3, "s01/04/120400001", 256, 64);
+	OutputLine(NULL, "「あぁら、富竹さんもご一緒でございましたの！",
+		   NULL, "\"О, так вы пребывали здесь с Томитаке-саном!", Line_WaitForInput);
+	PlaySE(3, "s01/04/120400002", 256, 64);
+	OutputLine(NULL, "　丁度よかったですわぁ〜！！」",
+		   NULL, " Чудесно!!!\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+	DisableWindow();
+	DrawBustshot( 2, "night/ri_mk_de_a1", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 10, 1000, TRUE );
+
+//「今日の射的の結果発表がありますです。＠
+	PlaySE(3, "s01/05/120500001", 256, 64);
+	OutputLine(NULL, "「今日の射的の結果発表がありますです。」",
+		   NULL, "\"Подведём итоги сегодняшнего соревнования по стрельбе.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+	DisableWindow();
+	FadeAllBustshots( 400, TRUE );
+	DrawBustshotWithFiltering( 2, "night/tm_si_ko_a1", "m1", 1, 0, 0, FALSE, 0, 0, 0, 0, 0, 10, 300, TRUE );
+
+//「あ、…そ、そうだったねぇ…＠　結局、ビリは僕なのかな？￥
+	PlaySE(3, "s01/08/120800100", 256, 64);
+	OutputLine(NULL, "「あ、…そ、そうだったねぇ…！",
+		   NULL, "\"Ох, да... в-верно!..", Line_WaitForInput);
+	PlaySE(3, "s01/08/120800101", 256, 64);
+	OutputLine(NULL, "　結局、ビリは僕なのかな？」",
+		   NULL, " Так я сыграл хуже всех?\"", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	DrawScene( "black", 3000 );
+	DrawScene( "bg_015", 1000 );
+	DrawBustshotWithFiltering( 2, "ri_mk_de_a1", "m1", 1, 0, 0, FALSE, 0, 0, 0, 0, 0, 10, 300, TRUE );
+
+
+//　結局今日の勝負は、俺の劇的な勝利の後、梨花ちゃんが挑むが、何しろもう標的がほとんど残っていない＠
+	OutputLine(NULL, "　結局今日の勝負は、俺の劇的な勝利の後、梨花ちゃんが挑むが、何しろもう標的がほとんど残っていない。",
+		   NULL, "После моей впечатляющей победы в тире счастья попытала Рика-тян, однако большинство целей успели сбить.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　…あるにはあるが、どれも小さくて難度の高い的ばかり＠
+	OutputLine(NULL, "　…あるにはあるが、どれも小さくて難度の高い的ばかり。",
+		   NULL, "...Хоть мишени кое-какие остались, но только труднодоступные.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　しっかり狙って撃つが３発とも見事に外し、富竹さんと同着ビリとなったハズだった￥
+	OutputLine(NULL, "　しっかり狙って撃つが３発とも見事に外し、富竹さんと同着ビリとなったハズだった。",
+		   NULL, "Она тщательно целилась, но все три выстрела попали «в молоко», так что, по-хорошему, ей надо бы поделить последнее место с Томитаке-саном.", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	DrawBustshot( 2, "ri_mk_ko_a1", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 10, 200, TRUE );
+
+//　…が、店頭でみぃみぃと泣きだし、露店のオヤジを秒殺＠
+	OutputLine(NULL, "　…が、店頭でみぃみぃと泣きだし、露店のオヤジを秒殺。",
+		   NULL, "...Но, начав хныкать своё «мии-мии», она поразила владельца в самое сердце.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　残念賞としてガムを入手＠
+	OutputLine(NULL, "　残念賞としてガムを入手。",
+		   NULL, "И тот дал ей жевательных конфет в качестве утешительного приза.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　これによってビリを回避するという暴挙にて見事ビリを回避したのだった￥
+	OutputLine(NULL, "　これによってビリを回避するという暴挙にて見事ビリを回避したのだった。",
+		   NULL, "Так Рика-тян избежала звания главной неудачницы.", Line_Normal);
+	ClearMessage();
+
+
+	DisableWindow();
+	DrawSceneWithMask( "bg_247", "right", 0, 0, 1300 );
+
+//「……思うに梨花ちゃんて、…結構タヌキだろ。＠
+	PlaySE(3, "s01/01/120100038", 256, 64);
+	OutputLine(NULL, "「……思うに梨花ちゃんて、…結構タヌキだろ。」",
+		   NULL, "\"......По-моему, в Рике-тян добрая часть от тануки.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+	DisableWindow();
+	DrawBustshot( 3, "night/ri_mk_ni_a1", 160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 20, 400, TRUE );
+
+//「圭一の言ってる意味がわかりませんです。＠
+	PlaySE(3, "s01/05/120500002", 256, 64);
+	OutputLine(NULL, "「圭一の言ってる意味がわかりませんです。」",
+		   NULL, "\"Ума не приложу, о чём ты говоришь, Кейти.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+	DisableWindow();
+	DrawBustshotWithFiltering( 1, "night/me_si_aw_a1", "left", 1, -160, 0, FALSE, 0, 0, 0, 0, 0, 0, 300, TRUE );
+
+//「なワケで！　ビリは富竹さんに決まり～！！！＠
+	PlaySE(3, "s01/03/120300003", 256, 64);
+	OutputLine(NULL, "「なワケで！　ビリは富竹さんに決まり〜！！！」",
+		   NULL, "\"И потому главным неудачником объявляется Томитаке-сан!!!\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　みんなできゃっきゃと騒ぎながら拍手。富竹さんはよくわからず照れて苦笑している￥
+	OutputLine(NULL, "　みんなできゃっきゃと騒ぎながら拍手。富竹さんはよくわからず照れて苦笑している。",
+		   NULL, "С радостными воплями все громко захлопали. Томитаке-сан осторожно улыбнулся, не понимая, что происходит.", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	DrawSceneWithMask( "bg_247", "m1", 0, 0, 300 );
+	DrawBustshotWithFiltering( 3, "night/me_si_to_a2", "right", 1, 160, 0, FALSE, 0, 0, 0, 0, 0, 20, 300, TRUE );
+
+//「じゃ～富竹さん、覚悟はいいかなぁ？　罰ゲーム！！＠
+	PlaySE(3, "s01/03/120300004", 256, 64);
+	OutputLine(NULL, "「じゃ〜富竹さん、覚悟はいいかなぁ？　罰ゲーム！！」",
+		   NULL, "\"Ну чтооо, Томитаке-сан, вы готовы к... штрафной игре?!!\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+	DisableWindow();
+	DrawBustshot( 1, "night/tm_si_ko_a1", -160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 0, 400, TRUE );
+
+//「え？　あ、……忘れてた！！＠
+	PlaySE(3, "s01/08/120800102", 256, 64);
+	OutputLine(NULL, "「え？　あ、……忘れてた！！」",
+		   NULL, "\"А? Опа...... я уж и забыл!!!\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　甘いぜ富竹さん。これがあるからうちの部は負けられないんだよ…￥
+	OutputLine(NULL, "　甘いぜ富竹さん。これがあるからうちの部は負けられないんだよ…。",
+		   NULL, "Как неумно, Томитаке-сан. Именно из-за штрафных игр мы не можем проигрывать...", Line_Normal);
+	ClearMessage();
+
+
+//　魅音がポケットからマジックを引きぬく＠……あぁ、アレだな￥
+	OutputLine(NULL, "　魅音がポケットからマジックを引きぬく。",
+		   NULL, "Мион вынула из кармана маркер.", Line_WaitForInput);
+	OutputLine(NULL, "……あぁ、アレだな。",
+		   NULL, " ......Ах-ха, то самое.", Line_Normal);
+	ClearMessage();
+
+
+//「魅音、武士の情けだ＠せめて水性にしてやれ＠油性は辛い。＠
+	PlaySE(3, "s01/01/120100039", 256, 64);
+	OutputLine(NULL, "「魅音、武士の情けだ。",
+		   NULL, "\"Мион, прояви толику сострадания.", Line_WaitForInput);
+	PlaySE(3, "s01/01/120100040", 256, 64);
+	OutputLine(NULL, "せめて水性にしてやれ。",
+		   NULL, " Хотя бы смываемый маркер возьми.", Line_WaitForInput);
+	PlaySE(3, "s01/01/120100041", 256, 64);
+	OutputLine(NULL, "油性は辛い。」",
+		   NULL, " Вечный слишком тяжело отскрести.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+	DisableWindow();
+	DrawBustshot( 3, "night/me_si_wi_a1", 160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 20, 200, TRUE );
+
+//「あはは、油性じゃないとだめだよ＠お洗濯したら落ちちゃうじゃない。＠
+	PlaySE(3, "s01/03/120300005", 256, 64);
+	OutputLine(NULL, "「あはは、油性じゃないとだめだよ。",
+		   NULL, "\"Аха-ха, нет, нам нужны несмываемые чернила.", Line_WaitForInput);
+	PlaySE(3, "s01/03/120300006", 256, 64);
+	OutputLine(NULL, "お洗濯したら落ちちゃうじゃない。」",
+		   NULL, " Так они не сойдут и со стиркой.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「わわ！　なんだいなんだい？＠　お手柔らかに頼むよ？！￥
+	PlaySE(3, "s01/08/120800103", 256, 64);
+	OutputLine(NULL, "「わわ！　なんだいなんだい？！",
+		   NULL, "\"Э, э! Что, что вы творите?!", Line_WaitForInput);
+	PlaySE(3, "s01/08/120800104", 256, 64);
+	OutputLine(NULL, "　お手柔らかに頼むよ？！」",
+		   NULL, " Полегче, прошу вас!!!\"", Line_Normal);
+	ClearMessage();
+
+
+//　みんなで富竹さんを羽交い締めにし、そこに魅音がマジックを片手に近付いていく＠
+	OutputLine(NULL, "　みんなで富竹さんを羽交い締めにし、そこに魅音がマジックを片手に近付いていく。",
+		   NULL, "Мы свели Томитаке-сану руки за спину, и Мион подошла к нему с маркером.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「きゅきゅきゅ、っと！＠
+	PlaySE(3, "s01/03/120300007", 256, 64);
+	OutputLine(NULL, "「きゅきゅきゅ、っと！」",
+		   NULL, "\"Скрип-скрип-скрип, вот и всё!\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+//　だが魅音が書いたのは顔面でなく、富竹さんの着ているシャツにだった￥
+	OutputLine(NULL, "　だが魅音が書いたのは顔面でなく、富竹さんの着ているシャツにだった。",
+		   NULL, "Мион водила маркером не по лицу Томитаке-сана, но по его майке.", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	DrawBustshot( 5, "black", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 25, 1000, TRUE );
+	FadeBustshot( 3, FALSE, 0, 0, 0, 0, 0, TRUE );
+
+
+
+//"今年こそメジャーデビューだね！　魅音"
+	ClearMessage();
+	OutputLine(NULL, "“今年こそメジャーデビューだね！　魅音”",
+		   NULL, "\"Выйди на большую арену в этом году! — Мион.\"", Line_Normal);
+	ClearMessage();
+
+
+//　次にマジックを受け取ったレナは"今度写真も見せて下さいね☆　レナ"＠
+	OutputLine(NULL, "　次にマジックを受け取ったレナは”今度写真も見せて下さいね☆　レナ”。",
+		   NULL, "Следующей маркер получила Рэна, написав: «Пожалуйста, покажите мне свои снимки в следующий раз! ☆ — Рэна».", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+//　ちょっぴり微笑ましくなり、苦笑いしてしまった￥
+	OutputLine(NULL, "　ちょっぴり微笑ましくなり、苦笑いしてしまった。",
+		   NULL, "Трогательно. С лица не сходит, продолжая расти, улыбка.", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	FadeBustshotWithFiltering( 5, "down", 0, FALSE, 0, 0, 1300, TRUE );
+	DrawBustshotWithFiltering( 3, "night/sa_si_aw_a1", "right", 1, 160, 0, FALSE, 0, 0, 0, 0, 0, 20, 300, TRUE );
+
+//「はは、これじゃあ罰ゲームってより、寄せ書きじゃないか。＠
+	PlaySE(3, "s01/08/120800105", 256, 64);
+	OutputLine(NULL, "「はは、これじゃあ罰ゲームってより、寄せ書きじゃないか。」",
+		   NULL, "\"Ха-ха, да это же скорее прощальные пожелания, чем штрафная игра.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「ほほほ！　私は甘くはありませんのよ＠　ちゃんと罰ゲームで行きますわぁ！￥
+	PlaySE(3, "s01/04/120400003", 256, 64);
+	OutputLine(NULL, "「ほほほ！　私は甘くはありませんのよ？",
+		   NULL, "\"Хо-хо-хо! Я вам не такая мягкосердечная!", Line_WaitForInput);
+	PlaySE(3, "s01/04/120400004", 256, 64);
+	OutputLine(NULL, "　ちゃんと罰ゲームで行きますわぁ！」",
+		   NULL, " Надлежит свято соблюсти устои наказаний!\"", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	DrawBustshot( 5, "black", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 25, 1000, TRUE );
+	FadeBustshot( 3, FALSE, 0, 0, 0, 0, 0, TRUE );
+	DrawBustshot( 3, "night/sa_si_de_a1", 160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 20, 0, TRUE );
+
+//"やーいビリ！　沙都子"@
+	OutputLine(NULL, "“やーいビリ！　沙都子”",
+		   NULL, "\"Эй, Неудачник! — Сатоко.\"", Line_WaitForInput);
+
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+//"次回はがんばりましょう。　梨花"
+	OutputLine(NULL, "“次回はがんばりましょう。　梨花”",
+		   NULL, "\"Старайся в следующий раз. — Рика».\"", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	FadeBustshotWithFiltering( 5, "down", 0, FALSE, 0, 0, 1300, TRUE );
+
+//「圭一さんもどうぞです。￥
+	PlaySE(3, "s01/04/120400005", 256, 64);
+	OutputLine(NULL, "「圭一さんもどうぞです。」",
+		   NULL, "\"Твой черёд, Кейти-сан.\"", Line_Normal);
+	ClearMessage();
+
+
+	FadeAllBustshots( 400, TRUE );
+
+//　なんて書いていいか戸惑ったが、この罰ゲームを考えれば……これが一番妥当だろう￥
+	OutputLine(NULL, "　なんて書いていいか戸惑ったが、この罰ゲームを考えれば……これが一番妥当だろう。",
+		   NULL, "Не знаю даже, что написать, но...... да, для нынешнего штрафа — самое то.", Line_Normal);
+	ClearMessage();
+
+
+//"また遊びに来てください。　圭一"@
+	OutputLine(NULL, "“また遊びに来てください。　圭一”",
+		   NULL, "\"Возвращайтесь, поиграете с нами. — Кейти.\"", Line_WaitForInput);
+
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+//　富竹さんはずっと黙っていた＠
+	OutputLine(NULL, "　富竹さんはずっと黙っていた。",
+		   NULL, "Томитаке-сан долго не произносил ни слова.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　始めは面食らっている様子だったが、最後の方は違う表情を浮かべていた￥
+	OutputLine(NULL, "　始めは面食らっている様子だったが、最後の方は違う表情を浮かべていた。",
+		   NULL, "Сначала он выглядел озадаченным, но постепенно его выражение переменилось.", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	DrawBustshotWithFiltering( 3, "night/tm_si_de_a1", "right", 1, 160, 0, FALSE, 0, 0, 0, 0, 0, 20, 300, TRUE );
+
+//「これを来たまま帰京するのも…罰ゲームの内に入るのかな？＠
+	PlaySE(3, "s01/08/120800106", 256, 64);
+	OutputLine(NULL, "「これを来たまま帰京するのも…罰ゲームの内に入るのかな？」",
+		   NULL, "\"Мне придётся носить её до самого Токио... как часть наказания?\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+	DisableWindow();
+	DrawBustshotWithFiltering( 1, "night/me_si_wa_a2", "left", 1, -160, 0, FALSE, 0, 0, 0, 0, 0, 0, 300, TRUE );
+
+//「もっちろん！　ちゃんと来たまま家に帰ってね～！＠
+	PlaySE(3, "s01/03/120300008", 256, 64);
+	OutputLine(NULL, "「もっちろん！　ちゃんと来たまま家に帰ってね〜！」",
+		   NULL, "\"Всё тааак! Поедешь домой в таком виде!\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+	DisableWindow();
+	FadeBustshotWithFiltering( 1, "right", 1, FALSE, 0, 0, 300, TRUE );
+	DrawBustshotWithFiltering( 1, "night/re_si_wa_b1", "left", 1, -160, 0, FALSE, 0, 0, 0, 0, 0, 0, 300, TRUE );
+
+//「あははは、次に来るときにも着てきてくれるといいな＠…いいな！＠
+	PlaySE(3, "s01/02/120200003", 256, 64);
+	OutputLine(NULL, "「あははは、次に来るときにも着てきてくれるといいな。",
+		   NULL, "\"А-ха-ха-ха, вы и в следующий раз приедете в ней, надеюсь?", Line_WaitForInput);
+	PlaySE(3, "s01/02/120200004", 256, 64);
+	OutputLine(NULL, "…いいな！」",
+		   NULL, " ...надеюсь!\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+//　感極まった様子だった＠
+	OutputLine(NULL, "　感極まった様子だった。",
+		   NULL, "Томитаке-сан растроган.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　恥ずかしさとか、他にもいろんな感情のごちゃ混ぜになった、真っ赤な顔だった￥
+	OutputLine(NULL, "　恥ずかしさとか、他にもいろんな感情のごちゃ混ぜになった、真っ赤な顔だった。",
+		   NULL, "Его лицо покраснело от неловкости вперемешку с другими эмоциями.", Line_Normal);
+	ClearMessage();
+	DisableWindow();
+	FadeBustshotWithFiltering( 1, "right", 1, FALSE, 0, 0, 300, TRUE );
+	DrawBustshot( 3, "night/tm_si_wa_a1", 160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 20, 200, TRUE );
+
+//「わかった。次に来るときもこれを着てくるよ＠約束する！＠
+	PlaySE(3, "s01/08/120800107", 256, 64);
+	OutputLine(NULL, "「わかった。次に来るときもこれを着てくるよ。",
+		   NULL, "\"Принял. В следующий раз обязательно приеду в ней.", Line_WaitForInput);
+	PlaySE(3, "s01/08/120800108", 256, 64);
+	OutputLine(NULL, "約束する！」",
+		   NULL, " Даю слово!\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　みんなの歓声と拍手＠
+	OutputLine(NULL, "　みんなの歓声と拍手。",
+		   NULL, "Все радостно захлопали, загалдели.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　今夜でお別れする仲間への最高のプレゼントだった￥
+	OutputLine(NULL, "　今夜でお別れする仲間への最高のプレゼントだった。",
+		   NULL, "Для отбывающего нынче друга то был самый лучший прощальный подарок.", Line_Normal);
+	ClearMessage();
+
+
+//　境内の方に富竹さんの連れの女の人がいるのが見えた＠
+	OutputLine(NULL, "　境内の方に富竹さんの連れの女の人がいるのが見えた。",
+		   NULL, "Я заметил стоящую перед храмом подругу Томитаке-сана.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　富竹さんもそれに気付いているようで、もう別れの時が来たことを悟る￥
+	OutputLine(NULL, "　富竹さんもそれに気付いているようで、もう別れの時が来たことを悟る。",
+		   NULL, "Томитаке-сан, тоже увидавший её, понял, что пришло время прощаться.", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	PlayBGM( 1, "msys13", 128, 0 );
+	DrawBustshotWithFiltering( 1, "night/me_si_aw_a1", "left", 1, -160, 0, FALSE, 0, 0, 0, 0, 0, 0, 300, TRUE );
+
+//「お連れ様がお待ちみたいじゃ～ん＠　そろそろお時間かなぁ＠　ん～？＠
+	PlaySE(3, "s01/03/120300009", 256, 64);
+	OutputLine(NULL, "「お連れ様がお待ちみたいじゃ〜ん？",
+		   NULL, "\"Разве не ждёт вас подруга?", Line_WaitForInput);
+	PlaySE(3, "s01/03/120300010", 256, 64);
+	OutputLine(NULL, "　そろそろお時間かなぁ？",
+		   NULL, " Не пора ль вам идти?", Line_WaitForInput);
+	PlaySE(3, "s01/03/120300011", 256, 64);
+	OutputLine(NULL, "　ん〜？」",
+		   NULL, " Ммм?\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+	DisableWindow();
+
+	DrawBustshot( 3, "night/tm_si_ko_a1", 160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 20, 200, TRUE );
+
+//「ん、!w200ん～、そうみたいだねぇ…はは。￥
+	PlaySE(3, "s01/08/120800109", 256, 64);
+	OutputLine(NULL, "「ん、",
+		   NULL, "\"А,", Line_ContinueAfterTyping);
+
+	SetValidityOfInput( FALSE );
+	Wait( 200 );
+	SetValidityOfInput( TRUE );
+
+	OutputLine(NULL, "ん〜、そうみたいだねぇ…はは。」",
+		   NULL, " хм, видать, да... ха ха.\"", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	FadeBustshotWithFiltering( 3, "left", 1, FALSE, 0, 0, 300, TRUE );
+
+//　富竹さんは女の人の元へ歩いていき、待たせたことを詫びているようだった￥
+	OutputLine(NULL, "　富竹さんは女の人の元へ歩いていき、待たせたことを詫びているようだった。",
+		   NULL, "Томитаке-сан пошёл к ней, извиняясь за ожидание.", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	FadeBustshot( 1, FALSE, 0, 0, 0, 0, 200, TRUE );
+
+//　俺たちはめいめいの言葉を富竹さんに投げかける＠
+	OutputLine(NULL, "　俺たちはめいめいの言葉を富竹さんに投げかける。",
+		   NULL, "Мы все по-своему с ним прощались.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+//　その度に富竹さんは振り返り、手を振ってくれた＠
+	OutputLine(NULL, "　その度に富竹さんは振り返り、手を振ってくれた。",
+		   NULL, "Всякий раз Томитаке-сан оборачивался и махал рукой.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+//　……やがてその後姿は夜の闇に溶けこみ見えなくなった￥
+	OutputLine(NULL, "　……やがてその後姿は夜の闇に溶けこみ見えなくなった。",
+		   NULL, "......И вот его силуэт растворился в темноте ночи.", Line_Normal);
+	ClearMessage();
+
+
+//　わりとあっさりとした別れ際だったな＠
+	OutputLine(NULL, "　わりとあっさりとした別れ際だったな。",
+		   NULL, "Относительно лёгкое и простое прощание.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　みんなにとってはこれが初めての別れじゃない＠
+	OutputLine(NULL, "　みんなにとってはこれが初めての別れじゃない。",
+		   NULL, "Для остальных оно не впервые.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　もう何度もしてきたことなんだ￥
+	OutputLine(NULL, "　もう何度もしてきたことなんだ。",
+		   NULL, "Они уже много раз через него проходили.", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	DrawBustshotWithFiltering( 1, "night/re_si_de_a1", "left", 1, -160, 0, FALSE, 0, 0, 0, 0, 0, 0, 300, TRUE );
+
+//「…行っちゃったね。＠
+	PlaySE(3, "s01/02/120200005", 256, 64);
+	OutputLine(NULL, "「…行っちゃったね。」",
+		   NULL, "\"...Ушёл.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+	DisableWindow();
+	DrawBustshotWithFiltering( 3, "night/me_si_wi_a2", "right", 1, 160, 0, FALSE, 0, 0, 0, 0, 0, 20, 300, TRUE );
+
+//「じゃ、うちらも引き上げるかね！＠
+	PlaySE(3, "s01/03/120300012", 256, 64);
+	OutputLine(NULL, "「じゃ、うちらも引き上げるかね！」",
+		   NULL, "\"Что ж, пора и нам валить!\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　梨花ちゃんは実行委員さん同士で集まりがあるらしいので残るらしい。沙都子もそのオマケだ＠
+	OutputLine(NULL, "　梨花ちゃんは実行委員さん同士で集まりがあるらしいので残るらしい。沙都子もそのオマケだ。",
+		   NULL, "Рика-тян осталась в храме — как сказала, для собрания с исполнительным комитетом. Сатоко, понятное дело, туда же.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　俺はいつもの下校チームで帰宅する￥
+	OutputLine(NULL, "　俺はいつもの下校チームで帰宅する。",
+		   NULL, "Я направился домой вместе со своей привычной командой.", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	DrawSceneWithMask( "black", "right", 0, 0, 1300 );
+	FadeOutBGM( 2, 1000, TRUE );
+	DrawSceneWithMask( "bg_254", "right", 0, 0, 1300 );
+
+//　帰り道で、今日の戦果についていろいろと盛り上がった＠
+	OutputLine(NULL, "　帰り道で、今日の戦果についていろいろと盛り上がった。",
+		   NULL, "Весь путь мы провели в болтовне о сегодняшних битвах.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　あそこはああすればよかったとか、これにはやられた、とか￥
+	OutputLine(NULL, "　あそこはああすればよかったとか、これにはやられた、とか。",
+		   NULL, "Нужно было сделать то, ах, как мы облажались тогда, всё такое.", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	DrawSceneWithMask( "bg_249", "right", 0, 0, 1300 );
+
+//　魅音と別れ、レナと２人＠
+	OutputLine(NULL, "　魅音と別れ、レナと２人。",
+		   NULL, "После расставания с Мион мы с Рэной остались наедине.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+//　そして俺の自宅につきレナとも別れる￥
+	OutputLine(NULL, "　そして俺の自宅につきレナとも別れる。",
+		   NULL, "Дойдя до своего дома, простился и с Рэной.", Line_Normal);
+	ClearMessage();
+
+
+//「こんな時間だけど、…１人で大丈夫か？＠
+	PlaySE(3, "s01/01/120100042", 256, 64);
+	OutputLine(NULL, "「こんな時間だけど、…１人で大丈夫か？」",
+		   NULL, "\"Ты точно дойдёшь одна в такой поздний час?\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+	DisableWindow();
+	DrawBustshotWithFiltering( 2, "night/re_si_wa_a1", "right", 1, 0, 0, FALSE, 0, 0, 0, 0, 0, 10, 300, TRUE );
+
+//「うん、全然平気だよ＠　近いし。走って行くし。＠
+	PlaySE(3, "s01/02/120200006", 256, 64);
+	OutputLine(NULL, "「うん、全然平気だよ！",
+		   NULL, "\"Угу, очень даже!", Line_WaitForInput);
+	PlaySE(3, "s01/02/120200007", 256, 64);
+	OutputLine(NULL, "　近いし。走って行くし。」",
+		   NULL, " Мой домик недалеко, и я пробегу всю дорогу.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「…ヘンなヤツがいたら大声出せよ。＠
+	PlaySE(3, "s01/01/120100043", 256, 64);
+	OutputLine(NULL, "「…ヘンなヤツがいたら大声出せよ。」",
+		   NULL, "\"...Увидишь тёмную личность — кричи громко!\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+	DisableWindow();
+	DrawBustshot( 2, "night/re_si_ha_a1", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 10, 200, TRUE );
+
+//「出したら…助けに来てくれるのかな？……かな？＠
+	PlaySE(3, "s01/02/120200008", 256, 64);
+	OutputLine(NULL, "「出したら…助けに来てくれるのかな？……かな？」",
+		   NULL, "\"А если я закричу... ты придёшь? ......придёшь?\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「聞こえたらな。＠
+	PlaySE(3, "s01/01/120100044", 256, 64);
+	OutputLine(NULL, "「聞こえたらな。」",
+		   NULL, "\"Да, коль заслышу.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「はぅ…！!w300　…………ぅ、うん＠　聞こえるくらい、大きな声を出すね！￥
+	PlaySE(3, "s01/02/120200009", 256, 64);
+	OutputLine(NULL, "「はぅ…！",
+		   NULL, "\"Хау!..", Line_ContinueAfterTyping);
+
+	SetValidityOfInput( FALSE );
+	Wait( 300 );
+	SetValidityOfInput( TRUE );
+
+	OutputLine(NULL, "　…………ぅ、うん！",
+		   NULL, " ..........Х-Хорошо!", Line_WaitForInput);
+	PlaySE(3, "s01/02/120200010", 256, 64);
+	OutputLine(NULL, "　聞こえるくらい、大きな声を出すね！」",
+		   NULL, " Закричу так, что ты услышишь!\"", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	FadeBustshotWithFiltering( 2, "right", 1, FALSE, 0, 0, 1300, TRUE );
+
+
+//　レナはこれ以上ないくらい、ぶんぶんと腕を振りまわしながら元気よく去って行った＠
+	OutputLine(NULL, "　レナはこれ以上ないくらい、ぶんぶんと腕を振りまわしながら元気よく去って行った。",
+		   NULL, "Рэна весело ускакала, что-то напевая под нос и размахивая руками.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　大丈夫。あの状態のレナなら大の大人でもかなうまい￥
+	OutputLine(NULL, "　大丈夫。あの状態のレナなら大の大人でもかなうまい。",
+		   NULL, "Ничего с ней не случится. В таком состоянии самый сильный взрослый не станет для неё помехой.", Line_Normal);
+	ClearMessage();
+
+
+//　レナの賑やかな気配が消え、ようやく静寂が戻る＠
+	OutputLine(NULL, "　レナの賑やかな気配が消え、ようやく静寂が戻る。",
+		   NULL, "После ухода жизнерадостной Рэны вернулась тишина.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　誰もが微塵ほども口にしない祟りの話＠……知れば知るほどに不安になる、今夜￥
+	OutputLine(NULL, "　誰もが微塵ほども口にしない祟りの話。",
+		   NULL, "Я припомнил услышанное о проклятии, про которое ни одна из подруг даже слова не пожелала бросить.", Line_WaitForInput);
+	OutputLine(NULL, "……知れば知るほどに不安になる、今夜。",
+		   NULL, " ......Чем больше я знаю, тем беспокойнее, учитывая сегодняшнюю дату, становлюсь.", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	DrawSceneWithMask( "bg_118", "right", 0, 0, 1300 );
+
+//　みんなも…表情に出さないだけで、きっと不安に思っているに違いない…＠
+	OutputLine(NULL, "　みんなも…表情に出さないだけで、きっと不安に思っているに違いない…。",
+		   NULL, "Никто ни в чём не проявил беспокойства, но оно есть...", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　だが、何も起こらなければそれはただの杞憂だ＠
+	OutputLine(NULL, "　だが、何も起こらなければそれはただの杞憂だ。",
+		   NULL, "Впрочем, если ничего не случится сегодня, смысла в тревоге нет.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　何も起こらないさ。不吉なことなど、何も￥
+	OutputLine(NULL, "　何も起こらないさ。不吉なことなど、何も。",
+		   NULL, "Ничего не случится. Ничего зловещего, ничего ужасного. Ничего.", Line_Normal);
+	ClearMessage();
+
+
+//「どうしたの圭一、そんなところで＠…中に入りなさい。風邪を引くわよ？＠
+	PlaySE(3, "s01/00/122700001", 256, 64);
+	OutputLine(NULL, "「どうしたの圭一、そんなところで。",
+		   NULL, "\"Что ты там стоишь, Кейти?", Line_WaitForInput);
+	PlaySE(3, "s01/00/122700002", 256, 64);	
+	OutputLine(NULL, "…中に入りなさい。風邪を引くわよ？」",
+		   NULL, " ...Давай заходи, не то хочешь простудиться?\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　お袋だった＠
+	OutputLine(NULL, "　お袋だった。",
+		   NULL, "То моя мама.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「母さんは行った＠　綿流しのお祭り。＠
+	PlaySE(3, "s01/01/120100045", 256, 64);
+	OutputLine(NULL, "「母さんは行った？",
+		   NULL, "\"Мам,", Line_WaitForInput);
+	PlaySE(3, "s01/01/120100046", 256, 64);
+	OutputLine(NULL, "　綿流しのお祭り。」",
+		   NULL, " ты ходила на фестиваль Ватанагаси?\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「結局、お父さんが起きなかったからね＠行きそびれちゃったわ＠残念。＠
+	PlaySE(3, "s01/00/122700003", 256, 64);
+	OutputLine(NULL, "「結局、お父さんが起きなかったからね。",
+		   NULL, "\"Не смогла", Line_WaitForInput);
+	PlaySE(3, "s01/00/122700004", 256, 64);
+	OutputLine(NULL, "行きそびれちゃったわ。",
+		   NULL, " — твой отец так и не проснулся.", Line_WaitForInput);
+	PlaySE(3, "s01/00/122700005", 256, 64);
+	OutputLine(NULL, "残念。」",
+		   NULL, " К сожалению.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　お袋はさも残念そうに舌を出すのだった￥
+	OutputLine(NULL, "　お袋はさも残念そうに舌を出すのだった。",
+		   NULL, "Мама, очевидно расстроенная, показала язык.", Line_Normal);
+	ClearMessage();
+
+
+//if %kaisou_mode = 1 goto *kaisou_mode
+//mov ?Tip[9],TIPS_NEW : mov ?GET_TIPS_BUF[%NEW_TIPS],TIPS_009 :mov %TIPS_009,2:inc %NEW_TIPS
+//mov ?Tip[10],TIPS_NEW : mov ?GET_TIPS_BUF[%NEW_TIPS],TIPS_010 :mov %TIPS_010,2:inc %NEW_TIPS
+//mov ?Tip[11],TIPS_NEW : mov ?GET_TIPS_BUF[%NEW_TIPS],TIPS_011 :mov %TIPS_011,2:inc %NEW_TIPS
+//mov ?Tip[12],TIPS_NEW : mov ?GET_TIPS_BUF[%NEW_TIPS],TIPS_012 :mov %TIPS_012,2:inc %NEW_TIPS
+
+
+
+//mov %CAMP_MUGIC,0
+//gosub *Sub_Camp_Mode
+
+	DisableWindow();
+	SetValidityOfInput( FALSE );
+	Wait( 3000 );
+	DrawBustshotWithFiltering( 6, "cinema", "x", 1, 0, 0, FALSE, 0, 0, 0, 0, 0, 25, 3000, TRUE );
+	DrawBustshot( 7, "Title02", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 26, 3000, TRUE );
+	Wait( 2000 );
+//	DrawBustshot( 5, "black", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 25, 3000, TRUE );
+	Wait( 1000 );
+//	FadeBustshotWithFiltering( 7, "x", 1, FALSE, 0, 0, 1000, TRUE );
+	DrawScene( "black", 3000 );
+
+	SetValidityOfInput( FALSE );
+	Wait( 1000 );
+	SetValidityOfInput( TRUE );
+
+	DrawSceneWithMask( "onik009_02", "mask_1900", 7, 0, 300 );
+	SetValidityOfInput( FALSE );
+	Wait( 5000 );
+	SetValidityOfInput( TRUE );
+	DrawSceneWithMask( "black", "mask_1900", 7, 0, 300 );
+
+
+
+}

@@ -1,0 +1,115 @@
+﻿void main()
+{
+
+
+//*Sub_Tips_012
+//■無線記録
+
+//gosub *tip_s
+	EnableJumpingOfReturnIcon();
+	FadeOutBGM( 0, 1000, FALSE );
+	FadeOutBGM( 1, 1000, FALSE );
+	FadeOutBGM( 2, 1000, TRUE );
+
+	DisableWindow();
+	DrawScene( "black", 1000 );
+	DrawScene( "bg_252", 1000 );
+	PlayBGM( 1, "msys13", 128, 0 );
+
+//「興宮ＳＴより、３号どうぞ＠３号どうぞ。＠
+	PlaySE(3, "s20/00/KeijiC44001", 128, 64);
+	OutputLine(NULL, "「興宮ＳＴより、３号どうぞ。",
+		   NULL, "\"Это полицейский участок Окиномия, Третий, вы на связи? Приём.", Line_WaitForInput);
+	OutputLine(NULL, "３号どうぞ。」",
+		   NULL, " Третий, приём.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「３号です＠感度良好ー。￥
+	PlaySE(3, "s20/11/440700001", 128, 64);		
+	OutputLine(NULL, "「３号です。",
+		   NULL, "\"На связи Третий.", Line_WaitForInput);
+	OutputLine(NULL, "感度良好ー。」",
+		   NULL, " Слышим вас хорошо.\"", Line_Normal);
+	ClearMessage();
+
+//「応援が向かいました＠別命あるまで維持で願いします＠どうぞー。＠
+	PlaySE(3, "s20/00/KeijiC44002", 128, 64);	
+	OutputLine(NULL, "「応援が向かいました。",
+		   NULL, "\"Подмога в пути.", Line_WaitForInput);
+	OutputLine(NULL, "別命あるまで維持で願いします。",
+		   NULL, " Оставайтесь на месте до дальнейших приказов.", Line_WaitForInput);
+	PlaySE(3, "s20/00/KeijiC44003", 128, 64);
+	OutputLine(NULL, "どうぞー。」",
+		   NULL, " Отбой.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「はいー、３号了解。￥
+	PlaySE(3, "s20/11/440700002", 128, 64);
+	OutputLine(NULL, "「はいー、３号了解。」",
+		   NULL, "\"Это Третий, вас понял.\"", Line_Normal);
+	ClearMessage();
+
+//「それから回転灯は付けないでお願いします＠静か静かで願います。＠
+	PlaySE(3, "s20/00/KeijiC44004", 128, 64);	
+	OutputLine(NULL, "「それから回転灯は付けないでお願いします。",
+		   NULL, "\"И не включайте проблесковые маячки.", Line_WaitForInput);
+	OutputLine(NULL, "静か静かで願います。」",
+		   NULL, " Тише. Пожалуйста, тише.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「ＳＴー、今、先生が到着しました＠運びたいそうですがどうしますか＠どうぞ。￥
+	PlaySE(3, "s20/11/440700003", 128, 64);	
+	OutputLine(NULL, "「ＳＴー、今、先生が到着しました。",
+		   NULL, "\"База, прибыл врач, желает переместить его для обследования.", Line_WaitForInput);
+	OutputLine(NULL, "運びたいそうですがどうしますか。",
+		   NULL, " Что делать?", Line_WaitForInput);
+	PlaySE(3, "s20/11/440700004", 128, 64);
+	OutputLine(NULL, "どうぞ。」",
+		   NULL, " Приём.\"", Line_Normal);
+	ClearMessage();
+
+//「了解しました＠先生に任せてください。＠
+	PlaySE(3, "s20/00/KeijiC44005", 128, 64);
+	OutputLine(NULL, "「了解しました。",
+		   NULL, "\"Подтверждаем.", Line_WaitForInput);
+	OutputLine(NULL, "先生に任せてください。」",
+		   NULL, " Следуйте указаниям врача.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「はいー＠了解です＠......あ、応援も到着しました＠先に写真取らせた方がいいんじゃないですか＠...ガイ者、もームダだと思いますしー。￥
+	PlaySE(3, "s20/11/440700005", 128, 64);	
+	OutputLine(NULL, "「はいー。",
+		   NULL, "\"Принял.", Line_WaitForInput);
+	OutputLine(NULL, "了解です。",
+		   NULL, " Так точно.", Line_WaitForInput);
+	PlaySE(3, "s20/11/440700006", 128, 64);
+	OutputLine(NULL, "……あ、応援も到着しました。",
+		   NULL, " ...А вот и подмога.", Line_WaitForInput);
+	PlaySE(3, "s20/11/440700007", 128, 64);	
+	OutputLine(NULL, "先に写真取らせた方がいいんじゃないですか？",
+		   NULL, " Может, сначала сделать снимки?", Line_WaitForInput);
+	PlaySE(3, "s20/11/440700008", 128, 64);
+	OutputLine(NULL, "…ガイ者、もームダだと思いますしー。」",
+		   NULL, " ...Всё равно жертве уже ничем, думаю, не помочь.\"", Line_Normal);
+	ClearMessage();
+
+	SetValidityOfInput( FALSE );
+	Wait( 1000 );
+	SetValidityOfInput( TRUE );
+	DisableWindow();
+	DrawScene( "black", 1000 );
+	FadeOutBGM( 0, 1000, FALSE );
+	FadeOutBGM( 1, 1000, FALSE );
+	FadeOutBGM( 2, 1000, TRUE );
+//gosub *tip_e
+//return
+
+}

@@ -1,0 +1,424 @@
+﻿void main()
+{
+
+
+//■犯人は４人以上？
+
+//*Sub_Tips_013
+//gosub *tip_s
+	EnableJumpingOfReturnIcon();
+	FadeOutBGM( 0, 1000, TRUE );
+	FadeOutBGM( 1, 1000, TRUE );
+	FadeOutBGM( 2, 1000, TRUE );
+
+	DisableWindow();
+	DrawScene( "black", 1000 );
+	DrawScene( "bg_111", 400 );
+	PlayBGM( 2, "lsys12", 128, 0 );
+
+//「自分で喉を掻き破った出血性ショック死＠
+	PlaySE(3, "s20/00/443200001", 128, 64);
+	OutputLine(NULL, "「自分で喉を掻き破った出血性ショック死。",
+		   NULL, "\"Причина смерти — вызванный раздиранием глотки геморрагический шок.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　爪の間に肉や皮がびっしり詰まっとった＠他人の爪じゃない＠間違いなく本人の爪じゃわい＠傷の形も一致する。￥
+	PlaySE(3, "s20/00/443200002", 128, 64);	
+	OutputLine(NULL, "　爪の間に肉や皮がびっしり詰まっとった。",
+		   NULL, "Под ногтями найдены куски плоти,", Line_WaitForInput);
+	OutputLine(NULL, "他人の爪じゃない。",
+		   NULL, " соответствующие ранам на шее.", Line_WaitForInput);
+	OutputLine(NULL, "間違いなく本人の爪じゃわい。",
+		   NULL, " Нет сомнений, он сделал всё сам,", Line_WaitForInput);
+	PlaySE(3, "s20/00/443200003", 128, 64);
+	OutputLine(NULL, "傷の形も一致する。」",
+		   NULL, " своими ногтями.\"", Line_Normal);
+	ClearMessage();
+	DisableWindow();
+	DrawBustshotWithFiltering( 3, "oi_si_de_a1", "right", 1, 160, 0, FALSE, 0, 0, 0, 0, 0, 20, 300, TRUE );
+
+//「えぇえぇ＠直接死因が自殺ってのはわかってますよ。＠
+	PlaySE(3, "s20/11/440700009", 128, 64);	
+	OutputLine(NULL, "「えぇえぇ。",
+		   NULL, "\"Да-да,", Line_WaitForInput);
+	OutputLine(NULL, "直接死因が自殺ってのはわかってますよ。」",
+		   NULL, " я знаю, он убил себя сам.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「わかっとるわい＠人為的にこういう症状が起こせんかと言っとるんだろう？＠
+	PlaySE(3, "s20/00/443200004", 128, 64);	
+	OutputLine(NULL, "「わかっとるわい。",
+		   NULL, "\"А, знаю.", Line_WaitForInput);
+	OutputLine(NULL, "人為的にこういう症状が起こせんかと言っとるんだろう？」",
+		   NULL, " Думаешь, кто-то мог такое подстроить?\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+	DisableWindow();
+	DrawBustshot( 3, "oi_si_wa_a1", 160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 20, 200, TRUE );
+
+//「背中が痒くて掻きすぎて、血が出ちゃうのとはちょっと訳がちがいますからねぇ。￥
+	PlaySE(3, "s20/11/440700010", 128, 64);
+	OutputLine(NULL, "「背中が痒くて掻きすぎて、血が出ちゃうのとはちょっと訳がちがいますからねぇ。」",
+		   NULL, "\"Ну, это не совсем тот случай, когда спина так чешется, что расчёсываешь её до крови.\"", Line_Normal);
+	ClearMessage();
+	DisableWindow();
+	DrawBustshotWithFiltering( 5, "black", "down", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 25, 1300, TRUE );
+
+//　富竹氏の指には爪が剥がれたものもある＠
+	OutputLine(NULL, "　富竹氏の指には爪が剥がれたものもある。",
+		   NULL, "Некоторые ногти на руках Томитаке-си выломаны.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　爪自体は割りと簡単に剥がれる＠
+	OutputLine(NULL, "　爪自体は割りと簡単に剥がれる。",
+		   NULL, "Ногти легче выдрать, чем кажется.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+
+//　だがとても痛い＠
+	OutputLine(NULL, "　だがとても痛い。",
+		   NULL, "Но это жуть как больно.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　だから普通は剥がれるような無茶はしない＠
+	OutputLine(NULL, "　だから普通は剥がれるような無茶はしない。",
+		   NULL, "Потому люди обычно до такого не доходят.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+
+//　そして、富竹氏の遺体に残る数々のアザ＠
+	OutputLine(NULL, "　そして、富竹氏の遺体に残る数々のアザ。",
+		   NULL, "А ещё на теле найдены следы ушибов.", Line_Normal);
+	ClearMessage();
+//長文のため＠を￥にチェンジ
+
+//　...形状その他から素手の暴行によるもの、それも複数人に囲まれてであることは明白だ￥
+	OutputLine(NULL, "　…形状その他から素手の暴行によるもの、それも複数人に囲まれてであることは明白だ。",
+		   NULL, "...По ним ясно, что его атаковали несколько безоружных человек.", Line_Normal);
+	ClearMessage();
+	DisableWindow();
+	FadeBustshotWithFiltering( 5, "up", 0, FALSE, 0, 0, 1300, TRUE );
+
+//「分泌物から見て、仏は極度の興奮状態にあったのは間違いないのう。＠
+	PlaySE(3, "s20/00/443200005", 128, 64);
+	OutputLine(NULL, "「分泌物から見て、仏は極度の興奮状態にあったのは間違いないのう。」",
+		   NULL, "\"Телесные выделения показывают, что покойный находился в чрезвычайно перевозбуждённом состоянии.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+	DisableWindow();
+	DrawBustshot( 3, "oi_si_de_a1", 160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 20, 200, TRUE );
+
+//「では乱闘になって、興奮のあまり自分の喉を引っ掻きだしたってことですか＠　襲った連中、さぞや度肝を抜かれたでしょうなぁ。＠
+	PlaySE(3, "s20/11/440700011", 128, 64);	
+	OutputLine(NULL, "「では乱闘になって、興奮のあまり自分の喉を引っ掻きだしたってことですか？",
+		   NULL, "\"Хотите сказать, что в драке он так разволновался, что разодрал себе горло?", Line_WaitForInput);
+	OutputLine(NULL, "　襲った連中、さぞや度肝を抜かれたでしょうなぁ。」",
+		   NULL, " Осмелюсь предположить, что нападавшие от такого в штаны наложили.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+
+//　確かに異常な環境で異常に興奮した人間は、健常者には考えられない行動を取ることはありえる＠
+	OutputLine(NULL, "　確かに異常な環境で異常に興奮した人間は、健常者には考えられない行動を取ることはありえる。",
+		   NULL, "В чрезвычайных, непривычных обстоятельствах люди совершают поступки, мысль о которых нормальному человеку в голову бы не пришла.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　無論、極めて稀有なケースだが￥
+	OutputLine(NULL, "　無論、極めて稀有なケースだが。",
+		   NULL, "Но это, конечно, редчайший случай.", Line_Normal);
+	ClearMessage();
+	DisableWindow();
+	DrawSceneWithMask( "bg_112", "left", 0, 0, 300 );
+
+//「実はな、大石くん＠仏が武器にしたらしい角材な＠砂粒とかガードレールの塗装片とかそんなのしか出んかったぞい。＠
+	PlaySE(3, "s20/00/443200006", 128, 64);	
+	OutputLine(NULL, "「実はな、大石くん。",
+		   NULL, "\"Ещё кое-что, Ооиси-кун.", Line_WaitForInput);
+	OutputLine(NULL, "仏が武器にしたらしい角材な。",
+		   NULL, " На брусе, каковым покойный, похоже, отмахивался,", Line_WaitForInput);
+	PlaySE(3, "s20/00/443200007", 128, 64);
+	OutputLine(NULL, "砂粒とかガードレールの塗装片とかそんなのしか出んかったぞい。」",
+		   NULL, " нашли только песок да содранную при ударе по загородке эмаль.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「ホシの服の繊維とか、皮膚片とかは？＠
+	PlaySE(3, "s20/11/440700012", 128, 64);
+	OutputLine(NULL, "「ホシの服の繊維とか、皮膚片とかは？」",
+		   NULL, "\"А обрывки чужой одежды или частички кожи?\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「出んかった＠仏は犯人を殴っとらん＠...あるいは殴った角材を、ホシが持ち去ったのかも知れんの。＠
+	PlaySE(3, "s20/00/443200008", 128, 64);	
+	OutputLine(NULL, "「出んかった。",
+		   NULL, "\"Ничего.", Line_WaitForInput);
+	OutputLine(NULL, "仏は犯人を殴っとらん。",
+		   NULL, " Жертве никого не удалось задеть.", Line_WaitForInput);
+	PlaySE(3, "s20/00/443200009", 128, 64);
+	OutputLine(NULL, "…あるいは殴った角材を、ホシが持ち去ったのかも知れんの。」",
+		   NULL, " ...Или подозреваемые забрали те брусья, которыми он всё же попал.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「なら、わざわざ角材なんて置いてきませんよ＠全部持ってっちゃいます。＠
+	PlaySE(3, "s20/11/440700013", 128, 64);	
+	OutputLine(NULL, "「なら、わざわざ角材なんて置いてきませんよ。",
+		   NULL, "\"Раз так, они не стали бы оставлять за собой последний.", Line_WaitForInput);
+	OutputLine(NULL, "全部持ってっちゃいます。」",
+		   NULL, " Взяли да утащили бы, чего им стоило.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「かっかっかっか＠　それもそうじゃのう。￥
+	PlaySE(3, "s20/00/443200010", 128, 64);		
+	OutputLine(NULL, "「かっかっかっか！",
+		   NULL, "\"Кха-кха-кха-кха!", Line_WaitForInput);
+	OutputLine(NULL, "　それもそうじゃのう。」",
+		   NULL, " Верно сказанул.\"", Line_Normal);
+	ClearMessage();
+
+//「富竹氏は結構、体格もいいし肌も焼けてるし＠...スポーツマンですよねぇ。＠
+	PlaySE(3, "s20/11/440700014", 128, 64);		
+	OutputLine(NULL, "「富竹氏は結構、体格もいいし肌も焼けてるし。",
+		   NULL, "\"Томитаке-си обладал довольно развитым телом, да и загорел он прилично.", Line_WaitForInput);
+	OutputLine(NULL, "…スポーツマンですよねぇ。」",
+		   NULL, " ...Атлет, верно?\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「ん＠　そうだな＠よく運動しとるようだの。￥
+	PlaySE(3, "s20/00/443200011", 128, 64);
+	OutputLine(NULL, "「ん？",
+		   NULL, "\"А?", Line_WaitForInput);
+	OutputLine(NULL, "　そうだな。",
+		   NULL, " Ну да, вроде того.", Line_WaitForInput);
+	PlaySE(3, "s20/00/443200012", 128, 64);
+	OutputLine(NULL, "よく運動しとるようだの。」",
+		   NULL, " Тренировками, видно, не пренебрегал.\"", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	DrawBG( "black", 1000, TRUE );
+	DrawFilm( 2, 119, 119, 119, 255, 0, 1000, TRUE );
+	DrawBustshot( 2, "tm_si_de_a1", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 10, 400, TRUE );
+
+//　...生前に何のスポーツを嗜んでいたか想像はつかないが、身体能力は高い方だと思う＠
+	OutputLine(NULL, "　…生前に何のスポーツを嗜んでいたか想像はつかないが、身体能力は高い方だと思う。",
+		   NULL, "...Уж не знаю, каким он занимался спортом, но с физической культурой покойный отнюдь не подкачал.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　つまり、乱闘では決してひけを取らないはずなのだ＠
+	OutputLine(NULL, "　つまり、乱闘では決してひけを取らないはずなのだ。",
+		   NULL, "А значит, в честной драке с ним просто так не расправишься.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+
+//　これだけ体格のいい男が、身に危険が迫って、死に物狂いで武器を振り回して＠
+	OutputLine(NULL, "　これだけ体格のいい男が、身に危険が迫って、死に物狂いで武器を振り回して。",
+		   NULL, "Однако перед лицом смертельной опасности даже такой крепко скроенный мужчина мог лишь бешено размахивать бруском дерева.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　それが犯人にかすりもしないなんて、ちょっと普通では考えられない＠
+	OutputLine(NULL, "　それが犯人にかすりもしないなんて、ちょっと普通では考えられない。",
+		   NULL, "И даже тогда он не смог задеть своих убийц — от силача такого не ожидаешь.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+
+//　しかも相手は素手＠
+	OutputLine(NULL, "　しかも相手は素手。",
+		   NULL, "Кроме того, у врагов оружия при себе не имелось.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　こっちは角材なんだから、１回くらいは殴れたと思うのだが...￥
+	OutputLine(NULL, "　こっちは角材なんだから、１回くらいは殴れたと思うのだが…。",
+		   NULL, "У него же оно было, так что попасть хоть разок он должен был...", Line_Normal);
+	ClearMessage();
+	DisableWindow();
+	FadeBustshot( 2, FALSE, 0, 0, 0, 0, 1000, TRUE );
+	FadeFilm( 1000, TRUE );
+	DrawScene( "bg_113", 1000 );
+
+
+
+//「こんだけ体格のいい相手を取り囲んで襲おうとしたら＠...何人くらいいりますかねぇ。＠
+	PlaySE(3, "s20/11/440700015", 128, 64);	
+	OutputLine(NULL, "「こんだけ体格のいい相手を取り囲んで襲おうとしたら、",
+		   NULL, "\"Если бы я захотел напасть на одного, но зато довольно крепкого врага...", Line_WaitForInput);
+	OutputLine(NULL, "…何人くらいいりますかねぇ。」",
+		   NULL, " сколько бы ребят мне понадобилось?\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「あほぅ＠それは大石くんの方が得意だろうが＠悪タレ時代を思い出さんかい！￥
+	PlaySE(3, "s20/00/443200013", 128, 64);	
+	OutputLine(NULL, "「あほぅ。",
+		   NULL, "\"Вот осёл.", Line_WaitForInput);
+	OutputLine(NULL, "それは大石くんの方が得意だろうが。",
+		   NULL, " Да ты сам лучше меня знаешь, Ооиси-кун.", Line_WaitForInput);
+	PlaySE(3, "s20/00/443200014", 128, 64);
+	OutputLine(NULL, "悪タレ時代を思い出さんかい！」",
+		   NULL, " Что, не помнишь своих буйных деньков?\"", Line_Normal);
+	ClearMessage();
+
+//　私が彼と喧嘩するなら何人ほしい＠
+	OutputLine(NULL, "　私が彼と喧嘩するなら何人ほしい？",
+		   NULL, "Если бы я пошёл с ним драться, сколько народу бы взял с собой?", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　群が時に大型獣を倒すように、多人数で襲うのは狩りの鉄則だ＠
+	OutputLine(NULL, "　群が時に大型獣を倒すように、多人数で襲うのは狩りの鉄則だ。",
+		   NULL, "Первое правило охоты на большого зверя: нападай множеством.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+
+//　......４人くらいはほしい＠
+	OutputLine(NULL, "　……４人くらいはほしい。",
+		   NULL, "......Где-то четверо.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　多少の体格差があってもこれだけいればなんとかなる＠
+	OutputLine(NULL, "　多少の体格差があってもこれだけいればなんとかなる。",
+		   NULL, "Пусть он будет хоть сильнее любого из нас, вчетвером справимся.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+
+//「だとすると、結構犯人は多人数だの＠
+	PlaySE(3, "s20/00/443200015", 128, 64);
+	OutputLine(NULL, "「だとすると、結構犯人は多人数だの。",
+		   NULL, "\"Раз так, преступник у нас не один.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　祭りで泥酔した４人以上のグループが怪しいとなるかの？￥
+	PlaySE(3, "s20/00/443200016", 128, 64);	
+	OutputLine(NULL, "　祭りで泥酔した４人以上のグループが怪しいとなるかの？」",
+		   NULL, "Подозреваем группу из четверых или более напившихся на фестивале?\"", Line_Normal);
+	ClearMessage();
+
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+//　.........４人以上のグループ＠
+	OutputLine(NULL, "　………４人以上のグループ。",
+		   NULL, ".........Группу из четырёх или более.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　しかし...それだけの人数がいれば、遺体をもっと目に付きにくいところに隠せなかっただろうか＠
+	OutputLine(NULL, "　しかし…それだけの人数がいれば、遺体をもっと目に付きにくいところに隠せなかっただろうか？",
+		   NULL, "Впрочем... коли у них так много народу, разве не могли они затащить труп в менее приметное место?", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　あるいは...瀕死の状態で監禁されていたのをなんとか抜け出してきたのか...＠
+	OutputLine(NULL, "　あるいは…瀕死の状態で監禁されていたのをなんとか抜け出してきたのか…。",
+		   NULL, "А может... он сумел как-то убежать от них на грани смерти...", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+
+//　だとしたら自殺する理由がわからない＠
+	OutputLine(NULL, "　だとしたら自殺する理由がわからない。",
+		   NULL, "Тогда непонятно, почему он совершил самоубийство.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　それ以上に、あの異常な死に方の理由がわからない......＠謎だらけだ￥
+	OutputLine(NULL, "　それ以上に、あの異常な死に方の理由がわからない……。",
+		   NULL, "Сверх того, я не понимаю, зачем ему понадобилось умирать столь неестественно......", Line_WaitForInput);
+	OutputLine(NULL, "謎だらけだ。",
+		   NULL, " Загадками дело полнится.", Line_Normal);
+	ClearMessage();
+
+//「こっちもそこは重視しとる＠徹底的に調べるつもりだが...あまり期待できんな＠何しろ、過去にこんな例はないんだからな。＠
+	PlaySE(3, "s20/00/443200017", 128, 64);	
+	OutputLine(NULL, "「こっちもそこは重視しとる。",
+		   NULL, "\"Я бы тоже заострил тут внимание.", Line_WaitForInput);
+	OutputLine(NULL, "徹底的に調べるつもりだが…あまり期待できんな。",
+		   NULL, " Проведу тщательное расследование, но... не ожидай от нас многого.", Line_WaitForInput);
+	PlaySE(3, "s20/00/443200018", 128, 64);
+	OutputLine(NULL, "何しろ、過去にこんな例はないんだからな。」",
+		   NULL, " Всё-таки раньше подобного не происходило.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「期待はしませんよ＠ですが結果を楽しみにしてます。￥
+	PlaySE(3, "s20/11/440700016", 128, 64);	
+	OutputLine(NULL, "「期待はしませんよ。",
+		   NULL, "\"Я сам ничего не требую.", Line_WaitForInput);
+	OutputLine(NULL, "ですが結果を楽しみにしてます。」",
+		   NULL, " Но ваших результатов жду с нетерпением.\"", Line_Normal);
+	ClearMessage();
+
+//「大石さん～＠　課長が呼んでるっすー！＠
+	PlaySE(3, "s20/19/443100001", 128, 64);		
+	OutputLine(NULL, "「大石さん〜！",
+		   NULL, "\"Ооиси-сааан!", Line_WaitForInput);
+	OutputLine(NULL, "　課長が呼んでるっすー！」",
+		   NULL, " Начальник отдела хочет вас видеть!\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「すみません、ではまた来年お会いしましょう。＠
+	PlaySE(3, "s20/11/440700017", 128, 64);
+	OutputLine(NULL, "「すみません、ではまた来年お会いしましょう。」",
+		   NULL, "\"Прошу меня извинить. Что ж, до встречи в следующем году.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「おう＠いいお年をの！￥
+	PlaySE(3, "s20/00/443200019", 128, 64);
+	OutputLine(NULL, "「おう。",
+		   NULL, "\"Давай.", Line_WaitForInput);
+	OutputLine(NULL, "いいお年をの！」",
+		   NULL, " Счастливого лета!\"", Line_Normal);
+	ClearMessage();
+
+	SetValidityOfInput( FALSE );
+	Wait( 1000 );
+	SetValidityOfInput( TRUE );
+	DisableWindow();
+	DrawScene( "black", 1000 );
+	FadeOutBGM( 0, 1000, FALSE );
+	FadeOutBGM( 1, 1000, FALSE );
+	FadeOutBGM( 2, 1000, TRUE );
+
+//gosub *tip_e
+//return
+
+
+}
