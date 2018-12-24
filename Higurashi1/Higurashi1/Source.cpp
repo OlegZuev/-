@@ -3,7 +3,9 @@
 #include <string>
 #include <vector>
 #include <windows.h>
+#include <filesystem>
 using namespace std;
+namespace fs = experimental::filesystem;
 
 bool isCharacterName(string s);
 
@@ -15,8 +17,11 @@ void writeInFileConvertedDate(ifstream& fin, ifstream& finTwo, ofstream& fout, s
 
 void formatFileZonik(const string& filename, const string& end);
 
+void runConvert(string filename);
+
 vector<string> namesEng;
 vector<string> namesRus;
+vector<string> namesFile;
 
 int main()
 {
@@ -24,76 +29,15 @@ int main()
     SetConsoleOutputCP(CP_UTF8);
     fillNamesEng();
     fillNamesRus();
-    string filename = "onik_tips_16.txt";
-    string end = "_vm00_n01.txt";
-    //cin >> filename;
-    ifstream fin("./eng/" + filename);
-    ifstream finTwo("./rus/" + filename);
-    ifstream finThree;
-    ofstream fout("./result/" + filename);
-    ofstream foutThree;
-    string s;
-    int flag = 0;
-    for (int i = 0; !fin.eof(); ++i) {
-        getline(fin, s);
-        // if (s.find('>') != -1) { //Поиск имён героев
-        //     cout << s << endl;
-        // }
-        if (isCharacterName(s)) {
-            int ind = 0;
-            for (; ind < namesEng.size(); ++ind) {
-                if (s.find(namesEng[ind]) != -1) {
-                    break;
-                }
-            }
-            s.replace(s.find(namesEng[ind]), namesEng[ind].length(), namesRus[ind]);
-        } else if (s.find("</color>") != -1) {
-            cout << "New name in line " << i + 3 << endl;
-            return -1;
-        } else if (s.find("VoiceMatching") != -1 && s.find("End") == -1) {
-            fout << s << endl;
 
-            finThree.open("./eng/z" + filename.substr(0, filename.length() - 4) + end);
-            if (!foutThree.is_open()) {
-                foutThree.open("./temp/z" + filename.substr(0, filename.length() - 4) + end);
-                string str;
-                for (int k = 0; k < 4; ++k) {
-                    getline(finThree, str);
-                    foutThree << str << endl;
-                }
-            }
-            string buff;
-            getline(fin, buff);
-            fout << buff << endl;
-            string key = buff.substr(buff.find("dialog"), 9);
-            for (int j = 0; !finThree.eof(); ++j) {
-                getline(finThree, buff);
-                if (buff.find(key) != -1) {
-                    writeInFileConvertedDate(finThree, finTwo, foutThree, buff);
-                    break;
-                }
-            }
-            finThree.close();
-            continue;
-        } else if ((s.find(" NULL, \"") != -1 || s.find("\tNULL, \"") != -1) && s.find(", NULL, \"") == -1) {
-            string buff;
-            for (int j = 0; !finTwo.eof(); ++j) {
-                getline(finTwo, buff);
-                if (buff.find(" NULL, \"") != -1) {
-                    break;
-                }
-            }
-            s.replace(s.find_first_of('\"'), s.find_last_of('\"') - s.find_first_of('\"'),
-                buff.substr(buff.find_first_of('\"'), buff.find_last_of('\"') - buff.find_first_of('\"')));
+    string path = "./eng";
+    for (fs::directory_iterator it(path), end; it != end; ++it) {
+        if (it->path().string().find("_n01.txt") == -1) {
+            namesFile.push_back(it->path().filename().string());
         }
-        fout << s << endl;
     }
-    fin.close();
-    finTwo.close();
-    fout.close();
-    if (foutThree.is_open()) {
-        formatFileZonik(filename, end);
-        foutThree.close();
+    for (const string& filename : namesFile){
+        runConvert(filename);
     }
     return 0;
 }
@@ -221,4 +165,74 @@ void formatFileZonik(const string& filename, const string& end)
     label2:
     fin.close();
     fout.close();
+}
+
+void runConvert(string filename)
+{
+    string end = "_vm00_n01.txt";
+    ifstream fin("./eng/" + filename);
+    ifstream finTwo("./rus/" + filename);
+    ifstream finThree;
+    ofstream fout("./result/" + filename);
+    ofstream foutThree;
+    string s;
+    int flag = 0;
+    for (int i = 0; !fin.eof(); ++i) {
+        getline(fin, s);
+        if (isCharacterName(s)) {
+            int ind = 0;
+            for (; ind < namesEng.size(); ++ind) {
+                if (s.find(namesEng[ind]) != -1) {
+                    break;
+                }
+            }
+            s.replace(s.find(namesEng[ind]), namesEng[ind].length(), namesRus[ind]);
+        } else if (s.find("</color>") != -1) {
+            cout << "New name in line " << i + 3 << endl;
+            return;
+        } else if (s.find("VoiceMatching") != -1 && s.find("End") == -1) {
+            fout << s << endl;
+
+            finThree.open("./eng/z" + filename.substr(0, filename.length() - 4) + end);
+            if (!foutThree.is_open()) {
+                foutThree.open("./temp/z" + filename.substr(0, filename.length() - 4) + end);
+                string str;
+                for (int k = 0; k < 4; ++k) {
+                    getline(finThree, str);
+                    foutThree << str << endl;
+                }
+            }
+            string buff;
+            getline(fin, buff);
+            fout << buff << endl;
+            string key = buff.substr(buff.find("dialog"), 9);
+            for (int j = 0; !finThree.eof(); ++j) {
+                getline(finThree, buff);
+                if (buff.find(key) != -1) {
+                    writeInFileConvertedDate(finThree, finTwo, foutThree, buff);
+                    break;
+                }
+            }
+            finThree.close();
+            continue;
+        } else if ((s.find(" NULL, \"") != -1 || s.find("\tNULL, \"") != -1) && s.find(", NULL, \"") == -1) {
+            string buff;
+            for (int j = 0; !finTwo.eof(); ++j) {
+                getline(finTwo, buff);
+                if (buff.find(" NULL, \"") != -1) {
+                    break;
+                }
+            }
+            s.replace(s.find_first_of('\"'), s.find_last_of('\"') - s.find_first_of('\"'),
+                buff.substr(buff.find_first_of('\"'), buff.find_last_of('\"') - buff.find_first_of('\"')));
+        }
+        fout << s << endl;
+    }
+    fin.close();
+    finTwo.close();
+    fout.close();
+    if (foutThree.is_open()) {
+        formatFileZonik(filename, end);
+        foutThree.close();
+    }
 }
