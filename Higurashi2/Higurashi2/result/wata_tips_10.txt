@@ -1,0 +1,349 @@
+void main()
+{
+
+//７■いよいよお祭り
+//*Sub_Tips_030
+//gosub *tip_s
+	EnableJumpingOfReturnIcon();
+	FadeOutBGM( 0, 1000, FALSE );
+	FadeOutBGM( 1, 1000, FALSE );
+	FadeOutBGM( 2, 1000, TRUE );
+	DisableWindow();
+	DrawScene("black", 1000 );
+	PlayBGM( 2, "lsys13", 128, 0 );
+	PlayBGM( 1, "msys02", 128, 0 );
+
+
+//　ざわざわざわざわ...￥
+	ClearMessage();
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　ざわざわざわざわ…。",
+		   NULL, "Людской гомон...", Line_Normal);
+	ClearMessage();
+
+
+//「おいおい、今日のうちからへばっててどうすんだよ＠本番は明日だぞー＠　明日は最後の最後、ばっちり深夜まで燃え上がっていくんだからなー？！＠
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#f5e6d3>小宮山</color>", NULL, "<color=#f5e6d3>Комияма</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 0, "ps3/s20/00/442500001", 128, TRUE);
+	OutputLine(NULL, "「おいおい、今日のうちからへばっててどうすんだよ。",
+		   NULL, "\"Эй, чертяки, не вздумайте замотаться!", Line_Continue);
+	OutputLine(NULL, "本番は明日だぞー？",
+		   NULL, " К завтра готовы?", Line_WaitForInput);
+	ModPlayVoiceLS(4, 0, "ps3/s20/00/442500002", 128, TRUE);
+	OutputLine(NULL, "　明日は最後の最後、ばっちり深夜まで燃え上がっていくんだからなー？！」",
+		   NULL, " Завтра с вечера до полуночи все на ногах, не забыли?!\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+
+//「ぅおっす＠　気合い入れてきまっす！＠
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#8f6d8f>熊谷</color>", NULL, "<color=#8f6d8f>Кумагай</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 19, "ps3/s20/19/443100010", 128, TRUE);
+	OutputLine(NULL, "「ぅおっす！",
+		   NULL, "\"Да!", Line_Continue);
+	OutputLine(NULL, "　気合い入れてきまっす！」",
+		   NULL, " Готовы как никогда!\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+
+//「わっはっは＠　よぉーし！　若さが一番だ！＠
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#f5e6d3>小宮山</color>", NULL, "<color=#f5e6d3>Комияма</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 0, "ps3/s20/00/442500003", 128, TRUE);
+	OutputLine(NULL, "「わっはっは！",
+		   NULL, "\"Уа-ха-ха!", Line_Continue);
+	OutputLine(NULL, "　よぉーし！　若さが一番だ！」",
+		   NULL, " Добре! Так держать, молодёжь!\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+
+//「みんな、お疲れさん＠　綿流しはいよいよ明日だからなぁ＠今夜は早めに眠って体力を蓄えておいてくれよ！￥
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#f5e6d3>刑事</color>", NULL, "<color=#f5e6d3>Детектив</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 0, "ps3/s20/00/keijib44001", 128, TRUE);
+	OutputLine(NULL, "「みんな、お疲れさん！",
+		   NULL, "\"Хорошо поработали, парни!", Line_Continue);
+	OutputLine(NULL, "　綿流しはいよいよ明日だからなぁ。",
+		   NULL, " Завтра — ночь Ватанагаси!", Line_WaitForInput);
+	ModPlayVoiceLS(4, 0, "ps3/s20/00/keijib44002", 128, TRUE);
+	OutputLine(NULL, "今夜は早めに眠って体力を蓄えておいてくれよ！」",
+		   NULL, " Выспитесь хорошенько — завтра силёнки понадобятся!\"", Line_Normal);
+	ClearMessage();
+
+
+//　明日がいよいよ綿流し＠
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　明日がいよいよ綿流し。",
+		   NULL, "Завтра наконец-таки день торжества.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+
+//　祭りってのは楽しむ側とそれを提供する側の２つがある＠
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　祭りってのは楽しむ側とそれを提供する側の２つがある。",
+		   NULL, "Есть две стороны на фестивале: те, кто веселятся, и те, кто заботится о том, чтобы первые могли веселиться.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+
+//　前者に必要なのは心の準備だけだが、後者の場合は、心と体だけでなく、入念な打ち合わせや下準備が必要になる＠
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　前者に必要なのは心の準備だけだが、後者の場合は、心と体だけでなく、入念な打ち合わせや下準備が必要になる。",
+		   NULL, "Первым нужен лишь праздничный настрой, но вот вторым нужно не только подготовиться телом и духом, но и заранее всё обустроить.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+//　多くの一般参加者が能天気に祭りを楽しんでいる間、俺たちは緊張を維持し続けるわけだ＠...何のために￥
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　多くの一般参加者が能天気に祭りを楽しんでいる間、俺たちは緊張を維持し続けるわけだ。",
+		   NULL, "Пока народ беззаботно предаётся веселью, нам надо не расслабляться.", Line_WaitForInput);
+	OutputLine(NULL, "…何のために？",
+		   NULL, " ...Зачем?", Line_Normal);
+	ClearMessage();
+
+
+//「そりゃあ決まってるだろ＠　全部終わった後のビールがうまいからだよ。＠
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#f5e6d3>刑事</color>", NULL, "<color=#f5e6d3>Детектив</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 0, "ps3/s20/00/keijib44003", 128, TRUE);
+	OutputLine(NULL, "「そりゃあ決まってるだろ！",
+		   NULL, "\"Ну яснэ ж дило!", Line_Continue);
+	OutputLine(NULL, "　全部終わった後のビールがうまいからだよ。」",
+		   NULL, " Пивко потом — самый смак!\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+
+//「わっはっはっはっはっは！！＠
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#f5e6d3>小宮山</color>", NULL, "<color=#f5e6d3>Комияма</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 0, "ps3/s20/00/442500004", 128, TRUE);
+	OutputLine(NULL, "「わっはっはっはっはっは！！」",
+		   NULL, "\"Ва-ха-ха-ха-ха-ха!!\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+
+//　こういう時は体育会系のノリが一番＠
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　こういう時は体育会系のノリが一番！",
+		   NULL, "Славный народ спортсмены!", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+
+//　打ち上げを楽しみに頑張らなきゃ張り合いがない￥
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　打ち上げを楽しみに頑張らなきゃ張り合いがない！",
+		   NULL, "Выкладываются по полной ради ожидающей их награды!", Line_Normal);
+	ClearMessage();
+
+
+//「あ、来ました...！＠
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#8f6d8f>熊谷</color>", NULL, "<color=#8f6d8f>Кумагай</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 19, "ps3/s20/19/443100011", 128, TRUE);
+	OutputLine(NULL, "「あ、来ました…！」",
+		   NULL, "\"О, вот он!..\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+
+//　大石さんが入ってくる＠みんなシャキっとして立ち上がった￥
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　大石さんが入ってくる。",
+		   NULL, "Вошёл Ооиси-сан.", Line_WaitForInput);
+	OutputLine(NULL, "みんなシャキっとして立ち上がった。",
+		   NULL, " Все разом встали.", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	FadeOutBGM( 1, 1000, TRUE );
+	ModDrawCharacter(3, 11, "sprite/normal/oisi1_2_", "0", 160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 20, 0, FALSE );
+	DrawSceneWithMask("background/ke_s2", "right", 0, 0, 300 );
+
+//「はいはい、皆さん、お疲れさまですねぇ＠あぁ、そのままで結構ですよ。＠
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#a59da9>大石</color>", NULL, "<color=#a59da9>Ооиси</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 11, "ps3/s20/11/440700110", 128, TRUE);
+	OutputLine(NULL, "「はいはい、皆さん、お疲れさまですねぇ。",
+		   NULL, "\"Э, ребята, спасибо за службу!", Line_Continue);
+	OutputLine(NULL, "あぁ、そのままで結構ですよ。」",
+		   NULL, " О, не нужно вставать.\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+
+//「「「お疲れさまです！！」」＠
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#f5e6d3>刑事たち</color>", NULL, "<color=#f5e6d3>Детективы</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 0, "ps3/s20/00/442500005", 128, TRUE);
+	ModPlayVoiceLS(5, 0, "ps3/s20/00/keijib44004", 128, TRUE);
+	ModPlayVoiceLS(6, 19, "ps3/s20/19/443100012", 128, TRUE);
+	OutputLine(NULL, "「「「お疲れさまです！！」」」",
+		   NULL, "\"\"\"Рады служить!!!\"\"\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+//　普段威張っている先輩たちも、大石さんには頭が上がらない＠
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　普段威張っている先輩たちも、大石さんには頭が上がらない。",
+		   NULL, "Даже самые чванливые старшие глубоко уважают Ооиси-сана.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+
+//　まるで一昔前の応援団員のような雰囲気で一礼する￥
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　まるで一昔前の応援団員のような雰囲気で一礼する。",
+		   NULL, "Они почтительно поклонились, как сопливые мальчишки мудрому взрослому вожаку.", Line_Normal);
+	ClearMessage();
+
+
+//　大石蔵人さんか＠
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　大石蔵人さんか。",
+		   NULL, "Ооиси Кураудо-сан.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+
+//　内規などほとんど無視し、これといった働きもせず、日々をダラダラと過ごすいい加減な、退職待ち刑事＠
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　内規などほとんど無視し、これといった働きもせず、日々をダラダラと過ごすいい加減な、退職待ち刑事。",
+		   NULL, "Детектив-одиночка, прожигающий день за днём в безделии, ожидая отставки; положения службы для него теперь мало что значат.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+
+//　下ネタの好きな下品オヤジというイメージのある人だが＠先輩たちが言うには、若い頃は相当の武闘派で、かなりの武勇伝を持つとか持たないとか...＠
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　下ネタの好きな下品オヤジというイメージのある人だが、",
+		   NULL, "Он выглядит обычным похабным дядькой преклонных лет,", Line_WaitForInput);
+	OutputLine(NULL, "先輩たちが言うには、若い頃は相当の武闘派で、かなりの武勇伝を持つとか持たないとか…。",
+		   NULL, " но служившие с ним рассказывают, что, будучи молодым, он отличался большим умением в драке, а за плечами его славный путь службы в полиции...", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+//　...とにかく＠一緒に入ってきた課長よりも貫禄も存在感も遥かに上だということは確かだ￥
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　…とにかく。",
+		   NULL, "...Так иль иначе,", Line_WaitForInput);
+	OutputLine(NULL, "一緒に入ってきた課長よりも貫禄も存在感も遥かに上だということは確かだ。",
+		   NULL, " уважение к нему видимо больше, чем к зашедшему вместе с ним начотдела.", Line_Normal);
+	ClearMessage();
+
+
+//「皆さん、明日の綿流しの準備、本当にお疲れさんです。＠
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#a59da9>大石</color>", NULL, "<color=#a59da9>Ооиси</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 11, "ps3/s20/11/440700111", 128, TRUE);
+	OutputLine(NULL, "「皆さん、明日の綿流しの準備、本当にお疲れさんです。」",
+		   NULL, "\"Благодарю вас всех за подготовку к фестивалю Ватанагаси.\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+
+//　全員、直立で課長の訓示に耳を傾ける￥
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　全員、直立で課長の訓示に耳を傾ける。",
+		   NULL, "Все принялись слушать речь начальника.", Line_Normal);
+	ClearMessage();
+
+
+//「昨年発生したように、連続事件を期待する愉快犯の出現が濃厚に危惧されます＠各員、一層気を引き締め、犯罪の抑止のために任務を全うして下さい。＠
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#a59da9>大石</color>", NULL, "<color=#a59da9>Ооиси</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 11, "ps3/s20/11/440700112", 128, TRUE);
+	OutputLine(NULL, "「昨年発生したように、連続事件を期待する愉快犯の出現が濃厚に危惧されます。",
+		   NULL, "\"Как в прошлом году, возможно, что кто-то попытается произвести что-нибудь, что продолжило бы серию происшествий.", Line_Continue);
+	Wait ( 6000 );
+	OutputLine(NULL, "各員、一層気を引き締め、犯罪の抑止のために任務を全うして下さい。」",
+		   NULL, " Поэтому прошу всех подготовиться к тому, чтобы остановить преступный замысел.\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//「「「ぅおっす！」」￥
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#f5e6d3>刑事たち</color>", NULL, "<color=#f5e6d3>Детективы</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 0, "ps3/s20/00/442500006", 128, TRUE);
+	ModPlayVoiceLS(5, 0, "ps3/s20/00/keijib44005", 128, TRUE);
+	ModPlayVoiceLS(6, 19, "ps3/s20/19/443100013", 128, TRUE);
+	OutputLine(NULL, "「「「ぅおっす！」」」",
+		   NULL, "\"\"\"ЕЕЕСТЬ!!!\"\"\"", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	ModDrawCharacter(3, 11, "sprite/normal/oisi1_1_", "0", 160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 20, 200, TRUE );
+
+//「何も起こらなければ一番いいんですがねぇ＠...ですが皆さん＠必ず事件は起こると考えてくださいよ＠抑止が一番ですが、まぁ多分無理でしょ＠今年も誰かが死んで誰かが消えます＠もー間違いなく＠...んっふっふっふっふ！＠
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#a59da9>大石</color>", NULL, "<color=#a59da9>Ооиси</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 11, "ps3/s20/11/440700113", 128, TRUE);
+	OutputLine(NULL, "「何も起こらなければ一番いいんですがねぇ。",
+		   NULL, "\"Лучше, конечно, ежели ничего не случится...", Line_Continue);
+	OutputLine(NULL, "…ですが皆さん。",
+		   NULL, " Всё ж таки", Line_WaitForInput);
+	ModPlayVoiceLS(4, 11, "ps3/s20/11/440700114", 128, TRUE);
+	OutputLine(NULL, "必ず事件は起こると考えてくださいよ。",
+		   NULL, " просьба приготовиться к неотвратимому.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#a59da9>大石</color>", NULL, "<color=#a59da9>Ооиси</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 11, "ps3/s20/11/440700115", 128, TRUE);
+	OutputLine(NULL, "抑止が一番ですが、まぁ多分無理でしょ。",
+		   NULL, " Сможем предотвратить — что ж, прекрасно, только вот сможем вряд ли.", Line_Continue);
+	OutputLine(NULL, "今年も誰かが死んで誰かが消えます。",
+		   NULL, " Нынешним летом опять кто-то погибнет, а кто-то без вести пропадёт.", Line_WaitForInput);
+	ModPlayVoiceLS(4, 11, "ps3/s20/11/440700116", 128, TRUE);
+	OutputLine(NULL, "もー間違いなく。",
+		   NULL, " Более чем уверен.", Line_WaitForInput);
+	ModPlayVoiceLS(4, 11, "ps3/s20/11/440700117", 128, TRUE);
+	OutputLine(NULL, "…んっふっふっふっふ！」",
+		   NULL, " Мм-хм-хм-хм-хм!..\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+
+//　課長以外は皆、苦笑する￥
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　課長以外は皆、苦笑する。",
+		   NULL, "Кроме начальника, все слабо заухмылялись.", Line_Normal);
+	ClearMessage();
+
+
+//「大石さん、...そんなんじゃ困るよ＠　もっと真剣にやってくれなきゃ...、＠
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#f5e6d3>高杉</color>", NULL, "<color=#f5e6d3>Такасуги</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(6, 0, "ps3/s20/00/442700018", 128, TRUE);
+	OutputLine(NULL, "「大石さん、…そんなんじゃ困るよ！",
+		   NULL, "\"Ооиси-сан, зачем вы так!..", Line_Continue);
+	OutputLine(NULL, "　もっと真剣にやってくれなきゃ…、」",
+		   NULL, " Пожалуйста, будьте немного серьёзн...\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+	DisableWindow();
+	ModDrawCharacter(3, 11, "sprite/normal/oisi1_2_", "0", 160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 20, 200, TRUE );
+
+//「肝心なのは祭りの夜を越すことじゃないんです＠...明日の夜、起こった何かに迅速かつ徹底的にどこまでも食いついていくこと＠気合い入れてくよ？＠　ケツの穴、引き締めてけッ！＠　オヤシロさまの祟りのバケの皮を完璧に引っぺがしてやるぞぉおぉッ！！！＠
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#a59da9>大石</color>", NULL, "<color=#a59da9>Ооиси</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 11, "ps3/s20/11/440700118", 128, TRUE);
+	OutputLine(NULL, "「肝心なのは祭りの夜を越すことじゃないんです。",
+		   NULL, "\"Задача не в том, чтобы продержаться ночь фестиваля.", Line_Continue);
+	OutputLine(NULL, "…明日の夜、起こった何かに迅速かつ徹底的にどこまでも食いついていくこと。",
+		   NULL, " ...Главное — быстро уцепиться за то, что произойдёт, и уже не отпускать.", GetGlobalFlag(GLinemodeSp));
+
+	//VoiceMatching
+	if(GetGlobalFlag(GCensor) >= 4){ModCallScriptSection("zwata_tips_10_vm0x_n01","dialog001");}
+	if(GetGlobalFlag(GCensor) <= 3){ModCallScriptSection("zwata_tips_10_vm00_n01","dialog001");}
+	//VoiceMatchingEnd
+
+//「「「うおぉぉおおぉおぉすッッ！！！」」￥
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#f5e6d3>刑事たち</color>", NULL, "<color=#f5e6d3>Детективы</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 0, "ps3/s20/00/442500007", 128, TRUE);
+	ModPlayVoiceLS(5, 0, "ps3/s20/00/keijib44006", 128, TRUE);
+	ModPlayVoiceLS(6, 19, "ps3/s20/19/443100014", 128, TRUE);
+	OutputLine(NULL, "「「「うおぉぉおおぉおぉすッッ！！！」」」",
+		   NULL, "\"\"\"ДААААААА!!!\"\"\"", Line_Normal);
+	ClearMessage();
+	DisableWindow();
+	SetValidityOfInput( FALSE );
+	DrawBustshotWithFiltering(6, "cinema", "x", 1, 0, 0, FALSE, 0, 0, 0, 0, 0, 25, 1300, TRUE );
+	DrawBustshot(7, "title02", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 26, 3000, TRUE );
+	Wait( 2000 );
+	DrawBustshot(5, "black", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 25, 3000, TRUE );
+	Wait( 1000 );
+	FadeBustshotWithFiltering( 7, "x", 1, FALSE, 0, 0, 1000, TRUE );
+	DrawScene("black", 1000 );
+	SetValidityOfInput( TRUE );
+
+
+}
+

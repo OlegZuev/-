@@ -1,0 +1,50 @@
+void main()
+{
+}
+
+void dialog001()
+{
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>詩音</color>", NULL, "<color=#5ec69a>Шион</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 6, "ps3/s02/06/130600585", 128, TRUE);
+	OutputLine(NULL, "「……園崎詩音は………魅音姉さまの足元にも及ばない、下賤で卑しい雌豚でございます…。",
+		   NULL, "\"......Я, Сонодзаки Шион...... вонючая, презренная сучка, и ноги не достойная целовать великой Сестре Мион-сама...", GetGlobalFlag(GLinemodeSp));
+}
+
+void dialog002()
+{
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>魅音</color>", NULL, "<color=#5ec69a>Мион</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 3, "ps3/s02/03/130300673", 128, TRUE);
+	OutputLine(NULL, "「……じゃあそろそろいい？",
+		   NULL, "\"......Ну что, готов?\"", Line_WaitForInput);
+	ModPlayVoiceLS(4, 3, "ps3/s02/03/130300674", 128, TRUE);
+	OutputLine(NULL, "　この拷問はね、とてもシンプル。",
+		   NULL, " Пытка очень проста.\"", Line_Normal);
+}
+
+void dialog003()
+{
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>魅音</color>", NULL, "<color=#5ec69a>Мион</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 3, "ps2/03/130300682", 240, TRUE);
+	OutputLine(NULL, "「…………他の人を拷問する時にはなんのためらいもなかったけど。",
+		   NULL, "\".........Я ни разу не колебалась, пытая кого-то", Line_WaitForInput);
+	ModPlayVoiceLS(4, 3, "ps3/s02/03/130300683", 128, TRUE);
+	OutputLine(NULL, "……なぜかあんたにはためらいがあるよ。」",
+		   NULL, "...... но с тобой почему-то вот не могу.\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+}
+
+void dialog004()
+{
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>魅音</color>", NULL, "<color=#5ec69a>Мион</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 3, "ps3/s02/03/130300712", 128, TRUE);
+	OutputLine(NULL, "「…………見たことないでしょ。",
+		   NULL, "\"......Не думаю, что ты когда-либо видел подобное.", Line_WaitForInput);
+	ModPlayVoiceLS(4, 3, "ps3/s02/03/130300713", 128, TRUE);
+	OutputLine(NULL, "本物のスタンガンだよ。",
+		   NULL, " Это — самый настоящий электрошокер...", Line_WaitForInput);
+	ModPlayVoiceLS(4, 3, "ps2/03/130300714", 240, TRUE);
+	OutputLine(NULL, "…違法品なんでかなり出力が上げられるようになってるけどね。」",
+		   NULL, " Мощность у него гораздо выше, чем у тех, что можно достать по закону.\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+}
+

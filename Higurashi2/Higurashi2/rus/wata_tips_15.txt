@@ -1,0 +1,167 @@
+﻿void main()
+{
+
+
+//９■スクラップ帳よりⅦ
+//*Sub_Tips_035
+//gosub *tip_s
+	EnableJumpingOfReturnIcon();
+	FadeOutBGM( 0, 1000, FALSE );
+	FadeOutBGM( 1, 1000, FALSE );
+	FadeOutBGM( 2, 1000, TRUE );
+	DisableWindow();
+	DrawScene( "black", 1000 );
+	PlayBGM( 1, "msys13", 128, 0 );
+	PlaySE( 3, "wa_021", 128, 64 );
+	DrawScene( "bg_181", 1000 );
+
+//locate 5,6
+	SetDrawingPointOfMessage( 0, 6 );
+	SetStyleOfMessageSwinging( 1 );
+
+//＜御三家について￥
+	OutputLine(NULL, "＜御三家について＞",
+		   NULL, "— О Трёх Великих Родах —", Line_Normal);
+	ClearMessage();
+
+	SetStyleOfMessageSwinging( 0 );
+	PlaySE( 3, "wa_021", 128, 64 );
+
+//　御三家は鬼ヶ淵村を実効支配してきた３つの旧家を指す＠
+	OutputLine(NULL, "　御三家は鬼ヶ淵村を実効支配してきた３つの旧家を指す。",
+		   NULL, "Выражением «Три великих рода» (или «Госанке») обозначаются три семьи, правившие деревней Онигафути.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+
+//　内訳は公由家、古手家、園崎家で、いずれも現存している＠
+	OutputLine(NULL, "　内訳は公由家、古手家、園崎家で、いずれも現存している。",
+		   NULL, "То есть род Кимиёси, семья Фурудэ и род Сонодзаки — все сохранились до наших дней.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//（古代ほどの支配力はないにせよ、今日でも強い影響力を堅持しているようである。＠
+	OutputLine(NULL, "（古代ほどの支配力はないにせよ、今日でも強い影響力を堅持しているようである。）",
+		   NULL, "(Правда, могуществом былых времён они уж не обладают; всё же и по сей день влияния у них предостаточно.)", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+
+//　御三家は、鬼ヶ淵沼より現れた鬼の血を最も濃く残すと伝えられている￥
+	OutputLine(NULL, "　御三家は、鬼ヶ淵沼より現れた鬼の血を最も濃く残すと伝えられている。",
+		   NULL, "По слухам, в крови госанке крепче всех укоренилась кровь демонов.", Line_Normal);
+	ClearMessage();
+
+	PlaySE( 3, "wa_021", 128, 64 );
+
+//＜公由（キミヨシ）家＠
+	OutputLine(NULL, "＜公由（キミヨシ）家＞",
+		   NULL, "— Семья Кимиёси —", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+
+//　公由家は御三家の筆頭家として大きな力を持っていたらしいが、今日にあっては御三家をリードするほどではない＠
+	OutputLine(NULL, "　公由家は御三家の筆頭家として大きな力を持っていたらしいが、今日にあっては御三家をリードするほどではない。",
+		   NULL, "Ранее род Кимиёси по влиянию возглавлял Три великих рода, но сегодня его власть уж не та.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+//　現村長（公由喜一郎）はこの家の出身である＠
+	OutputLine(NULL, "　現村長（公由喜一郎）はこの家の出身である。",
+		   NULL, "Нынешний деревенский староста (Кимиёси Кийтиро) принадлежит этому роду.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+
+//　公選制が導入されるまで、自動的に公由家が代々村長に就任してきたのは、古い体制の名残だと思われる＠
+	OutputLine(NULL, "　公選制が導入されるまで、自動的に公由家が代々村長に就任してきたのは、古い体制の名残だと思われる。",
+		   NULL, "Похоже, пока не ввели выборную систему, Кимиёси всегда становились старостами — раньше было так принято.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+//　もっとも対抗馬が出ないため、戦後の公選制導入後も公由家が村長に就くことは変わっていない￥
+	OutputLine(NULL, "　もっとも対抗馬が出ないため、戦後の公選制導入後も公由家が村長に就くことは変わっていない。",
+		   NULL, "А так как и потом иных желающих не явилось, то даже после войны и появления выборной системы старостой стал Кимиёси.", Line_Normal);
+	ClearMessage();
+
+	PlaySE( 3, "wa_021", 128, 64 );
+
+//＜古手（フルデ）家＠
+	OutputLine(NULL, "＜古手（フルデ）家＞",
+		   NULL, "— Семья Фурудэ —", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+
+//　古代から信仰の中心となり、オヤシロさまを祀る唯一の神社を守ってきた一族である＠
+	OutputLine(NULL, "　古代から信仰の中心となり、オヤシロさまを祀る唯一の神社を守ってきた一族である。",
+		   NULL, "Духовные вожди деревни, с древних времён обязанные оберегать единственное святилище, посвящённое Оясиро-сама.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+
+//　オヤシロさまの声を代弁する唯一の存在として、長く崇められてきたが、戦争で分家筋がほとんど絶え、今では本家のみとなっている￥
+	OutputLine(NULL, "　オヤシロさまの声を代弁する唯一の存在として、長く崇められてきたが、戦争で分家筋がほとんど絶え、今では本家のみとなっている。",
+		   NULL, "Как единственных, кто мог слышать голос Оясиро-сама, их глубоко чтили; однако в ходе войны сгинула большая часть рода, и теперь осталось лишь основное древо.", Line_Normal);
+	ClearMessage();
+
+	PlaySE( 3, "wa_021", 128, 64 );
+
+//　その本家も、現在では一人娘（古手梨花）を残すのみなので、この代で潰えるかもしれない＠
+	OutputLine(NULL, "　その本家も、現在では一人娘（古手梨花）を残すのみなので、この代で潰えるかもしれない。",
+		   NULL, "И от самого древа осталась лишь дочь (Фурудэ Рика), так что на ней род вполне может прерваться.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+
+//　古手家の女子を尊ぶ古い習慣があるらしく、一人娘の梨花は、年寄り連中に崇められている様子だ￥
+	OutputLine(NULL, "　古手家の女子を尊ぶ古い習慣があるらしく、一人娘の梨花は、年寄り連中に崇められている様子だ。",
+		   NULL, "Насколько известно, есть древний обычай чтить девочек из семьи Фурудэ, и теперь старики поклоняются единственной дочери рода, Рике.", Line_Normal);
+	ClearMessage();
+
+
+	PlaySE( 3, "wa_021", 128, 64 );
+
+//＜園崎（ソノザキ）家＠
+	OutputLine(NULL, "＜園崎（ソノザキ）家＞",
+		   NULL, "— Семья Сонодзаки —", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+
+//　鬼ヶ淵村の戒律を守るある種の警察官的な役割を担ったと伝えられている＠
+	OutputLine(NULL, "　鬼ヶ淵村の戒律を守るある種の警察官的な役割を担ったと伝えられている。",
+		   NULL, "По слухам, они были в деревне сродни полиции — следили за соблюдением её правил.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+//　御三家の中では比較的、弱い立場であったことが、御三家の末番に数えられることから見てとれる￥
+	OutputLine(NULL, "　御三家の中では比較的、弱い立場であったことが、御三家の末番に数えられることから見てとれる。",
+		   NULL, "Среди Трёх великих родов они обладали наименьшим влиянием, отчего и упоминались в последнюю очередь.", Line_Normal);
+	ClearMessage();
+
+	PlaySE( 3, "wa_021", 128, 64 );
+
+//　もっとも、今日の園崎家は隆盛を極め、御三家内における立場は完全に逆転している＠
+	OutputLine(NULL, "　もっとも、今日の園崎家は隆盛を極め、御三家内における立場は完全に逆転している。",
+		   NULL, "Но сегодня Сонодзаки добились большого влияния, выйдя на первое место в Тройке.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+//　今や雛見沢を牛耳っているとまで言えるだろう＠
+	OutputLine(NULL, "　今や雛見沢を牛耳っているとまで言えるだろう。",
+		   NULL, "Я бы даже сказала, что сегодня в Хинамидзаве заправляют они.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+
+//　御三家で合議することが名残となっているだけで、村内の取り決めは事実上、現当主の園崎お魎がひとりで決めていると言っていい￥
+	OutputLine(NULL, "　御三家で合議することが名残となっているだけで、村内の取り決めは事実上、現当主の園崎お魎がひとりで決めていると言っていい。",
+		   NULL, "Обычай советоваться тремя родами теперь лишь пустой звук — на деле решения принимает единолично Сонодзаки Орё, нынешняя глава рода.", Line_Normal);
+	ClearMessage();
+	DisableWindow();
+	SetValidityOfInput( FALSE );
+	DrawBustshotWithFiltering( 6, "cinema", "x", 1, 0, 0, FALSE, 0, 0, 0, 0, 0, 25, 1300, TRUE );
+	DrawBustshot( 7, "Title02", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 26, 3000, TRUE );
+	Wait( 2000 );
+	DrawBustshot( 5, "black", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 25, 3000, TRUE );
+	Wait( 1000 );
+	FadeBustshotWithFiltering( 7, "x", 1, FALSE, 0, 0, 1000, TRUE );
+	DrawScene( "black", 1000 );
+	SetValidityOfInput( TRUE );
+
+
+}

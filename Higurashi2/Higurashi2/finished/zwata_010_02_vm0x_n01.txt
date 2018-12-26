@@ -1,0 +1,27 @@
+void main()
+{
+}
+
+void dialog001()
+{
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>詩音</color>", NULL, "<color=#5ec69a>Шион</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 6, "ps3/s02/06/130600367", 128, TRUE);
+	OutputLine(NULL, "「うちのお父さん、ヤクザの大物ですから。",
+		   NULL, "\"Мой папа — видный якудза.", Line_WaitForInput);
+	ModPlayVoiceLS(4, 6, "ps3/s02/06/130600368", 128, TRUE);
+	OutputLine(NULL, "…年少のお姉でも、若いガラの悪いのを何人も従えることができました。」",
+		   NULL, " Сеструха, несмотря на юность, могла много кем управлять.\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+}
+
+void dialog002()
+{
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>詩音</color>", NULL, "<color=#5ec69a>Шион</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 6, "ps3/s02/06/130600370", 128, TRUE);
+	OutputLine(NULL, "何度も補導されたんですよ…今は何だかのんびりした雰囲気だから想像も付かないでしょうが。",
+		   NULL, "\"Ты вряд ли представляешь, у нас ведь сейчас тихо да мирно... Но её не раз арестовывали за шантаж, причинение ущерба имуществу и нападения.", Line_WaitForInput);
+	ModPlayVoiceLS(4, 6, "ps3/s02/06/130600372", 128, TRUE);
+	OutputLine(NULL, "…子供ですから、すぐに釈放してもらえたみたいですけどね。",
+		   NULL, " Её, правда, быстро выпускали — она ж была ещё дитя...", GetGlobalFlag(GLinemodeSp));
+}
+

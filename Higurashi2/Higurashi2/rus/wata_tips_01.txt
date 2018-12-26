@@ -1,0 +1,558 @@
+﻿void main()
+{
+
+
+//■魅音の叔父さんって？
+//（学校での日常会話の雰囲気で）
+//*Sub_Tips_021
+//gosub *tip_s
+	EnableJumpingOfReturnIcon();
+	FadeOutBGM( 0, 1000, FALSE );
+	FadeOutBGM( 1, 1000, FALSE );
+	FadeOutBGM( 2, 1000, TRUE );
+	DisableWindow();
+	DrawScene( "black", 1000 );
+
+	PlayBGM( 1, "msys01", 128, 0 );
+
+	DrawBustshot( 2, "me_se_de_a2", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 10, 200, FALSE );
+	DrawSceneWithMask( "bg_109", "up", 0, 0, 300 );
+
+//「うん＠ごめん＠今日はさ、急に叔父さんの店のバイトが入っちゃってさ。＠
+	PlaySE(4, "S20/03/440300045", 128, 64);
+	OutputLine(NULL, "「うん。",
+		   NULL, "\"Эх,", Line_WaitForInput);
+	OutputLine(NULL, "ごめん。",
+		   NULL, " извиняйте.", Line_WaitForInput);
+	PlaySE(4, "S20/03/440300046", 128, 64);
+	OutputLine(NULL, "今日はさ、急に叔父さんの店のバイトが入っちゃってさ。」",
+		   NULL, " Я только узнала, что сегодня надо пойти поработать в магазине у дядьки.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「なんだなんだ＠じゃあ今日の部活はお流れってわけか。＠
+	PlaySE(4, "S20/01/440100045", 128, 64);
+	OutputLine(NULL, "「なんだなんだ。",
+		   NULL, "\"Какого хрена...", Line_WaitForInput);
+	OutputLine(NULL, "じゃあ今日の部活はお流れってわけか。」",
+		   NULL, " И что, сегодняшнее собрание отменяется?\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+	DisableWindow();
+	DrawBustshot( 2, "me_se_aw_a1", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 10, 200, TRUE );
+
+//「いやぁ、あっはっは、申し訳ない...！＠
+	PlaySE(4, "S20/03/440300047", 128, 64);
+	OutputLine(NULL, "「いやぁ、あっはっは、申し訳ない…！」",
+		   NULL, "\"Э-э, аха-ха, уж извините!..\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　魅音は拝むように両手を合わせると、にやっと笑ってみせる￥
+	OutputLine(NULL, "　魅音は拝むように両手を合わせると、にやっと笑ってみせる。",
+		   NULL, "Мион сложила ладошки вместе и ухмыльнулась.", Line_Normal);
+	ClearMessage();
+	DisableWindow();
+	DrawBustshot( 2, "me_se_wi_b2", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 10, 200, TRUE );
+
+//「そんなに部活がやりたかったら、おじさん抜きでやってもいいけど＠　部活ロッカーにゲームがいっぱい入ってるからさ＠どれか適当に選んで。￥
+	PlaySE(4, "S20/03/440300048", 128, 64);
+	OutputLine(NULL, "「そんなに部活がやりたかったら、おじさん抜きでやってもいいけど？",
+		   NULL, "\"Если так хочется поиграть, почему бы не поиграть без Дядьки Мион?", Line_WaitForInput);
+	OutputLine(NULL, "　部活ロッカーにゲームがいっぱい入ってるからさ。",
+		   NULL, " Внутри клубного шкафчика полно игр,", Line_WaitForInput);
+	PlaySE(4, "S20/03/440300049", 128, 64);
+	OutputLine(NULL, "どれか適当に選んで。」",
+		   NULL, " бери любую.\"", Line_Normal);
+	ClearMessage();
+	DisableWindow();
+	DrawSceneWithMask( "bg_110", "left", 0, 0, 300 );
+
+//　部活ロッカーってのは、いつも部活の時に魅音がゲームを引っ張り出してくるあの四次元ロッカーのことだ＠
+	OutputLine(NULL, "　部活ロッカーってのは、いつも部活の時に魅音がゲームを引っ張り出してくるあの四次元ロッカーのことだ。",
+		   NULL, "«Клубный шкафчик» — такой четырёхмерный шкафчик, из которого Мион вытаскивает игры для клубной деятельности.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+//　あの、清掃用具入れよりもさらに一回り小さいロッカーの中に、どうしてあれだけのたくさんのゲームが詰め込めるのだろう...＠
+	OutputLine(NULL, "　あの、清掃用具入れよりもさらに一回り小さいロッカーの中に、どうしてあれだけのたくさんのゲームが詰め込めるのだろう…。",
+		   NULL, "Как вообще может быть — чтобы шкафчик, не дотягивающий по размерам даже до шкафчика для швабр и ведёр, — чтобы в таком шкафчике да помещалась этакая куча игр?..", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　のみならず、罰ゲーム用の怪しげなアイテム（衣装？）までたくさんたくさん...＠
+	OutputLine(NULL, "　のみならず、罰ゲーム用の怪しげなアイテム（衣装？）までたくさんたくさん…！",
+		   NULL, "И там не только игрушки — там полно разных странных штуковин (нарядов?), используемых для наказаний!..", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　整理するために床に並べたら、きっと教室の床中が埋まるに違いない￥
+	OutputLine(NULL, "　整理するために床に並べたら、きっと教室の床中が埋まるに違いない。",
+		   NULL, "Думаю, разложи она всё содержимое шкафчика по полу классной комнаты, целиком бы его заняла.", Line_Normal);
+	ClearMessage();
+	DisableWindow();
+	DrawSceneWithMask( "bg_109", "right", 0, 0, 300 );
+
+//「......やめとく＠俺がいじったら、ロッカーの中身がドサドサーッて溢れてきそうな気がするよ。＠
+	PlaySE(4, "S20/01/440100046", 128, 64);
+	OutputLine(NULL, "「……やめとく。",
+		   NULL, "\"......Да ну на фиг.", Line_WaitForInput);
+	OutputLine(NULL, "俺がいじったら、ロッカーの中身がドサドサーッて溢れてきそうな気がするよ。」",
+		   NULL, " Боюсь, оттуда всё вывалится, если хоть чуть-чуть зазеваюсь.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+	DisableWindow();
+	DrawBustshotWithFiltering( 3, "me_se_wa_b1", "right", 1, 160, 0, FALSE, 0, 0, 0, 0, 0, 20, 300, TRUE );
+
+//「あっはっはっは＠　う～ん、そうだねぇ＠素人は手を出さない方が無難かもしれない。くっくっく！＠
+	PlaySE(4, "S20/03/440300050", 128, 64);
+	OutputLine(NULL, "「あっはっはっは！",
+		   NULL, "\"Аха-ха-ха!", Line_WaitForInput);
+	OutputLine(NULL, "　う〜ん、そうだねぇ。",
+		   NULL, " Хм-м, а ты прав.", Line_WaitForInput);
+	PlaySE(4, "S20/03/440300051", 128, 64);
+	OutputLine(NULL, "素人は手を出さない方が無難かもしれない。くっくっく！」",
+		   NULL, " Нечего новичкам в нём лазить. Хы-хы-хы!\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　魅音は、それが出来るのが部長の所以だとでも言わんばかりに大笑いした￥
+	OutputLine(NULL, "　魅音は、それが出来るのが部長の所以だとでも言わんばかりに大笑いした。",
+		   NULL, "Мион зычно захохотала, будто бы намекая, что потому она и глава Клуба, что умеет пользоваться клубным шкафчиком.", Line_Normal);
+	ClearMessage();
+	DisableWindow();
+	DrawBustshotWithFiltering( 1, "ri_se_de_a1", "left", 1, -160, 0, FALSE, 0, 0, 0, 0, 0, 0, 1300, TRUE );
+
+//「......魅ぃ＠先生が体育倉庫のカギを探してますですよ＠心当たりはありませんですか？＠
+	PlaySE(4, "S20/05/440500010", 128, 64);
+	OutputLine(NULL, "「……魅ぃ。",
+		   NULL, "\"......Мии,", Line_WaitForInput);
+	OutputLine(NULL, "先生が体育倉庫のカギを探してますですよ。",
+		   NULL, " учительница ищет ключ от физкультурной кладовки.", Line_WaitForInput);
+	PlaySE(4, "S20/05/440500011", 128, 64);
+	OutputLine(NULL, "心当たりはありませんですか？」",
+		   NULL, " Ты не знаешь, где он?\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+	DisableWindow();
+	DrawBustshot( 3, "me_se_th_a2", 160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 20, 200, TRUE );
+
+//「はれ＠　...私、職員室に返さなかったっけ？＠
+	PlaySE(4, "S20/03/440300052", 128, 64);
+	OutputLine(NULL, "「はれ？",
+		   NULL, "\"Чего?", Line_WaitForInput);
+	OutputLine(NULL, "　…私、職員室に返さなかったっけ？」",
+		   NULL, " ...Разве я не вернула его в учительскую?\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+
+//　そう言いながらごそごそとポケットをまさぐる魅音＠
+	OutputLine(NULL, "　そう言いながらごそごそとポケットをまさぐる魅音。",
+		   NULL, "В то же время Мион шарилась у себя в карманах.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　......表情から察するに、職員室に返したつもりでいるものは、どうやらそこに納まっているらしい￥
+	OutputLine(NULL, "　……表情から察するに、職員室に返したつもりでいるものは、どうやらそこに納まっているらしい。",
+		   NULL, "......И, судя по принятому выражению лица, ключ, который она хотела вернуть, так и почивал себе там.", Line_Normal);
+	ClearMessage();
+	DisableWindow();
+	DrawSceneWithMask( "bg_108", "left", 0, 0, 300 );
+	DrawBustshotWithFiltering( 3, "sa_se_aw_a1", "right", 1, 160, 0, FALSE, 0, 0, 0, 0, 0, 20, 300, TRUE );
+
+//「ほぅらやっぱり魅音さんですのよ～＠　私、絶対絶対ぜーったいそうだと確信してたでございますわー！＠
+	PlaySE(4, "S20/04/440400018", 128, 64);
+	OutputLine(NULL, "「ほぅらやっぱり魅音さんですのよ〜！",
+		   NULL, "\"Ага, ага, он у Мион-сан был!", Line_WaitForInput);
+	OutputLine(NULL, "　私、絶対絶対ぜーったいそうだと確信してたでございますわー！」",
+		   NULL, " Я совер-ШЕН-но, совершенно точно знала!\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+	DisableWindow();
+	DrawBustshotWithFiltering( 1, "ri_se_wa_a1", "left", 1, -160, 0, FALSE, 0, 0, 0, 0, 0, 0, 300, TRUE );
+
+//「......ボクも大正解なのですよ＠沙都子と一緒に大正解なのです。＠
+	PlaySE(4, "S20/05/440500012", 128, 64);
+	OutputLine(NULL, "「……ボクも大正解なのですよ。",
+		   NULL, "\"......И я тоже оказалась права, вот.", Line_WaitForInput);
+	OutputLine(NULL, "沙都子と一緒に大正解なのです。」",
+		   NULL, " И у меня, и у Сатоко правильный ответ.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　きゃっきゃと手を打ち合わせて沙都子と梨花ちゃんが喜び合っている￥
+	OutputLine(NULL, "　きゃっきゃと手を打ち合わせて沙都子と梨花ちゃんが喜び合っている。",
+		   NULL, "Сатоко и Рика-тян ликующе обменялись хлопком ладоней.", Line_Normal);
+	ClearMessage();
+	DisableWindow();
+	DrawBustshot( 2, "me_se_th_b2", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 10, 200, TRUE );
+
+//「やかましい！＠
+	PlaySE(4, "S20/03/440300053", 128, 64);
+	OutputLine(NULL, "「やかましい！」",
+		   NULL, "\"Молчать!\"", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+////setwindow 31,16,22,16,26,26,0,2,20,1,1,#ffffff,0,0,639,479
+	DrawScene( "white", 10 );
+	PlaySE( 3, "wa_005", 128, 64 );
+	DrawBustshot( 5, "Furiker_b", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 10, 50, TRUE );
+	FadeBustshot( 5, FALSE, 0, 0, 0, 0, 100, TRUE );
+	PlaySE( 3, "wa_005", 128, 64 );
+	DrawBustshot( 5, "Furiker_a", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 10, 50, TRUE );
+	ShakeScreen( 0, 50, 20, 4, 0, );
+////setwindow 31,16,22,16,26,26,0,2,20,1,1,#999999,0,0,639,479
+	DrawSceneWithMask( "bg_110", "up", 0, 0, 300 );
+
+
+//　ガスン！　ゴスン＠
+	OutputLine(NULL, "　ガスン！　ゴスン！",
+		   NULL, "*Бдыщ*! *Бац*!", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+//　沙都子と梨花ちゃんの頭に肘を叩き込むと、魅音は職員室へ向かっていった￥
+	OutputLine(NULL, "　沙都子と梨花ちゃんの頭に肘を叩き込むと、魅音は職員室へ向かっていった。",
+		   NULL, "Стукнув локтями по головам Сатоко и Рики-тян, Мион отправилась в учительскую.", Line_Normal);
+	ClearMessage();
+
+//「あ、そうだ＠二人とも聞いたか＠　今日は魅音、バイトがあるから部活はお休みだとさ。＠
+	PlaySE(4, "S20/01/440100047", 128, 64);
+	OutputLine(NULL, "「あ、そうだ。",
+		   NULL, "\"А, кстати.", Line_WaitForInput);
+	OutputLine(NULL, "二人とも聞いたか？",
+		   NULL, " Слыхали?", Line_WaitForInput);
+	PlaySE(4, "S20/01/440100048", 128, 64);
+	OutputLine(NULL, "　今日は魅音、バイトがあるから部活はお休みだとさ。」",
+		   NULL, " Сегодня клуба не будет — Мион работать надо.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+	DisableWindow();
+	DrawBustshotWithFiltering( 3, "sa_se_de_a1", "right", 1, 160, 0, FALSE, 0, 0, 0, 0, 0, 20, 300, TRUE );
+
+//「あら、そうなんですの？＠　それはつまらないでございますわね。＠
+	PlaySE(4, "S20/04/440400019", 128, 64);
+	OutputLine(NULL, "「あら、そうなんですの？！",
+		   NULL, "\"О, действительно?", Line_WaitForInput);
+	OutputLine(NULL, "　それはつまらないでございますわね。」",
+		   NULL, " Какая невыносимая скукота.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+	DisableWindow();
+	DrawBustshotWithFiltering( 1, "ri_se_de_a1", "left", 1, -160, 0, FALSE, 0, 0, 0, 0, 0, 0, 300, TRUE );
+
+//「......みぃ。＠
+	PlaySE(4, "S20/05/440500013", 128, 64);
+	OutputLine(NULL, "「……みぃ。」",
+		   NULL, "\"...Ми-и...\"", Line_WaitForInput);
+
+//＜笑顔でないデフォ顔です
+
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+
+//　二人ともつまらなさそうな顔をする＠
+	OutputLine(NULL, "　二人ともつまらなさそうな顔をする。",
+		   NULL, "Обе девочки скорчили унылые лица.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　...何だかんだ言っても、魅音の部活は学校に来る一番の楽しみなんだよな＠
+	OutputLine(NULL, "　…何だかんだ言っても、魅音の部活は学校に来る一番の楽しみなんだよな。",
+		   NULL, "Что бы кто ни говорил, именно клуба Мион они ждут больше всего, приходя в школу.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　それがお流れになるとわかったら、そりゃー憂鬱になるのも頷ける￥
+	OutputLine(NULL, "　それがお流れになるとわかったら、そりゃー憂鬱になるのも頷ける。",
+		   NULL, "Неудивительно, что их охватило уныние при вести об отмене встречи.", Line_Normal);
+	ClearMessage();
+
+//「魅音ってバイトをやってるんだよな＠...あいつ、一体何のバイトをしてるんだ？＠
+	PlaySE(4, "S20/01/440100049", 128, 64);
+	OutputLine(NULL, "「魅音ってバイトをやってるんだよな。",
+		   NULL, "\"Так Мион работает, значит...", Line_WaitForInput);
+	OutputLine(NULL, "…あいつ、一体何のバイトをしてるんだ？」",
+		   NULL, " И чем же она занимается?\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　魅音が部活を中止する時は大抵、バイトが理由だ＠
+	OutputLine(NULL, "　魅音が部活を中止する時は大抵、バイトが理由だ。",
+		   NULL, "Если Мион отменяет клубную встречу, почти всегда дело в работе.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+
+//　だが、毎日通っているにようには見えないよな＠
+	OutputLine(NULL, "　だが、毎日通っているにようには見えないよな。",
+		   NULL, "Однако не видно, чтоб она ходила на неё каждый день.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　２～３日、連続で行く時もあれば、全然行かない時もある＠
+	OutputLine(NULL, "　２〜３日、連続で行く時もあれば、全然行かない時もある。",
+		   NULL, "Временами она работает аж два или три дня подряд, а иногда не ходит вообще.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　...そんないい加減なアルバイトなんてあるんだろうか￥
+	OutputLine(NULL, "　…そんないい加減なアルバイトなんてあるんだろうか？",
+		   NULL, "Что за работа такая без распорядка?", Line_Normal);
+	ClearMessage();
+	DisableWindow();
+	DrawBustshot( 1, "ri_se_ni_a1", -160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 0, 200, TRUE );
+
+//「......別に、決まったお店でお勤めをしてるわけではないのです。＠
+	PlaySE(4, "S20/05/440500014", 128, 64);
+	OutputLine(NULL, "「……別に、決まったお店でお勤めをしてるわけではないのです。」",
+		   NULL, "\"......Она не в одном и том же месте работает.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「決まってないってことは...、じゃあ日雇いってことなのか？＠
+	PlaySE(4, "S20/01/440100050", 128, 64);
+	OutputLine(NULL, "「決まってないってことは…、じゃあ日雇いってことなのか？」",
+		   NULL, "\"«Не в одном и том же»... подённая работница, что ли?\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　魅音が足袋にヘルメットで、工事現場で汗だくになって......＠...想像がつかん￥
+	OutputLine(NULL, "　魅音が足袋にヘルメットで、工事現場で汗だくになって……。",
+		   NULL, "Мион в каске и грубых носках обливается потом на стройке.........", Line_WaitForInput);
+	OutputLine(NULL, "…想像がつかん。",
+		   NULL, " Как-то не представляю.", Line_Normal);
+	ClearMessage();
+	DisableWindow();
+	DrawBustshot( 3, "sa_se_aw_a1", 160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 20, 200, TRUE );
+
+//「魅音さんは叔父さんの店にお休みが出たりすると応援に駆けつける、便利屋さんなんだそうですわ。＠
+	PlaySE(4, "S20/04/440400020", 128, 64);
+	OutputLine(NULL, "「魅音さんは叔父さんの店にお休みが出たりすると応援に駆けつける、便利屋さんなんだそうですわ。」",
+		   NULL, "\"По-видимому, Мион-сан представляет собой замену, когда кого-то в дядиной лавке недостаёт.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「あー...、なるほどな＠そう言えば、叔父さんのとこでバイトなんて話＠前にも聞いたことがあるような気がする。＠
+	PlaySE(4, "S20/01/440100051", 128, 64);
+	OutputLine(NULL, "「あー…、なるほどな。",
+		   NULL, "\"А-а-а... ясно.", Line_WaitForInput);
+	OutputLine(NULL, "そう言えば、叔父さんのとこでバイトなんて話。",
+		   NULL, " Кстати говоря, она же сегодня у дяди работает.", Line_WaitForInput);
+	PlaySE(4, "S20/01/440100052", 128, 64);
+	OutputLine(NULL, "前にも聞いたことがあるような気がする。」",
+		   NULL, " Да и раньше что-то такое, кажется, слышал.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「......お店を持ってる叔父さんがいっぱいいるので、魅ぃは引っ張り凧なのです。＠
+	PlaySE(4, "S20/05/440500015", 128, 64);
+	OutputLine(NULL, "「……お店を持ってる叔父さんがいっぱいいるので、魅ぃは引っ張り凧なのです。」",
+		   NULL, "\"......Мии идёт нарасхват — у неё много дядей, которые ведут своё дело, видишь ли.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　お店を持ってる叔父さんがいっぱい＠　いっぱいいるのか￥
+	OutputLine(NULL, "　お店を持ってる叔父さんがいっぱい？",
+		   NULL, "Много дядей, которые ведут своё дело?", Line_WaitForInput);
+	OutputLine(NULL, "　いっぱいいるのか？",
+		   NULL, " Что, правда много?", Line_Normal);
+	ClearMessage();
+	DisableWindow();
+	DrawBustshot( 3, "sa_se_ak_a1", 160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 20, 200, TRUE );
+
+//「あら、圭一さんはご存知ありませんの＠　興宮には魅音さんの親戚の方がやってるお店って結構いっぱいありますのよ？＠
+	PlaySE(4, "S20/04/440400021", 128, 64);
+	OutputLine(NULL, "「あら、圭一さんはご存知ありませんの？",
+		   NULL, "\"О, а вы не знали, Кейти-сан?", Line_WaitForInput);
+	OutputLine(NULL, "　興宮には魅音さんの親戚の方がやってるお店って結構いっぱいありますのよ？」",
+		   NULL, " О том, что в Окиномии весьма-таки многими магазинами владеют родственники Мион-сан?\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「へー...＠そりゃ知らなかった＠...そんなにいろいろあるのか？＠
+	PlaySE(4, "S20/01/440100053", 128, 64);
+	OutputLine(NULL, "「へー…。",
+		   NULL, "\"Ого...", Line_WaitForInput);
+	OutputLine(NULL, "そりゃ知らなかった。",
+		   NULL, " Да, не знал.", Line_WaitForInput);
+	PlaySE(4, "S20/01/440100054", 128, 64);
+	OutputLine(NULL, "…そんなにいろいろあるのか？」",
+		   NULL, " ...Их что, правда так много?\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+	DisableWindow();
+	DrawBustshot( 3, "sa_se_de_a1", 160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 20, 200, TRUE );
+
+//「えぇ＠パン屋さんとか八百屋さんとかラーメン屋さんとか＠他にもまだまだ＠あの部活をやったおもちゃ屋さんもそうなんですのよ。＠
+	PlaySE(4, "S20/04/440400022", 128, 64);
+	OutputLine(NULL, "「えぇ。",
+		   NULL, "\"Да.", Line_WaitForInput);
+	OutputLine(NULL, "パン屋さんとか八百屋さんとかラーメン屋さんとか。",
+		   NULL, " Булочник, зеленщик, владелец магазина пшеничной лапши.", Line_WaitForInput);
+	PlaySE(4, "S20/04/440400023", 128, 64);
+	OutputLine(NULL, "他にもまだまだ。",
+		   NULL, " И множество прочих.", Line_WaitForInput);
+	PlaySE(4, "S20/04/440400024", 128, 64);
+	OutputLine(NULL, "あの部活をやったおもちゃ屋さんもそうなんですのよ。」",
+		   NULL, " Магазин игрушек, в котором мы бились, — того же толка.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　ちょっと絶句＠......それは...すごいな￥
+	OutputLine(NULL, "　ちょっと絶句。",
+		   NULL, "Какое-то время не мог ничего вымолвить.", Line_WaitForInput);
+	OutputLine(NULL, "……それは…すごいな！",
+		   NULL, " ......Это... невероятно!", Line_Normal);
+	ClearMessage();
+
+//「...魅音の一族って何気に商才があるんじゃないのか＠　それだけいろいろあるってのも何だかすごいよな！＠
+	PlaySE(4, "S20/01/440100055", 128, 64);
+	OutputLine(NULL, "「…魅音の一族って何気に商才があるんじゃないのか？",
+		   NULL, "\"Семье Мион так везёт в торговле?", Line_WaitForInput);
+	OutputLine(NULL, "　それだけいろいろあるってのも何だかすごいよな！」",
+		   NULL, " Поразительно, как они умудряются держать столько дел!\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+	DisableWindow();
+	DrawBustshot( 1, "ri_se_wa_a1", -160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 0, 200, TRUE );
+
+//「......他にも、サラ金屋さんとか、地上げ屋さんとか、イメクラ屋さんとか、ソープランド屋さんとか＠いろいろやってると言ってますです。＠
+	PlaySE(4, "S20/05/440500016", 128, 64);
+	OutputLine(NULL, "「……他にも、金融業とか、不動産業とか、アパレル産業とか、アミューズメント産業とか。",
+		   NULL, "\"......Кроме того, есть ростовщик, земельный спекулянт, владелец весёлого дома для ролевых игр, а также хозяин бани с массажистками.", Line_WaitForInput);
+	OutputLine(NULL, "いろいろやってると言ってますです。」",
+		   NULL, " Можно сказать, они занимаются всем.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+
+//　何だか妙なのも飛び出してきたが、まぁとにかく＠　手広いのはよくわかった￥
+	OutputLine(NULL, "　何だか妙なのも飛び出してきたが、まぁとにかく！",
+		   NULL, "Среди них отметились довольно подозрительные названия... ай, ну и ладно!", Line_WaitForInput);
+	OutputLine(NULL, "　手広いのはよくわかった。",
+		   NULL, " Теперь я хотя бы представляю размах.", Line_Normal);
+	ClearMessage();
+
+//「あいつに小銭を借りると、妙に返却期限にうるさいのは、サラ金屋の血が流れてるからかー＠納得納得！＠
+	PlaySE(4, "S20/01/440100056", 128, 64);
+	OutputLine(NULL, "「あいつに物を借りると、妙に返却期限にうるさいのは、金融業者さんの血が流れてるからかー。",
+		   NULL, "\"Так вот почему Мион столь придирчива насчёт уплаты, когда берёшь у неё денег взаймы, — в ней течёт кровь ростовщическая.", Line_WaitForInput);
+	OutputLine(NULL, "納得納得！」",
+		   NULL, " Теперь я понял!\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+	DisableWindow();
+	DrawBustshot( 1, "ri_se_ko_a1", -160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 0, 200, TRUE );
+
+//「......魅ぃにお買い物代を借りたことをコロリと忘れてしまったら＠耳を揃えて返さんと身売りして風呂に沈めたるどーと凄まれましたのです。＠
+	PlaySE(4, "S20/05/440500017", 128, 64);
+	OutputLine(NULL, "「……魅ぃに百億兆者ゲームを借りたことをコロリと忘れてしまったら、",
+		   NULL, "\"......Как-то раз я взяла денег у Мии в долг и забыла.", Line_WaitForInput);
+	OutputLine(NULL, "リアルで百億兆者ゲームをプレイさせたるどーと凄まれましたのです。」",
+		   NULL, " Она угрожала, что заставит меня обслуживать общественную баню, коли не заплачу, вот.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+
+	OutputLine(NULL, "　………梨花ちゃんがリアル百億兆者ゲームをプレイ…。",
+		   NULL, ".........Рику-тян продают в банные прислужницы за долги...", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+	OutputLine(NULL, "　……したたかにＩＴ長者にでもなっていそうな気がするけど……。",
+		   NULL, "......О нет... кровь носом пошла!", Line_Normal);
+	ClearMessage();
+	DisableWindow();
+	DrawBustshot( 3, "sa_se_wa_a1", 160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 20, 200, TRUE );
+
+	PlaySE(4, "S20/04/440400025", 128, 64);
+	OutputLine(NULL, "「リアルに百億兆者ゲームをプレイなんて、なかなかに愉快そうですわね～！」",
+		   NULL, "\"Ох, ну и жуть была бы — мыть с хлоркой все эти ванны!\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+	OutputLine(NULL, "　……もっとも。",
+		   NULL, "......А?", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+	OutputLine(NULL, "　…こいつの場合、人から恨みつらみを重ねてとんでもねー目にあいそうだけど。",
+		   NULL, "...Она и вправду не поняла?..", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+	OutputLine(NULL, "　まぁ、それはそれで沙都子らしくていいかもな。",
+		   NULL, "Какие же невинные бывают до сих пор дети.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+//　俺と梨花ちゃんが沙都子の頭をなでなでしてやる￥
+	OutputLine(NULL, "　俺と梨花ちゃんが沙都子の頭をなでなでしてやる。",
+		   NULL, "Мы с Рикой-тян погладили Сатоко по маковке.", Line_Normal);
+	ClearMessage();
+	DisableWindow();
+	DrawBustshot( 3, "sa_se_bi_b1", 160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 20, 200, TRUE );
+
+//「...？＠　...な、なぜ撫でられるんですの？！　...？！＠
+	PlaySE(4, "S20/04/440400026", 128, 64);
+	OutputLine(NULL, "「…？！",
+		   NULL, "\"?!...", Line_WaitForInput);
+	OutputLine(NULL, "　…な、なぜ撫でられるんですの？！　…？！」",
+		   NULL, " Че-чего вы меня гладите??!.....\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+	DrawBustshot( 1, "ri_se_wa_a1", -160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 0, 200, TRUE );
+
+//「......沙都子はいい子さんですから、なでなでなのです。＠
+	PlaySE(4, "S20/05/440500018", 128, 64);
+	OutputLine(NULL, "「……沙都子はいい子さんですから、なでなでなのです。」",
+		   NULL, "\"......Сатоко — хорошая девочка, поэтому её надо хорошенько погладить, вот.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+
+//　沙都子は意味がわからずうろたえていたが、馬鹿にされたことだけは理解しているようだった￥
+	OutputLine(NULL, "　沙都子は意味がわからずうろたえていたが、馬鹿にされたことだけは理解しているようだった。",
+		   NULL, "Сатоко, похоже, так ничего и не поняла, но хотя бы смекнула, что над ней потешаются.", Line_Normal);
+
+	ClearMessage();
+	DisableWindow();
+	SetValidityOfInput( FALSE );
+	DrawBustshotWithFiltering( 6, "cinema", "x", 1, 0, 0, FALSE, 0, 0, 0, 0, 0, 25, 1300, TRUE );
+	DrawBustshot( 7, "Title02", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 26, 3000, TRUE );
+	Wait( 2000 );
+	DrawBustshot( 5, "black", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 25, 3000, TRUE );
+	Wait( 1000 );
+	FadeBustshotWithFiltering( 7, "x", 1, FALSE, 0, 0, 1000, TRUE );
+	DrawScene( "black", 1000 );
+	SetValidityOfInput( TRUE );
+
+
+}

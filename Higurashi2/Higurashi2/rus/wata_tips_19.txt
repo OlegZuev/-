@@ -1,0 +1,94 @@
+﻿void main()
+{
+
+//１０深■スクラップ帳よりⅨ
+//*Sub_Tips_039
+//gosub *tip_s
+	EnableJumpingOfReturnIcon();
+	FadeOutBGM( 0, 1000, FALSE );
+	FadeOutBGM( 1, 1000, FALSE );
+	FadeOutBGM( 2, 1000, TRUE );
+	DisableWindow();
+	DrawScene( "black", 1000 );
+	PlayBGM( 1, "msys11", 128, 0 );
+	PlaySE( 3, "wa_021", 128, 64 );
+	DrawScene( "bg_181", 1000 );
+
+//locate 6,6
+
+	SetDrawingPointOfMessage( 0, 6 );
+	SetStyleOfMessageSwinging( 1 );
+
+//＜園崎家について￥
+	OutputLine(NULL, "＜園崎家について＞",
+		   NULL, "— О семье Сонодзаки —", Line_Normal);
+	ClearMessage();
+
+	SetStyleOfMessageSwinging( 0 );
+	PlaySE( 3, "wa_021", 128, 64 );
+
+//　戦後、急激に勢力を広げたのが園崎家である＠
+	OutputLine(NULL, "　戦後、急激に勢力を広げたのが園崎家である。",
+		   NULL, "После войны влияние семьи Сонодзаки споро выросло.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+
+//　その時の当主が、今日でもその座にある園崎お魎（おりょう）である￥
+	OutputLine(NULL, "　その時の当主が、今日でもその座にある園崎お魎（おりょう）である。",
+		   NULL, "Тогдашней главой рода была Сонодзаки Орё, которая возглавляет его и поныне.", Line_Normal);
+	ClearMessage();
+
+	PlaySE( 3, "wa_021", 128, 64 );
+
+//　園崎お魎も高齢で、今日では当時の片鱗を見ることもかなわない＠
+	OutputLine(NULL, "　園崎お魎も高齢で、今日では当時の片鱗を見ることもかなわない。",
+		   NULL, "Теперь Сонодзаки Орё стара, и трудно увидеть в ней ту, кем она была в ту пору.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　だが、伝え聞く話では歴代当主の中で最高と讃えられる名当主だったらしい＠
+	OutputLine(NULL, "　だが、伝え聞く話では歴代当主の中で最高と讃えられる名当主だったらしい。",
+		   NULL, "И всё ж таки её называют лучшей главой рода из тех, что были.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+
+//　すでに高齢で、週に何回かの習い事に出掛ける以外は自宅で静かに過ごしており、セレモニー的なものは跡継ぎである魅音に委ねることが多いようである＠
+	OutputLine(NULL, "　すでに高齢で、週に何回かの習い事に出掛ける以外は自宅で静かに過ごしており、セレモニー的なものは跡継ぎである魅音に委ねることが多いようである。",
+		   NULL, "По старости она мирно живёт у себя дома, пару раз в неделю посещая занятия для стариков, и большую часть дел передала Мион — своей внучке и наследнице.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+//（なぜ当主の跡継ぎが娘でなく、孫娘である魅音なのかは諸説があるが、娘夫婦の勘当騒ぎが絡んでいると噂されている。￥
+	OutputLine(NULL, "（なぜ当主の跡継ぎが娘でなく、孫娘である魅音なのかは諸説があるが、娘夫婦の勘当騒ぎが絡んでいると噂されている。）",
+		   NULL, "(Говорят, потому род наследует не дочь, а Мион — внучка, — что мать отказала дочери в праве наследства из-за ссоры по поводу выбранного последней мужа.)", Line_Normal);
+	ClearMessage();
+
+	PlaySE( 3, "wa_021", 128, 64 );
+
+//　園崎魅音という奔放な娘に、まだ次代当主としての貫禄は見られない＠
+	OutputLine(NULL, "　園崎魅音という奔放な娘に、まだ次代当主としての貫禄は見られない。",
+		   NULL, "Сонодзаки Мион же ведёт себя свободно и независимо, ничем пока в себе не выказывая достоинства следующей главы рода.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+//　だが、園崎家の血を引き、鬼の名を許される以上＠恐らくは巧みに爪と牙を隠す、（過去の当主たちと同様）油断ならぬ人物であるに違いあるまい￥
+	OutputLine(NULL, "　だが、園崎家の血を引き、鬼の名を許される以上、",
+		   NULL, "Однако, раз в ней течёт кровь дома Сонодзаки, а в иероглифы её имени вплетён демон,", Line_WaitForInput);
+	OutputLine(NULL, "恐らくは巧みに爪と牙を隠す、（過去の当主たちと同様）油断ならぬ人物であるに違いあるまい。",
+		   NULL, " она, скорее всего, просто втянула свои клыки и когти (как предыдущие главы рода), и забывать об этом не стоит ни в коем случае.", Line_Normal);
+	ClearMessage();
+	DisableWindow();
+	SetValidityOfInput( FALSE );
+	DrawBustshotWithFiltering( 6, "cinema", "x", 1, 0, 0, FALSE, 0, 0, 0, 0, 0, 25, 1300, TRUE );
+	DrawBustshot( 7, "Title02", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 26, 3000, TRUE );
+	Wait( 2000 );
+	DrawBustshot( 5, "black", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 25, 3000, TRUE );
+	Wait( 1000 );
+	FadeBustshotWithFiltering( 7, "x", 1, FALSE, 0, 0, 1000, TRUE );
+	DrawScene( "black", 1000 );
+	SetValidityOfInput( TRUE );
+
+
+}
+

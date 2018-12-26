@@ -1,0 +1,32 @@
+void main()
+{
+}
+
+void dialog001()
+{
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#a59da9>大石</color>", NULL, "<color=#a59da9>Ооиси</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 11, "ps3/s20/11/440700099", 128, TRUE);
+	OutputLine(NULL, "「熊ちゃん。",
+		   NULL, "\"Кума-тян,", Line_Continue);
+
+	// (backup) SetValidityOfInput( FALSE );
+	Wait( 1000 );
+	// (backup) SetValidityOfInput( TRUE );
+
+	OutputLine(NULL, "ゲート車に同行してバイク持ってきてあげて。",
+		   NULL, " сгоняй-ка с ребятами на эвакуаторе.", Line_WaitForInput);
+	ModPlayVoiceLS(4, 11, "ps3/s20/11/440700100", 128, TRUE);
+	OutputLine(NULL, "ヤマハのごつい赤いヤツと、テールランプの右側が割れたヤツ。",
+		   NULL, " Заберёте красную Ямаху и Ямаху с разбитой правой задней фарой.", Line_WaitForInput);
+	ModPlayVoiceLS(4, 11, "ps3/s20/11/440700101", 128, TRUE);
+	OutputLine(NULL, "あとシートにガムテ貼ってあった白いヤツ。",
+		   NULL, " И ещё белую со жвачкой на сиденье.", Line_WaitForInput);
+	ModPlayVoiceLS(4, 11, "ps3/s20/11/440700102", 128, TRUE);
+	OutputLine(NULL, "それだろ？",
+		   NULL, " Правильно?", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#a59da9>大石</color>", NULL, "<color=#a59da9>Ооиси</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 11, "ps3/s20/11/440700103", 128, TRUE);
+	OutputLine(NULL, "　兄さんたちのバイク。」",
+		   NULL, " Ваши мотоциклы, ребятки?\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+}

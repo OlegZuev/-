@@ -1,0 +1,310 @@
+﻿void main()
+{
+
+
+//１１■雀荘「鈴」
+//*Sub_Tips_044
+//gosub *tip_s
+	EnableJumpingOfReturnIcon();
+	FadeOutBGM( 0, 1000, FALSE );
+	FadeOutBGM( 1, 1000, FALSE );
+	FadeOutBGM( 2, 1000, TRUE );
+	DisableWindow();
+	DrawScene( "black", 1000 );
+	PlayBGM( 1, "msys13", 128, 0 );
+
+//『本日は貸切です。～雀荘「鈴」～￥
+	OutputLine(NULL, "『本日は貸切です。〜雀荘「鈴」〜』",
+		   NULL, "«Сегодня все места забронированы. ~Маджонг-клуб “Судзу“~»", Line_Normal);
+	ClearMessage();
+
+
+//　カランカラ～ン￥
+	OutputLine(NULL, "　カランカラ〜ン。",
+		   NULL, "Дилинь-дилинь.", Line_Normal);
+	ClearMessage();
+
+
+//「あんりゃ、蔵ちゃん。あんたが一番遅いよ～＠　若い人はみんな揃ってる。＠
+	PlaySE(4, "S20/00/master44001", 128, 64);
+	OutputLine(NULL, "「あんりゃ、蔵ちゃん。あんたが一番遅いよ〜？",
+		   NULL, "\"Эге-ге, Кура-тян. Чегой это ты последний?", Line_WaitForInput);
+	OutputLine(NULL, "　若い人はみんな揃ってる。」",
+		   NULL, " Молодёжь-то уж вся пришла.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「なっはっはっは...＠じゃあお母さん、すみませんね。＠
+	PlaySE(4, "S20/11/440700179", 128, 64);
+	OutputLine(NULL, "「なっはっはっは…。",
+		   NULL, "\"Н-а-ха-ха-ха...", Line_WaitForInput);
+	OutputLine(NULL, "じゃあお母さん、すみませんね。」",
+		   NULL, " Уж простите, хозяюшка.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+//　大石が、タバコが１カートン入ったコンビニの袋を渡すと、雀荘の主である婆さんは要領よく姿を消した＠...もう慣れっこなのだ￥
+	OutputLine(NULL, "　大石が、タバコが１カートン入ったコンビニの袋を渡すと、雀荘の主である婆さんは要領よく姿を消した。",
+		   NULL, "Ооиси-сан вручил старой владелице клуба пакет с коробкою папирос, и та понимающе тут же куда-то испарилась.", Line_WaitForInput);
+	OutputLine(NULL, "…もう慣れっこなのだ。",
+		   NULL, " ...Привычное дело.", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	DrawSceneWithMask( "bg_071", "up", 0, 0, 1300 );
+
+//「大石さん＠　お疲れさまっす！！＠
+	PlaySE(4, "S20/19/443100036", 128, 64);
+	OutputLine(NULL, "「大石さん！",
+		   NULL, "\"Ооиси-сан!", Line_WaitForInput);
+	OutputLine(NULL, "　お疲れさまっす！！」",
+		   NULL, " Доброй ночи!!\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+//「なんだ、みんな真面目に待ってたんですか＠　サンマでもやってりゃ良かったのに。￥
+	PlaySE(4, "S20/11/440700180", 128, 64);
+	OutputLine(NULL, "「なんだ、みんな真面目に待ってたんですか？",
+		   NULL, "\"Что, неужто вы все меня ждали?", Line_WaitForInput);
+	OutputLine(NULL, "　サンマでもやってりゃ良かったのに。」",
+		   NULL, " Вполне могли бы и на тройки разбиться, чтобы в маджонг сыграть.\"", Line_Normal);
+	ClearMessage();
+
+//　狭い店内に並べられた雀卓には皆、大石の部下たちが座っているが、どの卓にも麻雀牌は出ていない￥
+	OutputLine(NULL, "　狭い店内に並べられた雀卓には皆、大石の部下たちが座っているが、どの卓にも麻雀牌は出ていない。",
+		   NULL, "В тесной комнатушке за каждым столом сидели товарищи Ооиси, но ни на одном столе и кости для игры в маджонг не стояло.", Line_Normal);
+	ClearMessage();
+
+//「皆さん、連日の不眠不休の捜査、本当にお疲れさまです。＠
+	PlaySE(4, "S20/11/440700181", 128, 64);
+	OutputLine(NULL, "「皆さん、連日の不眠不休の捜査、本当にお疲れさまです。」",
+		   NULL, "\"Итак, всем большое спасибо за славную службу, что вы несли несколько дней подряд, не сомкнувши глаз.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+//「「「ぅおおっす！！」」＠
+	PlaySE(4, "S20/00/442500011", 128, 64);
+	PlaySE(5, "S20/00/KeijiB44008", 128, 64);
+	PlaySE(6, "S20/19/443100037", 128, 64);
+	OutputLine(NULL, "「「「ぅおおっす！！」」」",
+		   NULL, "\"\"\"УРА!!\"\"\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+//　威勢のいい返事が雀荘を満たす＠...そこはすでに娯楽場の雰囲気ではない￥
+	OutputLine(NULL, "　威勢のいい返事が雀荘を満たす。",
+		   NULL, "Решительные выкрики наполнили зал.", Line_WaitForInput);
+	OutputLine(NULL, "…そこはすでに娯楽場の雰囲気ではない。",
+		   NULL, "...Увеселительным заведением тут больше не пахло.", Line_Normal);
+	ClearMessage();
+
+//「状況は芳しくありません＠署長が園崎系議員の恫喝に屈したそうです＠
+	PlaySE(4, "S20/11/440700182", 128, 64);
+	OutputLine(NULL, "「状況は芳しくありません。",
+		   NULL, "\"Дело полная дрянь.", Line_WaitForInput);
+	OutputLine(NULL, "署長が園崎系議員の恫喝に屈したそうです。",
+		   NULL, " Видимо, шеф прогнулся под угрозами больших дядек Сонодзаки.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+//　近日中に鷹野殺しは岐阜県警に譲り、村長たちの失踪は行方不明扱いで生活課に委ねるようです。＠
+	PlaySE(4, "S20/11/440700183", 128, 64);
+	OutputLine(NULL, "　近日中に鷹野殺しは岐阜県警に譲り、村長たちの失踪は行方不明扱いで生活課に委ねるようです。」",
+		   NULL, "Скоро дело Такано передадут полиции префектуры Гифу, а исчезновения старосты с остальными — сыскному отделу, причём в качестве простых дел о пропаже.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+
+//　...あの若造署長が＠ベテランたちが吐き捨てる￥
+	OutputLine(NULL, "　…あの若造署長が。",
+		   NULL, "Этот хренов сопляк...", Line_WaitForInput);
+	OutputLine(NULL, "ベテランたちが吐き捨てる。",
+		   NULL, " Ветераны ругнулись.", Line_Normal);
+	ClearMessage();
+
+//「請求した令状も全て却下されました＠課長からは園崎家界隈には近付くなとまで言われてます＠...いやいや、困ったモンです＠
+//　ちなみに、私には来週から警視庁への研修命令が出るそうです＠その後は余った有給を伊豆で消化しろとまで言われてます＠...いやぁ、そういうのも悪くないですねぇ～。＠
+	PlaySE(4, "S20/11/440700184", 128, 64);
+	OutputLine(NULL, "「請求した令状も全て却下されました。",
+		   NULL, "\"Все поданные заявки отвели.", Line_WaitForInput);
+	OutputLine(NULL, "課長からは園崎家界隈には近付くなとまで言われてます。",
+		   NULL, " Начальник отдела сказал, чтобы я к землям Сонодзаки на пушечный выстрел больше не подходил.", Line_WaitForInput);
+	PlaySE(4, "S20/11/440700185", 128, 64);
+	OutputLine(NULL, "…いやいや、困ったモンです。",
+		   NULL, " Да уж, беда-беда...", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+	PlaySE(4, "S20/11/440700186", 128, 64);
+	OutputLine(NULL, "　ちなみに、私には来週から警視庁への研修命令が出るそうです。",
+		   NULL, "И, кстати, мне приказано убыть на следующей неделе в Столичное полицейское управление на курсы по повышению квалификации.", Line_WaitForInput);
+	OutputLine(NULL, "その後は余った有給を伊豆で消化しろとまで言われてます。",
+		   NULL, " А потом он даже сказал, чтобы я провёл остаток отпуска в Идзу.", Line_WaitForInput);
+	PlaySE(4, "S20/11/440700187", 128, 64);
+	OutputLine(NULL, "…いやぁ、そういうのも悪くないですねぇ〜。」",
+		   NULL, " Ну что ж... не так уж всё плохо, ага?\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+//　苦笑が漏れる＠...笑い事ではないが、笑うしかなかった￥
+	OutputLine(NULL, "　苦笑が漏れる。",
+		   NULL, "Слабые смешки.", Line_WaitForInput);
+	OutputLine(NULL, "…笑い事ではないが、笑うしかなかった。",
+		   NULL, " Смешного тут нет ни капли, но полицейские могли только горько посмеяться.", Line_Normal);
+	ClearMessage();
+
+//「いつもそうですが、事件と車のキーの閉じ込めはよく似てます＠開けるためのカギはいつもその中に閉じ込められているんです＠車ならＪＡＦを呼んで扉をこじ開ける＠事件なら＠　熊ちゃん、図面を。＠
+	PlaySE(4, "S20/11/440700188", 128, 64);
+	OutputLine(NULL, "「いつもそうですが、事件と車のキーの閉じ込めはよく似てます。",
+		   NULL, "\"Знаете ли, дело и машина, запертая с ключом внутри, очень схожи между собой.", Line_WaitForInput);
+	OutputLine(NULL, "開けるためのカギはいつもその中に閉じ込められているんです。",
+		   NULL, " Ключ к их открытию всегда внутри них самих.", Line_WaitForInput);
+	PlaySE(4, "S20/11/440700189", 128, 64);
+	OutputLine(NULL, "車なら修理業者を呼んで扉をこじ開ける。",
+		   NULL, " В случае с машиной я бы просто позвонил в Союз японских автомобилистов,", Line_WaitForInput);
+	PlaySE(4, "S20/11/440700190", 128, 64);
+	OutputLine(NULL, "事件なら？",
+		   NULL, " но как быть с делом?", Line_WaitForInput);
+	PlaySE(4, "S20/11/440700191", 128, 64);
+	OutputLine(NULL, "　熊ちゃん、図面を。」",
+		   NULL, " Кума-тян, карту.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+//　熊谷がホワイトボードをひっくり返す＠裏には磁石で邸内の図面が貼られていた￥
+	OutputLine(NULL, "　熊谷がホワイトボードをひっくり返す。",
+		   NULL, "Кумагай повернул доску.", Line_WaitForInput);
+	OutputLine(NULL, "裏には磁石で邸内の図面が貼られていた。",
+		   NULL, " На обратной стороне красовалась карта поместья, удерживаемая магнитами.", Line_Normal);
+	ClearMessage();
+
+//「私もずーーっとこの商売をやってます＠勘には自信があるつもりですがね、今回ばかりはハズレるかもしれませんよ＠　退職金が惜しい方は私が１０数える間に席を外してください。＠
+	PlaySE(4, "S20/11/440700192", 128, 64);
+	OutputLine(NULL, "「私もずーーっとこの商売をやってます。",
+		   NULL, "\"Я стооолько был в деле.", Line_WaitForInput);
+	OutputLine(NULL, "勘には自信があるつもりですがね、今回ばかりはハズレるかもしれませんよ？",
+		   NULL, " Я привык доверять чутью, но вот на этот раз могу ошибиться, понимаете?", Line_WaitForInput);
+	PlaySE(4, "S20/11/440700193", 128, 64);
+	OutputLine(NULL, "　退職金が惜しい方は私が１０数える間に席を外してください。」",
+		   NULL, " Тех, кому жаль пенсионных надбавок, прошу покинуть помещение, пока я считаю до десяти.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+
+//　大石が１０を数え始めると、皆も同じように数え始める＠
+	OutputLine(NULL, "　大石が１０を数え始めると、皆も同じように数え始める。",
+		   NULL, "Когда Ооиси начал счёт, остальные стали считать вместе с ним.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+//　......大石たちの名物、覚悟の１０カウントだ￥
+	OutputLine(NULL, "　……大石たちの名物、覚悟の１０カウントだ。",
+		   NULL, "То был его знаменитый «десятисекундный счёт решимости»......", Line_Normal);
+	ClearMessage();
+
+//「９、１０！＠　あ～あ～、誰も出てかないよ＠皆さん、ご家族はもっと大切にして下さいよ？　んっふっふっふ！＠
+	PlaySE(4, "S20/11/440700194", 128, 64);
+	OutputLine(NULL, "「９、１０！！",
+		   NULL, "\"Девять, десять!", Line_WaitForInput);
+	OutputLine(NULL, "　あ〜あ〜、誰も出てかないよ。",
+		   NULL, " Ах-ха, и никто ведь не ушёл.", Line_WaitForInput);
+	PlaySE(4, "S20/11/440700195", 128, 64);
+	OutputLine(NULL, "皆さん、ご家族はもっと大切にして下さいよ？　んっふっふっふ！」",
+		   NULL, " Парни, может, подумаете о своих семьях? Мм-хм-хм-хм!\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+//「「「わっはっはっはっはっは...！！」」＠
+	PlaySE(4, "S20/00/442500012", 128, 64);
+	PlaySE(5, "S20/00/KeijiB44009", 128, 64);
+	PlaySE(6, "S20/19/443100038", 128, 64);
+	OutputLine(NULL, "「「「わっはっはっはっはっは…！！」」」",
+		   NULL, "\"\"\"Эа ха ха ха ха ха!!...\"\"\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+//　一同も豪快に笑って景気付けをする￥
+	OutputLine(NULL, "　一同も豪快に笑って景気付けをする。",
+		   NULL, "Собравшиеся весело рассмеялись.", Line_Normal);
+	ClearMessage();
+
+//「各自、手元の資料を確認＠監視カメラの所在と死角を叩き込んでください＠熊ちゃんは指揮車で待機＠非常時は私に代わって指揮をお願いしますよ＠小宮山くんは突入Ａ班＠敦くんは突入Ｂ班を指揮＠監視班は１から８まで所定の位置で監視を＠盆地くんはタイムテーブルを厳守＠署に怪しまれないようローテを管理して下さい＠さて、待機中の班が一番大仕事ですよ＠　課長に私の所在を聞かれたらとぼけて下さい。＠
+	PlaySE(4, "S20/11/440700196", 128, 64);
+	OutputLine(NULL, "「各自、手元の資料を確認。",
+		   NULL, "\"Каждому — проверить доступные сведения.", Line_WaitForInput);
+	OutputLine(NULL, "監視カメラの所在と死角を叩き込んでください。",
+		   NULL, " Накрепко запомните, где стоят камеры и какие места с них не просматриваются.", Line_WaitForInput);
+	PlaySE(4, "S20/11/440700197", 128, 64);
+	OutputLine(NULL, "熊ちゃんは指揮車で待機。",
+		   NULL, " Кума-тян, сиди в командирской машине.", Line_WaitForInput);
+	PlaySE(4, "S20/11/440700198", 128, 64);
+	OutputLine(NULL, "非常時は私に代わって指揮をお願いしますよ。",
+		   NULL, " В случае чрезвычайных обстоятельств ты меня заменяешь.", Line_WaitForInput);
+	PlaySE(4, "S20/11/440700199", 128, 64);
+	OutputLine(NULL, "小宮山くんは突入Ａ班。",
+		   NULL, " Комияма-кун, штурмовая группа А твоя.", Line_WaitForInput);
+	OutputLine(NULL, "敦くんは突入Ｂ班を指揮。",
+		   NULL, " Ацуси-кун, поведёшь штурмовую группу Б.", Line_WaitForInput);
+	PlaySE(4, "S20/11/440700200", 128, 64);
+	OutputLine(NULL, "監視班は１から８まで所定の位置で監視を。",
+		   NULL, " Группы наблюдения с первой по восьмую, наблюдайте с указанных точек.", Line_WaitForInput);
+	PlaySE(4, "S20/11/440700201", 128, 64);
+	OutputLine(NULL, "盆地くんはタイムテーブルを厳守。",
+		   NULL, " Бонти-кун, следи за расписанием.", Line_WaitForInput);
+	PlaySE(4, "S20/11/440700202", 128, 64);
+	OutputLine(NULL, "署に怪しまれないようローテを管理して下さい。",
+		   NULL, " Распредели смены так, чтобы на участке ничего не заподозрили.", Line_WaitForInput);
+	PlaySE(4, "S20/11/440700203", 128, 64);
+	OutputLine(NULL, "さて、待機中の班が一番大仕事ですよ？",
+		   NULL, " Что же, и главная работа достаётся запасной команде?", Line_WaitForInput);
+	OutputLine(NULL, "　課長に私の所在を聞かれたらとぼけて下さい。」",
+		   NULL, " Просьба как можно убедительнее валять дурака, если начальник отдела поинтересуется о том, где я шляюсь.\"", Line_Normal);
+	ClearMessage();
+//長文につき＠を￥に変換
+
+//「「「わっはっはっはっはっは！！」」￥
+	PlaySE(4, "S20/00/442500013", 128, 64);
+	PlaySE(5, "S20/00/KeijiB44010", 128, 64);
+	PlaySE(6, "S20/19/443100039", 128, 64);
+	OutputLine(NULL, "「「「わっはっはっはっはっは！！」」」",
+		   NULL, "\"\"\"Ях ха ха ха ха ха!!\"\"\"", Line_Normal);
+	ClearMessage();
+
+//「ゲストのエスコート役は私がやります＠きっと会場へ連れて行きますので皆さん、気長に待ってください。＠
+	PlaySE(4, "S20/11/440700204", 128, 64);
+	OutputLine(NULL, "「ゲストのエスコート役は私がやります。",
+		   NULL, "\"Я же займусь сопровождением гостя.", Line_WaitForInput);
+	OutputLine(NULL, "きっと会場へ連れて行きますので皆さん、気長に待ってください。」",
+		   NULL, " Я приведу его в любом случае, потому прошу набраться терпенья и ждать.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+//「.........落ちるっすかね＠前原圭一は。＠
+	PlaySE(4, "S20/19/443100040", 128, 64);
+	OutputLine(NULL, "「………落ちるっすかね。",
+		   NULL, "\"......А он поведётся?..", Line_WaitForInput);
+	OutputLine(NULL, "前原圭一は。」",
+		   NULL, " Этот Маэбара Кейти.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+//「私の見たとこじゃあ、明日明後日にはイケそうですよ＠もうコロっとね＠んっふっふっふ！￥
+	PlaySE(4, "S20/11/440700205", 128, 64);
+	OutputLine(NULL, "「私の見たとこじゃあ、明日明後日にはイケそうですよ。",
+		   NULL, "\"Ну, судя по виденному мной, будет готов со дня на день.", Line_WaitForInput);
+	OutputLine(NULL, "もうコロっとね。",
+		   NULL, " Долго ждать не придётся.", Line_WaitForInput);
+	PlaySE(4, "S20/11/440700206", 128, 64);
+	OutputLine(NULL, "んっふっふっふ！」",
+		   NULL, " Мм-хм-хм-хм!\"", Line_Normal);
+	ClearMessage();
+	DisableWindow();
+	SetValidityOfInput( FALSE );
+	DrawBustshotWithFiltering( 6, "cinema", "x", 1, 0, 0, FALSE, 0, 0, 0, 0, 0, 25, 1300, TRUE );
+	DrawBustshot( 7, "Title02", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 26, 3000, TRUE );
+	Wait( 2000 );
+	DrawBustshot( 5, "black", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 25, 3000, TRUE );
+	Wait( 1000 );
+	FadeBustshotWithFiltering( 7, "x", 1, FALSE, 0, 0, 1000, TRUE );
+	DrawScene( "black", 1000 );
+	SetValidityOfInput( TRUE );
+
+}

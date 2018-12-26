@@ -1,0 +1,132 @@
+﻿void main()
+{
+
+//７■スクラップ帳よりⅢ
+//*Sub_Tips_029
+//gosub *tip_s
+	EnableJumpingOfReturnIcon();
+	FadeOutBGM( 0, 1000, FALSE );
+	FadeOutBGM( 1, 1000, FALSE );
+	FadeOutBGM( 2, 1000, TRUE );
+	DisableWindow();
+	DrawScene( "black", 1000 );
+	PlaySE( 3, "wa_021", 128, 64 );
+	DrawScene( "bg_181", 400 );
+	PlayBGM( 1, "msys11", 128, 0 );
+
+//locate 4,6
+	SetDrawingPointOfMessage( 0, 6 );
+
+
+//＜儀式の祭具について￥
+	OutputLine(NULL, "＜儀式の祭具について＞",
+		   NULL, "— О ритуальных принадлежностях —", Line_Normal);
+	ClearMessage();
+
+
+	PlaySE( 3, "wa_021", 128, 64 );
+
+//　古代の宗教儀式に用いられた儀式道具は「祭具」と呼ばれ、その一部が今日も古手神社や御三家の蔵に祀られている＠
+	OutputLine(NULL, "　古代の宗教儀式に用いられた儀式道具は「祭具」と呼ばれ、その一部が今日も古手神社や御三家の蔵に祀られている。",
+		   NULL, "<size=-2>Предметы, использовавшиеся в древних обрядах, называются «ритуальными принадлежностями»; некоторые по сей день хранятся в храме Фурудэ и в кладовках Трёх великих родов.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+//　古代の宗教儀式に用いられた儀式道具は「祭具」と呼ばれ、その一部が今日も古手神社や御三家の蔵に祀られている＠
+	OutputLine(NULL, "　古代の宗教儀式に用いられた儀式道具は「祭具」と呼ばれ、その一部が今日も古手神社や御三家の蔵に祀られている。",
+		   NULL, "Предметы, использовавшиеся в древних обрядах, называются «ритуальными принадлежностями»; некоторые по сей день хранятся в храме Фурудэ и в кладовках Трёх великих родов.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+//　だが、それらの確認できる「祭具」はいずれも装飾的なものばかりで、鬼ヶ淵村の暗部を司る儀式に使用されたと思われるものは何一つない￥
+	OutputLine(NULL, "　だが、それらの確認できる「祭具」はいずれも装飾的なものばかりで、鬼ヶ淵村の暗部を司る儀式に使用されたと思われるものは何一つない。",
+		   NULL, "Однако те «принадлежности», что теперь доступны взору, все показные, и не похоже, чтобы хоть одна из них принимала участие в тёмных обрядах Чёртовой Бездны.", Line_Normal);
+	ClearMessage();
+
+	PlaySE( 3, "wa_021", 128, 64 );
+
+//　幕末から明治にかけ、数々の伝統儀式が喪失した際にそれらも紛失＠もしくは闇に葬られてしまったのだろうか＠
+	OutputLine(NULL, "　幕末から明治にかけ、数々の伝統儀式が喪失した際にそれらも紛失、",
+		   NULL, "С конца сёгуната и начала эпохи Мэйдзи кануло в забвение множество древних обрядов и принадлежностей для их проведения;", Line_WaitForInput);
+	OutputLine(NULL, "もしくは闇に葬られてしまったのだろうか？",
+		   NULL, " или, может быть, их просто убрали подальше?", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+
+//　私はそうは思わない＠
+	OutputLine(NULL, "　私はそうは思わない。",
+		   NULL, "Не думаю.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+//　鬼隠しの夜の宴に使った「祭具」も、生贄の儀式に使った「祭具」も、人知れずそれらは祀られ、現存しているに違いない＠
+	OutputLine(NULL, "　鬼隠しの夜の宴に使った「祭具」も、生贄の儀式に使った「祭具」も、人知れずそれらは祀られ、現存しているに違いない。",
+		   NULL, "«Утварь», применявшаяся в ночи Оникакуси, «утварь», применявшаяся в обрядах принесения в жертву, наверняка сохранилась и где-то хранится в тайне.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+//　それは紛れもなくこの雛見沢に、今日この瞬間にも実在しているのだ￥
+	OutputLine(NULL, "　それは紛れもなくこの雛見沢に、今日この瞬間にも実在しているのだ。",
+		   NULL, "И я знаю, что в Хинамидзаве она есть до сих пор.", Line_Normal);
+	ClearMessage();
+
+	PlaySE( 3, "wa_021", 128, 64 );
+
+//　それがどこに祀られているか、九分見当はついている＠
+	OutputLine(NULL, "　それがどこに祀られているか、九分見当はついている。",
+		   NULL, "И я даже могу сказать с точностью в девяносто процентов, где она может храниться.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+//　これまでは堅牢だった施錠が、今年からどういうわけか低廉な安っぽい南京錠に変わったのだ＠あの程度の錠前なら、彼なら何とかできるかもしれない＠
+	OutputLine(NULL, "　これまでは堅牢だった施錠が、今年からどういうわけか低廉な安っぽい南京錠に変わったのだ。",
+		   NULL, "Раньше там висел прочный замок, но в этом году его зачем-то поменяли на откровенно жалкий замочек.", Line_WaitForInput);
+	OutputLine(NULL, "あの程度の錠前なら、彼なら何とかできるかもしれない。",
+		   NULL, " С таким замочком он вполне может справиться.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+
+//　だが、集会所が遠くないということもあり、常に人の気配の絶えない場所でもある￥
+	OutputLine(NULL, "　だが、集会所が遠くないということもあり、常に人の気配の絶えない場所でもある。",
+		   NULL, "Только там недалеко сельский совет, поэтому рядом постоянно кто-нибудь есть.", Line_Normal);
+	ClearMessage();
+
+	PlaySE( 3, "wa_021", 128, 64 );
+
+//　だが私は諦めない。/
+	OutputLine(NULL, "　だが私は諦めない。",
+		   NULL, "Но я не сдамся.", Line_ContinueAfterTyping);
+
+	PlaySE( 3, "wa_024", 128, 64 );
+
+	OutputLineAll(NULL, "", Line_WaitForInput);
+
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+//　…雛見沢中の全ての村人の死角となる夜が、もうすぐやって来る＠
+	OutputLine(NULL, "　…雛見沢中の全ての村人の死角となる夜が、もうすぐやって来る。",
+		   NULL, "Вскоре наступит ночь, когда ни один житель Хинамидзавы не станет смотреть.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+
+//　もうすぐ、!w800綿流し￥
+	OutputLine(NULL, "　もうすぐ、",
+		   NULL, "Скоро,", Line_ContinueAfterTyping);
+
+	SetValidityOfInput( FALSE );
+	Wait( 1000 );
+	SetValidityOfInput( TRUE );
+
+	OutputLine(NULL, "綿流し。",
+		   NULL, " на Ватанагаси.", Line_Normal);
+	ClearMessage();
+	DisableWindow();
+	SetValidityOfInput( FALSE );
+	DrawBustshotWithFiltering( 6, "cinema", "x", 1, 0, 0, FALSE, 0, 0, 0, 0, 0, 25, 1300, TRUE );
+	DrawBustshot( 7, "Title02", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 26, 3000, TRUE );
+	Wait( 2000 );
+	DrawBustshot( 5, "black", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 25, 3000, TRUE );
+	Wait( 1000 );
+	FadeBustshotWithFiltering( 7, "x", 1, FALSE, 0, 0, 1000, TRUE );
+	DrawScene( "black", 1000 );
+	SetValidityOfInput( TRUE );
+
+}

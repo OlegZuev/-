@@ -1,0 +1,194 @@
+﻿void main()
+{
+
+//１０深■園崎家の老当主は？
+//（深夜の車中のイメージ）
+//*Sub_Tips_040
+//gosub *tip_s
+	EnableJumpingOfReturnIcon();
+	FadeOutBGM( 0, 1000, FALSE );
+	FadeOutBGM( 1, 1000, FALSE );
+	FadeOutBGM( 2, 1000, TRUE );
+	DisableWindow();
+	DrawScene( "black", 1000 );
+	DrawScene( "bg_104", 1000 );
+	PlayBGM( 1, "msys13", 128, 0 );
+
+
+//「はい。郵便局員も目撃してないそうです＠...園崎本家は、郵便受けにハンコが吊るしてあるそうで、書留も宅急便も勝手にハンコを押して投函していい事になってるんだそうっす。＠
+	PlaySE(4, "S20/19/443100030", 128, 64);
+	OutputLine(NULL, "「はい。郵便局員も目撃してないそうです。",
+		   NULL, "\"Да. Похоже, почтари её тоже не видели.", Line_WaitForInput);
+	OutputLine(NULL, "…園崎本家は、郵便受けにハンコが吊るしてあるそうで、書留も宅急便も勝手にハンコを押して投函していい事になってるんだそうっす。」",
+		   NULL, " Как видно, у главного дома Сонодзаки на почтовом ящике висит именная печатка, и, когда доставляют почту, почтальон может сам печать и поставить.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+//「なっはっは、そりゃ無用心ですねぇ＠...ってことは、最後の目撃はいつになるんです？＠
+	PlaySE(4, "S20/11/440700154", 128, 64);
+	OutputLine(NULL, "「なっはっは、そりゃ無用心ですねぇ。",
+		   NULL, "\"Н-а-ха-ха, экое легкомыслие...", Line_WaitForInput);
+	OutputLine(NULL, "…ってことは、最後の目撃はいつになるんです？」",
+		   NULL, " И когда ж её видели в последний раз?\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+//「綿流しの開会式でした挨拶が最後です＠その後すぐに帰宅したらしいっすから。￥
+	PlaySE(4, "S20/19/443100031", 128, 64);
+	OutputLine(NULL, "「綿流しの開会式でした挨拶が最後です。",
+		   NULL, "\"Когда она приветственной речью открывала фестиваль Ватанагаси.", Line_WaitForInput);
+	OutputLine(NULL, "その後すぐに帰宅したらしいっすから。」",
+		   NULL, " Потом она сразу направилась (предположительно) домой.\"", Line_Normal);
+	ClearMessage();
+
+//「高齢ですからねぇ＠...話じゃ、週に何回かお稽古事で外出してるそうじゃないですか＠そっちはどうです？＠
+	PlaySE(4, "S20/11/440700155", 128, 64);
+	OutputLine(NULL, "「高齢ですからねぇ。",
+		   NULL, "\"Она стара как-никак...", Line_WaitForInput);
+	OutputLine(NULL, "…話じゃ、週に何回かお稽古事で外出してるそうじゃないですか。",
+		   NULL, " Я слышал, она несколько раз в неделю ходит на какие-то собрания?", Line_WaitForInput);
+	PlaySE(4, "S20/11/440700156", 128, 64);
+	OutputLine(NULL, "そっちはどうです？」",
+		   NULL, " С ними что?\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+//「毎週月曜に集会所で大正琴を習ってるんですが、今週は休んだそうです。＠
+	PlaySE(4, "S20/00/442500008", 128, 64);
+	OutputLine(NULL, "「毎週月曜に集会所で大正琴を習ってるんですが、今週は休んだそうです。」",
+		   NULL, "\"Каждый понедельник она посещает уроки игры на кото, но на этой неделе не появлялась.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+//「欠席の電話とかは＠　それを誰かが確認したとかは？＠
+	PlaySE(4, "S20/11/440700157", 128, 64);
+	OutputLine(NULL, "「欠席の電話とかは？",
+		   NULL, "\"Звонила передать об отсутствии?", Line_WaitForInput);
+	OutputLine(NULL, "　それを誰かが確認したとかは？」",
+		   NULL, " Кто-нибудь проверял?\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+//「いえ、誰も＠ただ、たまに休むことがあったらしいので誰も不審には思わなかったようです。￥
+	PlaySE(4, "S20/00/442500009", 128, 64);
+	OutputLine(NULL, "「いえ、誰も。",
+		   NULL, "\"Не, никто.", Line_WaitForInput);
+	OutputLine(NULL, "ただ、たまに休むことがあったらしいので誰も不審には思わなかったようです。」",
+		   NULL, " Она время от времени пропускает занятия, поэтому никто не придавал значения.\"", Line_Normal);
+	ClearMessage();
+
+//「明日さ、１０時くらいになったら市役所のふりして電話してみましょうかね＠在宅を確認してみて下さい。＠
+	PlaySE(4, "S20/11/440700158", 128, 64);
+	OutputLine(NULL, "「明日さ、１０時くらいになったら市役所のふりして電話してみましょうかね。",
+		   NULL, "\"Что ж, позвоним завтра где-нибудь в десять утра так, будто мы из городского совета.", Line_WaitForInput);
+	OutputLine(NULL, "在宅を確認してみて下さい。」",
+		   NULL, " Попытайся подтвердить, дома ли она.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+//「１０時ですね。了解っす！￥
+	PlaySE(4, "S20/19/443100032", 128, 64);
+	OutputLine(NULL, "「１０時ですね。了解っす！」",
+		   NULL, "\"Так, десять утра. Принял!\"", Line_Normal);
+	ClearMessage();
+
+//　雛見沢の古い因習が関わっている気配が濃厚になった頃から、御三家をこっそりと監視していた＠
+	OutputLine(NULL, "　雛見沢の古い因習が関わっている気配が濃厚になった頃から、御三家をこっそりと監視していた。",
+		   NULL, "Когда стало походить на то, что в деле крепко замешаны старые обычаи Хинамидзавы, полиция начала вести тайное наблюдение за Тремя великими семьями.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+//　今日までに御三家の公由家の当主と、古手家の当主が消えた￥
+	OutputLine(NULL, "　今日までに御三家の公由家の当主と、古手家の当主が消えた。",
+		   NULL, "Уже пропал глава семьи Кимиёси, пропала глава рода Фурудэ.", Line_Normal);
+	ClearMessage();
+
+//　残る当主は１人＠
+	OutputLine(NULL, "　残る当主は１人。",
+		   NULL, "Осталась одна глава.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+//　園崎家当主の園崎お魎。（そのざきおりょう＠
+	OutputLine(NULL, "　園崎家当主の園崎お魎。（そのざきおりょう）",
+		   NULL, "Глава рода Сонодзаки, Сонодзаки Орё.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+//　高齢の婆さまらしい＠
+	OutputLine(NULL, "　高齢の婆さまらしい。",
+		   NULL, "Самая что ни на есть старая карга.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+
+//　威厳は衰えないものの、人前に姿を現すことは稀だそうで、確認がなかなか取れなかった＠
+	OutputLine(NULL, "　威厳は衰えないものの、人前に姿を現すことは稀だそうで、確認がなかなか取れなかった。",
+		   NULL, "Хотя величавость она сохранила, на людях появляется редко, из-за чего проверить её состояние не так просто.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+//　...その最後の当主も、綿流しの日に目撃されたのを最後に、誰からも目撃されていない＠
+	OutputLine(NULL, "　…その最後の当主も、綿流しの日に目撃されたのを最後に、誰からも目撃されていない。",
+		   NULL, "...И вот эту последнюю главу рода со дня Ватанагаси тоже никто не видел.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+
+//　園崎本家の中にいて今も健在なのか＠　...それとも......もう￥
+	OutputLine(NULL, "　園崎本家の中にいて今も健在なのか？",
+		   NULL, "Сидит ли она живая у себя дома?", Line_WaitForInput);
+	OutputLine(NULL, "　…それとも……もう？",
+		   NULL, " Или же...... и она?..", Line_Normal);
+	ClearMessage();
+
+//「園崎魅音が言うには、体調を崩して寝込んでるんだそうです。＠
+	PlaySE(4, "S20/19/443100033", 128, 64);
+	OutputLine(NULL, "「園崎魅音が言うには、体調を崩して寝込んでるんだそうです。」",
+		   NULL, "\"Сонодзаки Мион говорит, что та приболела и отсыпается в кровати.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+//「本当に寝込んでるのかなぁ＠顔と脈を見てみたいですねぇ...。＠
+	PlaySE(4, "S20/11/440700159", 128, 64);
+	OutputLine(NULL, "「本当に寝込んでるのかなぁ。",
+		   NULL, "\"Но вот правда ли она отсыпается?", Line_WaitForInput);
+	OutputLine(NULL, "顔と脈を見てみたいですねぇ…。」",
+		   NULL, " Поглядеть бы ей в очи мутные да проверить пульс...\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+//「..................まったくっす。￥
+	PlaySE(4, "S20/19/443100034", 128, 64);
+	OutputLine(NULL, "「………………まったくっす。」",
+		   NULL, "\"......И то верно............\"", Line_Normal);
+	ClearMessage();
+
+//　２人してタバコの煙を大きく吐き出す...￥
+	OutputLine(NULL, "　２人してタバコの煙を大きく吐き出す…。",
+		   NULL, "Напарники выпустили огромные клубы дыма...", Line_Normal);
+	ClearMessage();
+
+//「大石さん、...園崎本家と古手神社の捜査令状＠申請、通ると思います？＠
+	PlaySE(4, "S20/19/443100035", 128, 64);
+	OutputLine(NULL, "「大石さん、…園崎本家と古手神社の捜査令状。",
+		   NULL, "\"Ооиси-сан, ордер на обыск дома Фурудэ и поместья Сонодзаки...", Line_WaitForInput);
+	OutputLine(NULL, "申請、通ると思います？」",
+		   NULL, " Думаете, прокатит?\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+
+//　大石は特に答えず、再び紫煙を吐き出して、文字通り煙に巻いていた...￥
+	OutputLine(NULL, "　大石は特に答えず、再び紫煙を吐き出して、文字通り煙に巻いていた…。",
+		   NULL, "Не ответив, Ооиси выдохнул новое облако дыма, совсем окутав себя сизою пеленой...", Line_Normal);
+	ClearMessage();
+	DisableWindow();
+	SetValidityOfInput( FALSE );
+	DrawBustshotWithFiltering( 6, "cinema", "x", 1, 0, 0, FALSE, 0, 0, 0, 0, 0, 25, 1300, TRUE );
+	DrawBustshot( 7, "Title02", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 26, 3000, TRUE );
+	Wait( 2000 );
+	DrawBustshot( 5, "black", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 25, 3000, TRUE );
+	Wait( 1000 );
+	FadeBustshotWithFiltering( 7, "x", 1, FALSE, 0, 0, 1000, TRUE );
+	DrawScene( "black", 1000 );
+	SetValidityOfInput( TRUE );
+
+}

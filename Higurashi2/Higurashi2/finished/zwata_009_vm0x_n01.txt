@@ -1,0 +1,165 @@
+void main()
+{
+}
+
+void dialog001()
+{
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>魅音</color>", NULL, "<color=#5ec69a>Мион</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 3, "ps3/s02/03/130300099", 128, TRUE);
+	OutputLine(NULL, "「ん？",
+		   NULL, "\"Мм?", Line_WaitForInput);
+	ModPlayVoiceLS(4, 3, "ps3/s02/03/130300100", 128, TRUE);
+	OutputLine(NULL, "　…あはははは、実は内緒なんだけど…、昨日はお祭りのあとで親族の宴会に巻き込まれちゃってさ。",
+		   NULL, " Аха-ха-ха-ха... ты только не говори никому... но меня вчера затащили на посиделки с роднёй.", Line_WaitForInput);
+
+	DisableWindow();
+	ModDrawCharacter(2, 3, "sprite/normal/me1b_wink_a1_", "2", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 10, 200, TRUE );
+
+//それで...チョイっと。￥
+	ModPlayVoiceLS(4, 3, "ps3/s02/03/130300101", 128, TRUE);
+	OutputLine(NULL, "それで…チョイっと。」",
+		   NULL, " Вот и устала...\"", Line_Normal);
+	ClearMessage();
+
+//　チョイっと＠
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　チョイっと。",
+		   NULL, "Устала.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　コップを傾けるようなジェスチャー＠......ってことはお前、風邪なんじゃなくて...￥
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　コップを傾けるようなジェスチャー。",
+		   NULL, "Она показала, как будто пьёт из кружки......", Line_WaitForInput);
+	OutputLine(NULL, "……ってことはお前、風邪なんじゃなくて…、",
+		   NULL, " стало быть, не простудилась, а...", Line_Normal);
+	ClearMessage();
+
+//「ふ、二日酔いかよー？＠　お前、歳はいくつだー！！＠
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#956f6e>圭一</color>", NULL, "<color=#956f6e>Кейти</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 1, "ps3/s02/01/130100233", 128, TRUE);
+	OutputLine(NULL, "「ふ、二日酔いかよー？！",
+		   NULL, "\"У тебя п-похмелье?!", Line_WaitForInput);
+	ModPlayVoiceLS(4, 1, "ps3/s02/01/130100234", 128, TRUE);
+	OutputLine(NULL, "　お前、歳はいくつだー！！」",
+		   NULL, " Тебе сколько лет-то?!\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+}
+
+void dialog002()
+{
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　…確かに体調が悪いのは同じだろうが。",
+		   NULL, "Может, плохо ей и так и эдак...", Line_WaitForInput);
+	OutputLine(NULL, "風邪と二日酔いじゃ、その扱いは全然違うぞ。",
+		   NULL, " Но похмелье да простуда лечатся не одним и тем же.", Line_Normal);
+}
+
+void dialog003()
+{
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　…確かに具合は悪そうだが、二日酔いだとわかればそんなに心配はいらない。",
+		   NULL, "...Хотя видок у неё хреновый, о похмелье беспокоиться особо не надо.", Line_WaitForInput);
+	OutputLine(NULL, "時間と共に快調に向かうんだからな。",
+		   NULL, " Со временем пройдёт.", Line_Normal);
+}
+
+void dialog004()
+{
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　…姉は二日酔いだったのに、妹の方はケロッとしている。",
+		   NULL, "Её сестра страдала похмельем, но сама она бодра как птичка...", Line_Normal);
+}
+
+void dialog005()
+{
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#956f6e>圭一</color>", NULL, "<color=#956f6e>Кейти</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 1, "ps3/s02/01/130100267", 128, TRUE);
+	OutputLine(NULL, "「詩音か。",
+		   NULL, "\"Шион?", Line_WaitForInput);
+	ModPlayVoiceLS(4, 1, "ps3/s02/01/130100268", 128, TRUE);
+	OutputLine(NULL, "魅音と同じで、今日は二日酔いで寝込んでるんじゃないかと思ったぜ。」",
+		   NULL, " Я думал, ты, как Мион, дрыхнешь с похмелья без памяти.\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+}
+
+void dialog006()
+{
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>詩音</color>", NULL, "<color=#5ec69a>Шион</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 6, "ps3/s02/06/130600153", 128, TRUE);
+	OutputLine(NULL, "「え？",
+		   NULL, "\"Э?", Line_WaitForInput);
+	ModPlayVoiceLS(4, 6, "ps3/s02/06/130600154", 128, TRUE);
+	OutputLine(NULL, "　お姉、二日酔いなんですか？",
+		   NULL, " У сеструхи похмелье?", Line_WaitForInput);
+	ModPlayVoiceLS(4, 6, "ps3/s02/06/130600155", 128, TRUE);
+	OutputLine(NULL, "　あっはははははは！　お姉らし〜〜！」",
+		   NULL, " Аха-ха-ха-ха-ха-ха! Она как всегда~а!\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+}
+
+void dialog007()
+{
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　詩音も、何となくふらふらなような。",
+		   NULL, "Шион сама едва стоит...", Line_WaitForInput);
+	OutputLine(NULL, "…こいつも魅音同様、昨夜は飲んだな？",
+		   NULL, " Она, как Мион, пьянствовала ночью вовсю?", Line_Normal);
+}
+
+void dialog008()
+{
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#a59da9>大石</color>", NULL, "<color=#a59da9>Ооиси</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 11, "ps3/s02/11/130700020", 128, TRUE);
+	OutputLine(NULL, "「園崎家はこの地域一帯を牛耳ってるヤクザ屋さんです。",
+		   NULL, "\"Вообще говоря, семья Сонодзаки — бандитская шайка, подмявшая под себя округу.", Line_WaitForInput);
+	ModPlayVoiceLS(4, 11, "ps3/s02/11/130700021", 128, TRUE);
+	OutputLine(NULL, "ちなみに彼女のお父さんは、××組系のヤクザの大幹部さんです。",
+		   NULL, " К слову, отец девочек в той группировке один из главных.", GetGlobalFlag(GLinemodeSp));
+}
+
+void dialog009()
+{
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#a59da9>大石</color>", NULL, "<color=#a59da9>Ооиси</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 11, "ps3/s02/11/130700024", 128, TRUE);
+	OutputLine(NULL, "　高い塀に有刺鉄線と監視カメラで守られた、典型的なヤクザの組長宅ですよ。",
+		   NULL, "Типичнейший особняк бандитов, обнесён высокой стеной с колючей проволокой и уставлен камерами наблюдения.", Line_WaitForInput);
+	ModPlayVoiceLS(4, 11, "ps3/s02/11/130700025", 128, TRUE);
+	OutputLine(NULL, "今度ぜひ遊びに行ってみてください。」",
+		   NULL, " Зайдите к ней как-нибудь в гости.\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+}
+
+void dialog010()
+{
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#a59da9>大石</color>", NULL, "<color=#a59da9>Ооиси</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 11, "ps3/s02/11/130700026", 128, TRUE);
+	OutputLine(NULL, "「いえいえいえいえいえ。",
+		   NULL, "\"Нет-нет-нет-нет-нееет.", Line_WaitForInput);
+	ModPlayVoiceLS(4, 11, "ps3/s02/11/130700027", 128, TRUE);
+	OutputLine(NULL, "まさかまさか。",
+		   NULL, " Ни в коем разе.", Line_WaitForInput);
+	ModPlayVoiceLS(4, 11, "ps3/s02/11/130700028", 128, TRUE);
+	OutputLine(NULL, "園崎魅音さんが継ぐのはそんなチンケなヤクザ組織だけじゃありません。",
+		   NULL, " Стала бы Сонодзаки Мион-сан браться за вожжи какой-то жалкой преступной группировки.", Line_WaitForInput);
+	ModPlayVoiceLS(4, 11, "ps3/s02/11/130700029", 128, TRUE);
+	OutputLine(NULL, "彼女が継ぐのは園崎家そのものですよ。",
+		   NULL, " Она примет власть надо всей семьёй Сонодзаки.", GetGlobalFlag(GLinemodeSp));
+}
+
+
+void dialog011()
+{
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　魅音は跡継ぎだとか言ってたけど……まさか…そのヤクザの…？",
+		   NULL, "Та говорила, что Мион унаследует род...... Неужели... она станет главой якудзы?..", Line_Normal);
+}
+
+void dialog012()
+{
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#956f6e>圭一</color>", NULL, "<color=#956f6e>Кейти</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 1, "ps3/s02/01/130100231", 128, TRUE);
+	OutputLine(NULL, "「…魅音、風邪の方はいいのかよ。",
+		NULL, "\"Мион, как там твоя простуда?", Line_WaitForInput);
+}

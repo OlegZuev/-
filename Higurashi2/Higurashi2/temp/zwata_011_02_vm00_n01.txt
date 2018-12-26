@@ -1,0 +1,40 @@
+void main()
+{
+}
+
+void dialog001()
+{
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#a59da9>大石</color>", NULL, "<color=#a59da9>Ооиси</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 11, "ps3/s02/11/130700233", 128, TRUE);
+	OutputLine(NULL, "　…覚醒剤なんかの薬物中毒を疑っているんですが検出はされませんでした。」",
+		   NULL, "...Подозревали какой-то психостимулирующий наркотик, но ничего не обнаружили.\"", Line_Normal);
+}
+
+void dialog004()
+{
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#a59da9>大石</color>", NULL, "<color=#a59da9>Ооиси</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 11, "ps3/s02/11/130700237", 128, TRUE);
+	OutputLine(NULL, "　…管轄が岐阜県さんでね。",
+		   NULL, "Тело найдено в префектуре Гифу.", Line_WaitForInput);
+}
+void dialog002()
+{
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#a59da9>大石</color>", NULL, "<color=#a59da9>Ооиси</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 11, "ps2/11/130700241", 240, TRUE);
+	OutputLine(NULL, "……鷹野さんの方はちょっとあやふやですが、富竹さんとほぼ同じ時刻に殺害され、岐阜の山中に遺棄されたと考えるのが妥当でしょうなぁ。」",
+		   NULL, " Не совсем уверен с Такано-сан, однако можно полагать, что и её убили примерно в одно время с Томитаке-саном, а затем оставили в горах Гифу.\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+}
+
+void dialog003()
+{
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#a59da9>大石</color>", NULL, "<color=#a59da9>Ооиси</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 11, "ps3/s02/11/130700281", 128, TRUE);
+	OutputLine(NULL, "「口封じをされるような、とんでもない物が隠してあったんじゃないですか？",
+		   NULL, "\"А не увидели ль вы там что-то, ради чего стоило бы вас заткнуть, дабы не рассказали?..", Line_WaitForInput);
+	ModPlayVoiceLS(4, 11, "ps3/s02/11/130700285", 128, TRUE);
+	OutputLine(NULL, "不審な木箱やコンテナが山積みされてませんでしたか？」",
+		   NULL, " Может, штабель каких-нибудь подозрительных на вид ящиков?\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+}
+

@@ -82,14 +82,16 @@ void writeInFileConvertedDate(ifstream& fin, ifstream& finTwo, ofstream& fout, s
         if (buff.find("dialog") != -1) {
             return;
         }
-        if (isCharacterName(buff)) {
-            int ind = 0;
-            for (; ind < namesEng.size(); ++ind) {
-                if (buff.find(namesEng[ind]) != -1) {
-                    break;
+        if (isCharacterName(buff)) {   
+             do {
+                int ind = 0;
+                for (; ind < namesEng.size(); ++ind) {
+                    if (buff.find(namesEng[ind]) != -1) {
+                        break;
+                    }
                 }
-            }
-            buff.replace(buff.find(namesEng[ind]), namesEng[ind].length(), namesRus[ind]);
+                buff.replace(buff.find(namesEng[ind]), namesEng[ind].length(), namesRus[ind]);
+             } while (isCharacterName(buff));
         } else if (buff.find("</color>") != -1) {
             cout << "New name in line " << i << endl;
             cin >> buff;
@@ -169,7 +171,8 @@ void formatFileZonik(const string& filename, const string& end)
 
 void runConvert(string filename)
 {
-    string end = "_vm00_n01.txt";
+    string endOne = "_vm00_n01.txt";
+    string endTwo = "_vm0x_n01.txt";
     ifstream fin("./eng/" + filename);
     ifstream finTwo("./rus/" + filename);
     ifstream finThree;
@@ -180,22 +183,24 @@ void runConvert(string filename)
     for (int i = 0; !fin.eof(); ++i) {
         getline(fin, s);
         if (isCharacterName(s)) {
-            int ind = 0;
-            for (; ind < namesEng.size(); ++ind) {
-                if (s.find(namesEng[ind]) != -1) {
-                    break;
+            do {
+                int ind = 0;
+                for (; ind < namesEng.size(); ++ind) {
+                    if (s.find(namesEng[ind]) != -1) {
+                        break;
+                    }
                 }
-            }
-            s.replace(s.find(namesEng[ind]), namesEng[ind].length(), namesRus[ind]);
+                s.replace(s.find(namesEng[ind]), namesEng[ind].length(), namesRus[ind]);
+            } while (isCharacterName(s));
         } else if (s.find("</color>") != -1) {
             cout << "New name in line " << i + 3 << endl;
             return;
         } else if (s.find("VoiceMatching") != -1 && s.find("End") == -1) {
             fout << s << endl;
 
-            finThree.open("./eng/z" + filename.substr(0, filename.length() - 4) + end);
+            finThree.open("./eng/z" + filename.substr(0, filename.length() - 4) + endOne);
             if (!foutThree.is_open()) {
-                foutThree.open("./temp/z" + filename.substr(0, filename.length() - 4) + end);
+                foutThree.open("./temp/z" + filename.substr(0, filename.length() - 4) + endOne);
                 string str;
                 for (int k = 0; k < 4; ++k) {
                     getline(finThree, str);
@@ -232,7 +237,12 @@ void runConvert(string filename)
     finTwo.close();
     fout.close();
     if (foutThree.is_open()) {
-        formatFileZonik(filename, end);
+        formatFileZonik(filename, endOne);
         foutThree.close();
+        ifstream finCopy("./result/z" + filename.substr(0, filename.length() - 4) + endOne);
+        ofstream foutCopy("./result/z" + filename.substr(0, filename.length() - 4) + endTwo);
+        foutCopy << finCopy.rdbuf();
+        finCopy.close();
+        foutCopy.close();
     }
 }

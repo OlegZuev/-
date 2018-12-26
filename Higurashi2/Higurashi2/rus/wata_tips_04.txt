@@ -1,0 +1,568 @@
+﻿void main()
+{
+
+//３■ごちそうさま
+//*Sub_Tips_024
+//gosub *tip_s
+	EnableJumpingOfReturnIcon();
+	FadeOutBGM( 0, 1000, FALSE );
+	FadeOutBGM( 1, 1000, FALSE );
+	FadeOutBGM( 2, 1000, TRUE );
+	DisableWindow();
+	PlayBGM( 1, "msys01", 128, 0 );
+	DrawScene( "bg_109", 400 );
+	DrawBustshot( 2, "me_se_de_a1", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 10, 400, TRUE );
+
+//「おい、魅音＠これ。＠
+	PlaySE(4, "S20/01/440100064", 128, 64);
+	OutputLine(NULL, "「おい、魅音。",
+		   NULL, "\"Эй, Мион.", Line_WaitForInput);
+		   
+	SetValidityOfInput( FALSE );
+	Wait( 1000 );
+	SetValidityOfInput( TRUE );
+	
+	OutputLine(NULL, "これ。」",
+		   NULL, " Вот.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+	DisableWindow();
+	DrawBustshot( 2, "me_se_bi_a1", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 10, 200, TRUE );
+
+//「わ、な、何よ圭ちゃん...！＠
+	PlaySE(4, "S20/03/440300060", 128, 64);
+	OutputLine(NULL, "「わ、な、何よ圭ちゃん…！」",
+		   NULL, "\"Ух, Кей-тян, ч-что это?..\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　魅音の鼻先に、昨日、差し入れてもらった弁当箱を突き出す￥
+	OutputLine(NULL, "　魅音の鼻先に、昨日、差し入れてもらった弁当箱を突き出す。",
+		   NULL, "Я протянул Мион вчерашнюю обеденную коробку.", Line_Normal);
+	ClearMessage();
+
+//「昨日、差し入れてもらった弁当箱だよ＠ごちそうさま＠うまかったぜ。＠
+	PlaySE(4, "S20/01/440100065", 128, 64);
+	OutputLine(NULL, "「昨日、差し入れてもらった弁当箱だよ。",
+		   NULL, "\"Вчерашняя коробка из-под обеда.", Line_WaitForInput);
+		   
+	SetValidityOfInput( FALSE );
+	Wait( 1000 );
+	SetValidityOfInput( TRUE );
+	
+	OutputLine(NULL, "ごちそうさま。",
+		   NULL, " Спасибо за угощение.", Line_WaitForInput);
+	PlaySE(4, "S20/01/440100066", 128, 64);
+	OutputLine(NULL, "うまかったぜ。」",
+		   NULL, " Вкусное.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+	DisableWindow();
+	DrawBustshot( 2, "me_se_ha_b1", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 10, 200, TRUE );
+
+//「...ふぇ、............あ、......、＠
+	PlaySE(4, "S20/03/440300061", 128, 64);
+	OutputLine(NULL, "「…ふぇ、…………あ、……、」",
+		   NULL, "\"Ой... ... ... ...ах......\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　...魅音の顔がぱーーっと薄く赤くなっていく＠
+	OutputLine(NULL, "　…魅音の顔がぱーーっと薄く赤くなっていく。",
+		   NULL, "...Мион легонько порозовела.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+
+//　......おいおい、弁当を持ってきてくれたのは詩音ってことになってるんだろ...＠
+	OutputLine(NULL, "　……おいおい、弁当を持ってきてくれたのは詩音ってことになってるんだろ…。",
+		   NULL, "......Эй, коробку-то мне Шион приносила...", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　魅音状態の魅音が赤くなってどうすんだよ...＠
+	OutputLine(NULL, "　魅音状態の魅音が赤くなってどうすんだよ…。",
+		   NULL, "Мион краснеть нечего...", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+
+//　このままじゃ、勝手に墓穴を掘って自爆しかねないので、一応フォローしてやることにする￥
+	OutputLine(NULL, "　このままじゃ、勝手に墓穴を掘って自爆しかねないので、一応フォローしてやることにする。",
+		   NULL, "Пока она не провалилась в копаемую собой же яму, я попробовал ей подыграть.", Line_Normal);
+	ClearMessage();
+
+//「あのな＠俺、昨日、腹を空かせてたらさ＠詩音がわざわざ家まで来て弁当を差し入れてくれたんだよ＠で、これはその弁当箱＠ちゃんと洗ってあるからな！＠
+	PlaySE(4, "S20/01/440100067", 128, 64);
+	OutputLine(NULL, "「あのな。",
+		   NULL, "\"Ну, знаешь,", Line_WaitForInput);
+		   
+	SetValidityOfInput( FALSE );
+	Wait( 1000 );
+	SetValidityOfInput( TRUE );
+	
+	OutputLine(NULL, "俺、昨日、腹を空かせてたらさ。",
+		   NULL, " я вчера был жутко голодный.", Line_WaitForInput);
+	PlaySE(4, "S20/01/440100068", 128, 64);
+	OutputLine(NULL, "詩音がわざわざ家まで来て弁当を差し入れてくれたんだよ。",
+		   NULL, " А Шион зашла ко мне с коробкой еды.", Line_WaitForInput);
+	PlaySE(4, "S20/01/440100069", 128, 64);
+	OutputLine(NULL, "で、これはその弁当箱。",
+		   NULL, " Вот я её и вернул.", Line_WaitForInput);
+	PlaySE(4, "S20/01/440100070", 128, 64);
+	OutputLine(NULL, "ちゃんと洗ってあるからな！」",
+		   NULL, " Не боись, вымыта она хорошо!\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+	DisableWindow();
+	DrawBustshot( 2, "me_se_bi_a1", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 10, 200, TRUE );
+
+//「あ、......あはは、そ、そうなんだ＠　詩音は気が利くね～！＠
+	PlaySE(4, "S20/03/440300062", 128, 64);
+	OutputLine(NULL, "「あ、……あはは、そ、そうなんだ！",
+		   NULL, "\"А...... аха-ха, п-понятно!", Line_WaitForInput);
+		   
+	SetValidityOfInput( FALSE );
+	Wait( 1500 );
+	SetValidityOfInput( TRUE );
+	
+	OutputLine(NULL, "　詩音は気が利くね〜！」",
+		   NULL, " Шион такая заботливая!\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+
+//　白々しい仕草だなぁ＠
+	OutputLine(NULL, "　白々しい仕草だなぁ。",
+		   NULL, "До чего ж всё на виду.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　...魅音ってこんなにも嘘の下手くそなヤツだったっけ＠
+	OutputLine(NULL, "　…魅音ってこんなにも嘘の下手くそなヤツだったっけ。",
+		   NULL, "Не думал, что Мион столь слаба на враньё...", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　...だがそんないつもとは違う表情がなんだか、...不思議とかわいらしく見えた￥
+	OutputLine(NULL, "　…だがそんないつもとは違う表情がなんだか、…不思議とかわいらしく見えた。",
+		   NULL, "...Но её необычный вид в некотором роде даже прелестен...", Line_Normal);
+	ClearMessage();
+	DisableWindow();
+	DrawBustshot( 2, "me_se_de_b2", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 10, 200, TRUE );
+
+//「で、ど、どうだった？＠
+	PlaySE(4, "S20/03/440300063", 128, 64);
+	OutputLine(NULL, "「で、ど、どうだった？」",
+		   NULL, "\"Ну и к-как она?\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「...魅音に瓜二つなヤツだと思うぞ＠だって双子なんだろ＠　似てて当然だよ。＠
+	PlaySE(4, "S20/01/440100071", 128, 64);
+	OutputLine(NULL, "「…魅音に瓜二つなヤツだと思うぞ。",
+		   NULL, "\"Вылитая ты, Мион.", Line_WaitForInput);
+		   
+	SetValidityOfInput( FALSE );
+	Wait( 1500 );
+	SetValidityOfInput( TRUE );
+	
+	OutputLine(NULL, "だって双子なんだろ？",
+		   NULL, " Вы ж двойняшки?", Line_WaitForInput);
+	PlaySE(4, "S20/01/440100072", 128, 64);
+	OutputLine(NULL, "　似てて当然だよ。」",
+		   NULL, " Само собой, вас друг от друга не отличишь!\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+	DisableWindow();
+	DrawBustshot( 2, "me_se_ha_a1", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 10, 200, TRUE );
+
+//「えっと、......じゃ......じゃなくて...えぇと......。＠
+	PlaySE(4, "S20/03/440300064", 128, 64);
+	OutputLine(NULL, "「えっと、……じゃ……じゃなくて…えぇと……。」",
+		   NULL, "\"Н-Нет...... я...... я не про... эмм......\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　魅音がなんだかぽー...っとした表情で、何かの答えを待っている＠
+	OutputLine(NULL, "　魅音がなんだかぽー…っとした表情で、何かの答えを待っている。",
+		   NULL, "Как видно, Мион ждала... какого-то другого ответа.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　...どうだった？って聞いたのは、詩音の容姿じゃなくて、弁当の出来についてかな...￥
+	OutputLine(NULL, "　…どうだった？って聞いたのは、詩音の容姿じゃなくて、弁当の出来についてかな…？",
+		   NULL, "«Ну и как она?» — так она спрашивает не про Шион, а про еду?", Line_Normal);
+	ClearMessage();
+
+//「あぁ、もちろん＠　うまかったぜ。＠
+	PlaySE(4, "S20/01/440100073", 128, 64);
+	OutputLine(NULL, "「あぁ、もちろん！",
+		   NULL, "\"А-а, ну да!", Line_WaitForInput);
+		   
+	SetValidityOfInput( FALSE );
+	Wait( 1000 );
+	SetValidityOfInput( TRUE );
+	
+	OutputLine(NULL, "　うまかったぜ。」",
+		   NULL, " Объедение.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「...え、......あ、...本当に？＠
+	PlaySE(4, "S20/03/440300065", 128, 64);
+	OutputLine(NULL, "「…え、……あ、…本当に？」",
+		   NULL, "\"Э... ах...... правда?..\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「俺は食い物の感想には嘘はつかないぞ＠俺がうまかったって言ったら、誰が食ったってうまい＠　万人にお薦めできる評価だと思っていいぞ＠詩音に実に美味しかったって伝えておいてくれ。＠
+	PlaySE(4, "S20/01/440100074", 128, 64);
+	OutputLine(NULL, "「俺は食い物の感想には嘘はつかないぞ。",
+		   NULL, "\"О еде я не лгу.", Line_WaitForInput);
+		   
+	SetValidityOfInput( FALSE );
+	Wait( 2000 );
+	SetValidityOfInput( TRUE );
+	
+	OutputLine(NULL, "俺がうまかったって言ったら、誰が食ったってうまい！",
+		   NULL, " Если я говорю: хороша! — то всякий так скажет!", Line_WaitForInput);
+	PlaySE(4, "S20/01/440100075", 128, 64);
+	OutputLine(NULL, "　万人にお薦めできる評価だと思っていいぞ。",
+		   NULL, " Я бы любому тот обед посоветовал.", Line_WaitForInput);
+	PlaySE(4, "S20/01/440100076", 128, 64);
+	OutputLine(NULL, "詩音に実に美味しかったって伝えておいてくれ。」",
+		   NULL, " Вкуснее некуда, так Шион и скажи.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+	DisableWindow();
+	DrawBustshot( 2, "me_se_wa_b2", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 10, 200, TRUE );
+
+//「あ、......う、うん＠　詩音にね＠　伝えておくよ＠　きっと喜ぶと思うよ...＠　あはははははは...！￥
+	PlaySE(4, "S20/03/440300066", 128, 64);
+	OutputLine(NULL, "「あ、……う、うん！",
+		   NULL, "\"А...... у-угу!", Line_WaitForInput);
+		   
+	SetValidityOfInput( FALSE );
+	Wait( 1000 );
+	SetValidityOfInput( TRUE );
+	
+	OutputLine(NULL, "　詩音にね！",
+		   NULL, " Обязательно!", Line_WaitForInput);
+	PlaySE(4, "S20/03/440300067", 128, 64);
+	OutputLine(NULL, "　伝えておくよ！",
+		   NULL, " Так и скажу!", Line_WaitForInput);
+	PlaySE(4, "S20/03/440300068", 128, 64);
+	OutputLine(NULL, "　きっと喜ぶと思うよ…！",
+		   NULL, " Она точно порадуется!..", Line_WaitForInput);
+	PlaySE(4, "S20/03/440300069", 128, 64);
+	OutputLine(NULL, "　あはははははは…！」",
+		   NULL, " Аха-ха-ха-ха-ха-ха!..\"", Line_Normal);
+	ClearMessage();
+
+//　魅音でなく、詩音にもらった弁当ということになってるのに＠本当に...心の底から気持ち良さそうに笑った＠
+	OutputLine(NULL, "　魅音でなく、詩音にもらった弁当ということになってるのに。",
+		   NULL, "Коробку-то приносила Шион, а не Мион.", Line_WaitForInput);
+	OutputLine(NULL, "本当に…心の底から気持ち良さそうに笑った。",
+		   NULL, " Однако смеялась она... с самой искренней, неподдельной радостью.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+
+//　...こいつも、こんな見てるだけでこっちも気持ちよくなれるような笑い方ができるんだな＠そんな嫌みが口を突いたが、そのまま飲み込むことにする＠
+	OutputLine(NULL, "　…こいつも、こんな見てるだけでこっちも気持ちよくなれるような笑い方ができるんだな。",
+		   NULL, "От одного глядения на такой счастливый смех становится хорошо и тепло на душе...", Line_WaitForInput);
+	OutputLine(NULL, "そんな嫌みが口を突いたが、そのまま飲み込むことにする。",
+		   NULL, " Я чуть было не брякнул что-то, но сдержался.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+
+//　魅音が弁当箱をカバンに入れようとして、カラカラと音がするのに気付いた￥
+	OutputLine(NULL, "　魅音が弁当箱をカバンに入れようとして、カラカラと音がするのに気付いた。",
+		   NULL, "Пряча коробку в сумку, Мион услышала, как внутри что-то перекатывается.", Line_Normal);
+	ClearMessage();
+	DisableWindow();
+	DrawBustshot( 2, "me_se_de_b2", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 10, 200, TRUE );
+
+//「......圭ちゃん、何か入ってるよ＠　あれ＠/
+	PlaySE(4, "S20/03/440300070", 128, 64);
+	OutputLine(NULL, "「……圭ちゃん、何か入ってるよ？",
+		   NULL, "\"Кей-тян, а что там внутри такое?.....", Line_WaitForInput);
+		   
+	SetValidityOfInput( FALSE );
+	Wait( 1500 );
+	SetValidityOfInput( TRUE );
+	
+	OutputLine(NULL, "　あれ？",
+		   NULL, " Хм?", Line_WaitForInput);
+
+	DisableWindow();
+	DrawBustshot( 2, "me_se_ha_a1", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 10, 200, TRUE );
+
+//　........................わぁ......。＠
+	PlaySE(4, "S20/03/440300071", 128, 64);
+	OutputLine(NULL, "　……………………わぁ……。」",
+		   NULL, " ........................Ой......\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　げ、...こいつ、この場で開けやがった...＠
+	OutputLine(NULL, "　げ、…こいつ、この場で開けやがった…！",
+		   NULL, "Чёрт... она её тут открыла!..", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　その中身はちょっと恥ずかしいので、ここでは開けてほしくなかった＠
+	OutputLine(NULL, "　その中身はちょっと恥ずかしいので、ここでは開けてほしくなかった。",
+		   NULL, "Я не хотел, чтоб она открывала прямо здесь, потому как стеснялся.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　慌ててそれを隠すように手で覆う￥
+	OutputLine(NULL, "　慌ててそれを隠すように手で覆う！",
+		   NULL, "Я торопливо закрыл коробку ладонями!", Line_Normal);
+	ClearMessage();
+
+
+//「えーと...えーとな＠　これはだな、うちのお袋がお礼に入れとけって言ったんだ＠　別に俺のセンスじゃないんだからな＠　誤解すんなよ！！＠
+	PlaySE(4, "S20/01/440100077", 128, 64);
+	OutputLine(NULL, "「えーと…えーとな！",
+		   NULL, "\"Н-ну... вот!", Line_WaitForInput);
+		   
+	SetValidityOfInput( FALSE );
+	Wait( 1000 );
+	SetValidityOfInput( TRUE );
+	
+	OutputLine(NULL, "　これはだな、うちのお袋がお礼に入れとけって言ったんだ！",
+		   NULL, " Мама сказала отдариться чем-нибудь!", Line_WaitForInput);
+	PlaySE(4, "S20/01/440100078", 128, 64);
+	OutputLine(NULL, "　別に俺のセンスじゃないんだからな！",
+		   NULL, " Не я выбирал!", Line_WaitForInput);
+	PlaySE(4, "S20/01/440100079", 128, 64);
+	OutputLine(NULL, "　誤解すんなよ！！」",
+		   NULL, " И не думай!!!\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「......きれい...＠飴だ...。￥
+	PlaySE(4, "S20/03/440300072", 128, 64);
+	OutputLine(NULL, "「……きれい…。",
+		   NULL, "\"......Красивенькие...", Line_WaitForInput);
+		   
+	SetValidityOfInput( FALSE );
+	Wait( 1500 );
+	SetValidityOfInput( TRUE );
+	
+	OutputLine(NULL, "飴だ…。」",
+		   NULL, " Конфетки...\"", Line_Normal);
+	ClearMessage();
+
+//　ピカピカの弁当箱の中にはきれいな包み紙で包まれた飴が一握り入れられている＠
+	OutputLine(NULL, "　ピカピカの弁当箱の中にはきれいな包み紙で包まれた飴が一握り入れられている。",
+		   NULL, "В сияющей чистотой коробке из-под обеда лежали конфеты в притягивающих взор обёртках.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+//　...昨日、流しで弁当箱を洗っていたら、お袋に「詰問」され、誰の差し入れかを白状させられたわけだ＠
+	OutputLine(NULL, "　…昨日、流しで弁当箱を洗っていたら、お袋に「詰問」され、誰の差し入れかを白状させられたわけだ。",
+		   NULL, "...Когда я вчера мыл в раковине коробку, мама устроила мне «допрос», в итоге вытянув из меня признание, от кого я ту получил.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+
+//　そしたらお袋が、こういうのはお礼を入れて返すもんなんだって言い出して＠...俺は恥ずかしいのは嫌だし、こんなのはセンスじゃないしって抵抗したんだけど...￥
+	OutputLine(NULL, "　そしたらお袋が、こういうのはお礼を入れて返すもんなんだって言い出して。",
+		   NULL, "Тогда она сказала, что нужно чем-нибудь отдариться в знак признательности...", Line_WaitForInput);
+	OutputLine(NULL, "…俺は恥ずかしいのは嫌だし、こんなのはセンスじゃないしって抵抗したんだけど…。",
+		   NULL, " Застыдившись, я попытался, разумеется, воспротивиться, но...", Line_Normal);
+	ClearMessage();
+
+//「......と、...いうわけなんだ＠...まぁその、...ぅぅ......。＠
+	PlaySE(4, "S20/01/440100080", 128, 64);
+	OutputLine(NULL, "「……と、…いうわけなんだ。",
+		   NULL, "\"......Ну и... вот.", Line_WaitForInput);
+		   
+	SetValidityOfInput( FALSE );
+	Wait( 1000 );
+	SetValidityOfInput( TRUE );
+	
+	OutputLine(NULL, "…まぁその、…ぅぅ……。」",
+		   NULL, " ...Это, ну... м-м......\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　顔から火が出るほど恥ずかしい＠
+	OutputLine(NULL, "　顔から火が出るほど恥ずかしい。",
+		   NULL, "Уши буквально горят от стыда.", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　...いっそ、いつもの魅音に笑い飛ばされた方がマシなのだが、...なぜか魅音は陶酔した表情で弁当箱の中の飴玉を見入っている￥
+	OutputLine(NULL, "　…いっそ、いつもの魅音に笑い飛ばされた方がマシなのだが、…なぜか魅音は陶酔した表情で弁当箱の中の飴玉を見入っている。",
+		   NULL, "Обычная Мион просто бы рассмеялась... но теперешняя Мион почему-то с восхищением разглядывает конфеты в коробке.", Line_Normal);
+	ClearMessage();
+
+//「......あ、...ありがとう。＠
+	PlaySE(4, "S20/03/440300073", 128, 64);
+	OutputLine(NULL, "「……あ、…ありがとう。」",
+		   NULL, "\"С...... спасибо...\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「お、俺に言うな＠入れたお袋に言ってくれ＠　そそ、それに魅音がお礼を言う必要なんかないんだぞ？＠　それは詩音にあげるものなんだからな？！＠
+	PlaySE(4, "S20/01/440100081", 128, 64);
+	OutputLine(NULL, "「お、俺に言うな。",
+		   NULL, "\"М-мне-то за что.", Line_WaitForInput);
+		   
+	SetValidityOfInput( FALSE );
+	Wait( 1000 );
+	SetValidityOfInput( TRUE );
+	
+	OutputLine(NULL, "入れたお袋に言ってくれ！",
+		   NULL, " Маму благодари!", Line_WaitForInput);
+	PlaySE(4, "S20/01/440100082", 128, 64);
+	OutputLine(NULL, "　そそ、それに魅音がお礼を言う必要なんかないんだぞ？！",
+		   NULL, " И во-во-вообще, за что Мион-то говорит спасибо?!", Line_WaitForInput);
+	PlaySE(4, "S20/01/440100083", 128, 64);
+	OutputLine(NULL, "　それは詩音にあげるものなんだからな？！」",
+		   NULL, " Они ж для Шион, забыла?!\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「............あ、...ぅん＠そうだよね...＠...うん＠詩音に伝えておくね＠　きっと詩音もうれしがると思うよ。＠
+	PlaySE(4, "S20/03/440300074", 128, 64);
+	OutputLine(NULL, "「…………あ、…ぅん。",
+		   NULL, "\"............А... да.", Line_WaitForInput);
+		   
+	SetValidityOfInput( FALSE );
+	Wait( 1000 );
+	SetValidityOfInput( TRUE );
+	
+	OutputLine(NULL, "そうだよね…。",
+		   NULL, " Верно...", Line_WaitForInput);
+	PlaySE(4, "S20/03/440300075", 128, 64);
+	OutputLine(NULL, "…うん。",
+		   NULL, " ...Лады.", Line_WaitForInput);
+	PlaySE(4, "S20/03/440300076", 128, 64);
+	OutputLine(NULL, "詩音に伝えておくね！",
+		   NULL, " Я скажу Шион!", Line_WaitForInput);
+	PlaySE(4, "S20/03/440300077", 128, 64);
+	OutputLine(NULL, "　きっと詩音もうれしがると思うよ。」",
+		   NULL, " Ей тоже наверняка понравится.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//　魅音がちょっぴり残念そうな顔をしながら弁当箱のふたを閉じる＠...結果的に、少し意地悪なことを言ってしまったようだった￥
+	OutputLine(NULL, "　魅音がちょっぴり残念そうな顔をしながら弁当箱のふたを閉じる。",
+		   NULL, "Несколько расстроенно глядя, Мион закрыла коробку.", Line_WaitForInput);
+	OutputLine(NULL, "…結果的に、少し意地悪なことを言ってしまったようだった。",
+		   NULL, " Видимо, я всё-таки её обидел...", Line_Normal);
+	ClearMessage();
+
+//（時間経過のコマ）
+	DisableWindow();
+	PlaySE( 3, "wa_001", 128, 64 );
+	DrawScene( "black", 1000 );
+//setwindow 31,16,22,16,26,26,0,2,20,1,1,#ffffff,0,0,639,479
+	SetValidityOfInput( FALSE );
+	Wait( 2000 );
+	SetValidityOfInput( TRUE );
+//setwindow 31,16,22,16,26,26,0,2,20,1,1,#999999,0,0,639,479
+	DrawScene( "bg_110", 1000 );
+	DrawBustshotWithFiltering( 3, "re_se_wa_a1", "right", 1, 160, 0, FALSE, 0, 0, 0, 0, 0, 20, 300, TRUE );
+
+//!sd
+//「今日は何だか魅ぃちゃん、ほんわかな感じだね＠いい事でもあったのかな＠かな！＠
+	PlaySE(4, "S20/02/440200055", 128, 64);
+	OutputLine(NULL, "「今日は何だか魅ぃちゃん、ほんわかな感じだね。",
+		   NULL, "\"Мии-тян, что сегодня с тобой, ты как будто слегка не в себе!", Line_WaitForInput);
+		   
+	SetValidityOfInput( FALSE );
+	Wait( 2000 );
+	SetValidityOfInput( TRUE );
+	
+	OutputLine(NULL, "いい事でもあったのかな。",
+		   NULL, " Хорошее что-то случилось?", Line_WaitForInput);
+	PlaySE(4, "S20/02/440200056", 128, 64);
+	OutputLine(NULL, "かな！」",
+		   NULL, " ...случилось!\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+	DisableWindow();
+	DrawBustshotWithFiltering( 1, "sa_se_ak_a1", "left", 1, -160, 0, FALSE, 0, 0, 0, 0, 0, 0, 300, TRUE );
+
+//「...風邪でも引いたんではありませんの＠　お顔が赤いのはきっと微熱のせいでしてよ＠/
+	PlaySE(4, "S20/04/440400041", 128, 64);
+	OutputLine(NULL, "「…風邪でも引いたんではありませんの？",
+		   NULL, "\"А если она простудилась?..", Line_WaitForInput);
+		   
+	SetValidityOfInput( FALSE );
+	Wait( 2000 );
+	SetValidityOfInput( TRUE );
+	
+	OutputLine(NULL, "　お顔が赤いのはきっと微熱のせいでしてよ。",
+		   NULL, " Красное лицо — явный признак повышения температуры.", Line_WaitForInput);
+
+	DisableWindow();
+	DrawBustshot( 1, "sa_se_bi_b1", -160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 0, 200, TRUE );
+
+//.........って、梨花＠なんで私の頭をなでますの。＠
+	PlaySE(4, "S20/04/440400042", 128, 64);
+	OutputLine(NULL, "………って、梨花。",
+		   NULL, " Э, Рика.........", Line_WaitForInput);
+		   
+	SetValidityOfInput( FALSE );
+	Wait( 1000 );
+	SetValidityOfInput( TRUE );
+	
+	OutputLine(NULL, "なんで私の頭をなでますの。」",
+		   NULL, " Почему ты меня гладишь?\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+	DisableWindow();
+	FadeBustshotWithFiltering( 3, "left", 1, FALSE, 0, 0, 300, TRUE );
+	DrawBustshotWithFiltering( 3, "ri_se_wa_a1", "right", 1, 160, 0, FALSE, 0, 0, 0, 0, 0, 20, 300, TRUE );
+
+//「......沙都子もきっとその内、お風邪を引けるようになりますですよ。＠
+	PlaySE(4, "S20/05/440500024", 128, 64);
+	OutputLine(NULL, "「……沙都子もきっとその内、お風邪を引けるようになりますですよ。」",
+		   NULL, "\"......Сатоко, когда-нибудь ты сама простудишься же.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+
+//　...なでなで￥
+	OutputLine(NULL, "　…なでなで。",
+		   NULL, "*Шурх-шурх*.", Line_Normal);
+	ClearMessage();
+	DisableWindow();
+	SetValidityOfInput( FALSE );
+	DrawBustshotWithFiltering( 6, "cinema", "x", 1, 0, 0, FALSE, 0, 0, 0, 0, 0, 25, 1300, TRUE );
+	DrawBustshot( 7, "Title02", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 26, 3000, TRUE );
+	Wait( 2000 );
+	DrawBustshot( 5, "black", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 25, 3000, TRUE );
+	Wait( 1000 );
+	FadeBustshotWithFiltering( 7, "x", 1, FALSE, 0, 0, 1000, TRUE );
+	DrawScene( "black", 1000 );
+	SetValidityOfInput( TRUE );
+
+}

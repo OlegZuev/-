@@ -1,0 +1,267 @@
+﻿void main()
+{
+
+//９■深夜の電話
+//*Sub_Tips_036
+//gosub *tip_s
+	EnableJumpingOfReturnIcon();
+	FadeOutBGM( 0, 1000, FALSE );
+	FadeOutBGM( 1, 1000, FALSE );
+	FadeOutBGM( 2, 1000, TRUE );
+	DisableWindow();
+	DrawScene( "black", 1000 );
+	PlayBGM( 2, "lsys17", 128, 0 );
+	SetValidityOfInput( FALSE );
+	Wait( 2000 );
+	SetValidityOfInput( TRUE );
+	FadeOutBGM( 2, 10, TRUE );
+
+//「夜分遅くに失礼いたします...＠公由と申しますが、ご主人でいらっしゃいますか＠　......はい＠　いえいえ、その節は本当にありがとうございます＠えぇ＠............それでですね＠...こんな時間に大変恐縮なのですが＠...ウチのお爺ちゃんがお邪魔してないかと思いまして＠.........ですよねぇ＠　はい＠　こんな時間に申し訳ありませんでした＠それでは失礼いたします＠ごめんください......。￥
+	PlaySE(4, "S20/00/kimiM44001", 128, 64);
+	OutputLine(NULL, "「夜分遅くに失礼いたします…。",
+		   NULL, "\"Прошу прощения за столь поздний звонок...", Line_WaitForInput);
+	OutputLine(NULL, "公由と申しますが、ご主人でいらっしゃいますか？",
+		   NULL, " Звонит Кимиёси, могу ли я говорить с главой дома?", Line_WaitForInput);
+	PlaySE(4, "S20/00/kimiM44002", 128, 64);
+	OutputLine(NULL, "　……はい！",
+		   NULL, " ......Да!", Line_WaitForInput);
+	PlaySE(4, "S20/00/kimiM44003", 128, 64);
+	OutputLine(NULL, "　いえいえ、その節は本当にありがとうございます。",
+		   NULL, " Нет-нет, это вам спасибо.", Line_WaitForInput);
+	PlaySE(4, "S20/00/kimiM44004", 128, 64);
+	OutputLine(NULL, "えぇ。",
+		   NULL, " Замечательно.", Line_WaitForInput);
+	OutputLine(NULL, "…………それでですね、",
+		   NULL, "........ Так это...", Line_WaitForInput);
+	PlaySE(4, "S20/00/kimiM44005", 128, 64);
+	OutputLine(NULL, "…こんな時間に大変恐縮なのですが、",
+		   NULL, " весьма жаль, шо приходится вас беспокоить...", Line_WaitForInput);
+	PlaySE(4, "S20/00/kimiM44006", 128, 64);
+	OutputLine(NULL, "…ウチのお爺ちゃんがお邪魔してないかと思いまして。",
+		   NULL, " но не захаживал ли к вам наш дедушка?", Line_WaitForInput);
+	PlaySE(4, "S20/00/kimiM44007", 128, 64);
+	OutputLine(NULL, "………ですよねぇ！",
+		   NULL, "......... Ясненько!", Line_WaitForInput);
+	OutputLine(NULL, "　はい！",
+		   NULL, " Разумеется!", Line_WaitForInput);
+	PlaySE(4, "S20/00/kimiM44008", 128, 64);
+	OutputLine(NULL, "　こんな時間に申し訳ありませんでした。",
+		   NULL, " Ешшо раз прошу прощения, шо беспокою так поздно.", Line_WaitForInput);
+	PlaySE(4, "S20/00/kimiM44009", 128, 64);
+	OutputLine(NULL, "それでは失礼いたします。",
+		   NULL, " Всего вам хорошего.", Line_WaitForInput);
+	PlaySE(4, "S20/00/kimiM44010", 128, 64);
+	OutputLine(NULL, "ごめんください……。」",
+		   NULL, " Прошу извинить......\"", Line_Normal);
+	ClearMessage();
+
+
+	PlayBGM( 1, "msys13", 128, 0 );
+
+//　チン￥
+	OutputLine(NULL, "　チン。",
+		   NULL, "Дзынь.", Line_Normal);
+	ClearMessage();
+
+
+//「どうだい＠　ダメ？＠
+	PlaySE(4, "S20/00/kimiF44001", 128, 64);
+	OutputLine(NULL, "「どうだい？",
+		   NULL, "\"Ну и?", Line_WaitForInput);
+	OutputLine(NULL, "　ダメ？」",
+		   NULL, " Ничего?\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「参ったなぁ...。...@
+// どんなに熱中しても、電話くらいはしてくれる人なんだけれどなぁ！＠
+	PlaySE(4, "S20/00/kimiM44011", 128, 64);
+	OutputLine(NULL, "「参ったなぁ…。…",
+		   NULL, "\"Ну дела...", Line_WaitForInput);
+	OutputLine(NULL, "どんなに熱中しても、電話くらいはしてくれる人なんだけれどなぁ！」",
+		   NULL, " Играть он, конечно, страсть любит... но звонит-то всегда!\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「囲碁の人の家は全部、電話したんでしょ？￥
+	PlaySE(4, "S20/00/kimiF44002", 128, 64);
+	OutputLine(NULL, "「囲碁の人の家は全部、電話したんでしょ？」",
+		   NULL, "\"Товарищей по го всех обзвонил?\"", Line_Normal);
+	ClearMessage();
+
+	FadeOutBGM( 1, 1000, TRUE );
+	PlayBGM( 2, "lsys17", 128, 0 );
+
+//　ジリリリリリリ...ン！￥
+	OutputLine(NULL, "　ジリリリリリリ…ン！！",
+		   NULL, "*Дрррррриииинь*!!...", Line_Normal);
+	ClearMessage();
+
+
+	FadeOutBGM( 2, 10, TRUE );
+	PlayBGM( 1, "msys13", 128, 0 );
+
+//「はい＠　公由です。＠
+	PlaySE(4, "S20/00/kimiM44012", 128, 64);
+	OutputLine(NULL, "「はい！",
+		   NULL, "\"Да!", Line_WaitForInput);
+	OutputLine(NULL, "　公由です。」",
+		   NULL, " Кимиёси слушает.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+//「園崎です＠どうです＠　村長さんは見つかりましたか？＠
+	PlaySE(4, "S20/03/440300078", 128, 64);
+	OutputLine(NULL, "「園崎です。",
+		   NULL, "\"Звонит Сонодзаки.", Line_WaitForInput);
+	OutputLine(NULL, "どうです？",
+		   NULL, " Что у вас?", Line_WaitForInput);
+	PlaySE(4, "S20/03/440300079", 128, 64);
+	OutputLine(NULL, "　村長さんは見つかりましたか？」",
+		   NULL, " Нашли старосту?\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+//「あぁ、魅音ちゃんか＠...片っ端から電話をかけてみたけど、だめだよ＠見つからないんだ...＠参ったなぁ...＠　どこで油を売ってるのかなぁ...！￥
+	PlaySE(4, "S20/00/kimiM44013", 128, 64);
+	OutputLine(NULL, "「あぁ、魅音ちゃんか。",
+		   NULL, "\"А-а, Мион-тян.", Line_WaitForInput);
+	OutputLine(NULL, "…片っ端から電話をかけてみたけど、だめだよ。",
+		   NULL, " Мы усех обзвонили, ничагошеньки...", Line_WaitForInput);
+	PlaySE(4, "S20/00/kimiM44014", 128, 64);
+	OutputLine(NULL, "見つからないんだ…。",
+		   NULL, " Как в воду канул...", Line_WaitForInput);
+	PlaySE(4, "S20/00/kimiM44015", 128, 64);
+	OutputLine(NULL, "参ったなぁ…！",
+		   NULL, " Совсем бяда!..", Line_WaitForInput);
+	PlaySE(4, "S20/00/kimiM44016", 128, 64);
+	OutputLine(NULL, "　どこで油を売ってるのかなぁ…！」",
+		   NULL, " И куды ж он запропастился!..\"", Line_Normal);
+	ClearMessage();
+
+
+//「こっちでも心当たりにいろいろと問い合わせましたけど、!w800...全然。＠
+	PlaySE(4, "S20/03/440300080", 128, 64);
+	OutputLine(NULL, "「こっちでも心当たりにいろいろと問い合わせましたけど、",
+		   NULL, "\"Мы тоже многим названивали", Line_ContinueAfterTyping);
+
+	SetValidityOfInput( FALSE );
+	Wait( 800 );
+	SetValidityOfInput( TRUE );
+
+	OutputLine(NULL, "…全然。」",
+		   NULL, "... ничего.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「.................................。＠
+	PlaySE(4, "S20/00/kimiM44017", 128, 64);
+	OutputLine(NULL, "「……………………………。」",
+		   NULL, "\".................................\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+
+//「婆っちゃにも相談したんですが、青年団を召集して探し回った方がいいだろうということです。￥
+	PlaySE(4, "S20/03/440300081", 128, 64);
+	OutputLine(NULL, "「婆っちゃにも相談したんですが、青年団を召集して探し回った方がいいだろうということです。」",
+		   NULL, "\"Потолковала с бабулей — говорит, надо собрать молодёжную бригаду на поиски.\"", Line_Normal);
+	ClearMessage();
+
+
+//「こ、こんな時間にかい...＠　それに、別に行方不明になったと決まったわけでもないし...、＠
+	PlaySE(4, "S20/00/kimiM44018", 128, 64);
+	OutputLine(NULL, "「こ、こんな時間にかい…？",
+		   NULL, "\"В-В такое-то время?..", Line_WaitForInput);
+	OutputLine(NULL, "　それに、別に行方不明になったと決まったわけでもないし…、」",
+		   NULL, " Мы даже не уверены, пропал он вообще или нет...\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+	PlaySE( 3, "wa_026", 128, 64 );
+
+//「綿流しの直後ですから＠少し慎重に扱った方がいいとのことです＠それでも見つからないなら、明朝、警察に通報しましょう＠見つかる見つからないは別にして、痛くない腹を探られない方がいいでしょうから。￥
+	PlaySE(4, "S20/03/440300082", 128, 64);
+	OutputLine(NULL, "「綿流しの直後ですから。",
+		   NULL, "\"С Ватанагаси прошли всего сутки.", Line_WaitForInput);
+	OutputLine(NULL, "少し慎重に扱った方がいいとのことです。",
+		   NULL, " Тут никакая предосторожность не помешает.", Line_WaitForInput);
+	PlaySE(4, "S20/03/440300083", 128, 64);
+	OutputLine(NULL, "それでも見つからないなら、明朝、警察に通報しましょう。",
+		   NULL, " Если за ночь его не отыщем, завтра звоним в полицию.", Line_WaitForInput);
+	PlaySE(4, "S20/03/440300084", 128, 64);
+	OutputLine(NULL, "見つかる見つからないは別にして、痛くない腹を探られない方がいいでしょうから。」",
+		   NULL, " Найдём, не найдём — лишняя морока от полицейских нам ни к чему.\"", Line_Normal);
+	ClearMessage();
+
+//「...お魎さんがそう言ったのかい？＠
+	PlaySE(4, "S20/00/kimiM44019", 128, 64);
+	OutputLine(NULL, "「…お魎さんがそう言ったのかい？」",
+		   NULL, "\"...Так Орё-сан сказала?\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+//「はい＠直接、声を聞かないと信用できないなら、電話先に出させますよ？＠
+	PlaySE(4, "S20/03/440300085", 128, 64);
+	OutputLine(NULL, "「はい。",
+		   NULL, "\"Да.", Line_WaitForInput);
+	OutputLine(NULL, "直接、声を聞かないと信用できないなら、電話先に出させますよ？」",
+		   NULL, " Если на слово не верится, может, мне дать ей трубку?\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+//「い、いえ...＠　わかりました＠青年団を集めて探しましょう＠それで見つからなければ...翌朝に警察に通報します。￥
+	PlaySE(4, "S20/00/kimiM44020", 128, 64);
+	OutputLine(NULL, "「い、いえ…！",
+		   NULL, "\"Н-нет, не надо!..", Line_WaitForInput);
+	OutputLine(NULL, "　わかりました。",
+		   NULL, " Хорошо,", Line_WaitForInput);
+	PlaySE(4, "S20/00/kimiM44021", 128, 64);
+	OutputLine(NULL, "青年団を集めて探しましょう。",
+		   NULL, " соберём уж тады молодёжную бригаду.", Line_WaitForInput);
+	PlaySE(4, "S20/00/kimiM44022", 128, 64);
+	OutputLine(NULL, "それで見つからなければ…翌朝に警察に通報します。」",
+		   NULL, " А ежли за ночь его не найдут... позвоним в полицию.\"", Line_Normal);
+	ClearMessage();
+
+//「青年団の連絡網、よろしくお願いしますね＠私も婆っちゃの代行ということでそちらに参ります。＠
+	PlaySE(4, "S20/03/440300086", 128, 64);
+	OutputLine(NULL, "「青年団の連絡網、よろしくお願いしますね。",
+		   NULL, "\"Благодарю. Объявите сбор по бригаде.", Line_WaitForInput);
+	OutputLine(NULL, "私も婆っちゃの代行ということでそちらに参ります。」",
+		   NULL, " Я буду исполнять бабушкины обязанности.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+//「あ、ありがとう＠すぐにみんなを集めます...。＠
+	PlaySE(4, "S20/00/kimiM44023", 128, 64);
+	OutputLine(NULL, "「あ、ありがとう。",
+		   NULL, "\"С-Спасибо.", Line_WaitForInput);
+	OutputLine(NULL, "すぐにみんなを集めます…。」",
+		   NULL, " Тотчас же всех соберу...\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+//「えぇ＠では。￥
+	PlaySE(4, "S20/03/440300087", 128, 64);
+	OutputLine(NULL, "「えぇ。",
+		   NULL, "\"Ага,", Line_WaitForInput);
+	OutputLine(NULL, "では。」",
+		   NULL, " бывайте.\"", Line_Normal);
+	ClearMessage();
+	DisableWindow();
+	SetValidityOfInput( FALSE );
+	DrawBustshotWithFiltering( 6, "cinema", "x", 1, 0, 0, FALSE, 0, 0, 0, 0, 0, 25, 1300, TRUE );
+	DrawBustshot( 7, "Title02", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 26, 3000, TRUE );
+	Wait( 2000 );
+	DrawBustshot( 5, "black", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 25, 3000, TRUE );
+	Wait( 1000 );
+	FadeBustshotWithFiltering( 7, "x", 1, FALSE, 0, 0, 1000, TRUE );
+	DrawScene( "black", 1000 );
+	SetValidityOfInput( TRUE );
+
+
+}
