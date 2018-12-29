@@ -117,12 +117,17 @@ void dialog007()
 {
 	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#f0953d>レナ</color>", NULL, "<color=#f0953d>Rena</color>", NULL, Line_ContinueAfterTyping); }
 
+	ModPlayVoiceLS(4, 2, "ps3/s19/02/990200496", 128, TRUE);
 	OutputLine(NULL, "「うんうん。",
-		   NULL, "\"Yup, yup.", Line_WaitForInput);
-	OutputLine(NULL, "かぁいいんだよね！",
-		   NULL, " It's kyute, isn't it!", Line_WaitForInput);
-	OutputLine(NULL, "　レナもたまに立ち読みでストーリーちゃんと追ってるよ☆」",
-		   NULL, " Rena sometimes browses through it at the magazine stand to keep up with the story☆.\"", GetGlobalFlag(GLinemodeSp));
+		   NULL, "\"Yup, yup.", Line_Continue);
+	OutputLine(NULL, "とってもかぁいい色してるんだよね！",
+		   NULL, " It's a really kyute color, isn't it!", Line_WaitForInput);
+	ModPlayVoiceLS(4, 2, "ps3/s19/02/990200497", 128, TRUE);
+	OutputLine(NULL, "　レナも薬局の化粧品売り場で見たよ。",
+		   NULL, " I saw it in the makeup section at the drug store.", Line_WaitForInput);
+	ModPlayVoiceLS(4, 2, "ps3/s19/02/990200498", 128, TRUE);
+	OutputLine(NULL, "　薄いピンク色で、お持ち帰りしようかと思っちゃった〜」",
+		   NULL, " That pink color made me want to take it home~\"", GetGlobalFlag(GLinemodeSp));
 
 	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
 }
@@ -131,10 +136,12 @@ void dialog008()
 {
 	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#fcdb77>沙都子</color>", NULL, "<color=#fcdb77>Satoko</color>", NULL, Line_ContinueAfterTyping); }
 
-	OutputLine(NULL, "「最近、見始めましたわ。",
-		   NULL, "\"I saw it for the first time recently.", Line_WaitForInput);
-	OutputLine(NULL, "さくらが元気一杯でカッコイイんですの！」",
-		   NULL, " Sakura is cool and so cheerful all the time!\"", GetGlobalFlag(GLinemodeSp));
+	ModPlayVoiceLS(4, 4, "ps3/s19/04/990400252", 128, TRUE);
+	OutputLine(NULL, "「そ、そうですわね。",
+		   NULL, "\"I-indeed.", Line_WaitForInput);
+	ModPlayVoiceLS(4, 4, "ps3/s19/04/990400253", 128, TRUE);
+	OutputLine(NULL, "女性としては一通りチェックを入れるのは常識ですわよねぇ！」",
+		   NULL, " It's only common sense for a lady to keep up on these matters!\"", GetGlobalFlag(GLinemodeSp));
 
 	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
 }
@@ -142,54 +149,49 @@ void dialog008()
 void dialog009()
 {
 	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#6972c1>梨花</color>", NULL, "<color=#6972c1>Rika</color>", NULL, Line_ContinueAfterTyping); }
-	OutputLine(NULL, "「……ボクはビデオを撮ってる女の子が好きなのです。」",
-		   NULL, "\"...I like that girl who's always filming with the camcorder.\"", Line_Normal);
+	ModPlayVoiceLS(4, 5, "ps3/s19/05/990500122", 128, TRUE);
+	OutputLine(NULL, "「沙都子はどちらかというと、特売のティッシュの方に興味があったみたいなのです。」",
+		   NULL, "\"I thought you were more interested in the bargain-sale tissues, Satoko.\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#fcdb77>沙都子</color>", NULL, "<color=#fcdb77>Satoko</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 4, "ps3/s19/04/990400254", 128, TRUE);
+	OutputLine(NULL, "「し、失礼ですわね！　ちゃんと新製品のチェックぐらい入れてましてよっ！」",
+		   NULL, "\"How rude of you! I make sure to keep an eye on the newest products!\"", Line_Normal);
 }
 
 void dialog010()
 {
-//「小さい女の子だけじゃなくて、その道の割と大きな男の子にも人気があるんだって＠...圭ちゃんもその一人だったとはねぇ～。＠
+
+//魅音「まあ、それはいいんだけどさ、“さくら”って聞いて発想がそっちに行っちゃうってのは……」
 	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>魅音</color>", NULL, "<color=#5ec69a>Mion</color>", NULL, Line_ContinueAfterTyping); }
-	OutputLine(NULL, "「小さい女の子だけじゃなくて、その道の割と大きな男の子にも人気があるんだって？",
-		   NULL, "\"It's not just popular with little girls, it's also surpringly well-received by older boys, isn't it?", Line_WaitForInput);
-	OutputLine(NULL, "…圭ちゃんもその一人だったとはねぇ〜。」",
-		   NULL, " ...To think that Kei-chan was one of those~.\"", GetGlobalFlag(GLinemodeSp));
-	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 3, "ps3/s19/03/990300599", 128, TRUE);
+	OutputLine(NULL, "「まあ、それはいいんだけどさ、“さくら”って聞いて発想がそっちに行っちゃうってのは……」",
+		   NULL, "\"That aside, it's just a bit surprising that's the first thing you think of when you hear 'Sakura'...", Line_Normal);
 
-
-//　思わず余計なことまで言って自爆してしまったようだが...問題なのはそこじゃない￥
-	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
-	OutputLine(NULL, "　思わず余計なことまで言って自爆してしまったようだが…問題なのはそこじゃない。",
-		   NULL, "I felt like I had inadvertently blurted out something unnecessary and had completely self-destructed but... that wasn't the main problem.", Line_Normal);
-	ClearMessage();
-
-	PlaySE( 3, "wa_006", 128, 64 );
-	ShakeScreen( 1, 50, 20, 3, 0, );
-
-//「お、お前ら全員知ってるじゃねぇかぁあぁあ？！？＠　それを何で書かなねぇんだよぉおぉおお？！？＠
+//圭一rvS19/01/HR_KEI11200.「な、なんでだよおおお！kvS19/01/HR_KEI11210.　女の立場になって考えてみただけだろおおおお！」
+	OutputLine(NULL, "「な、なんでだよおおお！",
+		   NULL, "\"Wh- whaaaat?", Line_WaitForInput);
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+	
 	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#956f6e>圭一</color>", NULL, "<color=#956f6e>Keiichi</color>", NULL, Line_ContinueAfterTyping); }
-	OutputLine(NULL, "「お、お前ら全員知ってるじゃねぇかぁあぁあ？！？！",
-		   NULL, "\"S-So you all know it, don't yoooooooou!?!?", Line_WaitForInput);
-	OutputLine(NULL, "　それを何で書かなねぇんだよぉおぉおお？！？！",
-		   NULL, " Then why didn't you write it dooooooooooooown!?!?", GetGlobalFlag(GLinemodeSp));
+	ModPlayVoiceLS(4, 1, "ps3/s19/01/hr_kei11210", 128, TRUE);
+	OutputLine(NULL, "　女の立場になって考えてみただけだろおおおお！」",
+		   NULL, " I was just thinking from a ladies perspective!!\"", GetGlobalFlag(GLinemodeSp));
 	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
 
-
-//　さくらっつったら木之元さくら！＠　さくらたんはぁはぁ！＠　カードマスターさくらって考えるのが正しいんだよぉおおおぉおぉおーー...ッ！！！」/
+//圭一rvS19/01/HR_KEI11220.「女に生まれたからには当然美しく装うのがデフォ！kvS19/01/HR_KEI11230.　そう考えるのが正しいんだよぉおおおぉおぉおーー…ッ！！kvS19/01/HR_KEI11240.　そうじゃなきゃダメなんだよぉおおおぉおぉおーー…ッ！！！」
 	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#956f6e>圭一</color>", NULL, "<color=#956f6e>Keiichi</color>", NULL, Line_ContinueAfterTyping); }
-	OutputLine(NULL, "　さくらっつったら木之元さくら！！",
-		   NULL, "Sakura means Sakura Kinomoto!!", Line_WaitForInput);
-	OutputLine(NULL, "　さくらたんはぁはぁ！！",
-		   NULL, " Sakura-tan *pant pant*!!", Line_WaitForInput);
-	OutputLine(NULL, "　カードマスターさくらって考えるのが正しいんだよぉおおおぉおぉおーー…ッ！！！」",
-		   NULL, " Card Master Sakura is the right answeeeeeeeeeeeer!!!\"", Line_ContinueAfterTyping);
-
-	PlaySE( 3, "wa_007", 128, 64 );
-	OutputLineAll(NULL, "", Line_WaitForInput);
-
-	ClearMessage();
-	DisableWindow();
-
+	ModPlayVoiceLS(4, 1, "ps3/s19/01/hr_kei11220", 128, TRUE);
+	OutputLine(NULL, "「女に生まれたからには当然美しく装うのがデフォ！",
+		   NULL, "\"Being born as a lady, obviously it's normal to maintain a beautiful image!", Line_WaitForInput);
+	ModPlayVoiceLS(4, 1, "ps3/s19/01/hr_kei11230", 128, TRUE);
+	OutputLine(NULL, "　そう考えるのが正しいんだよぉおおおぉおぉおーー…ッ！！",
+		   NULL, " It's right to think thaaaaaaat!!", Line_WaitForInput);
+	ModPlayVoiceLS(4, 1, "ps3/s19/01/hr_kei11240", 128, TRUE);
+	OutputLine(NULL, "　そうじゃなきゃダメなんだよぉおおおぉおぉおーー…ッ！！！」",
+		   NULL, " That's how it has to beeeeeeeee!!\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
 }
 
 void dialog011()

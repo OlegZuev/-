@@ -1,0 +1,30 @@
+void main()
+{
+}
+
+void dialog000()
+{
+//「噂じゃホトケさん、上納金とヤクに手を付けちゃったらしいっす＠話じゃ、かなりシャレにならない規模らしいっす。￥
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#8f6d8f>熊谷</color>", NULL, "<color=#8f6d8f>Кумагай</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 19, "ps3/s20/19/443100044", 128, TRUE);
+	OutputLine(NULL, "「噂じゃホトケさん、上納金とヤクに手を付けちゃったらしいっす。",
+		   NULL, "\"По слухам, покойная позволила себе большие вольности с их наркотиками и деньгами для чиновников.", Line_Continue);
+	Wait(2500);
+	OutputLine(NULL, "話じゃ、かなりシャレにならない規模らしいっす。」",
+		   NULL, " Сумма кругленькая получилась.\"", Line_Normal);
+	ClearMessage();
+}
+
+void dialog001()
+{
+//「そうそう...、大石さん＠女のヒモ、生きてるみたいですよ。＠
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#8f6d8f>熊谷</color>", NULL, "<color=#8f6d8f>Кумагай</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 19, "ps3/s20/19/443100045", 128, TRUE);
+	OutputLine(NULL, "「そうそう…、大石さん。",
+		   NULL, "\"Ах да... Ооиси-сан.", Line_Continue);
+	Wait(1300);
+	OutputLine(NULL, "女のヒモ、生きてるみたいですよ。」",
+		   NULL, " Её любовник очень даже живой.\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+}
+

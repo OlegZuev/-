@@ -1,0 +1,27 @@
+void main()
+{
+}
+
+void dialog000()
+{
+//「私は知ってるよ＠沙都子はソ連の軍事顧問団に混じって、某国でトラップの訓練教官をやってたんだ。＠
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>魅音</color>", NULL, "<color=#5ec69a>Мион</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 3, "ps3/s20/03/440300088", 128, TRUE);
+	OutputLine(NULL, "「私は知ってるよ。",
+		   NULL, "\"Знаю,", Line_Continue);
+	Wait(1200);
+	OutputLine(NULL, "沙都子はソ連の軍事顧問団に混じって、某国でトラップの訓練教官をやってたんだ。」",
+		   NULL, " она как-то приезжала в одну страну обучать партизан ставить ловушки в составе группы советских военных инструкторов.\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+}
+
+void dialog001()
+{
+//「こ、ここはいつからベトナムになったんだぁあああぁあぁあッ！！￥
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#956f6e>圭一</color>", NULL, "<color=#956f6e>Кейти</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 1, "ps3/s20/01/440100097", 128, TRUE);
+	OutputLine(NULL, "「こ、ここはいつからベトナムになったんだぁあああぁあぁあッ！！」",
+		   NULL, "\"С-С КАКИХ ЭТО ПОР У НАС ТУТ ВЬЕТНА-А-А-А-АМ?!!\"", Line_Normal);
+	ClearMessage();
+}
+

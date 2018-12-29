@@ -1,0 +1,353 @@
+void main()
+{
+	int AdvMode;
+	AdvMode = 1;
+	int Line_ModeSpecific;
+	if (AdvMode) {
+		Line_ModeSpecific = Line_Normal;
+	} else {
+		Line_ModeSpecific = Line_WaitForInput;
+	}
+
+//*Sub_Tips_069
+//gosub *tip_s
+
+//■雨雲に恋して
+	EnableJumpingOfReturnIcon();
+	FadeOutBGM( 0, 1000, FALSE );
+	FadeOutBGM( 1, 1000, FALSE );
+	FadeOutBGM( 2, 1000, TRUE );
+	DisableWindow();
+	DrawScene( "black", 1000 );
+	PlayBGM( 1, "msys31", 128, 0 );
+	DisableWindow();
+	DrawScene( "bg_203", 400 );
+
+//　天気予報が、今週一週間、雨がまったく降らないことを予告した￥
+	ClearMessage();
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　天気予報が、今週一週間、雨がまったく降らないことを予告した。",
+		   NULL, "В прогнозе погоды обещали, что всю неделю не будет дождя.", Line_Normal);
+	ClearMessage();
+
+
+//　晴れの日が嫌いなわけじゃない＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　晴れの日が嫌いなわけじゃない。",
+		   NULL, "Не то чтобы я не любила солнечных дней.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　だけれども、連日代わり映えのない晴れ続きだったなら、誰だって雨雲が恋しくなるに違いない＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　だけれども、連日代わり映えのない晴れ続きだったなら、誰だって雨雲が恋しくなるに違いない。",
+		   NULL, "Просто, когда каждый день стоит солнце, у любого сердце затоскует по тучам.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　一週間一月一年と、いつまでも単調な晴れ空が続いたら、誰だって雨雲が恋しくなるに違いない＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　一週間一月一年と、いつまでも単調な晴れ空が続いたら、誰だって雨雲が恋しくなるに違いない。",
+		   NULL, "Когда целую неделю, месяц, год с неба не сходит солнце, у любого сердце затоскует по тучам.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　お天気の専門家が、過去のデータをいくつも並べ、それらを充分に吟味した上でそうだと発表するのだから、その予報は簡単に外れるものじゃない＠そんなのはわかってる￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　お天気の専門家が、過去のデータをいくつも並べ、それらを充分に吟味した上でそうだと発表するのだから、その予報は簡単に外れるものじゃない。",
+		   NULL, "Те, кто составляет прогнозы, сначала изучают собранные в прошлом данные и объявляют прогноз только после тщательного их изучения — так что вряд ли они ошибаются.", Line_WaitForInput);
+	OutputLine(NULL, "そんなのはわかってる。",
+		   NULL, " И я это знаю.", Line_Normal);
+	ClearMessage();
+
+//　……でも、だからこそ、たまの一日くらいその天気予報が外れやしないかと期待して、晴れ空を見上げるのだ＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　……でも、だからこそ、たまの一日くらいその天気予報が外れやしないかと期待して、晴れ空を見上げるのだ。",
+		   NULL, "......Но как раз потому я и смотрю на чистое небо, надеясь, что хотя бы на один день прогноз ошибётся.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　そんな私は天邪鬼だろうか￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　そんな私は天邪鬼だろうか？",
+		   NULL, "Наверное, я ненормальная?", Line_Normal);
+	ClearMessage();
+
+
+//　待てども待てども、雨雲の訪れぬ晴天の空の退屈さに、時に窒息しそうにもなる＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　待てども待てども、雨雲の訪れぬ晴天の空の退屈さに、時に窒息しそうにもなる。",
+		   NULL, "Временами мне становилось трудно дышать, потому что, сколько я ни ждала, на чистейшем небе не появлялось и тучки.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　もしもそれで窒息して死ねたなら＠…きっと地球の人間はこんなには増えないだろう＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　もしもそれで窒息して死ねたなら。",
+		   NULL, "Если бы от подобного можно было задохнуться и умереть...", Line_WaitForInput);
+	OutputLine(NULL, "…きっと地球の人間はこんなには増えないだろう。",
+		   NULL, " то землю не населяла бы такая прорва людей.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　それはつまり、…こういうことで窒息できるのは、私だけなのだということなのだ￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　それはつまり、…こういうことで窒息できるのは、私だけなのだということなのだ。",
+		   NULL, "А значит... я — единственная, кто может задохнуться от отсутствия туч.", Line_Normal);
+	ClearMessage();
+
+
+//　だからこそ＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　だからこそ。",
+		   NULL, "Вот поэтому-то......", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　……天気予報にすらも予見できない夏の夕暮れの突然の夕立に、私は歓喜する＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　……天気予報にすらも予見できない夏の夕暮れの突然の夕立に、私は歓喜する。",
+		   NULL, "Меня охватывает ликование, когда летними вечерами внезапно начинается ливень, чего не сможет предсказать ни один прогноз.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　こういう風に説明すれば、あなたたちにも私の気持ちが少しは伝わるのだろうか￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　こういう風に説明すれば、あなたたちにも私の気持ちが少しは伝わるのだろうか？",
+		   NULL, "Так-то вам понятнее, что я чувствую?", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	DrawScene( "black", 400 );
+	DrawScene( "bg_210", 400 );
+
+//　例えば、今夜の晩御飯がカレーライスだと決まってるとする＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　例えば、今夜の晩御飯がカレーライスだと決まってるとする。",
+		   NULL, "Скажем, на ужин решено приготовить карри.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　でも、実際に食卓に呼ばれてみたら、実はナスとピーマンの炒め物になっていたとする＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　でも、実際に食卓に呼ばれてみたら、実はナスとピーマンの炒め物になっていたとする。",
+		   NULL, "Но когда я сажусь за стол, то вижу на нём поджаренные баклажаны с зелёным перцем.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　これは母の気まぐれなわけだけど＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　これは母の気まぐれなわけだけど。",
+		   NULL, "Мать почему-либо передумала.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　私にはその気まぐれがとても嬉しい＠ナスとピーマンは確かに好きじゃないけれど、それでも嬉しい￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　私にはその気まぐれがとても嬉しい。",
+		   NULL, "И я очень рада её капризу.", Line_WaitForInput);
+	OutputLine(NULL, "ナスとピーマンは確かに好きじゃないけれど、それでも嬉しい。",
+		   NULL, " Конечно, я не люблю перец и баклажаны, но счастлива всё равно.", Line_Normal);
+	ClearMessage();
+
+
+//　今夜はカレーライスということになっていた、予定調和が崩れたのが楽しいのだ＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　今夜はカレーライスということになっていた、予定調和が崩れたのが楽しいのだ。",
+		   NULL, "Рада тому, что запланированное карри отменяется.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　今夜という日が仮に百回繰り返されたとして、百回食べなければならないと決まっていたカレーライス＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　今夜という日が仮に百回繰り返されたとして、百回食べなければならないと決まっていたカレーライス。",
+		   NULL, "Предположим, «сегодня» повторяется в сотый раз. Стало быть, мне в сотый раз придётся есть тот же самый рис карри.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　…それが、今夜はナスとピーマンの炒め物に変わったのだ＠この偶然を楽しめないわけがない￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　…それが、今夜はナスとピーマンの炒め物に変わったのだ。",
+		   NULL, "...Однако сегодня на ужин вместо карри — жареные перец и баклажаны.", Line_WaitForInput);
+	OutputLine(NULL, "この偶然を楽しめないわけがない。",
+		   NULL, " Чем не повод порадоваться?", Line_Normal);
+	ClearMessage();
+
+
+//　私は予定調和が嫌い＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　私は予定調和が嫌い。",
+		   NULL, "Я не люблю планировать наперёд.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　決められた予定が大嫌い＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　決められた予定が大嫌い。",
+		   NULL, "Я вообще ненавижу, когда что-то решается загодя.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　私は退屈を愛さない＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　私は退屈を愛さない。",
+		   NULL, "Я не люблю скуку.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　どんな些細なことであれ、昨日までと違う何かが起こることに期待を寄せてしまうのだ￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　どんな些細なことであれ、昨日までと違う何かが起こることに期待を寄せてしまうのだ。",
+		   NULL, "Какими угодно мелочами, но я хочу, чтобы новый день чем-нибудь отличался от предыдущих.", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	DrawScene( "bg_203", 400 );
+
+//　今日から一週間、ずっと晴れであることは決まっている＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　今日から一週間、ずっと晴れであることは決まっている。",
+		   NULL, "Вот решили, что всю нынешнюю неделю будет стоять солнце.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　天気予報がそうだと決めているし、お天気の神さまもきっとそのつもりだ＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　天気予報がそうだと決めているし、お天気の神さまもきっとそのつもりだ。",
+		   NULL, "Так решили те, кто предсказывает погоду, и бог погоды, скорее всего, не возражает.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　でも、…何かの気まぐれで、…その内の一日くらいは雨雲がやって来ないなんて、誰にも言い切れない￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　でも、…何かの気まぐれで、…その内の一日くらいは雨雲がやって来ないなんて、誰にも言い切れない。",
+		   NULL, "Но... никто не поручится, что по чьей-либо прихоти... хотя бы на один день небо не закроют тучи.", Line_Normal);
+	ClearMessage();
+
+
+//　……誰にも言いきれない要素が、常にこの世界には残されているからこそ、私のような生き物は窒息しないでいられるのだ＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　……誰にも言いきれない要素が、常にこの世界には残されているからこそ、私のような生き物は窒息しないでいられるのだ。",
+		   NULL, "......То, что в мире остались ещё такие штуки, за которые никто не поручится, не даёт задохнуться таким созданьям, как я.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　明日も多分、快晴でかなり暑い日になるだろう＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　明日も多分、快晴でかなり暑い日になるだろう。",
+		   NULL, "Должно быть, завтра меня ждёт ещё один жаркий и солнечный день.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　でも、私だけはそんな予定調和が、１％を切るくらいの微細な確率で…たまには変わってしまうことを知っている￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　でも、私だけはそんな予定調和が、１％を切るくらいの微細な確率で…たまには変わってしまうことを知っている。",
+		   NULL, "Но только я знаю, что может получиться и по-другому... с крошечной вероятностью где-то в один процент.", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	DrawScene( "black", 400 );
+
+//　その１％の何かを期待して、晴れの軒先に逆さにしたてるてる坊主を吊るすのだ＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　その１％の何かを期待して、晴れの軒先に逆さにしたてるてる坊主を吊るすのだ。",
+		   NULL, "И, надеясь, что выпадет он, я в солнечный день вывешиваю тэру-тэру-бодзу вниз головой.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　私は結局、森羅万象にそういう意外性を期待して生きている＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　私は結局、森羅万象にそういう意外性を期待して生きている。",
+		   NULL, "Всё-таки я живу, день ото дня надеясь, что жизнь подкинет какую-нибудь неожиданность.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　どうして期待しているのか、…ふと考えた￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　どうして期待しているのか、…ふと考えた。",
+		   NULL, "Вдруг подумалось: а почему я надеюсь?", Line_Normal);
+	ClearMessage();
+
+
+//　どうして私は雨雲を待っているのか￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　どうして私は雨雲を待っているのか？",
+		   NULL, "Почему я жду туч?", Line_Normal);
+	ClearMessage();
+
+
+//　…それは簡単＠晴れの空に飽食しているから￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　…それは簡単。",
+		   NULL, "...Ответ прост.", Line_WaitForInput);
+	OutputLine(NULL, "晴れの空に飽食しているから。",
+		   NULL, " Мне надоело чистое небо.", Line_Normal);
+	ClearMessage();
+
+
+//　じゃあ、私はどうして雨雲を待っているのか￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　じゃあ、私はどうして雨雲を待っているのか？",
+		   NULL, "Тогда почему я жду именно туч?", Line_Normal);
+	ClearMessage();
+
+
+//　…それは簡単＠晴れと決まった明日が退屈だから￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　…それは簡単。",
+		   NULL, "...Ответ прост.", Line_WaitForInput);
+	OutputLine(NULL, "晴れと決まった明日が退屈だから。",
+		   NULL, " Скучно знать, что завтра будет солнечный день.", Line_Normal);
+	ClearMessage();
+
+//　だから、私はどうして雨雲を待っているのか￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　だから、私はどうして雨雲を待っているのか？",
+		   NULL, "Ну так почему я жду туч?", Line_Normal);
+	ClearMessage();
+
+
+//　結局、明日が晴れたって雨になったって、どうでもいい＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　結局、明日が晴れたって雨になったって、どうでもいい。",
+		   NULL, "В конце концов, какая разница, быть завтра солнцу или дождю.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　結局は、そんな雨だって、私の心を荒涼とさせる退屈をしばらくの間、濡らして潤してくれるだけなのだ＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　結局は、そんな雨だって、私の心を荒涼とさせる退屈をしばらくの間、濡らして潤してくれるだけなのだ。",
+		   NULL, "В конце концов, даже дождь лишь на время размочит корку смертельной скуки, покрывшую моё сердце.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　だから、私はあらすじの決まったテレビドラマを見るよりも＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　だから、私はあらすじの決まったテレビドラマを見るよりも。",
+		   NULL, "Так что, вместо того чтобы смотреть сериал с готовым сюжетом...", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+
+//　…空を見上げている方が好き￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　…空を見上げている方が好き。",
+		   NULL, "Я лучше погляжу в небо.", Line_Normal);
+	ClearMessage();
+
+
+
+
+	SetValidityOfInput( FALSE );
+	Wait( 1000 );
+	SetValidityOfInput( TRUE );
+	DisableWindow();
+	DrawScene( "black", 1000 );
+	FadeOutBGM( 1, 1000, TRUE );
+	FadeOutBGM( 2, 1000, TRUE );
+//gosub *tip_e
+//return
+
+
+
+}

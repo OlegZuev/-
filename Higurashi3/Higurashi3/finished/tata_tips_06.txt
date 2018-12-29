@@ -1,0 +1,301 @@
+void main()
+{
+
+//■タイトル：　東三局
+//■雀荘で麻雀をしながら先のドブ川惨殺体の情報交換をする刑事たち。
+//　メンバーは大石と熊谷、鑑識のじいさまとどっかの刑事。
+//*Sub_Tips_050
+//gosub *tip_s
+	EnableJumpingOfReturnIcon();
+	FadeOutBGM( 0, 1000, FALSE );
+	FadeOutBGM( 1, 1000, FALSE );
+	FadeOutBGM( 2, 1000, TRUE );
+
+	PlayBGM( 1, "msys13", 128, 0 );
+
+//「んっふっふっふ＠　出ましたねぇ、ロン＠中ドラ３、満千五です。￥
+	ClearMessage();
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#a59da9>大石</color>", NULL, "<color=#a59da9>Ооиси</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 11, "ps3/s20/11/440700207", 128, TRUE);
+	OutputLine(NULL, "「んっふっふっふ！",
+		   NULL, "\"Мм-хм-хм-хм!", Line_Continue);
+	Wait(1500);
+	OutputLine(NULL, "　出ましたねぇ、ロン。",
+		   NULL, " А я вот так пойду. Рон!", Line_WaitForInput);
+	ModPlayVoiceLS(4, 11, "ps3/s20/11/440700208_01", 128, TRUE);
+	OutputLine(NULL, "中ドラ３、満千五です。」",
+		   NULL, " Три красных доры. Итого выходит пятнадцать тысяч.\"", Line_Normal);
+	ClearMessage();
+	DisableWindow();
+	DrawScene("background/jansou", 400 );
+
+//「えー...＠　なんすかそれぇ...＠何でドラが３つも入んすかぁ！＠
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#8f6d8f>熊谷</color>", NULL, "<color=#8f6d8f>Кумагай</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 19, "ps3/s20/19/443100041", 128, TRUE);
+	OutputLine(NULL, "「えー…！",
+		   NULL, "\"Э-э-э!..", Line_Continue);
+	Wait(1000);
+	OutputLine(NULL, "　なんすかそれぇ…。",
+		   NULL, " Да что такое?..", Line_WaitForInput);
+	ModPlayVoiceLS(4, 19, "ps3/s20/19/443100042", 128, TRUE);
+	OutputLine(NULL, "何でドラが３つも入んすかぁ！」",
+		   NULL, " Откуда у вас три доры взялись?!\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+
+//「バカモンが＠大石が聴牌しとんのわかっててカンドラ増やしおってからに＠　自業自得じゃぞ。￥
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#f5e6d3>鑑識</color>", NULL, "<color=#f5e6d3>Судебный следователь</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 0, "ps3/s20/00/443200045", 128, TRUE);
+	OutputLine(NULL, "「バカモンが。",
+		   NULL, "\"Тупица.", Line_Continue);
+	Wait(1200);
+	OutputLine(NULL, "大石が聴牌しとんのわかっててカンドラ増やしおってからに！",
+		   NULL, " Видно же было, у Ооиси тэмпай — нет, тебе надо Кан-дору!", Line_WaitForInput);
+	ModPlayVoiceLS(4, 0, "ps3/s20/00/443200046", 128, TRUE);
+	OutputLine(NULL, "　自業自得じゃぞ。」",
+		   NULL, " От ты и напросился.\"", Line_Normal);
+	ClearMessage();
+
+//「中さらしたら、ドラを上乗せする位しかやることないじゃないですか＠役牌さらしたらドラ側は切っちゃだめですよ＠んっふっふっふ！＠
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#a59da9>大石</color>", NULL, "<color=#a59da9>Ооиси</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 11, "ps3/s20/11/440700209", 128, TRUE);
+	OutputLine(NULL, "「中さらしたら、ドラを上乗せする位しかやることないじゃないですか。",
+		   NULL, "\"Коль показались красные, остаётся только грести доры.", Line_Continue);
+	Wait(3300);
+	OutputLine(NULL, "役牌さらしたらドラ側は切っちゃだめですよ。",
+		   NULL, " Показавши Яку-хай, сбрасывать доры не стоит.", Line_WaitForInput);
+	ModPlayVoiceLS(4, 11, "ps3/s20/11/440700210", 128, TRUE);
+	OutputLine(NULL, "んっふっふっふ！」",
+		   NULL, " Мм-хм-хм-хм!\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+//　得意げに笑う大石と悪態をつく仲間たちは、牌の山を崩してまた積み始める￥
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　得意げに笑う大石と悪態をつく仲間たちは、牌の山を崩してまた積み始める。",
+		   NULL, "Ооиси довольно заухал, а его товарищи, ругаясь, взялись заново расставлять плитки.", Line_Normal);
+	ClearMessage();
+
+//「......時に大石さん、どうですか＠割れましたか。＠
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#f5e6d3>小宮山</color>", NULL, "<color=#f5e6d3>Комияма</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 0, "ps3/s20/00/442500014", 128, TRUE);
+	OutputLine(NULL, "「……時に大石さん、どうですか。",
+		   NULL, "\"......Между прочим, Ооиси-сан,", Line_Continue);
+	Wait(1300);
+	OutputLine(NULL, "割れましたか。」",
+		   NULL, " личность удалось установить?\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//「なんじゃい＠...あぁ、例のドブ川惨殺死体の話かの＠何か手掛かりはあったのか。＠
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#f5e6d3>鑑識</color>", NULL, "<color=#f5e6d3>Судебный следователь</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 0, "ps3/s20/00/443200047", 128, TRUE);
+	OutputLine(NULL, "「なんじゃい。",
+		   NULL, "\"Чагось?", Line_Continue);
+	Wait(1300);
+	OutputLine(NULL, "…あぁ、例のドブ川惨殺死体の話かの。",
+		   NULL, " ...А-а, ты про тот труп в канале.", Line_WaitForInput);
+	ModPlayVoiceLS(4, 0, "ps3/s20/00/443200048", 128, TRUE);
+	OutputLine(NULL, "何か手掛かりはあったのか。」",
+		   NULL, " Шо, нашли какие зацепки?\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//「えぇ、まぁ＠裏はそっちで取って下さいよ。￥
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#a59da9>大石</color>", NULL, "<color=#a59da9>Ооиси</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 11, "ps3/s20/11/440700211", 128, TRUE);
+	OutputLine(NULL, "「えぇ、まぁ。",
+		   NULL, "\"Ну-у, да.", Line_Continue);
+	Wait(1200);
+	OutputLine(NULL, "裏はそっちで取って下さいよ。」",
+		   NULL, " Только подтверждать вам придётся самим.\"", Line_Normal);
+	ClearMessage();
+
+//「さぁすがぁ＠何者です、ホトケ？＠
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#f5e6d3>小宮山</color>", NULL, "<color=#f5e6d3>Комияма</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 0, "ps3/s20/00/442500015", 128, TRUE);
+	OutputLine(NULL, "「さぁすがぁ。",
+		   NULL, "\"Ка-ак всегда-а-а.", Line_Continue);
+	Wait(1000);
+	OutputLine(NULL, "何者です、ホトケ？」",
+		   NULL, " Ну, кто?\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//「間宮リナ＠本名は律子。＠
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#a59da9>大石</color>", NULL, "<color=#a59da9>Ооиси</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 11, "ps3/s20/11/440700212", 128, TRUE);
+	OutputLine(NULL, "「間宮リナ。",
+		   NULL, "\"Мамия Рина.", Line_Continue);
+	Wait(1000);
+	OutputLine(NULL, "本名は律子。」",
+		   NULL, " Настоящее имя — Рицуко.\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//「鹿骨フラワーロードにある、ブルー・マーメイドってキャバクラに勤めてたみたいっす。￥
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#8f6d8f>熊谷</color>", NULL, "<color=#8f6d8f>Кумагай</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 19, "ps3/s20/19/443100043", 128, TRUE);
+	OutputLine(NULL, "「鹿骨フラワーロードにある、ブルー・マーメイドってキャバクラに勤めてたみたいっす。」",
+		   NULL, "\"Работала, как видно, в ночном клубе «Голубая русалка», что на Цветочной улице Шишибонэ.\"", Line_Normal);
+	ClearMessage();
+
+//「やれやれ、そりゃヤバイ店じゃな＠確か園崎系の若頭の店じゃろ。＠
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#f5e6d3>鑑識</color>", NULL, "<color=#f5e6d3>Судебный следователь</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 0, "ps3/s20/00/443200049", 128, TRUE);
+	OutputLine(NULL, "「やれやれ、そりゃヤバイ店じゃな。",
+		   NULL, "\"Охо-хо, сомнительное местечко.", Line_Continue);
+	Wait(2800);
+	OutputLine(NULL, "確か園崎系の若頭の店じゃろ。」",
+		   NULL, " Им, насколько помню, владеет один из подручных семьи Сонодзаки.\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//「...園崎...おっと＠　Ｓ号関連かぁ＠...難航しそうなヤマだなぁ。＠
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#f5e6d3>小宮山</color>", NULL, "<color=#f5e6d3>Комияма</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 0, "ps3/s20/00/442500016", 128, TRUE);
+	OutputLine(NULL, "「…園崎…おっと！",
+		   NULL, "\"...Сонодзаки... ого!", Line_Continue);
+	Wait(2000);
+	OutputLine(NULL, "　Ｓ号関連かぁ。",
+		   NULL, " Значит, всё-таки «С»...", Line_WaitForInput);
+	ModPlayVoiceLS(4, 0, "ps3/s20/00/442500017", 128, TRUE);
+	OutputLine(NULL, "…難航しそうなヤマだなぁ。」",
+		   NULL, " Придётся тут попотеть.\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+	//VoiceMatching
+	if(GetGlobalFlag(GCensor) >= 2){ModCallScriptSection("ztata_tips_06_vm0x_n01","dialog000");}
+	if(GetGlobalFlag(GCensor) <= 1){ModCallScriptSection("ztata_tips_06_vm00_n01","dialog000");}
+	//VoiceMatchingEnd
+
+//「女が上納金に手を出した、か＠裏に男がいそうじゃのう＠女の単独犯なんてそうそうないぞ。＠
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#f5e6d3>鑑識</color>", NULL, "<color=#f5e6d3>Судебный следователь</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 0, "ps3/s20/00/443200050", 128, TRUE);
+	OutputLine(NULL, "「女が上納金に手を出した、か。",
+		   NULL, "\"Говоришь, стибрила денежки, предназначенные для чиновников?", Line_Continue);
+	Wait(2700);
+	OutputLine(NULL, "裏に男がいそうじゃのう。",
+		   NULL, " Тогда тут явно замешан мужчина.", Line_WaitForInput);
+	ModPlayVoiceLS(4, 0, "ps3/s20/00/443200051", 128, TRUE);
+	OutputLine(NULL, "女の単独犯なんてそうそうないぞ。」",
+		   NULL, " Баба сама по себе в такое не влезла бы.\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//「んっふっふ＠　どうせもう死んでますよ＠死体がまだ出ないだけで。＠
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#a59da9>大石</color>", NULL, "<color=#a59da9>Ооиси</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 11, "ps3/s20/11/440700213", 128, TRUE);
+	OutputLine(NULL, "「んっふっふ！",
+		   NULL, "\"Мм-хм-хм!", Line_Continue);
+	Wait(1400);
+	OutputLine(NULL, "　どうせもう死んでますよ。",
+		   NULL, " Тогда он уже труп.", Line_WaitForInput);
+	ModPlayVoiceLS(4, 11, "ps3/s20/11/440700214", 128, TRUE);
+	OutputLine(NULL, "死体がまだ出ないだけで。」",
+		   NULL, " Просто мы его ещё не нашли.\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+	//VoiceMatching
+	if(GetGlobalFlag(GCensor) >= 2){ModCallScriptSection("ztata_tips_06_vm0x_n01","dialog001");}
+	if(GetGlobalFlag(GCensor) <= 1){ModCallScriptSection("ztata_tips_06_vm00_n01","dialog001");}
+	//VoiceMatchingEnd
+
+
+//「生きてる＠　じゃあこれから死ぬんでしょうねぇ＠害虫が害虫を駆除してくれるんだから、ホントに素敵な自浄機能だと思いますよ。￥
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#a59da9>大石</color>", NULL, "<color=#a59da9>Ооиси</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 11, "ps3/s20/11/440700215", 128, TRUE);
+	OutputLine(NULL, "「生きてる？",
+		   NULL, "\"Живой?", Line_Continue);
+	Wait(1000);
+	OutputLine(NULL, "　じゃあこれから死ぬんでしょうねぇ。",
+		   NULL, " Что ж, всё равно скоро помрёт.", Line_WaitForInput);
+	ModPlayVoiceLS(4, 11, "ps3/s20/11/440700216", 128, TRUE);
+	OutputLine(NULL, "害虫が害虫を駆除してくれるんだから、ホントに素敵な自浄機能だと思いますよ。」",
+		   NULL, " Как это всё-таки замечательно, что у нас вредитель истребляет вредителя.\"", Line_Normal);
+	ClearMessage();
+
+//「そのヒモなんですがね＠/
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#8f6d8f>熊谷</color>", NULL, "<color=#8f6d8f>Кумагай</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 19, "ps3/s20/19/443100046", 128, TRUE);
+	OutputLine(NULL, "「そのヒモなんですがね、",
+		   NULL, "\"Видите ли, её любовник", Line_WaitForInput);
+
+	PlaySE( 3, "wa_023", 128, 64 );
+
+//北条鉄平なんですよ...、あの。＠
+	ModPlayVoiceLS(4, 19, "ps3/s20/19/443100047", 128, TRUE);
+	OutputLine(NULL, "北条鉄平なんですよ…、あの。」",
+		   NULL, " — Ходзё Тэппэй...\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//「......北条＠　誰だい？＠
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#f5e6d3>小宮山</color>", NULL, "<color=#f5e6d3>Комияма</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 0, "ps3/s20/00/442500018", 128, TRUE);
+	OutputLine(NULL, "「……北条？",
+		   NULL, "\"......Ходзё?", Line_Continue);
+	Wait(1000);
+	OutputLine(NULL, "　誰だい？」",
+		   NULL, " Кто?\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//「...北条鉄平＠去年、雛見沢で起こった主婦撲殺事件のホトケのご主人ですよ＠......事件のあと姿を消したって聞いてましたけど＠...そうかぁ、愛人の所に転がり込んでたかぁ。￥
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#a59da9>大石</color>", NULL, "<color=#a59da9>Ооиси</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 11, "ps3/s20/11/440700217", 128, TRUE);
+	OutputLine(NULL, "「…北条鉄平。",
+		   NULL, "\"...Ходзё Тэппэй.", Line_Continue);
+	Wait(1000);
+	OutputLine(NULL, "去年、雛見沢で起こった主婦撲殺事件のホトケのご主人ですよ。",
+		   NULL, " Приходился мужем той домохозяйке, которую забили до смерти в Хинамидзаве год назад......", Line_WaitForInput);
+	ModPlayVoiceLS(4, 11, "ps3/s20/11/440700218", 128, TRUE);
+	OutputLine(NULL, "……事件のあと姿を消したって聞いてましたけど。",
+		   NULL, " После того случая пропал без вести, как я слыхал.", Line_WaitForInput);
+	ModPlayVoiceLS(4, 11, "ps3/s20/11/440700219", 128, TRUE);
+	OutputLine(NULL, "…そうかぁ、その女の所に転がり込んでたかぁ。」",
+		   NULL, " Понятно... укрывался у любовницы, значит?\"", Line_Normal);
+	ClearMessage();
+
+//「............ますますに園崎の臭いがプンプンだの。＠
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#f5e6d3>鑑識</color>", NULL, "<color=#f5e6d3>Судебный следователь</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 0, "ps3/s20/00/443200052", 128, TRUE);
+	OutputLine(NULL, "「…………ますますに園崎の臭いがプンプンだの。」",
+		   NULL, "\"............Всё больше и больше пахнет делишками Сонодзаки.\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//「彼氏は今どこに？＠
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#a59da9>大石</color>", NULL, "<color=#a59da9>Ооиси</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 11, "ps3/s20/11/440700220", 128, TRUE);
+	OutputLine(NULL, "「彼氏は今どこに？」",
+		   NULL, "\"А нынче он где?\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//「女のアパートに同居してたんすがね＠女が自分を捨てたと思ったみたいで、店や溜りのあちこちを探し回ってるらしいっす。￥
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#8f6d8f>熊谷</color>", NULL, "<color=#8f6d8f>Кумагай</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 19, "ps3/s20/19/443100048", 128, TRUE);
+	OutputLine(NULL, "「女のアパートに同居してたんすがね。",
+		   NULL, "\"Раньше жил на квартире у своей бабы,", Line_Continue);
+	Wait(1800);
+	OutputLine(NULL, "女が自分を捨てたと思ったみたいで、店や溜りのあちこちを探し回ってるらしいっす。」",
+		   NULL, " но сейчас, похоже, подыскивает себе новое тёпленькое местечко — думает, что та его бросила.\"", Line_Normal);
+	ClearMessage();
+	SetValidityOfInput( FALSE );
+	Wait( 1000 );
+	SetValidityOfInput( TRUE );
+	DisableWindow();
+	DrawScene("black", 1000 );
+	StopSE( 3 );
+	FadeOutBGM( 0, 1000, FALSE );
+	FadeOutBGM( 1, 1000, FALSE );
+	FadeOutBGM( 2, 1000, TRUE );
+//gosub *tip_e
+//return
+
+
+}
+

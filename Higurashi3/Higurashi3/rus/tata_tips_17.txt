@@ -1,0 +1,247 @@
+﻿void main()
+{
+
+//*Sub_Tips_061
+//gosub *tip_s
+	EnableJumpingOfReturnIcon();
+	FadeOutBGM( 0, 1000, FALSE );
+	FadeOutBGM( 1, 1000, FALSE );
+	FadeOutBGM( 2, 1000, TRUE );
+
+
+	PlayBGM( 1, "msys13", 128, 0 );
+//■タイトル：　照会要請
+//!s50
+	SetSpeedOfMessage( TRUE, 100, );
+	PlayBGM( 2, "lsys24", 128, 0 );
+//興宮警察署　指令センター通信記録
+	OutputLine(NULL, "興宮警察署　指令センター通信記録",
+		   NULL, "Запись радиопереговоров оперативного штаба полицейского участка Окиномия.", Line_ContinueAfterTyping);
+
+	FadeOutBGM( 2, 10, TRUE );
+	SetValidityOfInput( FALSE );
+	Wait( 2000 );
+	SetValidityOfInput( TRUE );
+	PlayBGM( 2, "lsys24", 128, 0 );
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+//６月２０日２０時８分
+	OutputLine(NULL, "６月２０日２０時８分",
+		   NULL, "20 июня, 20:08.", Line_ContinueAfterTyping);
+
+	FadeOutBGM( 2, 10, TRUE );
+	SetValidityOfInput( FALSE );
+	Wait( 4000 );
+	SetValidityOfInput( TRUE );
+	ClearMessage();
+//!sd
+	SetSpeedOfMessage( FALSE, 0, );
+	DisableWindow();
+	DrawScene( "bg_104", 400 );
+
+//「こちら興宮ＳＰ、感度良好でーす。＠
+	PlaySE(4, "S20/00/VTP_OkeijiA_3001", 128, 64);
+	OutputLine(NULL, "「こちら興宮ＳＰ、感度良好でーす。」",
+		   NULL, "\"На связи полицейский участок Окиномия, слышим вас хорошо.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+//「あー、車両ナンバー照会をお願いします＠ＸＸ、ＸのＸＸＸＸ。＠
+	PlaySE(4, "S20/11/440700232", 128, 64);
+	OutputLine(NULL, "「あー、車両ナンバー照会をお願いします。",
+		   NULL, "\"А, будьте добры, проверьте-ка номерок.", Line_WaitForInput);
+	OutputLine(NULL, "ＸＸ、ＸのＸＸＸＸ。」",
+		   NULL, " XX, X-XXXX.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+//「復唱、ＸＸ、ＸのＸＸＸＸ＠少々お時間もらいますがよろしいですかー？＠
+	PlaySE(4, "S20/00/VTP_OkeijiA_3002", 128, 64);
+	OutputLine(NULL, "「復唱、ＸＸ、ＸのＸＸＸＸ。",
+		   NULL, "\"Так точно, XX, X-XXXX.", Line_WaitForInput);
+	OutputLine(NULL, "少々お時間もらいますがよろしいですかー？」",
+		   NULL, " Можете чуть подождать?\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+//「お願いします。￥
+	PlaySE(4, "S20/11/440700233", 128, 64);
+	OutputLine(NULL, "「お願いします。」",
+		   NULL, "\"Конечно.\"", Line_Normal);
+	ClearMessage();
+	DisableWindow();
+	DrawSceneWithMask( "black", "down", 0, 0, 300 );
+//!s50
+	SetSpeedOfMessage( TRUE, 100, );
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+	PlayBGM( 2, "lsys24", 128, 0 );
+//ナンバー照会
+	OutputLine(NULL, "ナンバー照会",
+		   NULL, "Сверка номера.", Line_ContinueAfterTyping);
+
+	FadeOutBGM( 2, 10, TRUE );
+	SetValidityOfInput( FALSE );
+	Wait( 2000 );
+	SetValidityOfInput( TRUE );
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+	PlayBGM( 2, "lsys24", 128, 0 );
+
+//ＸＸ　ＸーＸＸＸＸ
+	OutputLine(NULL, "ＸＸ　ＸーＸＸＸＸ",
+		   NULL, "XX X-XXXX", Line_ContinueAfterTyping);
+
+	FadeOutBGM( 2, 10, TRUE );
+	SetValidityOfInput( FALSE );
+	Wait( 2000 );
+	SetValidityOfInput( TRUE );
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+	PlayBGM( 2, "lsys24", 128, 0 );
+
+//所有者　ＸＸＸＸ
+	OutputLine(NULL, "所有者　ＸＸＸＸ",
+		   NULL, "Владелец: XXXX.", Line_ContinueAfterTyping);
+
+	FadeOutBGM( 2, 10, TRUE );
+	SetValidityOfInput( FALSE );
+	Wait( 2000 );
+	SetValidityOfInput( TRUE );
+	PlayBGM( 2, "lsys24", 128, 0 );
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+//（鹿骨市雛見沢村Ｘ丁目ＸＸＸ番地在住）
+	OutputLine(NULL, "（鹿骨市雛見沢村Ｘ丁目ＸＸＸ番地在住）",
+		   NULL, "(Адрес: город Шишибонэ, деревня Хинамидзава, улица X, дом XXX)", Line_ContinueAfterTyping);
+
+	FadeOutBGM( 2, 10, TRUE );
+	SetValidityOfInput( FALSE );
+	Wait( 2000 );
+	SetValidityOfInput( TRUE );
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+	PlayBGM( 2, "lsys24", 128, 0 );
+
+//車種：　ＸＸＸＸＸＸＸ
+	OutputLine(NULL, "車種：　ＸＸＸＸＸＸＸ",
+		   NULL, "Модель транспортного средства: XXXXXXX.", Line_ContinueAfterTyping);
+
+	FadeOutBGM( 2, 10, TRUE );
+	SetValidityOfInput( FALSE );
+	Wait( 2000 );
+	SetValidityOfInput( TRUE );
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+	PlayBGM( 2, "lsys24", 128, 0 );
+
+//盗難届け：無
+	OutputLine(NULL, "盗難届け：無",
+		   NULL, "Сообщалось об угоне: нет.", Line_ContinueAfterTyping);
+
+	FadeOutBGM( 2, 10, TRUE );
+	SetValidityOfInput( FALSE );
+	Wait( 2000 );
+	SetValidityOfInput( TRUE );
+	OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping);
+
+	PlayBGM( 2, "lsys24", 128, 0 );
+
+//特記事項：特に無し/
+	OutputLine(NULL, "特記事項：特に無し",
+		   NULL, "Дополнительные сведения: отсутствуют.", Line_ContinueAfterTyping);
+
+	FadeOutBGM( 2, 10, TRUE );
+	OutputLineAll(NULL, "", Line_WaitForInput);
+
+	ClearMessage();
+	SetSpeedOfMessage( FALSE, 0, );
+//!sd
+	DrawScene( "bg_192", 400 );
+
+//「興宮ＳＰより大石車どうぞー＠先ほどのナンバーが判明しましたー＠........................大石車どうぞー＠　.................................大石車、応答願います＠..................あれ＠　............電波、悪いのかな.....................＠......大石車応答ねが..................。￥
+	PlaySE(4, "S20/00/VTP_OkeijiA_3003", 128, 64);
+	OutputLine(NULL, "「興宮ＳＰより大石車どうぞー。",
+		   NULL, "\"Машина Ооиси, ответьте участку Окиномия.", Line_WaitForInput);
+	OutputLine(NULL, "先ほどのナンバーが判明しましたー。",
+		   NULL, " Мы проверили запрошенный вами номер.", Line_WaitForInput);
+	PlaySE(4, "S20/00/VTP_OkeijiA_3004", 128, 64);
+	OutputLine(NULL, "……………………大石車どうぞー？",
+		   NULL, " ..................Машина Ооиси, приём?", Line_WaitForInput);
+	PlaySE(4, "S20/00/VTP_OkeijiA_3005", 128, 64);
+	OutputLine(NULL, "　……………………………大石車、応答願います。",
+		   NULL, " ...........................Машина Ооиси, ответьте...............", Line_WaitForInput);
+	PlaySE(4, "S20/00/VTP_OkeijiA_3006", 128, 64);
+	OutputLine(NULL, "………………あれ？",
+		   NULL, " Что?........", Line_WaitForInput);
+	OutputLine(NULL, "　…………電波、悪いのかな…………………。",
+		   NULL, " Может, плохо слышно?...............", Line_WaitForInput);
+	PlaySE(4, "S20/00/VTP_OkeijiA_3007", 128, 64);
+	OutputLine(NULL, "……大石車応答ねが………………。」",
+		   NULL, " Машина Ооиси, прошу отве...............\"", Line_Normal);
+	ClearMessage();
+
+//「出ませんね。＠
+	PlaySE(4, "S20/00/VTP_OkeijiA_3008", 128, 64);
+	OutputLine(NULL, "「出ませんね。」",
+		   NULL, "\"Не отвечает.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+//「大石さんが車両照会＠　誰の車だよ。￥
+	PlaySE(4, "S20/00/VTP_OkeijiB_3001", 128, 64);
+	OutputLine(NULL, "「大石さんが車両照会？",
+		   NULL, "\"Ооиси-сан просил сверить номер?", Line_WaitForInput);
+	OutputLine(NULL, "　誰の車だよ。」",
+		   NULL, " Чья машина?\"", Line_Normal);
+	ClearMessage();
+
+//「村人の車ですね＠......至って平凡な。＠
+	PlaySE(4, "S20/00/VTP_OkeijiA_3009", 128, 64);
+	OutputLine(NULL, "「村人の車ですね。",
+		   NULL, "\"Одного из деревенских......", Line_WaitForInput);
+	OutputLine(NULL, "……至って平凡な。」",
+		   NULL, " Ничего необычного.\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+//「...何者だよ＠大石さんが聞いてくるからには、只者じゃないんだろ？＠
+	PlaySE(4, "S20/00/VTP_OkeijiB_3002", 128, 64);
+	OutputLine(NULL, "「…何者だよ。",
+		   NULL, "\"...А кого именно?", Line_WaitForInput);
+	OutputLine(NULL, "大石さんが聞いてくるからには、只者じゃないんだろ？」",
+		   NULL, " Раз Ооиси-сан интересуется, то как он может быть обычным?\"", Line_WaitForInput);
+	OutputLineAll(NULL, "\n", Line_ContinueAfterTyping);
+
+
+//「特記事項欄は完全に空欄ですね＠Ｓ号指定もなし＠減点もなしだし。￥
+	PlaySE(4, "S20/00/VTP_OkeijiA_3010", 128, 64);
+	OutputLine(NULL, "「特記事項欄は完全に空欄ですね。",
+		   NULL, "\"По нему ничего нет.", Line_WaitForInput);
+	OutputLine(NULL, "Ｓ号指定もなし。",
+		   NULL, " Никаких связей с «С».", Line_WaitForInput);
+	PlaySE(4, "S20/00/VTP_OkeijiA_3011", 128, 64);
+	OutputLine(NULL, "減点もなしだし。」",
+		   NULL, " Совершенно чист.\"", Line_Normal);
+	ClearMessage();
+
+//「...ははは、パッシングでもされて腹が立ったんじゃないの＠　あの人、根に持つとなかなか忘れないタイプなんだよ。￥
+	PlaySE(4, "S20/00/VTP_OkeijiC_3001", 128, 64);
+	OutputLine(NULL, "「…ははは、パッシングでもされて腹が立ったんじゃないの？",
+		   NULL, "\"...Ха-ха-ха, его, наверное, обогнали, вот он и разозлился?", Line_WaitForInput);
+	OutputLine(NULL, "　あの人、根に持つとなかなか忘れないタイプなんだよ。」",
+		   NULL, " Он дядька такой, обид не прощает.\"", Line_Normal);
+	ClearMessage();
+	SetValidityOfInput( FALSE );
+	Wait( 1000 );
+	SetValidityOfInput( TRUE );
+	DisableWindow();
+	DrawScene( "black", 1000 );
+	FadeOutBGM( 0, 1000, FALSE );
+	FadeOutBGM( 1, 1000, FALSE );
+	FadeOutBGM( 2, 1000, TRUE );
+//gosub *tip_e
+//return
+
+
+}

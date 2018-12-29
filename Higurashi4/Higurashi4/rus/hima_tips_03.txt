@@ -1,0 +1,384 @@
+void main()
+{
+	int AdvMode;
+	AdvMode = 1;
+	int Line_ModeSpecific;
+	if (AdvMode) {
+		Line_ModeSpecific = Line_Normal;
+	} else {
+		Line_ModeSpecific = Line_WaitForInput;
+	}
+
+//*Sub_Tips_066
+//gosub *tip_s
+	EnableJumpingOfReturnIcon();
+	FadeOutBGM( 0, 1000, FALSE );
+	FadeOutBGM( 1, 1000, FALSE );
+	FadeOutBGM( 2, 1000, TRUE );
+
+	DisableWindow();
+	DrawScene( "black", 1000 );
+	PlayBGM( 1, "msys31", 128, 0 );
+
+//■歯車と火事と蜜の味
+
+//　人と人のつながりで営まれている人の世の生活だけど＠
+	ClearMessage();
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　人と人のつながりで営まれている人の世の生活だけど。",
+		   NULL, "Наш мир строится на связях между людьми.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　全部の人が必ずしもつながっているわけじゃない＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　全部の人が必ずしもつながっているわけじゃない。",
+		   NULL, "Я не говорю, впрочем, что все связаны со всеми.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　地球の裏側で名前も知らない誰かが泣いたって笑ったって、自分に何の影響も及ぼさないことなんて、誰もが当然のように理解している＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　地球の裏側で名前も知らない誰かが泣いたって笑ったって、自分に何の影響も及ぼさないことなんて、誰もが当然のように理解している。",
+		   NULL, "Все понимают, что если кто-то, кого мы совершенно не знаем, заплачет или засмеётся на другой стороне земного шара, то нам, ясное дело, не станет ни холодно, ни жарко.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　だけれども、ご近所という極めて限定された小さなコミュニティに限ってなら、なるほどと頷けないこともない￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　だけれども、ご近所という極めて限定された小さなコミュニティに限ってなら、なるほどと頷けないこともない。",
+		   NULL, "Но если дело происходит в сравнительно небольшом обществе (например, в соседской общине), то вполне может оказаться и по-другому.", Line_Normal);
+	ClearMessage();
+
+
+//　小さなコミュニティの中でのひとりの印象深い行ないが、全体のその後に大きな影響を及ぼすことはありえるだろう＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　小さなコミュニティの中でのひとりの印象深い行ないが、全体のその後に大きな影響を及ぼすことはありえるだろう。",
+		   NULL, "Один-единственный крупный поступок вполне может потрясти всю общину.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　その規模が極めて大きくなれば、……まぁ、地球の裏側の名前も知らない誰かの英雄的演説が、私の生活に影響を及ぼすことがあるかもしれない￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　その規模が極めて大きくなれば、……まぁ、地球の裏側の名前も知らない誰かの英雄的演説が、私の生活に影響を及ぼすことがあるかもしれない。",
+		   NULL, "И если увеличить масштабы до планетарных...... то как знать, не повлияет ли героическая речь кого-то совершенно неизвестного на другом конце мира на мою личную жизнь.", Line_Normal);
+	ClearMessage();
+
+
+//　でも、万事が全てそうなるわけじゃない＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　でも、万事が全てそうなるわけじゃない。",
+		   NULL, "Однако далеко не для всего это справедливо.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　最初に言ったように、基本的には人と人とのつながりは、世間でとかく言うほど顕著じゃない＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　最初に言ったように、基本的には人と人とのつながりは、世間でとかく言うほど顕著じゃない。",
+		   NULL, "Как я сказала в начале, связи между людьми, в общем-то, не настолько значительны, как любят повторять в обществе.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　お向かいの家の晩御飯のおかずが、ハンバーグだろうとコロッケだろうと、私に何の影響も与えないし＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　お向かいの家の晩御飯のおかずが、ハンバーグだろうとコロッケだろうと、私に何の影響も与えないし。",
+		   NULL, "Какие бы котлеты ни приготовили к ужину в доме на другой стороне улицы — хоть картофельные, хоть говяжьи, — на мне оно никак не скажется.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　私が靴を履くときに、右足から履こうが左足から履こうが、誰にも何の影響も与えない￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　私が靴を履くときに、右足から履こうが左足から履こうが、誰にも何の影響も与えない。",
+		   NULL, "Когда я надеваю сандалии, никому нет никакой разницы, с какой ноги я начинаю — правой или левой.", Line_Normal);
+	ClearMessage();
+
+
+//　……ここまでは凡人でも理解できよう＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　……ここまでは凡人でも理解できよう。",
+		   NULL, "......Любой способен дойти до того своим умом.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　でも、現実の実際の本当のところ＠人と人のつながりというやつは、もっともっと白黒がはっきりしているのだ＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　でも、現実の実際の本当のところ。",
+		   NULL, "Но, если честно, на самом деле", Line_WaitForInput);
+	OutputLine(NULL, "人と人のつながりというやつは、もっともっと白黒がはっきりしているのだ。",
+		   NULL, " людские связи просты как дважды два.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　地球の裏側にいるから無関係とか、身近にいるから影響しあうとか、そういう距離の問題じゃなく￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　地球の裏側にいるから無関係とか、身近にいるから影響しあうとか、そういう距離の問題じゃなく。",
+		   NULL, "Вопрос не в расстоянии — неверно рассуждать, что, мол, «он на другой стороне Земли — значит, его поступки не могут на мне сказаться» или «он живёт по соседству — значит, его поступки на меня влияют».", Line_Normal);
+	ClearMessage();
+
+
+//　例えば、Ａという人物の行ないが、私に影響することがあるとする＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　例えば、Ａという人物の行ないが、私に影響することがあるとする。",
+		   NULL, "К примеру, на мне сказываются поступки некого А.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　だからと言って、Ｂという人物の行ないが、必ずしも私に影響を及ぼすことにはならない＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　だからと言って、Ｂという人物の行ないが、必ずしも私に影響を及ぼすことにはならない。",
+		   NULL, "Но это совсем не значит, что на мне скажутся деяния какого-то Б.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　逆もまた然り。私の行ないがＡに影響を及ぼすからといって、Ｂに必ず影響を及ぼすとは限らない￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　逆もまた然り。私の行ないがＡに影響を及ぼすからといって、Ｂに必ず影響を及ぼすとは限らない。",
+		   NULL, "И наоборот. Если я могу повлиять на А, то ещё не известно, влияют ли мои поступки на Б.", Line_Normal);
+	ClearMessage();
+
+
+
+//　突き放した言い方をしよう＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　突き放した言い方をしよう。",
+		   NULL, "Позвольте сказать иначе.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　人と人のつながりや運命が歯車に例えられるなら＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　人と人のつながりや運命が歯車に例えられるなら。",
+		   NULL, "Сравним людские связи, судьбы с шестерёнками.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　私という歯車に噛み合っている人もいれば、いない人もいる、ということだ￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　私という歯車に噛み合っている人もいれば、いない人もいる、ということだ。",
+		   NULL, "Есть те, чьи зубчики цепляются за мою шестерёнку, и те, чьи меня не касаются.", Line_Normal);
+	ClearMessage();
+
+
+
+//　これを詭弁だと反論したい人もいるだろう＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　これを詭弁だと反論したい人もいるだろう。",
+		   NULL, "Некоторые могут не согласиться со мной, утверждая, что я пытаюсь водить их за нос.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　そういう人は、やはり時計の歯車の話を引き合いに出す＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　そういう人は、やはり時計の歯車の話を引き合いに出す。",
+		   NULL, "Им я приведу в пример шестерёнки в часовом механизме.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　時計の中にある歯車は確かに、せいぜいひとつかふたつの歯車としか噛み合っていない＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　時計の中にある歯車は確かに、せいぜいひとつかふたつの歯車としか噛み合っていない。",
+		   NULL, "Да, каждая из них соединена только с одной или двумя другими.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　だけれども、ひとつの歯車を回せば、隣の歯車を動かし、それらが脈々とつながって、最後には全ての歯車を動かすことになると￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　だけれども、ひとつの歯車を回せば、隣の歯車を動かし、それらが脈々とつながって、最後には全ての歯車を動かすことになると。",
+		   NULL, "Но когда поворачивается одна, в движение приходит следующая, за ней ещё и ещё — и в конце концов начинают вращаться все.", Line_Normal);
+	ClearMessage();
+
+//　………確かに理屈はあるし、凡人を納得させるに足る説得力もある＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　………確かに理屈はあるし、凡人を納得させるに足る説得力もある。",
+		   NULL, ".........Да, логика в таком представлении есть, и для обыкновенного человека она достаточно убедительна.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　では、どうして説得力があるのか＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　では、どうして説得力があるのか？",
+		   NULL, "Так в чём же заключается её убедительность?", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　…答えは簡単＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　…答えは簡単。",
+		   NULL, "...Ответ прост.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　人と人のつながりなんてあやふやなものを、観念的にしか説明ができないからだ＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　人と人のつながりなんてあやふやなものを、観念的にしか説明ができないからだ。",
+		   NULL, "Нечто такое неопределённое, как связи между людьми, получится объяснить лишь образно.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　どの歯車がどうつながって、どう連動してどう関係しあってるかなんて、具体的に説明できないから、そんな論法で煙に巻くほかないのだ￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　どの歯車がどうつながって、どう連動してどう関係しあってるかなんて、具体的に説明できないから、そんな論法で煙に巻くほかないのだ。",
+		   NULL, "То, как соединены отдельные шестерёнки, как все они друг с другом взаимодействуют, объяснить невозможно. Единственное, что остаётся, — отделаться сбивающим с толку объяснением.", Line_Normal);
+	ClearMessage();
+
+
+//　では、そんな説明を好む人のために、私もまた時計を引き合いに出して反論しよう＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　では、そんな説明を好む人のために、私もまた時計を引き合いに出して反論しよう。",
+		   NULL, "А теперь я хотела бы возразить тем, кого устроило такое объяснение, на примере с — опять же — часами.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　そもそもこの世界を、ひとつの時計に見立てることがまず間違っているのだ￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　そもそもこの世界を、ひとつの時計に見立てることがまず間違っているのだ。",
+		   NULL, "Прежде всего, неверно сравнивать наш мир с механизмом часов.", Line_Normal);
+	ClearMessage();
+
+
+//　時計はひとつじゃない＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　時計はひとつじゃない。",
+		   NULL, "Часы не одни.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　この世界にはたくさんの時計が存在し、個々に時を刻んでいる＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　この世界にはたくさんの時計が存在し、個々に時を刻んでいる。",
+		   NULL, "В мире много часов, и все они отсчитывают время по-своему.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　考えてもごらんなさい、この世に時計はひとつだって決め付けること自体がとても傲慢なこと￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　考えてもごらんなさい、この世に時計はひとつだって決め付けること自体がとても傲慢なこと。",
+		   NULL, "Подумайте сами, какая дерзость — предполагать, что на свете существуют лишь одни часы.", Line_Normal);
+	ClearMessage();
+
+
+//　そうやって考えれば、歯車の話で人のつながりを説明しつつも＠私という歯車とまったく関係のない、他の時計の歯車もたくさんこの世にいることを説明できるだろう＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　そうやって考えれば、歯車の話で人のつながりを説明しつつも、",
+		   NULL, "Кстати говоря, так можно, уподобляя связи между людьми шестерёнкам,", Line_WaitForInput);
+	OutputLine(NULL, "私という歯車とまったく関係のない、他の時計の歯車もたくさんこの世にいることを説明できるだろう。",
+		   NULL, " объяснить заодно и то, что в мире крутится тьма-тьмущая шестерёнок от других часов, никак не взаимодействующих с моей.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　ご近所のＡとＢ＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　ご近所のＡとＢ。",
+		   NULL, "По соседству со мной — шестерни А и Б.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　Ａは私と同じ時計の歯車だから、いろいろと気を遣ったほうがいい＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　Ａは私と同じ時計の歯車だから、いろいろと気を遣ったほうがいい。",
+		   NULL, "А крутится в тех же часах, что и я, а значит, её вращение меня волновать должно.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　Ｂは私と違う時計の歯車だから、別にどうでもいい存在＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　Ｂは私と違う時計の歯車だから、別にどうでもいい存在。",
+		   NULL, "Б же нужна для работы других часов, и мне она безразлична.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　そういう、はっきりとした区別￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　そういう、はっきりとした区別。",
+		   NULL, "Вот так всё просто.", Line_Normal);
+	ClearMessage();
+
+
+//　詭弁だと言いたい￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　詭弁だと言いたい？",
+		   NULL, "Хотите сказать, я нарочно запутываю?", Line_Normal);
+	ClearMessage();
+
+
+//　じゃあ理解できるように、時計よりももっと身近な生活の話に置き換えるわね＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　じゃあ理解できるように、時計よりももっと身近な生活の話に置き換えるわね。",
+		   NULL, "Хорошо же, вот вам другой, более бытовой, доступный для понимания пример.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//『対岸の火事』って言葉くらい、あなただって聞いたことがあるでしょう＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "『対岸の火事』って言葉くらい、あなただって聞いたことがあるでしょう。",
+		   NULL, "Слышали когда-нибудь поговорку про «пожар на другом берегу реки»?", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　例えば、お隣で火事があったら、もちろん消火作業を手伝うでしょう＠　延焼して自分の家にまで火が付いたら困るものね＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　例えば、お隣で火事があったら、もちろん消火作業を手伝うでしょう？",
+		   NULL, "Скажем, если горит соседский дом, вы же поможете потушить пожар, да?", Line_WaitForInput);
+	OutputLine(NULL, "　延焼して自分の家にまで火が付いたら困るものね。",
+		   NULL, " Вам не хотелось бы, чтоб и ваш дом загорелся.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　でもその火事が川向こうの対岸の町だったらどう￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　でもその火事が川向こうの対岸の町だったらどう？",
+		   NULL, "А что, если горит посёлок, находящийся за рекой?", Line_Normal);
+	ClearMessage();
+
+
+//　わざわざ重い腰を上げてまで手伝いに行く＠　行かないわよね＠　間違っても、自分の家まで延焼するわけないものね＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　わざわざ重い腰を上げてまで手伝いに行く？",
+		   NULL, "Станете вы себя утруждать, мчаться на помощь?", Line_WaitForInput);
+	OutputLine(NULL, "　行かないわよね？",
+		   NULL, " Нет, конечно же?", Line_WaitForInput);
+	OutputLine(NULL, "　間違っても、自分の家まで延焼するわけないものね。",
+		   NULL, " Ваш дом не запылает, что б ни случилось.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　火事になっても、自分の家に燃え移る家と、燃え移らない全然関係のない家があるってこと＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　火事になっても、自分の家に燃え移る家と、燃え移らない全然関係のない家があるってこと。",
+		   NULL, "Даже в случае пожара есть такие дома, от которых огонь может перекинуться на ваш, а есть такие, пожар в которых никак на ваш двор не повлияет.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　このぐらい具体的な例ならば、自分に関係のある歯車と関係ない歯車の話、少しは理解できるんじゃない？￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　このぐらい具体的な例ならば、自分に関係のある歯車と関係ない歯車の話、少しは理解できるんじゃない？　",
+		   NULL, "Ну что, стали мои рассуждения про взаимосвязанные и невзаимосвязанные шестерёнки хоть чуточку понятнее?", Line_Normal);
+	ClearMessage();
+
+
+//　……そういったことが、何も川を隔てなくても世の中にはたくさんあるってこと＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　……そういったことが、何も川を隔てなくても世の中にはたくさんあるってこと。",
+		   NULL, "......Короче говоря, в мире немало таких вещей — даже если реки совсем ни при чём.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　近所とか川向こうとか、そういう距離の問題じゃなくて、ね￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　近所とか川向こうとか、そういう距離の問題じゃなくて、ね？",
+		   NULL, "Дело не в том, по соседству ли горящий дом или на другом берегу реки, понимаете?", Line_Normal);
+	ClearMessage();
+
+
+
+	SetValidityOfInput( FALSE );
+	Wait( 1000 );
+	SetValidityOfInput( TRUE );
+	FadeOutBGM( 1, 1000, TRUE );
+	DrawScene( "black", 1000 );
+//gosub *tip_e
+//return
+
+
+
+}

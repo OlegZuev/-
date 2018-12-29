@@ -1,0 +1,278 @@
+void main()
+{
+	int AdvMode;
+	AdvMode = 1;
+	int Line_ModeSpecific;
+	if (AdvMode) {
+		Line_ModeSpecific = Line_Normal;
+	} else {
+		Line_ModeSpecific = Line_WaitForInput;
+	}
+
+
+//*Sub_Tips_071
+//gosub *tip_s
+	EnableJumpingOfReturnIcon();
+	FadeOutBGM( 0, 1000, FALSE );
+	FadeOutBGM( 1, 1000, FALSE );
+	FadeOutBGM( 2, 1000, TRUE );
+
+
+
+	DisableWindow();
+	DrawScene( "black", 1000 );
+
+	PlayBGM( 2, "lsys20", 128, 0 );
+
+
+//■調査は暗礁
+
+//「……うん＠昨日、銀座の料亭でお会いしてね＠そういう話が出たんだよ。￥
+	PlaySE(4, "s20/00/kataoka44001", 128, 64);
+	ClearMessage();
+	if (AdvMode) { OutputLine("<color=#f5e6d3>室長</color>", NULL, "<color=#f5e6d3>Шеф</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「……うん。",
+		   NULL, "\"......Угу.", Line_WaitForInput);
+	OutputLine(NULL, "昨日、銀座の料亭でお会いしてね。",
+		   NULL, " Вчера встретились с ним в ресторанчике в Гиндзе.", Line_WaitForInput);
+	PlaySE(4, "s20/00/kataoka44002", 128, 64);
+	OutputLine(NULL, "そういう話が出たんだよ。」",
+		   NULL, " Ну и это всплыло.\"", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	DrawScene( "bg_193", 1000 );
+
+//「別室の越権でしょ＠連中、公安に干渉し過ぎですよ＠あまり迎合すると悪い先例を残しますね。＠
+	PlaySE(4, "s20/00/442600001", 128, 64);
+	if (AdvMode) { OutputLine("<color=#f5e6d3>嘉納</color>", NULL, "<color=#f5e6d3>Каноу</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「別室の越権でしょ。",
+		   NULL, "\"Они как-то слишком наглеют.", Line_WaitForInput);
+	OutputLine(NULL, "連中、公安に干渉し過ぎですよ。",
+		   NULL, " Они там не офигели в наши дела лезть?", Line_WaitForInput);
+	PlaySE(4, "s20/00/442600002", 128, 64);
+	OutputLine(NULL, "あまり迎合すると悪い先例を残しますね。」",
+		   NULL, " Если нянькаться с ними, смотри, как бы худом не кончилось.\"", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//「犬飼大臣は公安の動きに不快感を顕わにしているらしい＠多分、月曜の庁議で次官からその旨の話が出るんじゃないかと思う＠…まいったなぁ…。＠
+	PlaySE(4, "s20/00/kataoka44003", 128, 64);
+	if (AdvMode) { OutputLine("<color=#f5e6d3>室長</color>", NULL, "<color=#f5e6d3>Шеф</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「犬飼大臣は公安の動きに不快感を顕わにしているらしい。",
+		   NULL, "\"Министру Инугаю явно не нравятся наши действия.", Line_WaitForInput);
+	OutputLine(NULL, "多分、月曜の庁議で次官からその旨の話が出るんじゃないかと思う。",
+		   NULL, " Подозреваю, его заместитель пройдётся по нам на правительственном заседании в понедельник.", Line_ModeSpecific);
+	PlaySE(4, "s20/00/kataoka44004", 128, 64);
+	if (AdvMode) { OutputLine("<color=#f5e6d3>室長</color>", NULL, "<color=#f5e6d3>Шеф</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "…まいったなぁ…。」",
+		   NULL, " Эх, чёрт...\"", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//「次官へは局長級に話し付けてもらうしかないですよ＠給料を多くもらってる人の当然の仕事ってことで。￥
+	PlaySE(4, "s20/00/442600003", 128, 64);
+	if (AdvMode) { OutputLine("<color=#f5e6d3>嘉納</color>", NULL, "<color=#f5e6d3>Каноу</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「次官へは局長級に話し付けてもらうしかないですよ。",
+		   NULL, "\"Ну, тогда пусть наш генеральный с ним потолкует.", Line_WaitForInput);
+	OutputLine(NULL, "給料を多くもらってる人の当然の仕事ってことで。」",
+		   NULL, " Как-никак дело для тех, кто получает побольше нас с вами.\"", Line_Normal);
+	ClearMessage();
+
+
+//「まぁ、そうなると局長からは絶対に、大臣脅迫の物証を求められるよな。＠
+	PlaySE(4, "s20/00/kataoka44005", 128, 64);
+	if (AdvMode) { OutputLine("<color=#f5e6d3>室長</color>", NULL, "<color=#f5e6d3>Шеф</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「まぁ、そうなると局長からは絶対に、大臣脅迫の物証を求められるよな。」",
+		   NULL, "\"Да, только генеральный потребует предоставить бесспорные доказательства шантажа.\"", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//「あの人、たまにどっちの味方かわかんなくなりますね＠うちらの味方しなくてどうすんの、っての！￥
+	PlaySE(4, "s20/00/442600004", 128, 64);
+	if (AdvMode) { OutputLine("<color=#f5e6d3>嘉納</color>", NULL, "<color=#f5e6d3>Каноу</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「あの人、たまにどっちの味方かわかんなくなりますね。",
+		   NULL, "\"Иногда я понимать перестаю, на чьей же он стороне.", Line_WaitForInput);
+	OutputLine(NULL, "うちらの味方しなくてどうすんの、っての！」",
+		   NULL, " Он же вроде как за нас должен быть!\"", Line_Normal);
+	ClearMessage();
+
+
+//「ま、多分、大臣を経由しての圧力だと思ってるけどね＠俺が次官室で脂汗かいて時間稼ぐ間に調査進めてもらうしかないよな＠…全身の汗、搾られて絞りカスになっちゃうかもしれないけどなぁ＠…で、どうなの？　調査の進行は。＠
+	PlaySE(4, "s20/00/kataoka44006", 128, 64);
+	if (AdvMode) { OutputLine("<color=#f5e6d3>室長</color>", NULL, "<color=#f5e6d3>Шеф</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「ま、多分、大臣を経由しての圧力だと思ってるけどね。",
+		   NULL, "\"Да, верно, это министр на него давит.", Line_WaitForInput);
+	OutputLine(NULL, "俺が次官室で脂汗かいて時間稼ぐ間に調査進めてもらうしかないよな。",
+		   NULL, " Остаётся надеяться, что расследование чего-то добьётся, пока я буду потеть в кабинете заместителя.", Line_ModeSpecific);
+	PlaySE(4, "s20/00/kataoka44007", 128, 64);
+	if (AdvMode) { OutputLine("<color=#f5e6d3>室長</color>", NULL, "<color=#f5e6d3>Шеф</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "…全身の汗、搾られて絞りカスになっちゃうかもしれないけどなぁ。",
+		   NULL, " Надеюсь, что во мне к тому времени останется хоть капля жидкости.", Line_WaitForInput);
+	PlaySE(4, "s20/00/kataoka44008", 128, 64);
+	OutputLine(NULL, "…で、どうなの？　調査の進行は。」",
+		   NULL, " ...Ладно, что там у вас? Как расследование?\"", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//「期待してた濃厚なラインがことごとく外れて、正直、途方に暮れてます。￥
+	PlaySE(4, "s20/00/442600005", 128, 64);
+	if (AdvMode) { OutputLine("<color=#f5e6d3>嘉納</color>", NULL, "<color=#f5e6d3>Каноу</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「期待してた濃厚なラインがことごとく外れて、正直、途方に暮れてます。」",
+		   NULL, "\"По всем основным направлениям — пустышки. Честно говоря, мы не знаем, что делать дальше.\"", Line_Normal);
+	ClearMessage();
+
+
+//「最近の大臣発言をまとめると、雛見沢ダムの計画の話が目立つっていう報告を聞いたけど、それはどうなの？＠
+	PlaySE(4, "s20/00/kataoka44009", 128, 64);
+	if (AdvMode) { OutputLine("<color=#f5e6d3>室長</color>", NULL, "<color=#f5e6d3>Шеф</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「最近の大臣発言をまとめると、雛見沢ダムの計画の話が目立つっていう報告を聞いたけど、それはどうなの？」",
+		   NULL, "\"Слышал, в последних речах Министр что-то подозрительно часто упоминает постройку Хинамидзавской плотины. Что насчёт этого?\"", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//「…………ん～～～～…＠目立つって言うか、…本当に微細な程度の違和感ですね＠たまたま××県の県議連でのスピーチだったから、時事ネタを話しただけかもしれないし。￥
+	PlaySE(4, "s20/00/442600006", 128, 64);
+	if (AdvMode) { OutputLine("<color=#f5e6d3>嘉納</color>", NULL, "<color=#f5e6d3>Каноу</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「…………ん〜〜〜〜…。",
+		   NULL, "\".........Хм-м-м-м-м...", Line_WaitForInput);
+	OutputLine(NULL, "目立つって言うか、…本当に微細な程度の違和感ですね。",
+		   NULL, " Ох, не знаю... Вроде как ничего такого, только вот чувствуется здесь что-то не то.", Line_ModeSpecific);
+	PlaySE(4, "s20/00/442600007", 128, 64);
+	if (AdvMode) { OutputLine("<color=#f5e6d3>嘉納</color>", NULL, "<color=#f5e6d3>Каноу</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "たまたま××県の県議連でのスピーチだったから、時事ネタを話しただけかもしれないし。」",
+		   NULL, " Ну, он же говорил про неё в речи на собрании префектуры XX. Может, пытается понравиться тамошним избирателям.\"", Line_Normal);
+	ClearMessage();
+
+
+//「確か地元団体が過激に抵抗してるってヤツだっけ＠　鬼ヶ淵死守同盟＠確か、赤坂くんに調べてもらってたよね。＠
+	PlaySE(4, "s20/00/kataoka44010", 128, 64);
+	if (AdvMode) { OutputLine("<color=#f5e6d3>室長</color>", NULL, "<color=#f5e6d3>Шеф</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「確か地元団体が過激に抵抗してるってヤツだっけ？",
+		   NULL, "\"Это не там ли местное движение целую войну ведёт?", Line_WaitForInput);
+	OutputLine(NULL, "　鬼ヶ淵死守同盟。",
+		   NULL, " Союз обороны Онигафути.", Line_WaitForInput);
+	PlaySE(4, "s20/00/kataoka44011", 128, 64);
+	OutputLine(NULL, "確か、赤坂くんに調べてもらってたよね。」",
+		   NULL, " Помнится, туда отправился Акасака-кун?\"", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//「僕は連中には、今回の事件は起こせないと踏んでます＠ですが、疑わしいところのほとんどが真っ白な以上、疑いの枠から外すわけにはいかないかもですね…＠赤坂くんからは、その可能性は否定できないとの軽い報告は受けてます。￥
+	PlaySE(4, "s20/00/442600008", 128, 64);
+	if (AdvMode) { OutputLine("<color=#f5e6d3>嘉納</color>", NULL, "<color=#f5e6d3>Каноу</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「僕は連中には、今回の事件は起こせないと踏んでます。",
+		   NULL, "\"Я бы не сказал, что те на такое способны.", Line_WaitForInput);
+	OutputLine(NULL, "ですが、疑わしいところのほとんどが真っ白な以上、疑いの枠から外すわけにはいかないかもですね…。",
+		   NULL, " Но раз самые подозрительные ребята оказываются девственно чистыми, то их не стоит пока сбрасывать со счетов...", Line_ModeSpecific);
+	PlaySE(4, "s20/00/442600009", 128, 64);
+	if (AdvMode) { OutputLine("<color=#f5e6d3>嘉納</color>", NULL, "<color=#f5e6d3>Каноу</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "赤坂くんからは、その可能性は否定できないとの軽い報告は受けてます。」",
+		   NULL, " Акасака-кун сам сообщал, что такое не исключено.\"", Line_Normal);
+	ClearMessage();
+
+
+
+//「…なら、調べて見る価値はあるんじゃないの＠　しらみ潰しなんだから、残る疑わしい団体がそこひとつなら、やるしかないでしょ。＠
+	PlaySE(4, "s20/00/kataoka44012", 128, 64);
+	if (AdvMode) { OutputLine("<color=#f5e6d3>室長</color>", NULL, "<color=#f5e6d3>Шеф</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「…なら、調べて見る価値はあるんじゃないの？",
+		   NULL, "\"...Так давайте приглядимся к ним, что ли?", Line_WaitForInput);
+	OutputLine(NULL, "　しらみ潰しなんだから、残る疑わしい団体がそこひとつなら、やるしかないでしょ。」",
+		   NULL, " Раз уж мы всюду роем, а они — последние из подозреваемых, то что нам ещё остаётся?\"", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//「まぁ、調べる団体はそこだけじゃないんですがね＠　あははは＠　鬼ヶ淵と同じ程度のレベルで疑わしい団体になると、もう相当の数になりますよ＠人手も時間も残業代も全然足りません。￥
+	PlaySE(4, "s20/00/442600010", 128, 64);
+	if (AdvMode) { OutputLine("<color=#f5e6d3>嘉納</color>", NULL, "<color=#f5e6d3>Каноу</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「まぁ、調べる団体はそこだけじゃないんですがね？",
+		   NULL, "\"Ну, вообще говоря, они не одни, к кому стоило бы приглядеться.", Line_WaitForInput);
+	OutputLine(NULL, "　あははは！",
+		   NULL, " А-ха-ха-ха!", Line_ModeSpecific);
+	PlaySE(4, "s20/00/442600011", 128, 64);
+	if (AdvMode) { OutputLine("<color=#f5e6d3>嘉納</color>", NULL, "<color=#f5e6d3>Каноу</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "鬼ヶ淵と同じ程度のレベルで疑わしい団体になると、もう相当の数になりますよ。",
+		   NULL, " Если говорить о таких подозреваемых, как Онигафути, то их целый ворох найдётся.", Line_WaitForInput);
+
+
+//「赤坂くんからさ、もうちょっと詳しく聞いてみてよ＠…俺はちょっと要注意に感じるけどなぁ、その死守同盟。＠
+	PlaySE(4, "s20/00/442600012", 128, 64);
+	OutputLine(NULL, "人手も時間も残業代も全然足りません。」",
+		   NULL, " Нам катастрофически не хватает ни времени, ни людей, ни выплат за сверхурочные.\"", Line_Normal);
+	ClearMessage();
+	PlaySE(4, "s20/00/kataoka44013", 128, 64);
+	if (AdvMode) { OutputLine("<color=#f5e6d3>室長</color>", NULL, "<color=#f5e6d3>Шеф</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「赤坂くんからさ、もうちょっと詳しく聞いてみてよ。",
+		   NULL, "\"Что ж, попробуй разузнать у Акасаки-куна подробности.", Line_WaitForInput);
+
+
+//「彼、村人とうまく接触できたって連絡してきました＠現地の警察とも連携できてるみたいですね。￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "…俺はちょっと要注意に感じるけどなぁ、その死守同盟。」",
+		   NULL, " Мне кажется, надо к ним приглядеться, к этому Союзу обороны.\"", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+	PlaySE(4, "s20/00/442600013", 128, 64);
+	if (AdvMode) { OutputLine("<color=#f5e6d3>嘉納</color>", NULL, "<color=#f5e6d3>Каноу</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「彼、村人とうまく接触できたって連絡してきました。",
+		   NULL, "\"Он сказал, у него с деревенскими установились дружеские отношения.", Line_WaitForInput);
+
+
+//「赤坂くんとの連絡、密にしてください＠それで、彼からの情報が引っ掛かるようであれば、増援を送ることもありということで。￥
+	OutputLine(NULL, "現地の警察とも連携できてるみたいですね。」",
+		   NULL, " Плодотворно сотрудничает с тамошней полицией.\"", Line_Normal);
+	ClearMessage();
+	PlaySE(4, "s20/00/kataoka44014", 128, 64);
+	if (AdvMode) { OutputLine("<color=#f5e6d3>室長</color>", NULL, "<color=#f5e6d3>Шеф</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「赤坂くんとの連絡、密にしてください。",
+		   NULL, "\"Почаще с ним связывайся.", Line_WaitForInput);
+
+//「わっかりました。￥
+	OutputLine(NULL, "それで、彼からの情報が引っ掛かるようであれば、増援を送ることもありということで。」",
+		   NULL, " Можно и подкрепление выслать, буде услышишь от него что-то такое.\"", Line_Normal);
+	ClearMessage();
+
+//「………あ、すみません、片岡室長～＠　局長からお電話です＠こっちに回しますか？＠
+	PlaySE(4, "s20/00/442600014", 128, 64);
+	if (AdvMode) { OutputLine("<color=#f5e6d3>嘉納</color>", NULL, "<color=#f5e6d3>Каноу</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「わっかりました。」",
+		   NULL, "\"Есть.\"", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+	PlaySE(4, "s20/00/442600015", 128, 64);
+	if (AdvMode) { OutputLine("<color=#f5e6d3>嘉納</color>", NULL, "<color=#f5e6d3>Каноу</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「………あ、すみません、片岡室長〜！",
+		   NULL, "\"......Прошу прощения, шеф!", Line_WaitForInput);
+	OutputLine(NULL, "　局長からお電話です。",
+		   NULL, " Вам звонок от генерального директора.", Line_WaitForInput);
+
+
+//「あ、いい、いい＠　そっち行きます＠…もしもし＠　片岡です…………。￥
+	PlaySE(4, "s20/00/442600016", 128, 64);
+	if (AdvMode) { OutputLine("<color=#f5e6d3>嘉納</color>", NULL, "<color=#f5e6d3>Каноу</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "こっちに回しますか？」",
+		   NULL, " Перенаправить?\"", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+	PlaySE(4, "s20/00/kataoka44015", 128, 64);
+	if (AdvMode) { OutputLine("<color=#f5e6d3>室長</color>", NULL, "<color=#f5e6d3>Шеф</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「あ、いい、いい！",
+		   NULL, "\"А, нет-нет, не нужно!", Line_WaitForInput);
+	OutputLine(NULL, "　そっち行きます。",
+		   NULL, " Сейчас подойду...", Line_WaitForInput);
+	PlaySE(4, "s20/00/kataoka44016", 128, 64);
+	OutputLine(NULL, "…もしもし！",
+		   NULL, " Алло! Катаока слушает............\"", Line_Normal);
+	ClearMessage();
+
+
+	SetValidityOfInput( FALSE );
+	Wait( 1000 );
+	SetValidityOfInput( TRUE );
+	DisableWindow();
+	DrawScene( "black", 1000 );
+	FadeOutBGM( 1, 1000, TRUE );
+	FadeOutBGM( 2, 1000, TRUE );
+//gosub *tip_e
+//return
+
+
+}

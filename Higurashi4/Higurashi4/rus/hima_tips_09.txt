@@ -1,0 +1,695 @@
+void main()
+{
+	int AdvMode;
+	AdvMode = 1;
+	int Line_ModeSpecific;
+	if (AdvMode) {
+		Line_ModeSpecific = Line_Normal;
+	} else {
+		Line_ModeSpecific = Line_WaitForInput;
+	}
+
+//*Sub_Tips_072
+//gosub *tip_s
+	EnableJumpingOfReturnIcon();
+	FadeOutBGM( 0, 1000, FALSE );
+	FadeOutBGM( 1, 1000, FALSE );
+	FadeOutBGM( 2, 1000, TRUE );
+
+
+	DisableWindow();
+	DrawScene( "black", 1000 );
+
+	PlayBGM( 1, "msys31", 128, 0 );
+
+//■箱選びゲーム
+
+//　人生に選択肢なんて、あると思う＠
+	ClearMessage();
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　人生に選択肢なんて、あると思う？",
+		   NULL, "Думаете, в жизни бывает выбор?", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　よく嘆く人がいる＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　よく嘆く人がいる。",
+		   NULL, "Некоторые часто жалуются.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　人生の節々で、明確な選択肢が設けられていたならば、それを吟味し、よりよい未来へ自分を誘えるのに、と＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　人生の節々で、明確な選択肢が設けられていたならば、それを吟味し、よりよい未来へ自分を誘えるのに、と。",
+		   NULL, "Будь у них, мол, на ключевых точках жизни очевидный выбор, они бы могли выбирать лучшее будущее.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　…私はそういう嘆きを漏れ聞く度に、下らない悩みだな、と思うのだ＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　…私はそういう嘆きを漏れ聞く度に、下らない悩みだな、と思うのだ。",
+		   NULL, "Слыша подобные жалобы, я всякий раз думаю: до чего же мелочные у них заботы.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　選択肢を与えられたって、どうせ何の意味もないし、よりよい未来へ自分を誘えることなんて何もない￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　選択肢を与えられたって、どうせ何の意味もないし、よりよい未来へ自分を誘えることなんて何もない。",
+		   NULL, "Какая, в сущности, разница, есть ли выбор — не бывает ничего такого, что поможет пройти к лучшему будущему.", Line_Normal);
+	ClearMessage();
+
+
+
+//　……話がわかりにくい？＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　……話がわかりにくい？　",
+		   NULL, "......Не понимаете?", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+	DisableWindow();
+	DrawScene( "aka1", 1000 );
+
+//　じゃあ仮に、あなたの目の前に２つの怪しげな箱を置いてあげよう＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　じゃあ仮に、あなたの目の前に２つの怪しげな箱を置いてあげよう。",
+		   NULL, "Хорошо, тогда давайте представим, что перед вами — две загадочные коробки.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　そして、そこに２つだけの選択肢を与えてやるとする＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　そして、そこに２つだけの選択肢を与えてやるとする。",
+		   NULL, "Можно выбрать лишь из двух вариантов.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　曰く、赤い箱を開けるか、青い箱を開けるか￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　曰く、赤い箱を開けるか、青い箱を開けるか。",
+		   NULL, "Или вы откроете красную, или вы откроете синюю.", Line_Normal);
+	ClearMessage();
+
+
+//　あなたはいろいろと迷うだろう＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　あなたはいろいろと迷うだろう。",
+		   NULL, "Должно быть, вас охватят сомнения.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　開けなくてはならないなら、赤か青か、自分にとってよりよい方を開けたいと願うのは自然な欲求だ＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　開けなくてはならないなら、赤か青か、自分にとってよりよい方を開けたいと願うのは自然な欲求だ。",
+		   NULL, "Раз надо выбрать коробку, то вам, естественно, захочется открыть ту, чьё открытие принесёт вам больше пользы.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　そして、箱の形状や気配、諸々を勘案し、やがて苦慮の末、赤か青か、どちらかを選択するに違いない＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　そして、箱の形状や気配、諸々を勘案し、やがて苦慮の末、赤か青か、どちらかを選択するに違いない。",
+		   NULL, "Вы оцените форму коробок, всяческие ощущения от каждой из них и, наконец, выберете одну — красную или синюю.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　………あなたなら、どっちの箱を選ぶ￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　………あなたなら、どっちの箱を選ぶ？",
+		   NULL, ".........Так какую же?", Line_Normal);
+	ClearMessage();
+
+
+//　赤と青＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　赤と青。",
+		   NULL, "Красную или синюю?", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　…刷り込まれた信号機の法則に従うなら、赤は危険を意味する色＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　…刷り込まれた信号機の法則に従うなら、赤は危険を意味する色。",
+		   NULL, "Если счесть, что цвета коробок следуют тем же правилам, что цвета светофора, тогда красный означает опасность.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　でも、だからといって、青という色が安全を保証するものでもない＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　でも、だからといって、青という色が安全を保証するものでもない。",
+		   NULL, "Только это ещё не значит, что синяя безопасна.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　むしろ、赤を警戒させて、青を開けさせようという罠かもしれない￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　むしろ、赤を警戒させて、青を開けさせようという罠かもしれない。",
+		   NULL, "А возможно, тут как раз ловушка — заставить остерегаться красной, чтоб подтолкнуть к синей.", Line_Normal);
+	ClearMessage();
+
+//　罠＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　罠？",
+		   NULL, "Ловушка?", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　…この中身には得をするものでなく、損をさせるものが入っているかもしれない…＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　…この中身には得をするものでなく、損をさせるものが入っているかもしれない…？",
+		   NULL, "...А если там то, что вам совершенно не нужно, а если там то, что принесёт вам вред?..", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　さぁさぁ…あなたは迷ってきた＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　さぁさぁ…あなたは迷ってきた。",
+		   NULL, "Ага, ага... вот вы и запутались.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　赤か青かの選択に葛藤し、…箱を開けずにここから立ち去るという選択肢も欲しくなって来たに違いない￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　赤か青かの選択に葛藤し、…箱を開けずにここから立ち去るという選択肢も欲しくなって来たに違いない。",
+		   NULL, "Вы в замешательстве, какую же выбрать... Несомненно, теперь вам хочется и третьего варианта: уйти, не открывая ни одной из коробок.", Line_Normal);
+	ClearMessage();
+
+
+//　でもだめ＠赤か青のどちらかを開けなくてはならない＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　でもだめ。",
+		   NULL, "А вот фигушки.", Line_WaitForInput);
+	OutputLine(NULL, "赤か青のどちらかを開けなくてはならない。",
+		   NULL, " Вы обязаны открыть одну из них — либо красную, либо синюю.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　あ、言い忘れたけれども、あなたが片方を選ぶと、もう片方の箱は消えてしまう＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　あ、言い忘れたけれども、あなたが片方を選ぶと、もう片方の箱は消えてしまう。",
+		   NULL, "А, забыла сказать: когда вы сделаете выбор, другая исчезнет.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　だから、選ばなかった方の箱の中身は知ることができない＠そういうルールがあることを、最後に付け加えておくね￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　だから、選ばなかった方の箱の中身は知ることができない。",
+		   NULL, "И вы так и не узнаете, что в ней лежало.", Line_WaitForInput);
+	OutputLine(NULL, "そういうルールがあることを、最後に付け加えておくね？",
+		   NULL, " Просто знайте, ладно?", Line_Normal);
+	ClearMessage();
+
+
+//　さぁ＠選んでごらん＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　さぁ。",
+		   NULL, "Ну же.", Line_WaitForInput);
+	OutputLine(NULL, "選んでごらん？",
+		   NULL, " Что выберете?", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　赤い箱か、青い箱＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　赤い箱か、青い箱。",
+		   NULL, "Красную, синюю ли.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　…大丈夫、どっちも損なものは入っていないから＠…ほら￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　…大丈夫、どっちも損なものは入っていないから。",
+		   NULL, "Не волнуйтесь — ни в одной нет ничего, что вам повредило бы.", Line_WaitForInput);
+	OutputLine(NULL, "…ほら。",
+		   NULL, " Давайте.", Line_Normal);
+	ClearMessage();
+
+	PlaySE( 3, "wa_044", 128, 64 );
+
+
+	char Item[2];
+
+	if(GetGlobalFlag(GLanguage) == 1)
+	{
+		Item[0] = "Open the red box";
+		Item[1] = "Open the blue box";
+	}
+	else
+	{
+		Item[0] = "赤い箱を開ける";
+		Item[1] = "青い箱を開ける";
+	}
+
+//	InitializeSelectedItem();
+	Select( 2, Item );
+	if(LoadValueFromLocalWork( SelectResult ) == 0)
+	{
+		SetGlobalFlag(redbox , TRUE);
+		CallSection( "hima_tips_09_a" );
+	}
+
+	if(LoadValueFromLocalWork( SelectResult ) == 1)
+	{
+		SetGlobalFlag(bluebox , TRUE);
+		CallSection( "hima_tips_09_b" );
+	}
+}
+
+void hima_tips_09_a()
+{
+	EnableJumpingOfReturnIcon();
+
+//　よく考えた＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　よく考えた？",
+		   NULL, "Вы хорошо подумали?", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　その結果、この色を選んだのね＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　その結果、この色を選んだのね？",
+		   NULL, "Стало быть, выбираете эту?", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　…あなたが選んだ時点で、もう片方の色の箱はパッ消えてしまった＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　…あなたが選んだ時点で、もう片方の色の箱はパッ消えてしまった。",
+		   NULL, "В тот же миг, как вы приняли решение, другая коробка — пуф! — бесследно исчезла.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　そっちの箱の中身はもう諦めてね＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　そっちの箱の中身はもう諦めてね？",
+		   NULL, "Перестаньте думать о том, что в ней лежало, ладно?", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　そういうルールなんだから＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　そういうルールなんだから。",
+		   NULL, "Таково правило.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　さ、あなたの選んだ箱を開けてみよう￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　さ、あなたの選んだ箱を開けてみよう。",
+		   NULL, "Ну что ж, давайте откроем выбранную вами коробку.", Line_Normal);
+	ClearMessage();
+
+
+//　箱の中からは、!w1000……キャラメルが１つぶ￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　箱の中からは、",
+		   NULL, "В ней лежит...", Line_ContinueAfterTyping);
+
+	SetValidityOfInput( FALSE );
+	Wait( 1000 );
+	SetValidityOfInput( TRUE );
+
+	OutputLine(NULL, "……キャラメルが１つぶ。",
+		   NULL, " одна карамелька.", Line_Normal);
+	ClearMessage();
+
+
+
+	if(GetGlobalFlag(bluebox) == 0)
+	{
+		CallSection( "hima_tips_09_c" );
+	}
+
+	if(GetGlobalFlag(bluebox) == 1)
+	{
+		CallSection( "hima_tips_09_d" );
+	}
+
+
+}
+
+void hima_tips_09_b()
+{
+	EnableJumpingOfReturnIcon();
+
+//　よく考えた＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　よく考えた？",
+		   NULL, "Вы хорошо подумали?", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　その結果、この色を選んだのね＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　その結果、この色を選んだのね？",
+		   NULL, "Стало быть, выбираете эту?", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　…あなたが選んだ時点で、もう片方の色の箱はパッ消えてしまった＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　…あなたが選んだ時点で、もう片方の色の箱はパッ消えてしまった。",
+		   NULL, "В тот же миг, как вы приняли решение, другая коробка — пуф! — бесследно исчезла.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　そっちの箱の中身はもう諦めてね＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　そっちの箱の中身はもう諦めてね？",
+		   NULL, "Перестаньте думать о том, что в ней лежало, ладно?", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　そういうルールなんだから＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　そういうルールなんだから。",
+		   NULL, "Таково правило.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　さ、あなたの選んだ箱を開けてみよう￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　さ、あなたの選んだ箱を開けてみよう。",
+		   NULL, "Ну что ж, давайте откроем выбранную вами коробку.", Line_Normal);
+	ClearMessage();
+
+
+//　箱の中からは、!w1000……チューイングガムが１枚￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　箱の中からは、",
+		   NULL, "В ней лежит...", Line_ContinueAfterTyping);
+
+	SetValidityOfInput( FALSE );
+	Wait( 1000 );
+	SetValidityOfInput( TRUE );
+
+	OutputLine(NULL, "……チューイングガムが１枚。",
+		   NULL, " одна жевательная резинка.", Line_Normal);
+	ClearMessage();
+
+	if(GetGlobalFlag(redbox) == 0)
+	{
+		CallSection( "hima_tips_09_c" );
+	}
+
+	if(GetGlobalFlag(redbox) == 1)
+	{
+		CallSection( "hima_tips_09_d" );
+	}
+}
+
+void hima_tips_09_c()
+{
+	EnableJumpingOfReturnIcon();
+
+
+//　……あなたが少しがっかりしてるのが分かる＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　……あなたが少しがっかりしてるのが分かる。",
+		   NULL, "......Я вижу, вы разочарованы.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　そりゃそうよね＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　そりゃそうよね。",
+		   NULL, "Ну ещё бы.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　どう見ても、ハズレっぽいものね￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　どう見ても、ハズレっぽいものね。",
+		   NULL, "Очевидно, что с выбором вы оплошали.", Line_Normal);
+	ClearMessage();
+
+
+//　正解の箱には、ひょっとすると、板チョコが１枚くらいは入ってたかもしれないものね＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　正解の箱には、ひょっとすると、板チョコが１枚くらいは入ってたかもしれないものね。",
+		   NULL, "Может, в другой коробке оказалась бы плитка шоколада.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　いや、ひょっとすると、ハワイにペアでご招待なんていう、もっともっとすごいものが入っていたかもしれない￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　いや、ひょっとすると、ハワイにペアでご招待なんていう、もっともっとすごいものが入っていたかもしれない。",
+		   NULL, "Нет, может, кое-что намного, намного лучше — например, билет на поездку вдвоём на Гавайи.", Line_Normal);
+	ClearMessage();
+
+
+//　でも、それを確かめたくても、もうひとつの箱はもう消えてしまっている＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　でも、それを確かめたくても、もうひとつの箱はもう消えてしまっている。",
+		   NULL, "Но если бы вы и хотели посмотреть, что там, другая-то коробка исчезла.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　それを確かめる術はない＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　それを確かめる術はない。",
+		   NULL, "Теперь уже никак не узнать.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　だからあなたはプラス思考で考えてみることにするの＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　だからあなたはプラス思考で考えてみることにするの。",
+		   NULL, "И вы начинаете думать так, чтобы себя утешить.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　ひょっとすると…もう片方の箱は空っぽで、むしろこの箱はアタリだったのかもしれない、と＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　ひょっとすると…もう片方の箱は空っぽで、むしろこの箱はアタリだったのかもしれない、と。",
+		   NULL, "Мало ли... вдруг в другой коробке вообще ничего не было, и выбрали вы как раз правильную.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　そしてその安っぽい賞品に満足して（あるいは不満でもいい）、それをポイ！と口に放り込んで、もぐもぐとやって満足してしまうのだ￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　そしてその安っぽい賞品に満足して（あるいは不満でもいい）、それをポイ！と口に放り込んで、もぐもぐとやって満足してしまうのだ。",
+		   NULL, "И, удовольствовавшись грошовой наградой (да хоть бы и наоборот — всё равно), вы кидаете её в рот, жуёте, и вам становится чуточку веселее.", Line_Normal);
+	ClearMessage();
+
+
+//　で、最後にあなたは思うのかしら＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　で、最後にあなたは思うのかしら？",
+		   NULL, "Ну так как вы считаете?", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　次に同じ選択肢が与えられたら、反対の箱を開けてみようって＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　次に同じ選択肢が与えられたら、反対の箱を開けてみようって？",
+		   NULL, "Дай вам другую попытку, открыли бы другую коробку?", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+
+//　……でも、お気の毒だけど、赤い箱と青い箱を選ぶなんてゲームは二度とあなたには訪れない＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　……でも、お気の毒だけど、赤い箱と青い箱を選ぶなんてゲームは二度とあなたには訪れない。",
+		   NULL, "......Одна беда — вам никогда больше не удастся поиграть в выбор из красной и синей коробок.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　だから、選択肢を選びなおす機会など、一生訪れない￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　だから、選択肢を選びなおす機会など、一生訪れない。",
+		   NULL, "И вы больше никогда не сможете выбрать другой вариант.", Line_Normal);
+	ClearMessage();
+
+
+//　人生の選択は一度しかないから、慎重にって、よく親に言われるでしょう＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　人生の選択は一度しかないから、慎重にって、よく親に言われるでしょう？",
+		   NULL, "Разве не твердили вам папа с мамой: выбирай с умом, так как выбор даётся лишь однажды?", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　くすくすくすくす……＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　くすくすくすくす……。",
+		   NULL, "Хи-хи-хи-хи......", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　ね＠　選択肢なんて、大したものじゃない＠…ちょっと幻滅した＠　あっはははははは……￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　ね？",
+		   NULL, "Видите?", Line_WaitForInput);
+	OutputLine(NULL, "　選択肢なんて、大したものじゃない。",
+		   NULL, " Выбор — не бог весть какое дело...", Line_WaitForInput);
+	OutputLine(NULL, "…ちょっと幻滅した？",
+		   NULL, " Что, немного разочарованы?", Line_WaitForInput);
+	OutputLine(NULL, "　あっはははははは……。",
+		   NULL, " Аха-ха-ха-ха-ха-ха......", Line_Normal);
+	ClearMessage();
+
+
+	SetValidityOfInput( FALSE );
+	Wait( 1000 );
+	SetValidityOfInput( TRUE );
+	DisableWindow();
+	DrawScene( "black", 1000 );
+	FadeOutBGM( 1, 1000, TRUE );
+	FadeOutBGM( 2, 1000, TRUE );
+//gosub *tip_e
+//return
+}
+
+void hima_tips_09_d()
+{
+	EnableJumpingOfReturnIcon();
+//■■再挑戦で、両方の箱を開けた場合
+//※二つ目に選んだ箱を開けた場合ということ
+//*Sub_Tips_072_4
+
+
+//　……あなたは今、なぁんだと思ってる￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　……あなたは今、なぁんだと思ってる。",
+		   NULL, "......Сейчас вы думаете про себя: «Че-е-го-о?»", Line_Normal);
+	ClearMessage();
+
+
+//　そう、赤と青の箱の中身は、キャラメル１つぶと、チューイングガム１枚＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　そう、赤と青の箱の中身は、キャラメル１つぶと、チューイングガム１枚。",
+		   NULL, "Именно так. В красной коробке лежала карамелька, в синей — жевательная резинка.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　さっきはハズレだと思ってたかもしれないけど、こうして並べると、どっちがハズレとも言い難いのがわかるでしょ＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　さっきはハズレだと思ってたかもしれないけど、こうして並べると、どっちがハズレとも言い難いのがわかるでしょ。",
+		   NULL, "Вы, наверное, тогда думали, что выбрали не ту; но, как можете видеть теперь, трудно сказать, какая же лучше, да?", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　まぁ、でも、人の好みもあるもんね＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　まぁ、でも、人の好みもあるもんね。",
+		   NULL, "Ну, впрочем, у каждого свои вкусы.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　キャラメルの方が好きだとか、ガムの方が好きだとか＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　キャラメルの方が好きだとか、ガムの方が好きだとか。",
+		   NULL, "Кому нравится карамель, кому жевачка.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　…あなたの好みによって、あなたはきっと開ける箱を選びなおそうと思うに違いない￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　…あなたの好みによって、あなたはきっと開ける箱を選びなおそうと思うに違いない。",
+		   NULL, "...Не сомневаюсь, вам захочется выбрать то, что вам больше нравится.", Line_Normal);
+	ClearMessage();
+
+
+
+//　…あなたが欲しがっている選択肢ってのは、つまりそういうもの＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　…あなたが欲しがっている選択肢ってのは、つまりそういうもの。",
+		   NULL, "Таков же и тот выбор, которого вы хотите в жизни.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　両方の箱の中身を見比べて、良い方を選びたいっていうわがままのこと￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　両方の箱の中身を見比べて、良い方を選びたいっていうわがままのこと。",
+		   NULL, "Вы, заботясь лишь о себе, хотите сначала посмотреть, что внутри обеих коробок, сравнить, а затем и сделать выбор.", Line_Normal);
+	ClearMessage();
+
+
+//　でもね＠　現実の世の中は今のゲームと同じ＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　でもね？",
+		   NULL, "Но знаете что?", Line_WaitForInput);
+	OutputLine(NULL, "　現実の世の中は今のゲームと同じ。",
+		   NULL, " Действительность ничем не отличается от нашей игры.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　片方を選んだら、選ばなかった方は消えてしまう＠だから確かめられない￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　片方を選んだら、選ばなかった方は消えてしまう。",
+		   NULL, "Когда выбираете одно, другой вариант навсегда уходит.", Line_WaitForInput);
+	OutputLine(NULL, "だから確かめられない。",
+		   NULL, " И вы так никогда и не узнаете, что же лучше.", Line_Normal);
+	ClearMessage();
+
+
+//　もしもあの時＠××をしていたら＠もしくはしていなかったら＠…きっと今よりも幸福に（もしくは不幸に）なっていたはずだ、なんて、わかりようもない＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　もしもあの時、",
+		   NULL, "Вы никогда не узнаете,", Line_WaitForInput);
+	OutputLine(NULL, "××をしていたら、",
+		   NULL, " стало бы вам лучше (или хуже),", Line_WaitForInput);
+	OutputLine(NULL, "もしくはしていなかったら、",
+		   NULL, " сделай вы тогда то-то", Line_WaitForInput);
+	OutputLine(NULL, "…きっと今よりも幸福に（もしくは不幸に）なっていたはずだ、なんて、わかりようもない。",
+		   NULL, " или не сделай.", Line_Normal);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　結局、選んだ選択肢に納得し、あるいはがっかりし、一応の満足をする他ないのだ￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　結局、選んだ選択肢に納得し、あるいはがっかりし、一応の満足をする他ないのだ。",
+		   NULL, "В итоге вам остаётся лишь радоваться за себя или досадовать за сделанный выбор, и всё на том.", Line_Normal);
+	ClearMessage();
+
+
+//　でもいいじゃない＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　でもいいじゃない。",
+		   NULL, "Но и ладно.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　選択肢というスリルは、一応、楽しめたでしょ＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　選択肢というスリルは、一応、楽しめたでしょ？",
+		   NULL, "По крайней мере, вам хоть понравился азарт выбора?", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　こうして、２つの箱の中身を知ってしまったなら＠赤か青かの選択なんて、暇潰しにもなりゃしない＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　こうして、２つの箱の中身を知ってしまったなら。",
+		   NULL, "Знай вы, что внутри коробок,", Line_WaitForInput);
+	OutputLine(NULL, "赤か青かの選択なんて、暇潰しにもなりゃしない。",
+		   NULL, " вы бы даже не стали терять время, выбирая между ними.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　こんなつまらない箱遊びよりも、変わりやすい夏の夕暮れの空を見上げて、遠雷に耳を澄ませながら、夕立が降るか降らないかを迷う方が、ずっと楽しいんだから￥
+	if (AdvMode) {
+		OutputLineAll("", NULL, Line_ContinueAfterTyping);
+		OutputLine(NULL, "　こんなつまらない箱遊びよりも、変わりやすい夏の夕暮れの空を見上げて、遠雷に耳を澄ませながら、夕立が降るか降らないかを迷う方が、ずっと楽しいんだから。",
+		   NULL, "<size=-2>Куда интереснее глядеть на изменчивое закатное небо и гадать, нагрянет ли нежданный летний дождь, чем играть в такую скучную игру в выбор коробки.</size>", Line_Normal);
+	} else {
+		OutputLine(NULL, "　こんなつまらない箱遊びよりも、変わりやすい夏の夕暮れの空を見上げて、遠雷に耳を澄ませながら、夕立が降るか降らないかを迷う方が、ずっと楽しいんだから。",
+		   NULL, "Куда интереснее глядеть на изменчивое закатное небо и гадать, нагрянет ли нежданный летний дождь, чем играть в такую скучную игру в выбор коробки.", Line_Normal);
+	}
+	ClearMessage();
+
+
+	SetValidityOfInput( FALSE );
+	Wait( 1000 );
+	SetValidityOfInput( TRUE );
+	DisableWindow();
+	DrawScene( "black", 1000 );
+	FadeOutBGM( 1, 1000, TRUE );
+	FadeOutBGM( 2, 1000, TRUE );
+
+	SetGlobalFlag(redbox , FALSE);
+	SetGlobalFlag(bluebox , FALSE);
+
+//gosub *tip_e
+//return
+}

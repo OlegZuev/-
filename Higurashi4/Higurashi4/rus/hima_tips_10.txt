@@ -1,0 +1,520 @@
+void main()
+{
+	int AdvMode;
+	AdvMode = 1;
+	int Line_ModeSpecific;
+	if (AdvMode) {
+		Line_ModeSpecific = Line_Normal;
+	} else {
+		Line_ModeSpecific = Line_WaitForInput;
+	}
+	EnableJumpingOfReturnIcon();
+	FadeOutBGM( 0, 1000, FALSE );
+	FadeOutBGM( 1, 1000, FALSE );
+	FadeOutBGM( 2, 1000, TRUE );
+
+	DisableWindow();
+	DrawScene( "black", 1000 );
+
+//*Sub_Tips_073
+//gosub *tip_s
+	PlayBGM( 1, "msys12", 128, 0 );
+//■鬼の目にも何とか
+
+//gosub *Ch_Mi_Si
+
+	DisableWindow();
+	DrawSceneWithMask( "bg_034", "m1", 0, 0, 300 );
+
+//「…えぇ、ハイ＠…それでお通夜が明日の午後６時からになりまして、告別式が明後日のお昼、１２時から１３時までになりまして＠会場は興宮セレモニホールになります…。￥
+	PlaySE(4, "s20/00/kanryoc44001", 128, 64);
+	ClearMessage();
+	if (AdvMode) { OutputLine("<color=#f5e6d3>役人</color>", NULL, "<color=#f5e6d3>Правительственный чиновник</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「…えぇ、ハイ。",
+		   NULL, "\"...Да, совершенно так.", Line_WaitForInput);
+	OutputLine(NULL, "…それでお通夜が明日の午後６時からになりまして、告別式が明後日のお昼、１２時から１３時までになりまして。",
+		   NULL, " Поминальная служба состоится завтра в шесть часов вечера, а погребение произойдёт послезавтра в полдень, с 12:00 до 13:00.", Line_WaitForInput);
+	PlaySE(4, "s20/00/kanryoc44002", 128, 64);
+	OutputLine(NULL, "会場は興宮セレモニホールになります…。」",
+		   NULL, " Место проведения — ритуальный зал Окиномии...\"", Line_Normal);
+	ClearMessage();
+	DisableWindow();
+	DrawBustshot( 3, "oryou_Def_0", 160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 20, 200, TRUE );
+
+
+//「…すっかぁ＠池澤助役のお孫さんの葬式じゃあ、何にも挨拶なしってわけにもいかんね＠魅音、代わりに出てぇな。＠
+	PlaySE(4, "s20/17/442300026", 128, 64);
+	if (AdvMode) { OutputLine("<color=#d7e6de>お魎</color>", NULL, "<color=#d7e6de>Орё</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「…すっかぁ。",
+		   NULL, "\"Понятно.", Line_WaitForInput);
+	OutputLine(NULL, "池澤助役のお孫さんの葬式じゃあ、何にも挨拶なしってわけにもいかんね。",
+		   NULL, " Раз хоронят внука замястителя мэра Икедзавы, уважительной причины не прийтить нет.", Line_WaitForInput);
+	PlaySE(4, "s20/17/442300027", 128, 64);
+	OutputLine(NULL, "魅音、代わりに出てぇな。」",
+		   NULL, " Мион, заменишь мене?\"", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+	DisableWindow();
+	DrawBustshotWithFiltering( 1, "me_si_de_a1", "left", 1, -160, 0, FALSE, 0, 0, 0, 0, 0, 0, 300, TRUE );
+
+//「うん、了解＠喪服で行く＠　香典はいくらくらい？＠
+	PlaySE(4, "s20/26/440300114", 128, 64);
+	if (AdvMode) { OutputLine("<color=#5ec69a>魅音</color>", NULL, "<color=#5ec69a>Мион</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「うん、了解。",
+		   NULL, "\"Угу, хорошо.", Line_WaitForInput);
+	OutputLine(NULL, "喪服で行く？",
+		   NULL, " Пойти в чёрном?", Line_WaitForInput);
+	PlaySE(4, "s20/26/440300115", 128, 64);
+	OutputLine(NULL, "　香典はいくらくらい？」",
+		   NULL, " Сколько взять с собой причитающихся на соболезнования?\"", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//「学校の服でえんね＠前のボタンはちゃあんと止めてくんねよ＠香典は、５万、!w1000……ん～、１０万包んだれな＠世話になったかんなぁ。＠
+	PlaySE(4, "s20/17/442300028", 128, 64);
+	if (AdvMode) { OutputLine("<color=#d7e6de>お魎</color>", NULL, "<color=#d7e6de>Орё</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「学校の服でえんね。",
+		   NULL, "\"Ни, можешь у школьном пойти.", Line_WaitForInput);
+	OutputLine(NULL, "前のボタンはちゃあんと止めてくんねよ。",
+		   NULL, " Ток застегнись смотри.", Line_WaitForInput);
+	PlaySE(4, "s20/17/442300029", 128, 64);
+	OutputLine(NULL, "香典は、５万、",
+		   NULL, " Думаю, пятидесяти тыщ......", Line_ContinueAfterTyping);
+
+	SetValidityOfInput( FALSE );
+	Wait( 1000 );
+	SetValidityOfInput( TRUE );
+
+	OutputLine(NULL, "……ん〜、１０万包んだれな。",
+		   NULL, " хм-м-м, не, сотню возьми.", Line_WaitForInput);
+	PlaySE(4, "s20/17/442300030", 128, 64);
+	OutputLine(NULL, "世話になったかんなぁ。」",
+		   NULL, " Он хорошо к нам относился.\"", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+	DisableWindow();
+	DrawBustshot( 1, "me_si_aw_a1", -160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 0, 200, TRUE );
+
+//　魅音は奮発した香典の額に、小さく口笛を吹いて感嘆する￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　魅音は奮発した香典の額に、小さく口笛を吹いて感嘆する。",
+		   NULL, "Мион восхищённо присвистнула, оценив сумму.", Line_Normal);
+	ClearMessage();
+
+
+//「…池澤さんはなぁ、興宮の事務所長だった頃からしっかりした人だったんね＠…役人は挨拶って言っても、絶対に玄関までしか来ん＠でもな、池澤さんはワシがお茶を勧めると、いっつも上がってくれて、ちゃあんと話を聞いてくれたん＠…人の話を最後まで聞く、本当に鑑みたいな人だったんね。￥
+	PlaySE(4, "s20/17/442300031", 128, 64);
+	if (AdvMode) { OutputLine("<color=#d7e6de>お魎</color>", NULL, "<color=#d7e6de>Орё</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「…池澤さんはなぁ、興宮の事務所長だった頃からしっかりした人だったんね。",
+		   NULL, "\"...Икедзава-сан усегда был хорошим человеком, ишшо з тех пор, как возглавлял совет Окиномии.", Line_WaitForInput);
+	OutputLine(NULL, "…役人は挨拶って言っても、絶対に玄関までしか来ん。",
+		   NULL, " Остальные чановники-то заглядывають лишь поздоровкатися,", Line_ModeSpecific);
+	PlaySE(4, "s20/17/442300032", 128, 64);
+	if (AdvMode) { OutputLine("<color=#d7e6de>お魎</color>", NULL, "<color=#d7e6de>Орё</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "でもな、池澤さんはワシがお茶を勧めると、いっつも上がってくれて、ちゃあんと話を聞いてくれたん。",
+		   NULL, " а вот Икедзава-сан завсегда, как пригласи его распить чаю, придёт и усё выслушает.", Line_WaitForInput);
+	OutputLine(NULL, "…人の話を最後まで聞く、本当に鑑みたいな人だったんね。」",
+		   NULL, " Он хороший слушатель, истинно пример усем им.\"", Line_Normal);
+	ClearMessage();
+
+
+//　客人であるはずの二人は、お魎の昔話に、大仰に頷いたり相槌を打ったりしている＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　客人であるはずの二人は、お魎の昔話に、大仰に頷いたり相槌を打ったりしている。",
+		   NULL, "Оба посетителя горячо закивали, поддакивая Орё.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　お魎の機嫌を損ねまいとしている様子が傍目にはとても滑稽で、時に魅音はその様子を小さく笑っていた￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　お魎の機嫌を損ねまいとしている様子が傍目にはとても滑稽で、時に魅音はその様子を小さく笑っていた。",
+		   NULL, "Забавно было видеть, как они из кожи вон лезут, чтобы не испортить Орё настроение. Мион тихо прыснула.", Line_Normal);
+	ClearMessage();
+
+
+
+//「で、池澤助役のお孫さんは、いくつで亡くなったんね。＠
+	PlaySE(4, "s20/17/442300033", 128, 64);
+	if (AdvMode) { OutputLine("<color=#d7e6de>お魎</color>", NULL, "<color=#d7e6de>Орё</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「で、池澤助役のお孫さんは、いくつで亡くなったんね。」",
+		   NULL, "\"Так скока лет было унуку досточтимого Икедзавы?\"", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//「…えぇと、!w1000……１１歳だそうで…。＠
+	PlaySE(4, "s20/00/kanryoc44003", 128, 64);
+	if (AdvMode) { OutputLine("<color=#f5e6d3>役人</color>", NULL, "<color=#f5e6d3>Правительственный чиновник</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「…えぇと、",
+		   NULL, "\"...Э-э-э...", Line_ContinueAfterTyping);
+
+	SetValidityOfInput( FALSE );
+	Wait( 1000 );
+	SetValidityOfInput( TRUE );
+
+	OutputLine(NULL, "……１１歳だそうで…。」",
+		   NULL, "... одиннадцать...\"", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	DisableWindow();
+	DrawBustshot( 3, "oryou_Shinken_0", 160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 20, 200, TRUE );
+
+
+//　お魎は目を伏せると、小さく首を横に振りながら、若い命が没したことを悔やむ￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　お魎は目を伏せると、小さく首を横に振りながら、若い命が没したことを悔やむ。",
+		   NULL, "Прикрыв глаза, Орё покачала головой, скорбя об оборвавшейся так рано жизни.", Line_Normal);
+	ClearMessage();
+
+
+//「確か、孫はひとりだ言うてんなぁ……＠…かぁわいそうになぁ…＠親より先に死ぬほどの親不孝はあるんめな。＠
+	PlaySE(4, "s20/17/442300034", 128, 64);
+	if (AdvMode) { OutputLine("<color=#d7e6de>お魎</color>", NULL, "<color=#d7e6de>Орё</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「確か、孫はひとりだ言うてんなぁ……。",
+		   NULL, "\"Помнится, внук у ево был единственным......", Line_WaitForInput);
+	OutputLine(NULL, "…かぁわいそうになぁ…。",
+		   NULL, " Бядола-аха...", Line_WaitForInput);
+	PlaySE(4, "s20/17/442300035", 128, 64);
+	OutputLine(NULL, "親より先に死ぬほどの親不孝はあるんめな。」",
+		   NULL, " Нет ничаго хуже, чем помереть раньше родителей.\"", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+	DisableWindow();
+	DrawBustshot( 1, "me_si_wa_a1", -160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 0, 200, TRUE );
+
+//「あははははは＠婆っちゃも他人にゃやさしいね＠私や詩音が死んだら、同じ様に悲しんでくれる？￥
+	PlaySE(4, "s20/26/440300116", 128, 64);
+	if (AdvMode) { OutputLine("<color=#5ec69a>魅音</color>", NULL, "<color=#5ec69a>Мион</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「あははははは。",
+		   NULL, "\"А-ха-ха-ха-ха-ха.", Line_WaitForInput);
+	OutputLine(NULL, "婆っちゃも他人にゃやさしいね。",
+		   NULL, " Какая ты добрая к другим людям, бабуля.", Line_WaitForInput);
+	PlaySE(4, "s20/26/440300117", 128, 64);
+	OutputLine(NULL, "私や詩音が死んだら、同じ様に悲しんでくれる？」",
+		   NULL, " А если бы померли я или Шион, ты бы так же грустила?\"", Line_Normal);
+	ClearMessage();
+
+
+
+//「あほン抜かすでね＠縁起でもねすったらんと、しゃあらわんわったく！＠
+	PlaySE(4, "s20/17/442300036", 128, 64);
+	if (AdvMode) { OutputLine("<color=#d7e6de>お魎</color>", NULL, "<color=#d7e6de>Орё</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「あほン抜かすでね。",
+		   NULL, "\"Рот закрой, дура.", Line_WaitForInput);
+	OutputLine(NULL, "縁起でもねすったらんと、しゃあらわんわったく！」",
+		   NULL, " Ишшо каркнешь, уж я тя!\"", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　魅音は予想通りの反応だったのことが面白いらしく、けたけたと笑っていた＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　魅音は予想通りの反応だったのことが面白いらしく、けたけたと笑っていた。",
+		   NULL, "Мион, по-видимому, на такой ответ и рассчитывала — она довольно захихикала.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+
+//　客人二人は、一緒になって笑ってもいいものか分かりかね、苦しい笑顔をしていた￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　客人二人は、一緒になって笑ってもいいものか分かりかね、苦しい笑顔をしていた。",
+		   NULL, "Не зная, поддержать ли её, гости неловко заулыбались.", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	DrawScene( "black", 400 );
+	DrawSceneWithMask( "bg_195", "up", 0, 0, 300 );
+
+//「それでは本日は失礼いたします…＠では、明日の夕方５時にお迎えに参りますんで＠よろしくお願いいたします…＠では、ごめんくださいませ……。＠
+	PlaySE(4, "s20/00/kanryoc44004", 128, 64);
+	if (AdvMode) { OutputLine("<color=#f5e6d3>役人</color>", NULL, "<color=#f5e6d3>Правительственный чиновник</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「それでは本日は失礼いたします…。",
+		   NULL, "\"В таком случае просим нас извинить...", Line_WaitForInput);
+	OutputLine(NULL, "では、明日の夕方５時にお迎えに参りますんで。",
+		   NULL, " Завтра в пять вечера мы за вами заедем.", Line_WaitForInput);
+	PlaySE(4, "s20/00/kanryoc44005", 128, 64);
+	OutputLine(NULL, "よろしくお願いいたします…。",
+		   NULL, " Премного вас благодарим.", Line_WaitForInput);
+	PlaySE(4, "s20/00/kanryoc44006", 128, 64);
+	OutputLine(NULL, "では、ごめんくださいませ……。」",
+		   NULL, " Просим прощения, но мы должны идти...\"", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　客人たちはぺこぺこと何度も頭を下げると、玄関を出て行った＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　客人たちはぺこぺこと何度も頭を下げると、玄関を出て行った。",
+		   NULL, "Почтительно кланяясь, гости покинули веранду.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　魅音はそれにヒラヒラと手を振って送り出す￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　魅音はそれにヒラヒラと手を振って送り出す。",
+		   NULL, "Мион помахала им ручкой.", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	DrawScene( "white", 400 );
+	DrawBustshot( 1, "me_si_wi_a1", -160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 0, 0, FALSE );
+	DrawSceneWithMask( "bg_197", "left", 0, 0, 300 );
+
+//「……帰ったよ＠…お役人も婆っちゃのご機嫌伺いに大変だねぇ＠訃報なんか電話でいいと思うのにねぇ＠くっくっく…。＠
+	PlaySE(4, "s20/26/440300118", 128, 64);
+	if (AdvMode) { OutputLine("<color=#5ec69a>魅音</color>", NULL, "<color=#5ec69a>Мион</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「……帰ったよ。",
+		   NULL, "\"......Ушли...", Line_WaitForInput);
+	OutputLine(NULL, "…お役人も婆っちゃのご機嫌伺いに大変だねぇ。",
+		   NULL, " Чиновники пред тобой на задних лапках танцуют, а, бабуль?", Line_WaitForInput);
+	PlaySE(4, "s20/26/440300119", 128, 64);
+	OutputLine(NULL, "訃報なんか電話でいいと思うのにねぇ。",
+		   NULL, " Могли бы ведь сообщить по телефону.", Line_WaitForInput);
+	PlaySE(4, "s20/26/440300120", 128, 64);
+	OutputLine(NULL, "くっくっく…。」",
+		   NULL, " Хы-хы-хы...\"", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　まぁ、確かに園崎お魎は、雛見沢村の住民、親族を全てまとめている＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　まぁ、確かに園崎お魎は、雛見沢村の住民、親族を全てまとめている。",
+		   NULL, "Ну, как-никак у Сонодзаки Орё под началом вся деревня, да ещё родня.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　票に直せば数千票＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　票に直せば数千票。",
+		   NULL, "А это — несколько тысяч голосов.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　市長が、ゴマをすりたくなるのも分からなくはない￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　市長が、ゴマをすりたくなるのも分からなくはない。",
+		   NULL, "Так что неудивительно, что мэр хочет её задобрить.", Line_Normal);
+	ClearMessage();
+
+
+//　だが、お魎は魅音とは違い、寂しそうな表情で縁側で空を見上げていた￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　だが、お魎は魅音とは違い、寂しそうな表情で縁側で空を見上げていた。",
+		   NULL, "Но, в отличие от Мион, Орё печально смотрела с веранды в небо.", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	DrawScene( "white", 400 );
+	DrawSceneWithMask( "bg_203a", "up", 0, 0, 300 );
+
+//「どしたの＠　もうろくした＠　あははははは！＠
+	PlaySE(4, "s20/26/440300121", 128, 64);
+	if (AdvMode) { OutputLine("<color=#5ec69a>魅音</color>", NULL, "<color=#5ec69a>Мион</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「どしたの？",
+		   NULL, "\"Что такое?", Line_WaitForInput);
+	OutputLine(NULL, "　もうろくした？",
+		   NULL, " Уже глупеешь от старости?", Line_WaitForInput);
+	PlaySE(4, "s20/26/440300122", 128, 64);
+	OutputLine(NULL, "　あははははは！」",
+		   NULL, " Аха-ха-ха-ха-ха!\"", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//「……誰のお孫さんであろうと、…気の毒だんの、思ったんよ…。＠
+	PlaySE(4, "s20/17/442300037", 128, 64);
+	if (AdvMode) { OutputLine("<color=#d7e6de>お魎</color>", NULL, "<color=#d7e6de>Орё</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「……誰のお孫さんであろうと、…気の毒だんの、思ったんよ…。」",
+		   NULL, "\"......Та думаю... неважно, чьи внуки, — грустно, кады умирают...\"", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　そう言い、深いため息を吐いた＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　そう言い、深いため息を吐いた。",
+		   NULL, "Сказав так, она тяжело вздохнула.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+
+//　普段なら小馬鹿にする魅音に叱り付けるような口調で返すはずなので、魅音も拍子抜けする…￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　普段なら小馬鹿にする魅音に叱り付けるような口調で返すはずなので、魅音も拍子抜けする…。",
+		   NULL, "Орё обычно сильно сердилась, когда та её подкалывала, так что Мион сама поскучнела...", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	DrawScene( "bg_197", 400 );
+
+//「魅音＠……ほれ、……例の大臣の孫＠さらわれてからどのくらいになるん？＠
+	PlaySE(4, "s20/17/442300038", 128, 64);
+	if (AdvMode) { OutputLine("<color=#d7e6de>お魎</color>", NULL, "<color=#d7e6de>Орё</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「魅音。",
+		   NULL, "\"Мион.", Line_WaitForInput);
+	OutputLine(NULL, "……ほれ、……例の大臣の孫。",
+		   NULL, " Ну-кась...... сколько прошло з тех пор,", Line_WaitForInput);
+	PlaySE(4, "s20/17/442300039", 128, 64);
+	OutputLine(NULL, "さらわれてからどのくらいになるん？」",
+		   NULL, " как внука министра похитили?\"", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+	DisableWindow();
+	DrawBustshotWithFiltering( 2, "me_si_de_a1", "left", 1, 0, 0, FALSE, 0, 0, 0, 0, 0, 10, 300, TRUE );
+
+//「ん＠……………４日、…かな？￥
+	PlaySE(4, "s20/26/440300123", 128, 64);
+	if (AdvMode) { OutputLine("<color=#5ec69a>魅音</color>", NULL, "<color=#5ec69a>Мион</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「ん。",
+		   NULL, "\"Хм......", Line_WaitForInput);
+	OutputLine(NULL, "……………４日、…かな？」",
+		   NULL, "......... дня где-то... четыре?\"", Line_Normal);
+	ClearMessage();
+
+
+//　お魎はもう一度、深いため息を吐き出した￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　お魎はもう一度、深いため息を吐き出した。",
+		   NULL, "Орё вновь вздохнула.", Line_Normal);
+	ClearMessage();
+
+
+//「仇敵の孫とは言え、………気の毒だんなぁ。＠
+	PlaySE(4, "s20/17/442300040", 128, 64);
+	if (AdvMode) { OutputLine("<color=#d7e6de>お魎</color>", NULL, "<color=#d7e6de>Орё</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「仇敵の孫とは言え、………気の毒だんなぁ。」",
+		   NULL, "\"Внук худшего ворога...... а усё одно жаль.\"", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//「…………………………そう？＠
+	PlaySE(4, "s20/26/440300124", 128, 64);
+	if (AdvMode) { OutputLine("<color=#5ec69a>魅音</color>", NULL, "<color=#5ec69a>Мион</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「…………………………そう？」",
+		   NULL, "\"..................Да?\"", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+
+	FadeOutBGM( 1, 1000, TRUE );
+
+//「充分、灸は据えたんろ＠…………そろそろ終わりにしちゃれな。＠
+	PlaySE(4, "s20/17/442300041", 128, 64);
+	if (AdvMode) { OutputLine("<color=#d7e6de>お魎</color>", NULL, "<color=#d7e6de>Орё</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「充分、灸は据えたんろ。",
+		   NULL, "\"Довольно ево наказали......", Line_WaitForInput);
+	OutputLine(NULL, "…………そろそろ終わりにしちゃれな。」",
+		   NULL, " Пора бы закончить.\"", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+	DisableWindow();
+	DrawBustshot( 2, "me_si_ma_a1", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 10, 200, TRUE );
+
+//「…………………………。＠
+	PlaySE(4, "s20/26/440300125", 128, 64);
+	if (AdvMode) { OutputLine("<color=#5ec69a>魅音</color>", NULL, "<color=#5ec69a>Мион</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「…………………………。」",
+		   NULL, "\"..............................\"", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　魅音の表情からは、ふざけた雰囲気は一切抜け、…いつの間にか冷え切ったものになっていた￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　魅音の表情からは、ふざけた雰囲気は一切抜け、…いつの間にか冷え切ったものになっていた。",
+		   NULL, "С лица Мион пропала всякая весёлость... Оно в одно мгновение стало холодно.", Line_Normal);
+	ClearMessage();
+
+
+//　そして、お魎の真意を測るように、その目を覗き込む＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　そして、お魎の真意を測るように、その目を覗き込む。",
+		   NULL, "Потом она заглянула Орё в глаза, пытаясь понять, что та имела в виду.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　……お魎もまた、自分の意思を目だけで語ろうと、魅音の目を覗き返していた￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　……お魎もまた、自分の意思を目だけで語ろうと、魅音の目を覗き返していた。",
+		   NULL, "......И Орё взглянула в ответ, без слова давая понять, что у неё на уме.", Line_Normal);
+	ClearMessage();
+
+
+	PlayBGM( 1, "msys11", 128, 0 );
+
+//「…………………………お茶が欲しんて頼んでぇな＠さっきのチョコレートも食べといね。＠
+	PlaySE(4, "s20/17/442300042", 128, 64);
+	if (AdvMode) { OutputLine("<color=#d7e6de>お魎</color>", NULL, "<color=#d7e6de>Орё</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「…………………………お茶が欲しんて頼んでぇな。",
+		   NULL, "\"........................Скажи, шоб принесли чаю.", Line_WaitForInput);
+	OutputLine(NULL, "さっきのチョコレートも食べといね。」",
+		   NULL, " И того шоколаду тоже.\"", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　魅音は小さく頷くと踵を返した￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　魅音は小さく頷くと踵を返した。",
+		   NULL, "Едва заметно кивнув, Мион обернулась.", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	FadeBustshotWithFiltering( 2, "right", 1, FALSE, 0, 0, 300, TRUE );
+
+//「沁子さん、いますか～～＠　婆っちゃに紅茶、入れてあげて下さい～～！＠
+	PlaySE(4, "s20/26/440300126", 128, 64);
+	if (AdvMode) { OutputLine("<color=#5ec69a>魅音</color>", NULL, "<color=#5ec69a>Мион</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「沁子さん、いますか〜〜？",
+		   NULL, "\"Симико-сан, вы ту-у-ут?", Line_WaitForInput);
+	OutputLine(NULL, "　婆っちゃに紅茶、入れてあげて下さい〜〜！」",
+		   NULL, " Пожалуйста, принесите бабушке чёрного ча-ая-я!\"", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　遠くでお手伝いさんの、は～～い…という声が応える￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　遠くでお手伝いさんの、は〜〜い…という声が応える。",
+		   NULL, "Издалека донёсся голос домработницы: «Да-а-а...»", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	DrawSceneWithMask( "black", "right", 0, 0, 300 );
+
+//　魅音は、自分の声が届いたことを確認すると、受話器を取りダイヤルする￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　魅音は、自分の声が届いたことを確認すると、受話器を取りダイヤルする。",
+		   NULL, "Убедившись, что её услышали, Мион взяла трубку и набрала номер.", Line_Normal);
+	ClearMessage();
+	DisableWindow();
+	DrawSceneWithMask( "bg_195", "up", 0, 0, 300 );
+	DrawBustshot( 2, "me_si_ma_a1", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 10, 400, TRUE );
+
+
+//「……………………あ、もしもし＠魅音だけど＠…うん＠…うちのお父さん、います？￥
+	PlaySE(4, "s20/26/440300127", 128, 64);
+	if (AdvMode) { OutputLine("<color=#5ec69a>魅音</color>", NULL, "<color=#5ec69a>Мион</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「……………………あ、もしもし。",
+		   NULL, "\"...............Ах, алло.", Line_WaitForInput);
+	OutputLine(NULL, "魅音だけど。",
+		   NULL, " Эт Мион...", Line_WaitForInput);
+	PlaySE(4, "s20/26/440300128", 128, 64);
+	OutputLine(NULL, "…うん。",
+		   NULL, " Угу.", Line_WaitForInput);
+	PlaySE(4, "s20/26/440300129", 128, 64);
+	OutputLine(NULL, "…うちのお父さん、います？」",
+		   NULL, " ...Папа здесь?\"", Line_Normal);
+	ClearMessage();
+
+
+
+	SetValidityOfInput( FALSE );
+	Wait( 1000 );
+	SetValidityOfInput( TRUE );
+	DisableWindow();
+	DrawScene( "black", 1000 );
+	FadeOutBGM( 1, 1000, TRUE );
+	FadeOutBGM( 2, 1000, TRUE );
+//gosub *tip_e
+//return
+
+
+}

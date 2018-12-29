@@ -1,0 +1,397 @@
+void main()
+{
+	int AdvMode;
+	AdvMode = 1;
+	int Line_ModeSpecific;
+	if (AdvMode) {
+		Line_ModeSpecific = Line_Normal;
+	} else {
+		Line_ModeSpecific = Line_WaitForInput;
+	}
+
+//*Sub_Tips_068
+//gosub *tip_s
+
+//■順調
+	EnableJumpingOfReturnIcon();
+	FadeOutBGM( 0, 1000, FALSE );
+	FadeOutBGM( 1, 1000, FALSE );
+	FadeOutBGM( 2, 1000, TRUE );
+
+	DisableWindow();
+	DrawScene( "black", 1000 );
+
+	PlayBGM( 1, "msys12", 128, 0 );
+	DisableWindow();
+	DrawScene( "Sunset/bg_206", 400 );
+
+//　車の音が近付き、緩いブレーキと音と共にエンジン音を止める￥
+	ClearMessage();
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　車の音が近付き、緩いブレーキと音と共にエンジン音を止める。",
+		   NULL, "Шуршание машины приблизилось к лачуге. Тихо скрипнули тормоза, и двигатель смолк.", Line_Normal);
+	ClearMessage();
+
+
+//　その途端、それまでだらしなさそうに足を投げ出していた男は、ガバッと起き上がって窓の脇の壁に張り付き、用心深く表の様子を伺った…￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　その途端、それまでだらしなさそうに足を投げ出していた男は、ガバッと起き上がって窓の脇の壁に張り付き、用心深く表の様子を伺った…。",
+		   NULL, "Вольготно разлёгшийся человек тут же вскочил, прижался ко стенке возле окна и осторожно выглянул...", Line_Normal);
+	ClearMessage();
+
+
+//　……………仲間の車だ＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　……………仲間の車だ。",
+		   NULL, ".........Машина своя.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　だが、警戒はまだ解かない＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　だが、警戒はまだ解かない。",
+		   NULL, "Но он по-прежнему держался настороже.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　やがて、足音は扉に近付き＠…ドン、!w1000ドドドン、!w1000と決められた合図のノックをした￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　やがて、足音は扉に近付き、",
+		   NULL, "Кто-то подошёл ко входной двери.", Line_WaitForInput);
+	OutputLine(NULL, "…ドン、",
+		   NULL, " «...Тук,", Line_ContinueAfterTyping);
+
+	SetValidityOfInput( FALSE );
+	Wait( 1000 );
+	SetValidityOfInput( TRUE );
+
+	OutputLine(NULL, "ドドドン、",
+		   NULL, " тук-тук-тук»,", Line_ContinueAfterTyping);
+
+	SetValidityOfInput( FALSE );
+	Wait( 1000 );
+	SetValidityOfInput( TRUE );
+
+	OutputLine(NULL, "と決められた合図のノックをした。",
+		   NULL, " — раздался условный стук.", Line_Normal);
+	ClearMessage();
+
+
+//「……帰ってきたんね＠開けちょくれな、俺だ。＠
+	PlaySE(4, "s20/14/443400010", 128, 64);
+	if (AdvMode) { OutputLine("<color=#f5e6d3>男</color>", NULL, "<color=#f5e6d3>Мужчина</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「……帰ってきたんね。",
+		   NULL, "\"......Эй, я тут.", Line_WaitForInput);
+	OutputLine(NULL, "開けちょくれな、俺だ。」",
+		   NULL, " Открой, это я.\"", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//「あぁ、お疲れ＠今、開ける。￥
+	PlaySE(4, "s20/00/yamab44001", 128, 64);
+	if (AdvMode) { OutputLine("<color=#f5e6d3>男</color>", NULL, "<color=#f5e6d3>Мужчина</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「あぁ、お疲れ。",
+		   NULL, "\"А, отлично.", Line_WaitForInput);
+	OutputLine(NULL, "今、開ける。」",
+		   NULL, " Погодь, сейчас открою.\"", Line_Normal);
+	ClearMessage();
+
+	PlaySE( 3, "wa_020", 128, 64 );
+
+//　鍵を外し、扉を開けると、大きく膨らんだスーパーのビニール袋を両手いっぱいに持った男が姿を現す＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　鍵を外し、扉を開けると、大きく膨らんだスーパーのビニール袋を両手いっぱいに持った男が姿を現す。",
+		   NULL, "Он отпер дверь. На пороге стоял мужчина со здоровенными пластиковыми пакетами в обеих руках.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　両手のビニール袋には「セブンスマート」と書かれていて、菓子パンや牛乳パックなどが顔をのぞかせていた￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　両手のビニール袋には「セブンスマート」と書かれていて、菓子パンや牛乳パックなどが顔をのぞかせていた。",
+		   NULL, "На пакетах, из которых выглядывали пачки с молоком и булочки, — надпись: «Севенс Март».", Line_Normal);
+	ClearMessage();
+
+
+	PlaySE( 3, "wa_002", 128, 64 );
+	Wait( 200 );
+	PlaySE( 3, "wa_003", 128, 64 );
+
+//　それらの袋の中身を、床に敷かれた毛布の上に広げた￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　それらの袋の中身を、床に敷かれた毛布の上に広げた。",
+		   NULL, "Вдвоём они высыпали содержимое пакетов на лежащее на полу одеяло.", Line_Normal);
+	ClearMessage();
+
+
+//「カップラーメン買ってきちょん、お湯沸かせな＠…小僧はどうしてるん。＠
+	PlaySE(4, "s20/14/443400011", 128, 64);
+	if (AdvMode) { OutputLine("<color=#f5e6d3>男</color>", NULL, "<color=#f5e6d3>Мужчина</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「カップラーメン買ってきちょん、お湯沸かせな。",
+		   NULL, "\"Я купил лапши в стаканах, давай заварим?", Line_WaitForInput);
+	OutputLine(NULL, "…小僧はどうしてるん。」",
+		   NULL, " Как там сопляк?\"", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//「ん＠　ずっと寝てる＠手が掛からなくて助かるよ＠ウンコ垂れる時は騒ぐけどな。＠
+	PlaySE(4, "s20/00/yamab44002", 128, 64);
+	if (AdvMode) { OutputLine("<color=#f5e6d3>男</color>", NULL, "<color=#f5e6d3>Мужчина</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「ん？",
+		   NULL, "\"Хм?", Line_WaitForInput);
+	OutputLine(NULL, "　ずっと寝てる。",
+		   NULL, " Да дрыхнет всё.", Line_WaitForInput);
+	PlaySE(4, "s20/00/yamab44003", 128, 64);
+	OutputLine(NULL, "手が掛からなくて助かるよ。",
+		   NULL, " Хорошо, никаких забот.", Line_WaitForInput);
+	PlaySE(4, "s20/00/yamab44004", 128, 64);
+	OutputLine(NULL, "ウンコ垂れる時は騒ぐけどな。」",
+		   NULL, " Правда, когда срать хочет, сопеть начинает, возится.\"", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//「漏らさせんなぁ＠便臭は万一の時、ヤぁバいって。＠
+	PlaySE(4, "s20/14/443400012", 128, 64);
+	if (AdvMode) { OutputLine("<color=#f5e6d3>男</color>", NULL, "<color=#f5e6d3>Мужчина</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「漏らさせんなぁ。",
+		   NULL, "\"Ты там посматривай, чтоб не обосрался.", Line_WaitForInput);
+	OutputLine(NULL, "便臭は万一の時、ヤぁバいって。」",
+		   NULL, " Если вдруг учуют — пиздец.\"", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//「……わかってるよ。￥
+	PlaySE(4, "s20/00/yamab44005", 128, 64);
+	if (AdvMode) { OutputLine("<color=#f5e6d3>男</color>", NULL, "<color=#f5e6d3>Мужчина</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「……わかってるよ。」",
+		   NULL, "\"...Да знаю я...\"", Line_Normal);
+	ClearMessage();
+
+//「猿ぐつわは定期的にチェックんな＠外れてもまずいん、きつくも締め付けちゃあぁん＠窒息させたら意味がなん。＠
+	PlaySE(4, "s20/14/443400013", 128, 64);
+	if (AdvMode) { OutputLine("<color=#f5e6d3>男</color>", NULL, "<color=#f5e6d3>Мужчина</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「猿ぐつわは定期的にチェックんな。",
+		   NULL, "\"И кляп не забывай проверять.", Line_WaitForInput);
+	OutputLine(NULL, "外れてもまずいん、きつくも締め付けちゃあぁん。",
+		   NULL, " Беда, если выпадет, но и слишком туго нельзя затягивать.", Line_WaitForInput);
+	PlaySE(4, "s20/14/443400014", 128, 64);
+	OutputLine(NULL, "窒息させたら意味がなん。」",
+		   NULL, " Если задохнётся — всё к чёрту.\"", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//「わかってるって…＠あれ、携帯コンロのガス缶頼まなかった＠　もうガスねえよ。＠
+	PlaySE(4, "s20/00/yamab44006", 128, 64);
+	if (AdvMode) { OutputLine("<color=#f5e6d3>男</color>", NULL, "<color=#f5e6d3>Мужчина</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「わかってるって…。",
+		   NULL, "\"Да понял я, понял...", Line_WaitForInput);
+	OutputLine(NULL, "あれ、携帯コンロのガス缶頼まなかった？",
+		   NULL, " Эй, разве я не просил привезти газ для горелки?", Line_WaitForInput);
+	PlaySE(4, "s20/00/yamab44007", 128, 64);
+	OutputLine(NULL, "　もうガスねえよ。」",
+		   NULL, " А то кончился.\"", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//「聞いてねん、だぁほ。＠
+	PlaySE(4, "s20/14/443400015", 128, 64);
+	if (AdvMode) { OutputLine("<color=#f5e6d3>男</color>", NULL, "<color=#f5e6d3>Мужчина</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「聞いてねん、だぁほ。」",
+		   NULL, "\"Не помню такого.\"", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//「…かーー…、マジかよ、付いてくれよ…＠くそくそ！！￥
+	PlaySE(4, "s20/00/yamab44008", 128, 64);
+	if (AdvMode) { OutputLine("<color=#f5e6d3>男</color>", NULL, "<color=#f5e6d3>Мужчина</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「…かーー…、マジかよ、付いてくれよ…。",
+		   NULL, "\"...Бля-я-я... Ну скажи, что ты шутишь...", Line_WaitForInput);
+	OutputLine(NULL, "くそくそ！！」",
+		   NULL, " Ну что за дерьмо!!\"", Line_Normal);
+	ClearMessage();
+
+
+//　携帯コンロを、ガチャガチャといじり、火が付かないかと悪戦苦闘している＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　携帯コンロを、ガチャガチャといじり、火が付かないかと悪戦苦闘している。",
+		   NULL, "Первый яростно защёлкал поджигом, пытаясь заставить горелку работать.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　…それを見て、買出しに行っていた男は深くため息をつくのだった￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　…それを見て、買出しに行っていた男は深くため息をつくのだった。",
+		   NULL, "...Тот, кто ездил в город, поглядев на него, вздохнул.", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	DrawSceneWithMask( "Sunset/bg_206", "left", 0, 0, 300 );
+
+//　そして、その様子を尻目に、……部屋の隅へ歩み寄る￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　そして、その様子を尻目に、……部屋の隅へ歩み寄る。",
+		   NULL, "И медленно подошёл к углу комнаты.", Line_Normal);
+	ClearMessage();
+
+
+//　…誘拐された少年は、床に敷かれた毛布の上に転がされていた￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　…誘拐された少年は、床に敷かれた毛布の上に転がされていた。",
+		   NULL, "...В углу свернулся на одеяле похищенный мальчик.", Line_Normal);
+	ClearMessage();
+
+
+//「…………………小僧、!w1000……元気かいね？＠
+	PlaySE(4, "s20/14/443400016", 128, 64);
+	if (AdvMode) { OutputLine("<color=#f5e6d3>男</color>", NULL, "<color=#f5e6d3>Мужчина</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「…………………小僧、",
+		   NULL, "\".........Эй, пацан......", Line_ContinueAfterTyping);
+
+	SetValidityOfInput( FALSE );
+	Wait( 1000 );
+	SetValidityOfInput( TRUE );
+
+	OutputLine(NULL, "……元気かいね？」",
+		   NULL, " Ты как?\"", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　もちろん、その問い掛けが少年の耳に入るとは、男も思ってはいない￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　もちろん、その問い掛けが少年の耳に入るとは、男も思ってはいない。",
+		   NULL, "Разумеется, он даже и мысли не допускал, что мальчик его расслышит.", Line_Normal);
+	ClearMessage();
+
+
+//　なぜなら、少年の両耳には栓が詰められ、目と耳を丸ごとぐるぐるにガムテープで塞がれていたからだ＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　なぜなら、少年の両耳には栓が詰められ、目と耳を丸ごとぐるぐるにガムテープで塞がれていたからだ。",
+		   NULL, "Всё-таки в ушах у того — затычки, да вдобавок они, как и глаза, в несколько слоёв заклеены клейкой лентой.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　そして口には、ねじった薄手のタオルのようなもので猿ぐつわがされていた＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　そして口には、ねじった薄手のタオルのようなもので猿ぐつわがされていた。",
+		   NULL, "А во рту — кляп изо скрученного полотенца.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　……そのせいで顎を閉じることができず、少年の頬はよだれでべとべとになっていた￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　……そのせいで顎を閉じることができず、少年の頬はよだれでべとべとになっていた。",
+		   NULL, "......Из-за него тот не мог закрыть рта, в котором не переставала обильно выделяться слюна.", Line_Normal);
+	ClearMessage();
+
+
+//　もちろん、それだけではない＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　もちろん、それだけではない。",
+		   NULL, "И, конечно, на этом не ограничивалось.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//　両腕は後で組まされ、皮のベルトのようなもので厳重に締め付けられている￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　両腕は後で組まされ、皮のベルトのようなもので厳重に締め付けられている。",
+		   NULL, "Нечто вроде кожаного ремня туго стягивало запястья.", Line_Normal);
+	ClearMessage();
+
+
+//「今ん所、順調らし＠命の心配はないん＠…お前の祖父さんが渋りよったん、耳たぶのひとつも切り落とさなきゃならんかったんけー、…やらんくて済んで助かりよんよ…＠本家はこうと決めたら…鬼やんね＠…どんな残酷なこと命令するかも想像つかん＠……その本家が、小僧に傷一つ付けるな言うてんから、とにかく順調なんだろんな…。￥
+	PlaySE(4, "s20/14/443400017", 128, 64);
+	if (AdvMode) { OutputLine("<color=#f5e6d3>男</color>", NULL, "<color=#f5e6d3>Мужчина</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「今ん所、順調らし。",
+		   NULL, "\"Покамест всё вроде отлично.", Line_WaitForInput);
+	OutputLine(NULL, "命の心配はないん。",
+		   NULL, " За свою шкуру можешь не беспокоиться...", Line_WaitForInput);
+	PlaySE(4, "s20/14/443400018", 128, 64);
+	OutputLine(NULL, "…お前の祖父さんが渋りよったん、耳たぶのひとつも切り落とさなきゃならんかったんけー、…やらんくて済んで助かりよんよ…。",
+		   NULL, " Кабы твой дед колебался, пришлось бы отрезать те мочку... и хорошо, что до того не дошло.", Line_ModeSpecific);
+	PlaySE(4, "s20/14/443400019", 128, 64);
+	if (AdvMode) { OutputLine("<color=#f5e6d3>男</color>", NULL, "<color=#f5e6d3>Мужчина</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "本家はこうと決めたら…鬼やんね。",
+		   NULL, " Наши главные — сущие демоны...", Line_WaitForInput);
+	OutputLine(NULL, "…どんな残酷なこと命令するかも想像つかん。",
+		   NULL, " Хто их знает, шо там прикажут с тобой сотворить......", Line_ModeSpecific);
+	PlaySE(4, "s20/14/443400020", 128, 64);
+	if (AdvMode) { OutputLine("<color=#f5e6d3>男</color>", NULL, "<color=#f5e6d3>Мужчина</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "……その本家が、小僧に傷一つ付けるな言うてんから、とにかく順調なんだろんな…。」",
+		   NULL, " Но, вишь, говорят же, шоб пальцем тронуть не смели, — знач, пока усё хорошо...\"", Line_Normal);
+	ClearMessage();
+
+
+
+//「大臣はダム計画を撤回で水面下工作＠雛見沢ダム計画は無期凍結へ＠…小僧の解放はいつ頃になるんだろうな＠…早く一服したいもんだぜ。＠
+	PlaySE(4, "s20/00/yamab44009", 128, 64);
+	if (AdvMode) { OutputLine("<color=#f5e6d3>男</color>", NULL, "<color=#f5e6d3>Мужчина</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「大臣はダム計画を撤回で水面下工作。",
+		   NULL, "\"Министр там останавливает стройку по-тихому.", Line_WaitForInput);
+	OutputLine(NULL, "雛見沢ダム計画は無期凍結へ。",
+		   NULL, " Проект Хинамидзавской дамбы откладывается на неопределённый срок.", Line_WaitForInput);
+	PlaySE(4, "s20/00/yamab44010", 128, 64);
+	OutputLine(NULL, "…小僧の解放はいつ頃になるんだろうな。",
+		   NULL, " Сопляка-то когда отпустят?..", Line_WaitForInput);
+	PlaySE(4, "s20/00/yamab44011", 128, 64);
+	OutputLine(NULL, "…早く一服したいもんだぜ。」",
+		   NULL, " Поскорее бы затянуться, блин.\"", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//「本家が決着のタイミング、計ってるらし＠いつになるかわぁらんが、近い内やんなぁ…。＠
+	PlaySE(4, "s20/14/443400021", 128, 64);
+	if (AdvMode) { OutputLine("<color=#f5e6d3>男</color>", NULL, "<color=#f5e6d3>Мужчина</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「本家が決着のタイミング、計ってるらし。",
+		   NULL, "\"Грят, в главной семье ждут решающего момента.", Line_WaitForInput);
+	OutputLine(NULL, "いつになるかわぁらんが、近い内やんなぁ…。」",
+		   NULL, " Хрен их знает, когда это, но, мыслю, скоро...\"", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+//「良かったな小僧＠もうじき解放されるぞ、へへへ…。￥
+	PlaySE(4, "s20/00/yamab44012", 128, 64);
+	if (AdvMode) { OutputLine("<color=#f5e6d3>男</color>", NULL, "<color=#f5e6d3>Мужчина</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「良かったな小僧。",
+		   NULL, "\"Ты рад, сопляк?", Line_WaitForInput);
+	OutputLine(NULL, "もうじき解放されるぞ、へへへ…。」",
+		   NULL, " Скоро тебя отпустят, хе-хе-хе...\"", Line_Normal);
+	ClearMessage();
+
+
+//　そんな男たちの声が、少年の耳に届いているかはわからない＠
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　そんな男たちの声が、少年の耳に届いているかはわからない。",
+		   NULL, "Было неизвестно, слышит ли их мальчик.", Line_ModeSpecific);
+	if (AdvMode) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+//　…少年は、無惨な現実から、少しでも魂を守るために…こんこんと眠り続けるしか自衛の方法がなかった…￥
+	if (AdvMode) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　…少年は、無惨な現実から、少しでも魂を守るために…こんこんと眠り続けるしか自衛の方法がなかった…。",
+		   NULL, "Тот знал всего лишь один способ хоть как-то уберечь рассудок от жестокой действительности: без конца спать...", Line_Normal);
+	ClearMessage();
+
+
+//「それよん、ガスをどうするんね＠　ラーメン食えんよぅ！＠　ガス切れたなら言ぅてえなぁもう！！￥
+	PlaySE(4, "s20/14/443400022", 128, 64);
+	if (AdvMode) { OutputLine("<color=#f5e6d3>男</color>", NULL, "<color=#f5e6d3>Мужчина</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「それよん、ガスをどうするんね！",
+		   NULL, "\"Ну так шо с газом-то, а?!", Line_WaitForInput);
+	OutputLine(NULL, "　ラーメン食えんよぅ！！",
+		   NULL, " На чём лапшу готовить?!!", Line_WaitForInput);
+	PlaySE(4, "s20/14/443400023", 128, 64);
+	OutputLine(NULL, "　ガス切れたなら言ぅてえなぁもう！！」",
+		   NULL, " Хрен ли ты не сказал, шо он кончился!!\"", Line_Normal);
+	ClearMessage();
+
+
+	SetValidityOfInput( FALSE );
+	Wait( 1000 );
+	SetValidityOfInput( TRUE );
+	DisableWindow();
+	DrawScene( "black", 1000 );
+	FadeOutBGM( 1, 1000, TRUE );
+	FadeOutBGM( 2, 1000, TRUE );
+//gosub *tip_e
+//return
+
+}

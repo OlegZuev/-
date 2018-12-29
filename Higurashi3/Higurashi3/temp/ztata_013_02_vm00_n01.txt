@@ -1,0 +1,47 @@
+void main()
+{
+}
+
+void dialog000()
+{
+//「高熱と失禁に重度の意識障害も見られました＠睡眠薬中毒の典型的な重症例だと思いましたので、ただちに対応に入りました。＠
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#f5e6d3>医師</color>", NULL, "<color=#f5e6d3>Доктор</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 0, "ps3/s03/00/doca04009", 128, TRUE);
+	OutputLine(NULL, "「高熱と失禁に重度の意識障害も見られました。",
+		   NULL, "\"Я обнаружил у него сильный жар, а также — судя по самопроизвольному опорожнению мочевого пузыря — нарушение работы мозга.", Line_WaitForInput);
+}
+
+void dialog001()
+{
+//「普段から睡眠薬を愛用していたとかは？＠
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#f5e6d3>小宮山</color>", NULL, "<color=#f5e6d3>Комияма</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 0, "ps3/s03/00/komi04016", 128, TRUE);
+	OutputLine(NULL, "「普段から睡眠薬を愛用していたとかは？」",
+		   NULL, "\"Он часто применял снотворные препараты?\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+}
+
+void dialog002()
+{
+//「.....................いつまでも裸でいたくありませんわ＠...服が、...欲しい。＠
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#fcdb77>沙都子</color>", NULL, "<color=#fcdb77>Сатоко</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 4, "ps3/s03/04/140400221", 128, TRUE);
+	OutputLine(NULL, "「…………………いつまでも裸でいたくありませんわ。",
+		   NULL, "\"..................Не вечно же мне ходить раздетой...", Line_WaitForInput);
+}
+
+void dialog003()
+{
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#956f6e>圭一</color>", NULL, "<color=#956f6e>Кейти</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 1, "ps3/s03/01/140100984", 128, TRUE);
+	OutputLine(NULL, "だから夢遊病のようにふらふらと、記憶になく祭りに出掛けた…なんてことはありえない。」",
+		   NULL, " потому не мог и прийти на фестиваль ничего не соображающим, как лунатик.\"", Line_Normal);
+	ClearMessage();
+}
+
+void dialog004()
+{
+	ModPlayVoiceLS(4, 4, "ps3/s03/04/140400264", 128, TRUE);
+	OutputLine(NULL, "　男の人に、いつまでも裸を晒していたくないんですのよ…！",
+		   NULL, " Не хочу, чтоб мужчина столько пялился на меня раздетую!..", Line_WaitForInput);
+}

@@ -1,0 +1,23 @@
+void main()
+{
+}
+
+void dialog000()
+{
+	ModPlayVoiceLS(4, 3, "ps3/s03/03/140300325", 128, TRUE);
+	OutputLine(NULL, "…ちょっと私、お酒が残ってるみたい。",
+		   NULL, " ...Я, кажется, немного пьяна.", Line_WaitForInput);
+}
+
+void dialog001()
+{
+//「確かに状況証拠は揃ってるけど、......多分、圭ちゃんの推理ははずれだと思う＠......県内のどっかで捕まった覚醒剤でイカれたヤツが、犯行を自供したって言うし。＠
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>魅音</color>", NULL, "<color=#5ec69a>Мион</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 3, "ps3/s03/03/140300344", 128, TRUE);
+	OutputLine(NULL, "「確かに状況証拠は揃ってるけど、……多分、圭ちゃんの推理ははずれだと思う。",
+		   NULL, "\"Конечно, всё сходится к нему, но...... пожалуй, Кей-тян, ты неправ.", Line_WaitForInput);
+	ModPlayVoiceLS(4, 3, "ps3/s03/03/140300345", 128, TRUE);
+	OutputLine(NULL, "……県内のどっかで捕まった覚醒剤でイカれたヤツが、犯行を自供したって言うし。」",
+		   NULL, " ......Потом поймали какого-то чокнутого любителя наркотиков, так вот он и признался в убийстве.\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+}
