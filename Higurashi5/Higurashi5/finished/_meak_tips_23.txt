@@ -1,0 +1,217 @@
+void main()
+{
+	EnableJumpingOfReturnIcon();
+	FadeOutBGM( 0, 0, FALSE );
+	FadeOutBGM( 1, 0, FALSE );
+	FadeOutBGM( 2, 0, FALSE );
+	FadeOutBGM( 3, 0, FALSE );
+	ClearMessage();
+
+	PlayBGM( 0, "T1", 120, 0 );
+	ModDrawCharacterWithFiltering(1, 16, "sprite/normal/aka_def_", "0", "maskright", 1, -160, 0, FALSE, 0, 0, 0, 0, 0, 8, 0, FALSE );
+	ModDrawCharacterWithFiltering(2, 15, "sprite/normal/kasa_1_", "0", "maskright", 1, 160, 0, FALSE, 0, 0, 0, 0, 0, 10, 0, FALSE );
+	DrawScene("background/mati4", 400 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>詩音</color>", NULL, "<color=#5ec69a>Шион</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 6, "ps3/s20/06/440600033", 128, TRUE);
+	OutputLine(NULL, "「ねぇ、教えてよ母さん。",
+		   NULL, "\"Э-эй, мааам, скажи.", Line_WaitForInput);
+	OutputLine(NULL, "鬼婆とどういう喧嘩をしたわけ？",
+		   NULL, " Почему ты задралась с бабкой?", Line_WaitForInput);
+	ModPlayVoiceLS(4, 6, "ps3/s20/06/440600034", 128, TRUE);
+	OutputLine(NULL, "　勘当されるなんてよっぽどだったわけでしょ？」",
+		   NULL, " Из-за чего тебя лишили наследства?\"", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#6bd09f>茜</color>", NULL, "<color=#6bd09f>Аканэ</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 16, "ps3/s20/16/442200001", 128, TRUE);
+	OutputLine(NULL, "「お前も下らないことに興味が尽きないね。",
+		   NULL, "\"Прекратила бы совать нос куда не надо......", Line_WaitForInput);
+	OutputLine(NULL, "……ま、そろそろ話してもわからない歳じゃないか。",
+		   NULL, " Ну что ж, как хочешь. Подросла уже.", Line_WaitForInput);
+	ModPlayVoiceLS(4, 16, "ps3/s20/16/442200002", 128, TRUE);
+	OutputLine(NULL, "実はね、父さんと結婚したいって言ったらね、駄目だって言われちゃったのよ。」",
+		   NULL, " Ей, видишь ли, не понравилось, когда я сказала, что хочу выйти замуж за твоего отца.\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>詩音</color>", NULL, "<color=#5ec69a>Шион</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 6, "ps3/s20/06/440600035", 128, TRUE);
+	OutputLine(NULL, "「へ？　何それぇ？！」",
+		   NULL, "\"Э-э? Чего-о-о?!\"", Line_Normal);
+	ClearMessage();
+	ModDrawCharacter(1, 16, "sprite/normal/aka_warai_", "0", -160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 0, 200, TRUE );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#6bd09f>茜</color>", NULL, "<color=#6bd09f>Аканэ</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 16, "ps3/s20/16/442200003", 128, TRUE);
+	OutputLine(NULL, "「私も当時はだいぶ斜な生き方してて呆れられててね。",
+		   NULL, "\"Юность у меня была довольно бурная.", Line_WaitForInput);
+	OutputLine(NULL, "その挙句、連れて来た男が任侠者だったわけでしょ。",
+		   NULL, " И, когда я привела жениха совсем не из благородных,", Line_WaitForInput);
+	ModPlayVoiceLS(4, 16, "ps3/s20/16/442200004", 128, TRUE);
+	OutputLine(NULL, "そりゃ大喧嘩よ。",
+		   NULL, " она не выдержала и разбушевалась.", Line_WaitForInput);
+
+	ModDrawCharacter(1, 16, "sprite/normal/aka_sakebi_", "0", -160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 0, 200, TRUE );
+
+	ModPlayVoiceLS(4, 16, "ps3/s20/16/442200005", 128, TRUE);
+	OutputLine(NULL, "許婚は頭首が決める、なんて言われて、",
+		   NULL, " Сказала, сама подберёт мне мужа,", Line_Continue);
+	// (backup) SetValidityOfInput( FALSE );
+	Wait( 1000 );
+	// (backup) SetValidityOfInput( TRUE );
+	SetSpeedOfMessage( FALSE, 0 );
+	OutputLine(NULL, "そんなの知ったこっかいこんの糞婆ァ！",
+		   NULL, " а я ей: да не пошла бы ты к чёрту, бабка!", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#6bd09f>茜</color>", NULL, "<color=#6bd09f>Аканэ</color>", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　この場で斬り伏せたらあッて大立ち回りよ。",
+		   NULL, " Ну, само собой, она не стерпела,", Line_WaitForInput);
+
+	ModDrawCharacter(1, 16, "sprite/normal/aka_def_", "0", -160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 0, 200, TRUE );
+
+	ModPlayVoiceLS(4, 16, "ps3/s20/16/442200006", 128, TRUE);
+	OutputLine(NULL, "互いに板の間の日本刀抜いて、チャンチャンバラバラ。",
+		   NULL, " мы похватали мечи и устроили сечу.", Line_WaitForInput);
+
+	ModDrawCharacter(1, 16, "sprite/normal/aka_warai_", "0", -160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 0, 200, TRUE );
+
+	ModPlayVoiceLS(4, 16, "ps3/s20/16/442200007", 128, TRUE);
+	OutputLine(NULL, "あっはっはっは。」",
+		   NULL, " Ах-ха-ха-ха.\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>詩音</color>", NULL, "<color=#5ec69a>Шион</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 6, "ps3/s20/06/440600036", 128, TRUE);
+	OutputLine(NULL, "「ひぇー…！",
+		   NULL, "\"О-о-о-о!..", Line_WaitForInput);
+	OutputLine(NULL, "　鬼婆と殺陣を演じたわけ？！",
+		   NULL, " Ты дралась с бабкою на мечах?!", Line_WaitForInput);
+	ModPlayVoiceLS(4, 6, "ps3/s20/06/440600037", 128, TRUE);
+	OutputLine(NULL, "　母さんやるねぇ…。」",
+		   NULL, " Во ты даёшь...\"", Line_Normal);
+	ClearMessage();
+	ModDrawCharacter(1, 16, "sprite/normal/aka_def_", "0", -160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 0, 200, TRUE );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#6bd09f>茜</color>", NULL, "<color=#6bd09f>Аканэ</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 16, "ps3/s20/16/442200008", 128, TRUE);
+	OutputLine(NULL, "「まぁねー。",
+		   NULL, "\"Ну,", Line_WaitForInput);
+	OutputLine(NULL, "母さん、こう見えても若い頃は武闘派だしー。",
+		   NULL, " мама в юности недаром занималась боевыми искусствами, знаешь.", Line_WaitForInput);
+	ModPlayVoiceLS(4, 16, "ps3/s20/16/442200009", 128, TRUE);
+	OutputLine(NULL, "互いに剣道有段だからそりゃードハデだったわよ。",
+		   NULL, " У нас у обеих был дан по кэндо, так что на битву стоило посмотреть.", Line_WaitForInput);
+	ModPlayVoiceLS(4, 16, "ps3/s20/16/442200010", 128, TRUE);
+	OutputLine(NULL, "周りはオロオロ、あー面白かった。」",
+		   NULL, " Вокруг все только и знали, что ахать да охать. Эх, весело было!\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>詩音</color>", NULL, "<color=#5ec69a>Шион</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 6, "ps3/s20/06/440600038", 128, TRUE);
+	OutputLine(NULL, "「なるほどねぇ……。",
+		   NULL, "\"Понятно......", Line_WaitForInput);
+	OutputLine(NULL, "その騒ぎのせいで勘当されたわけ？」",
+		   NULL, " Так вон почему ты не наследница?\"", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#6bd09f>茜</color>", NULL, "<color=#6bd09f>Аканэ</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 16, "ps3/s20/16/442200011", 128, TRUE);
+	OutputLine(NULL, "「そうよ、勘当上等！",
+		   NULL, "\"Именно, и лучшего я желать не могла!", Line_WaitForInput);
+	OutputLine(NULL, "　遠慮なく勘当もらって父さんと籍を入れたわよ。",
+		   NULL, " Я тут же обручилась с твоим отцом.", Line_WaitForInput);
+	ModPlayVoiceLS(4, 16, "ps3/s20/16/442200012", 128, TRUE);
+	OutputLine(NULL, "まぁけじめってことで爪を剥がされたけどねー。",
+		   NULL, " Правда, пришлось ещё ногти повыдирать, чтоб расплатиться.", Line_WaitForInput);
+	ModPlayVoiceLS(4, 16, "ps3/s20/16/442200013", 128, TRUE);
+	OutputLine(NULL, "ほら、左手の爪だけ歪でしょ。」",
+		   NULL, " Вон, видишь, какие на левой ногти безобразные?\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>詩音</color>", NULL, "<color=#5ec69a>Шион</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 6, "ps3/s20/06/440600039", 128, TRUE);
+	OutputLine(NULL, "「うわぁ……。",
+		   NULL, "\"Ооооо......", Line_WaitForInput);
+	OutputLine(NULL, "それで鬼婆と母さんはずーっと仲が悪いわけだね…。」",
+		   NULL, " Так вот почему вы в ссоре...\"", Line_Normal);
+	ClearMessage();
+	ModDrawCharacter(1, 16, "sprite/normal/aka_warai_", "0", -160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 0, 200, TRUE );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#6bd09f>茜</color>", NULL, "<color=#6bd09f>Аканэ</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 16, "ps3/s20/16/442200014", 128, TRUE);
+	OutputLine(NULL, "「あははは、詩音、本当はね？",
+		   NULL, "\"Аха-ха-ха, а знаешь чего, Шион?", Line_WaitForInput);
+	OutputLine(NULL, "　そんなことないの。",
+		   NULL, " Вовсе мы ни в какой не ссоре.", Line_WaitForInput);
+	ModPlayVoiceLS(4, 16, "ps3/s20/16/442200015", 128, TRUE);
+	OutputLine(NULL, "私と鬼婆さまはちゃんと仲がいいんだよ？」",
+		   NULL, " Наоборот, мы с Бабкой очень даже дружим.\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>詩音</color>", NULL, "<color=#5ec69a>Шион</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 6, "ps3/s20/06/440600040", 128, TRUE);
+	OutputLine(NULL, "「…えーーー！？",
+		   NULL, "\"...Э-Э-Э-Э?!", Line_WaitForInput);
+	OutputLine(NULL, "　うっそだぁ！」",
+		   NULL, " Да ну, врёшь!\"", Line_Normal);
+	ClearMessage();
+	ModDrawCharacter(1, 16, "sprite/normal/aka_def_", "0", -160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 0, 200, TRUE );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#6bd09f>茜</color>", NULL, "<color=#6bd09f>Аканэ</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 16, "ps3/s20/16/442200016", 128, TRUE);
+	OutputLine(NULL, "「鬼婆さまには面倒な世間体があるからね。",
+		   NULL, "\"Ей, видишь ли, приходится хранить лицо,", Line_WaitForInput);
+	OutputLine(NULL, "一度でも勘当した以上、甘くすると示しがつかないし。",
+		   NULL, " поэтому, выгнав меня взашей, показывать нормальное отношение она не может.", Line_WaitForInput);
+	ModPlayVoiceLS(4, 16, "ps3/s20/16/442200017", 128, TRUE);
+	OutputLine(NULL, "だから私も親類会議とかでは大人しく引っ込んでるけど。",
+		   NULL, " И я, соответственно, на собраниях тише воды, ниже травы.", Line_WaitForInput);
+	ModPlayVoiceLS(4, 16, "ps3/s20/16/442200018", 128, TRUE);
+	OutputLine(NULL, "たまーに遊びに行ってのんびりお茶とか飲んでるよ。」",
+		   NULL, " Но иногда прихожу к ней, и мы чаи гоняем за милую душу.\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>詩音</color>", NULL, "<color=#5ec69a>Шион</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 6, "ps3/s20/06/440600041", 128, TRUE);
+	OutputLine(NULL, "「うそだーーーー、信じらんないねぇ…！」",
+		   NULL, "\"Да врёшь ты всё-ё-ё, не верю!..\"", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#6bd09f>茜</color>", NULL, "<color=#6bd09f>Аканэ</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 16, "ps3/s20/16/442200019", 128, TRUE);
+	OutputLine(NULL, "「実はね、内緒よ？",
+		   NULL, "\"Ты только молчок, ладно?", Line_WaitForInput);
+	OutputLine(NULL, "　鬼婆さまもね、その昔、けじめで爪を剥いだことあるんだってよー？",
+		   NULL, " Бабушке самой в своё время пришлось отвечать ногтями.", Line_WaitForInput);
+	ModPlayVoiceLS(4, 16, "ps3/s20/16/442200020", 128, TRUE);
+	OutputLine(NULL, "　今度、会ったら左手の爪をよく見てごらん。」",
+		   NULL, " При следующей встрече присмотрись к ногтям на её левой ладони.\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>詩音</color>", NULL, "<color=#5ec69a>Шион</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 6, "ps3/s20/06/440600042", 128, TRUE);
+	OutputLine(NULL, "「ひぇー……！",
+		   NULL, "\"У-у-у-ух!.....", Line_WaitForInput);
+	OutputLine(NULL, "　鬼婆は何をやったわけ？」",
+		   NULL, " А чего бабка натворила?\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+	ModDrawCharacter(1, 16, "sprite/normal/aka_warai_", "0", -160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 0, 200, TRUE );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#6bd09f>茜</color>", NULL, "<color=#6bd09f>Аканэ</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 16, "ps3/s20/16/442200021", 128, TRUE);
+	OutputLine(NULL, "「さーーーーねーーーーー！",
+		   NULL, "\"Ну-у-у, кто-о зна-а-ает!", Line_WaitForInput);
+	OutputLine(NULL, "　母さんは知ぃらない☆」",
+		   NULL, " У мамы уж точно не спрашивай! ☆\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>詩音</color>", NULL, "<color=#5ec69a>Шион</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 6, "ps3/s20/06/440600043", 128, TRUE);
+	OutputLine(NULL, "「わ、その顔は知ってるなぁ？！",
+		   NULL, "\"Э, да всё ты знаешь, я ж вижу!", Line_WaitForInput);
+	OutputLine(NULL, "　教えてよー！」",
+		   NULL, " Ну расскажи-и!\"", Line_Normal);
+	ClearMessage();
+	Wait( 1000 );
+	DrawScene("black", 1000 );
+}
+

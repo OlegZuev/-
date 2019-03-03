@@ -1,0 +1,75 @@
+void main()
+{
+	EnableJumpingOfReturnIcon();
+	FadeOutBGM( 0, 0, FALSE );
+	FadeOutBGM( 1, 0, FALSE );
+	FadeOutBGM( 2, 0, FALSE );
+	FadeOutBGM( 3, 0, FALSE );
+	ClearMessage();
+
+	PlayBGM( 0, "hig_sample_kyouki", 120, 0 );
+	DrawScene("background/nort", 400 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　この時の祭具殿侵入が、結局、鷹野さんたちの祟られる理由となった。",
+		   NULL, "Основанием проклясть Такано-сан с Томитаке-саном стало то, что они пробрались в Сайгудэн.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　祭具殿侵入がどういう形で発覚したのかは分からない。",
+		   NULL, "Уж не знаю, каким образом они пронюхали.", Line_Normal);
+	ClearMessage();
+	PlaySE( 0, "s_page", 128, 64 );
+	DrawSceneWithMask("black", "maskright", 7, 0, 300 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　最初に思いつくのは、何者かに目撃されていたこと。",
+		   NULL, "Первая мысль — кто-то видел.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　次に思いつくのは、侵入警報のようなものがあったこと。",
+		   NULL, "Вторая мысль — там была какая-то сигнализация.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　何れにせよ、この祭具殿侵入はおそらくリアルタイムで祟りのシステムの上位者に通報されていた。",
+		   NULL, "Так иль иначе, о проникновении в Сайгудэн сразу же (может быть, даже в ту самую минуту) доложили старшим в системе Проклятия.", Line_Normal);
+	ClearMessage();
+	PlaySE( 0, "s_page", 128, 64 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　なぜなら、もっとも遠い地で遺体が見つかることになる鷹野さんの殺された時間などを考えると、",
+		   NULL, "Ведь, учитывая, как далеко нашли тело,", Line_WaitForInput);
+	OutputLine(NULL, "祭具殿を出て私たちが分かれてすぐくらいに殺されてなければならないからだ。",
+		   NULL, " Такано-сан должны были убить вскоре после того, как мы покинули Сайгудэн и попрощались друг с другом.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　この手際の良さは特筆に値する。",
+		   NULL, "Стоит отметить быстроту исполнения.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　相当高度な暗殺部隊が組織されているのか、さもなければ「５年目の祟りの準備」がすでにされていたからなのか。",
+		   NULL, "Возможно, у них есть хорошо оснащённый отряд карателей, либо «проклятие пятого лета» подготовили загодя.", Line_Normal);
+	ClearMessage();
+	PlaySE( 0, "s_page", 128, 64 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　園崎家の暗部を担当する秘密の集団の存在も否定できないが、後者の説の方が信憑性がある。",
+		   NULL, "Конечно, несомненно, что у Сонодзаки есть секретные группы для решения своих тёмных делишек, но второе звучит всё же правдоподобнее.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　しかし、だとすると、５年目の祟りは、祭具殿侵入がなかったら「本来」誰に下されていたのか、という疑問にぶつかる。",
+		   NULL, "Но тогда вырисовывается вопрос: кого бы убили в пятом году, не случись проникновения в Сайгудэн?", Line_Normal);
+	ClearMessage();
+	Wait( 1000 );
+	DrawScene("black", 1000 );
+}
+

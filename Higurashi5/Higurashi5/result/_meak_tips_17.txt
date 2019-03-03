@@ -1,0 +1,104 @@
+void main()
+{
+	EnableJumpingOfReturnIcon();
+	FadeOutBGM( 0, 0, FALSE );
+	FadeOutBGM( 1, 0, FALSE );
+	FadeOutBGM( 2, 0, FALSE );
+	FadeOutBGM( 3, 0, FALSE );
+	ClearMessage();
+
+	PlayBGM( 0, "yoru", 120, 0 );
+	DrawScene("background/nort", 1000 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　５年目の祟り以降、もっとも電話が多かったのは、やはり側近の公由家頭首だった。",
+		   NULL, "После пятого Проклятия больше всех сделал звонков ближайший соратник бабки, глава семьи Кимиёси.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　次いで多かったのがうちの父親だった。",
+		   NULL, "Следующий после него — мой отец.", Line_Normal);
+	ClearMessage();
+	PlaySE( 0, "s_page", 128, 64 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　うちの両親の序列は高いには高いが、うちの母親の昔の勘当騒ぎが尾を引いていて、表舞台にそうそう顔を出せない、やや日陰者っぽい扱いなのだと言う。",
+		   NULL, "В системе мои родители занимают сравнительно высокое положение, однако из-за давнего бунта матери, закончившегося лишением её права на наследство, мама особенно не показывается на людях, как изгой.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　その父親からの電話が多いのは、対外的には距離を置いていても、実際には重用していた鬼婆の陽と陰の二面性の証拠でもある。",
+		   NULL, "Количество звонков от отца показывает, что холодность бабки к родителям — лишь следствие занимаемого ей положения.", Line_Normal);
+	ClearMessage();
+	PlaySE( 0, "s_page", 128, 64 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　父親は、どうも情報面での操作が主な役割のようだった。",
+		   NULL, "Кажется, мой отец в основном отвечал за сбор сведений.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　警察情報や裏情報、噂、そういったアンダーグランドな情報を収集しては的確に報告していた。",
+		   NULL, "Он без утайки докладывал ей о том, что знали в полиции, в народе, о сплетнях, о ходивших в подполье слухах.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　そして鬼婆の要請があれば、それらを黙らせたり、煽り立てたり、捻じ曲げたりできるようだった。",
+		   NULL, "По бабкиному слову он мог заткнуть их, перевернуть с ног на голову, исказить смысл.", Line_Normal);
+	ClearMessage();
+	DrawScene("black", 400 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　ちなみに私の忠臣、葛西は父親と旧知の間柄。",
+		   NULL, "Кстати говоря, мой верный Касай — старый друг отца.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　……なるほど、色々と情報に精通しているのも頷けた。",
+		   NULL, "......Понятно, вот откуда он столько знает.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　だが「情報」までのようだ。",
+		   NULL, "Однако «сведениями» всё и ограничивается.", Line_WaitForInput);
+	OutputLine(NULL, "「執行」にまで至っていたかは掴みきれない。",
+		   NULL, " Непонятно, входит ли в его обязанности «исполнение».", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　父親は、今回の事件に対する、警察の捜査状況やその他の情報を貪欲に集め報告するばかりで、",
+		   NULL, "В этом году отец лишь собирал сведения, в том числе о ходе полицейского расследования,", Line_WaitForInput);
+	OutputLine(NULL, "少なくとも今年の祟りについては、自身が関与したわけではなさそうだった。",
+		   NULL, " и едва ли он лично принимал участие в по крайней мере нынешнем Проклятии.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　…一般的には、父親と鬼婆がこんなにも密接なホットラインを持っていることは知られていない。",
+		   NULL, "...Мало кто знает, что бабка и отец настолько друг с другом связаны.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　そのネットワークを利用はするが、やはり外様ということでそれほど近しくしていない…と思われているのが一般的だ。",
+		   NULL, "Хотя известно, что бабка пользуется его разведкой, многие считают их чужими друг другу.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　ならこの例のように、一般に知られていない、鬼婆直轄の何か。",
+		   NULL, "Значит, возможно, что, как и в приведённом выше примере, почти никому не ведомая...", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　…祟りのシステムを管轄する暗黒部門の存在は、充分に疑える……。",
+		   NULL, "Под личным началом бабки действует некая команда, занимающаяся Проклятием......", Line_Normal);
+	ClearMessage();
+	Wait( 1000 );
+	DrawScene("black", 1000 );
+}
+

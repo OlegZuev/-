@@ -1,0 +1,87 @@
+void main()
+{
+	EnableJumpingOfReturnIcon();
+	FadeOutBGM( 0, 0, FALSE );
+	FadeOutBGM( 1, 0, FALSE );
+	FadeOutBGM( 2, 0, FALSE );
+	FadeOutBGM( 3, 0, FALSE );
+	ClearMessage();
+
+	PlayBGM( 0, "depressive paranoia", 120, 0 );
+	DrawScene( "JYSA1", 1000 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　祭具殿の不可侵性は、オヤシロさま崇拝の中でも群を抜く。",
+		   NULL, "Неприкосновенность обрядового хранилища выделяется среди прочих элементов поклонения Оясиро-сама.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　もちろんそれは私も、雛見沢に縁のある人間として知ってはいた。",
+		   NULL, "Естественно, я знала о ней, будучи рождённой в Хинамидзаве.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　だが、実際は私が知る以上に、もっともっと偏執的なくらいの不可侵性があったのだ。",
+		   NULL, "Однако на деле она оказалась куда серьёзнее всех моих представлений.", Line_Normal);
+	ClearMessage();
+	PlaySE( 0, "s_page", 128, 64 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　鷹野さんの研究によるなら、祭具殿の不可侵性の歴史は相当古いという。",
+		   NULL, "Как утверждается в записках Такано-сан, запрет на вхождение в Сайгудэн берёт корни в глубокой древности.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　それだけ祭具を使った奇祭「綿流し」が神聖視されていたことの証だろう。",
+		   NULL, "Такое отношение к ритуальной утвари показывает, как свято чтился диковинный обряд «Ватанагаси».", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　だが、鷹野さんの研究では綿流しは純粋な宗教儀式でなく、御三家の支配体制をより磐石にするための、公開処刑的な意味があったという。",
+		   NULL, "Однако те же записи утверждают, что Ватанагаси был не то чтобы священным обрядом, а, скорее, прилюдной казнью, предназначенной упрочить власть госанке.", Line_Normal);
+	ClearMessage();
+	PlaySE( 0, "s_page", 128, 64 );
+	DrawScene( "JYSA1--", 1000 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　だとするなら、そもそも神聖視という呼び方が間違っている。",
+		   NULL, "В таком случае священными те орудия называть неправильно.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　そんな状況下でなら、憎悪と恐怖の対象として疎まれた存在のはず。",
+		   NULL, "В таком случае все бы относились к ним со страхом и ненавистью.", Line_Normal);
+	ClearMessage();
+	PlaySE( 0, "s_page", 128, 64 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　恐怖は露見し過ぎればただの恐怖支配に過ぎない。",
+		   NULL, "Будь внушаемый ими страх чересчур очевиден, власть держалась бы на одном нём.", Line_WaitForInput);
+	OutputLine(NULL, "だが、極力隠せば神聖さが宿る。",
+		   NULL, " Но если хорошенько припрятать их, они становятся святы.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　俗人が触れると穢れがつくとよく言う。",
+		   NULL, "Коснись их простолюдин, они утратят свою чистоту.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　それは衆人環視に晒されたら威厳がなくなるので、もったいぶって隠した方が、箔がつく…という意味でしかないのだ。",
+		   NULL, "То бишь — если бы все могли видеть изнанку обряда, никакого уважения к нему не осталось бы. Поэтому его принадлежности спрятали, чтобы придать им святость.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　つまり、祭具殿の不可侵性の正体は、…恐怖。",
+		   NULL, "Короче говоря, основа неприкосновенности Сайгудэна — страх.", Line_WaitForInput);
+	OutputLine(NULL, "この村を支配する真の感情の正体なのだ……。",
+		   NULL, " То самое чувство, что правит деревней......", Line_Normal);
+	ClearMessage();
+	Wait( 1000 );
+	DrawScene( "black", 1000 );
+}

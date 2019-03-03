@@ -1,0 +1,95 @@
+void main()
+{
+	EnableJumpingOfReturnIcon();
+	FadeOutBGM( 0, 0, FALSE );
+	FadeOutBGM( 1, 0, FALSE );
+	FadeOutBGM( 2, 0, FALSE );
+	FadeOutBGM( 3, 0, FALSE );
+	ClearMessage();
+
+	PlayBGM( 0, "semi", 120, 0 );
+	DrawScene( "Nort", 1000 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　大石との情報交換は、たまに思い出した頃に行なわれた。",
+		   NULL, "Иногда, вспоминая об уговоре с Ооиси, я обмениваюсь с ним узнанным.", Line_Normal);
+	ClearMessage();
+	PlaySE( 0, "s_page", 128, 64 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　私も大石も、互いの新情報に期待したが、どちらにも新情報はなく、いつも茶飲み話に終わった。",
+		   NULL, "Оба мы ждём друг от друга чего-нибудь нового, но его не находится ни у того, ни у другого, и в итоге всё сводится к пустым разговорам.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　もはや、新幹線で東京へなどという話は心の拠り所にさえならない。",
+		   NULL, "В поезд до Токио я давно уж потеряла всякую веру.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　デマであることは明白だった。",
+		   NULL, "След очевидно ложный.", Line_Normal);
+	ClearMessage();
+	PlaySE( 0, "s_page", 128, 64 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　大石は心を許せないやつではあったけど、…公平な取引という意味での誠意はある男で。",
+		   NULL, "Пускай с Ооиси следовало всегда быть начеку, надо отдать ему должное — договор он соблюдал свято.", Line_WaitForInput);
+	OutputLine(NULL, "単身、根気強く調べてくれたと思う。",
+		   NULL, " Он единственный с неистощимым упорством вёл расследование.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　私も大石なら真偽を確かめてくれるに違いない怪情報やデマを仕入れてきては伝えた。",
+		   NULL, "Я даже, бывало, сверялась с ним насчёт каких-либо сомнительных сведений.", Line_Normal);
+	ClearMessage();
+	PlaySE( 0, "s_page", 128, 64 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　いつしか、そんな会合もだんだん、大石の新しい仕事に圧迫されるようになって。",
+		   NULL, "В конце концов из-за новых дел Ооиси встречаться мы стали всё реже и реже.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　……何かあったらいつでもお電話ください、と言う風になって、潰えた。",
+		   NULL, "......А потом и вовсе условились, чтоб я звонила, если что.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　大石が調べなくなり、私の調べに限界が来し。",
+		   NULL, "Ооиси забросил расследование, а я уже и не знала, где ещё можно что-то узнать.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　……悟史くんの失踪は『鬼隠し』という超常現象によるもの…",
+		   NULL, "......Вздорным сплетням о сверхъестественном, о том, что Сатоши-куна «унесли демоны»,", Line_ContinueAfterTyping);
+	SetValidityOfInput( FALSE );
+	Wait( 1000 );
+	SetValidityOfInput( TRUE );
+	OutputLine(NULL, "という、とんでもない意見がまかり通るようになってくる。",
+		   NULL, " противопоставить не получалось ничего.", Line_Normal);
+	ClearMessage();
+	PlaySE( 0, "s_page", 128, 64 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　雛見沢では、悟史くんの失踪は「転校」と称され、口にすることがはばかられるようになっていた。",
+		   NULL, "В Хинамидзаве исчезновение Сатоши-куна обозначали словом «перевёлся», и говорили о нём неохотно.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　…「転校」",
+		   NULL, "...Не смейте... стирать Сатоши-куна из людской памяти...", Line_ContinueAfterTyping);
+	SetValidityOfInput( FALSE );
+	Wait( 1000 );
+	SetValidityOfInput( TRUE );
+	OutputLine(NULL, "なんて言う言葉で、…悟史くんを消してしまうな…。",
+		   NULL, " этим своим «перевёлся»...", Line_Normal);
+	ClearMessage();
+	Wait( 1000 );
+	DrawScene( "black", 1000 );
+}

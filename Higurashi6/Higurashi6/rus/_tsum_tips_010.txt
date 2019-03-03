@@ -1,0 +1,197 @@
+void main()
+{
+	EnableJumpingOfReturnIcon();
+
+	FadeOutBGM( 0, 0, FALSE );
+	FadeOutBGM( 1, 0, FALSE );
+	FadeOutBGM( 2, 0, FALSE );
+	FadeOutBGM( 3, 0, TRUE );
+
+	DrawSceneWithMask( "background/sinryou_sinsatu4", "maskleft", 1, 0, 300 );
+
+	PlayBGM( 0, "sheep counts", 120, 0);
+
+	ClearMessage();
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　「文化依存症候群」の危険性は、「解釈妄想病」を誘発しやすい点にあります。",
+		   NULL, "Опасность «культурно-определяемого синдрома» кроется в его свойстве легко вызывать нарушения логического восприятия.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　つまりこの度のケースでは、患者は瑣末な何かを見る度に、それを「祟り」であると解釈しようとします。",
+		   NULL, "В нашем случае больная склонна истолковывать самые обыкновенные события действием «проклятия».", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　そしてそれらが了解可能な形で累積した結果、妄想体系を作り上げ、パラノイアに至ると思われます。",
+		   NULL, "Вероятно, что совокупность некоторого числа таких событий в доступной для понимания форме породила системный бред, приведший к паранойе.", Line_Normal);
+	ClearMessage();
+
+	PlaySE( 0, "s_page", 128, 64 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　また、患者にはわずかですが人格性精神障害の傾向も見られます。",
+		   NULL, "Кроме того, у больной наблюдаются незначительные признаки расстройства личности.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　もちろんこれは極めて軽微なレベルであり一般的な生活に何の支障もありません。",
+		   NULL, "Разумеется, они настолько незначительны, что никак не мешают привычной жизни больной.", Line_Normal);
+	ClearMessage();
+
+	PlaySE( 0, "s_page", 128, 64 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　健常な人間であっても、日常生活において一次妄想（真性妄想）をすることは少なくありません。",
+		   NULL, "Даже у здоровых людей нередок первичный (внутренний) бред.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　ただしその内容が支離滅裂であるため、当人にも了解できず自然と無視されるのが普通です。",
+		   NULL, "Впрочем, ввиду его бессвязности даже сам бредящий в основном не обращает на него внимания.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　ところが、了解不能にもかかわらず累積していくケースが存在します。",
+		   NULL, "Однако есть случаи, когда бредовые переживания, пускай и не сознаваемые, накладываются друг на друга.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　これは素質によるものが大きいとされ、患者は比較的この素質が大きいと思われます。",
+		   NULL, "В основном это зависит от личностных качеств, и я полагаю, что данные качества достаточно ярко выражены у больной.", Line_Normal);
+	ClearMessage();
+
+	PlaySE( 0, "s_page", 128, 64 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　さて、一次妄想は３つのケースに分類されることは黒田先生に置かれましてもご存知のことと思います。",
+		   NULL, "Полагаю, вам, Курода-сэнсэй, известно, что первичный бред подразделяется на три формы.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　「妄想気分」は根拠なき危機感の切迫を感じ、",
+		   NULL, "«Бредовое настроение» — когда больной ощущает безосновательную тревогу;", Line_WaitForInput);
+	OutputLine(NULL, "「妄想着想」は根拠なき使命感や目的を感じ、",
+		   NULL, " «бредовые идеи» — когда больной безосновательно мнит себя исполнителем некой великой задачи;", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「妄想知覚」は根拠なき現象に対し根拠なき理由を感じるとされています。",
+		   NULL, " наконец, «бредовое восприятие» — когда больной безосновательно ищет и находит безосновательные объяснения отдельным явлениям.", Line_Normal);
+	ClearMessage();
+
+	PlaySE( 0, "s_page", 128, 64 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　患者のケースでは、これら了解不能な妄想が累積し、",
+		   NULL, "Предполагаю, что в данном случае совокупность бессвязных бредовых переживаний", Line_ContinueAfterTyping);
+	OutputLine(NULL, "「文化依存症候群」と併発することで「解釈妄想病」を誘発し、",
+		   NULL, " наложилась на культурную природу синдрома и тем самым вызвала нарушение логического восприятия,", GetGlobalFlag(GLinemodeSp));
+
+	if (GetGlobalFlag(GADVMode) == 0) { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "了解不能な妄想を「祟り」と解釈することで了解可能としたと思われます。",
+		   NULL, " вследствие чего больная объясняет непонятный ей бред «проклятием».", Line_Normal);
+	ClearMessage();
+
+	PlaySE( 0, "s_page", 128, 64 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　了解可能な妄想体系は了解可能な二次妄想（妄想様観念）を誘発し、自らの妄想体系を時間と共にますます強固にしていきます。",
+		   NULL, "Объяснимая бредовая система влечёт за собой объяснимый вторичный бред (параноидные идеи), укрепляясь в мозгу пациента с течением времени.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　（この二次妄想の中に、先の「寄生虫妄想症」も含まれると考えられます）",
+		   NULL, "(Полагаю, вышеупомянутый «бредовый паразитоз» можно отнести ко вторичному бреду.)", Line_Normal);
+	ClearMessage();
+
+	PlaySE( 0, "s_page", 128, 64 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　パラノイアの患者に共通することは、発症後も人格の変化はなく、一見して極めて正常である点です。",
+		   NULL, "Общая черта больных паранойей — то, что и после приступа они выглядят и ведут себя внешне совершенно нормально.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　本人にも罹患の自覚はなく、また妄想体系を本人なりの解釈により了解しているため、",
+		   NULL, "Больными они себя не сознают и, вследствие выстраивания ими бредовых систем,", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "高度な理論武装をしているケースが少なくなく、第３者がそれを妄想であると指摘することは極めて困難です。",
+		   NULL, " зачастую подводят под свои заблуждения прочную логическую основу, в результате чего постороннему становится практически невозможно доказать бредовость их измышлений.", Line_Normal);
+	ClearMessage();
+
+	PlaySE( 0, "s_page", 128, 64 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	if (GetGlobalFlag(GADVMode)) { OutputLine(NULL, "", NULL, "<size=-2>", Line_Continue); }
+	OutputLine(NULL, "　また、妄想の傾向にもよりますが、「被害妄想」から「追跡妄想」「陰謀妄想」に転じることもあり、結果、架空の敵を作り上げ反社会的な行為に踏み切ることもあります。",
+		   NULL, "<size=-2>Кроме того, хотя это во многом зависит от сущности бреда, бывают случаи, когда паранойя перерастает в «манию преследования», «манию заговора» и больной придумывает себе образ врага, что приводит к антиобщественным деяниям.", GetGlobalFlag(GLinemodeSp));
+	OutputLine(NULL, "　また、妄想の傾向にもよりますが、「被害妄想」から「追跡妄想」「陰謀妄想」に転じることもあり、結果、架空の敵を作り上げ反社会的な行為に踏み切ることもあります。",
+		   NULL, "Кроме того, хотя это во многом зависит от сущности бреда, бывают случаи, когда паранойя перерастает в «манию преследования», «манию заговора» и больной придумывает себе образ врага, что приводит к антиобщественным деяниям.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	if (GetGlobalFlag(GADVMode)) { OutputLine(NULL, "", NULL, "<size=-2>", Line_Continue); }
+	OutputLine(NULL, "（例えば、カルト教壇の教祖のパラノイアに集団感応した信者たちが、",
+		   NULL, "<size=-2>(К примеру, члены некой секты, перенявшие от своего учителя паранойю, решили, что им грозит некий «заговор», и начали совершать противозаконные действия во имя самообороны.", GetGlobalFlag(GLinemodeSp));
+	OutputLine(NULL, "（例えば、カルト教壇の教祖のパラノイアに集団感応した信者たちが、",
+		   NULL, "(К примеру, члены некой секты, перенявшие от своего учителя паранойю, решили, что им грозит некий «заговор», и начали совершать противозаконные действия во имя самообороны.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "集団で「陰謀妄想」に転じ、自衛と称して反社会的な行為に踏み切ることは、まだ日本では報告例がありませんが、近い将来にありえるかもしれません）",
+		   NULL, " Хотя в Японии о подобных случаях пока не слышали, в ближайшем будущем они вполне могут возникнуть.)", Line_Normal);
+	ClearMessage();
+
+	PlaySE( 0, "s_page", 128, 64 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　幸い、現在の患者はここまで重度には至っていません。",
+		   NULL, "По счастью, состояние девочки не настолько серьёзно.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　適切な治療を受けることで、容易に社会復帰を果たせるでしょう。",
+		   NULL, "При должном лечении ей не составит труда прийти в норму.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　父親にも、これが極めて異常なケースではなく、",
+		   NULL, "Прошу добиться от отца девочки чёткого понимания, что её случай не представляет собой что-то сверхъестественное,", Line_WaitForInput);
+	OutputLine(NULL, "いくつかのささやかな要因の積み重なった、人間誰しも起こり得るケースであることをよく理解させてください。",
+		   NULL, " но является следствием совокупности различных мелких факторов, и что такое могло произойти с кем угодно.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　父親との絆を深めることでしか治療できず、また父親の絆があれば必ず治療できるのです。",
+		   NULL, "Только укрепление связи с отцом способно вылечить девочку. И, пока эта связь не разорвана, надежда на полное исцеление есть.", Line_Normal);
+	ClearMessage();
+
+	PlaySE( 0, "s_page", 128, 64 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　以上の理由から、郷里へ帰郷されるならば、その後も専門の医療機関で継続的な指導を受けられることを強く勧めていただきたいと思います。",
+		   NULL, "По вышеуказанным причинам настоятельно советую продолжать врачебное наблюдение над пациенткой и в том случае, если семья вернётся в родные места.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　長文を大変申し訳ございませんでした。",
+		   NULL, "Премного прошу прощения за столь длинное письмо.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　最後までお読みいただきましたことを感謝いたします。",
+		   NULL, "Спасибо, что прочитали его до конца.", Line_Normal);
+	ClearMessage();
+
+	Wait( 1000 );
+	DrawScene( "black", 1000 );
+}

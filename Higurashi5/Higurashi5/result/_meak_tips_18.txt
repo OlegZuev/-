@@ -1,0 +1,141 @@
+void main()
+{
+	EnableJumpingOfReturnIcon();
+	FadeOutBGM( 0, 0, FALSE );
+	FadeOutBGM( 1, 0, FALSE );
+	FadeOutBGM( 2, 0, FALSE );
+	FadeOutBGM( 3, 0, FALSE );
+	ClearMessage();
+
+	PlayBGM( 0, "Nazo", 120, 0 );
+	DrawSceneWithMask("background/jy1", "maskup", 1, 0, 1300 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　その後、私は公由村長の行方を捜す青年団に合流した。",
+		   NULL, "После того я присоединилась к молодёжной бригаде в поисках Кимиёси.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　町会の連絡網にそって、訪ねていないか電話し、回覧板区分ごとに手分けして捜した。",
+		   NULL, "Мы обзвонили дома по списку, не гостит ли он где, и, разделившись, обыскали окрестности.", Line_Normal);
+	ClearMessage();
+	DrawSceneWithMask("black", "maskright", 1, 0, 300 );
+	DrawSceneWithMask("background/m_y7", "maskright", 1, 0, 300 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　誰もが、いくら捜しても見つからないだろうと、薄々気付いているようだった。",
+		   NULL, "Кажется, все отчасти понимали, что его не найдут.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　だが、薄々どころか、絶対見つからないと知っている私にはとにかく辛いものだった。",
+		   NULL, "Но так как я знала наверняка, мне было до ужаса скучно.", Line_Normal);
+	ClearMessage();
+	DrawSceneWithMask("black", "maskright", 1, 0, 300 );
+	DrawSceneWithMask("background/m_y1", "maskright", 1, 0, 300 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　午前０時を回っても、まだあそこは見てない、一応あそこも行ってみようと皆、精力的だ。",
+		   NULL, "Даже после полуночи рвение остальных не ослабевало.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　私は大あくびをしながら耐えるしかなかった。",
+		   NULL, "Мне приходилось бросать все усилия на борьбу с зевотой.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　その内、誰かが噂した。",
+		   NULL, "А потом я услышала, как кто-то шепчется.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　去年、……北条悟史くんがいなくなった時も、こんな風に青年団で捜したな、と。",
+		   NULL, "«Помнишь...... в том году мы так же искали Ходзё Сатоши-куна».", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　…青年団での捜索なんて、今年が茶番であるように、",
+		   NULL, "...И в этом году... молодёжная бригада зря тратит время", Line_ContinueAfterTyping);
+	SetValidityOfInput( FALSE );
+	Wait( 700 );
+	SetValidityOfInput( TRUE );
+	OutputLine(NULL, "…去年だって茶番。",
+		   NULL, " на тщетные поиски.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　私が、絶対に見つかることのない公由を知っていて、こうして欠伸交じりにせせら笑っているように。",
+		   NULL, "Я, точно знавшая, что его не найдут, зевала с тайной насмешкой.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　去年の何者かも、絶対に見つかることのない悟史くんを知っていて、私のように欠伸交じりにせせら笑っていたのだ。",
+		   NULL, "Может, и в прошлом году кто-то так же зевал, усмехаясь в душе, знаючи, что Сатоши-куна ни за что не найдут.", Line_Normal);
+	ClearMessage();
+	DrawSceneWithMask("background/m_y4", "maskleft", 1, 0, 300 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#f5e6d3>村人</color>", NULL, "<color=#f5e6d3>Селянин</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 0, "ps3/s20/00/villa44001", 128, TRUE);
+	OutputLine(NULL, "「……去年の捜索って、何時に終わりにしましたっけ？」",
+		   NULL, "\"......Вы помните, во сколько бросили поиски в прошлом году?\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#f5e6d3>村人</color>", NULL, "<color=#f5e6d3>Селянин</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 0, "ps3/s20/00/villb44001", 128, TRUE);
+	OutputLine(NULL, "「ん？",
+		   NULL, "\"Хм?", Line_WaitForInput);
+	OutputLine(NULL, "　北条んとこの悟史ん時かい？",
+		   NULL, " Когда искали Ходзё этого, Сатоши?", Line_WaitForInput);
+	ModPlayVoiceLS(4, 0, "ps3/s20/00/villb44002", 128, TRUE);
+	OutputLine(NULL, "　ありゃあ何時だったっけ？」",
+		   NULL, " Э-э, а во сколько?\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#f5e6d3>長老</color>", NULL, "<color=#f5e6d3>Старейшина</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 0, "ps3/s20/00/elda44001", 128, TRUE);
+	OutputLine(NULL, "「午前の０時過ぎくらいには解散したような気がするなぁ。」",
+		   NULL, "\"По-моему, разошлись где-то в полночь.\"", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　時計は、もう午前の２時を回ろうとしていた。",
+		   NULL, "А на часах стрелка вот-вот уже два часа перейдёт.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　公由を捜すためにはこれだけの時間を割くのに、…悟史くんにはまったく割かない。",
+		   NULL, "Далеко за полночь, а они до сих пор ищут Кимиёси, чего не скажешь о поисках Сатоши-куна.", Line_Normal);
+	ClearMessage();
+	PlayBGM( 1, "yabaisemi", 120, 0 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　そう、絶対見つからないと知っているやつらが、居たからだ。",
+		   NULL, "Правильно, ведь среди них были те, кто знал, что его не найдут.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　そいつらはきっと眠かった。",
+		   NULL, "Им сон застилал глаза.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　だからもう諦めて警察に任せよう、なんて言い出したに違いないのだ。",
+		   NULL, "Небось они первые и предложили, чтоб поисками занималась полиция.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　くそ…くそ…、その言ったやつを殺してやりたい……。",
+		   NULL, "Гады... гады... убить их мало......", Line_Normal);
+	ClearMessage();
+	Wait( 1000 );
+	DrawScene("black", 1000 );
+}
+

@@ -123,7 +123,7 @@ void writeInFileConvertedVoiceMatching(ifstream& finThree, ifstream& finTwo, ofs
     if (!foutThree.is_open()) {
         foutThree.open("./temp/" + filename.substr(0, filename.length() - 4) + endOne);
         string str;
-        for (int k = 0; k < 4; ++k) {
+        for (int k = 0; k < 5; ++k) {
             getline(finThree, str);
             foutThree << str << endl;
         }
@@ -147,7 +147,7 @@ void formatFileHina(const string& filename, const string& end)
     ifstream fin("./temp/" + filename.substr(0, filename.length() - 4) + end);
     ofstream fout("./result/" + filename.substr(0, filename.length() - 4) + end);
     string buff;
-    for (int i = 0; i < 4; ++i) {
+    for (int i = 0; i < 5; ++i) {
         getline(fin, buff);
         fout << buff << endl;
     }

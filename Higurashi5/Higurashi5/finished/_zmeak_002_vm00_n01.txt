@@ -1,0 +1,46 @@
+void main()
+{
+}
+
+void dialog000()
+{
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>魅音</color>", NULL, "<color=#5ec69a>Мион</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 3, "ps3/s06/03/150300002", 128, TRUE);
+	OutputLine(NULL, "「そ、",
+		   NULL, "\"Э...", Line_Continue);
+	// (backup) SetValidityOfInput( FALSE );
+	Wait( 1000 );
+	// (backup) SetValidityOfInput( TRUE );
+	OutputLine(NULL, "………その声は！！",
+		   NULL, "... это же!!", Line_WaitForInput);
+	ModPlayVoiceLS(4, 3, "ps3/s06/03/150300003", 128, TRUE);
+	OutputLine(NULL, "　でもそんなはずは…！",
+		   NULL, " Но как!..", Line_WaitForInput);
+	ModPlayVoiceLS(4, 3, "ps3/s06/03/150300004", 128, TRUE);
+	OutputLine(NULL, "　詩音は聖ルチーア学園に幽閉されてるはず…！！",
+		   NULL, " Шион же сейчас томится в школе святой Люсии!!...", Line_WaitForInput);
+	ModPlayVoiceLS(4, 3, "ps3/s06/03/150300005", 128, TRUE);
+	OutputLine(NULL, "　そんなはずはない……！」",
+		   NULL, " Как так!.....\"", Line_Normal);
+	ClearMessage();
+}
+
+void dialog001()
+{
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>詩音</color>", NULL, "<color=#5ec69a>Шион</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 6, "ps3/s06/06/150600198_1", 128, TRUE);
+	OutputLine(NULL, "「叔父さん、私の体のラインが未だ幼児体型に見えるってんなら、",
+		   NULL, "\"Э, дядюшка, если вам моя фигура кажется детской,", Line_Continue);
+	// (backup) SetValidityOfInput( FALSE );
+	Wait( 3000 );
+	// (backup) SetValidityOfInput( TRUE );
+	OutputLine(NULL, "目医者行くか、",
+		   NULL, " вам либо к глазному сходить пора,", Line_Continue);
+	// (backup) SetValidityOfInput( FALSE );
+	Wait( 800 );
+	// (backup) SetValidityOfInput( TRUE );
+	OutputLine(NULL, "ロリコンって呼ばれたいかのどちらかを選んでもらうことになるんですけど。」",
+		   NULL, " либо здорово хочется прослыть любителем малолеток.\"", Line_Normal);
+	ClearMessage();
+}
+

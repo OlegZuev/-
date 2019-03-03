@@ -1,0 +1,87 @@
+void main()
+{
+
+	EnableJumpingOfReturnIcon();
+
+	FadeOutBGM( 0, 0, FALSE );
+	FadeOutBGM( 1, 0, FALSE );
+	FadeOutBGM( 2, 0, FALSE );
+	FadeOutBGM( 3, 0, TRUE );
+
+	Wait( 100 );
+
+	DrawSceneWithMask( "background/sora", "maskleft", 1, 0, 300 );
+
+	PlayBGM( 0, "semi", 120, 0 );
+
+	ClearMessage();
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　６月なのに、早くもセミの声が聞こえる今日この頃、雛見沢の皆さんはいかがお過ごしでしょうか。",
+		   NULL, "Ещё всего-то июнь, а цикады уж вовсю заливаются. Как поживают хинамидзавцы?", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　今年も綿流しのお祭りが近付いてまいりました。",
+		   NULL, "До очередного Ватанагаси рукой подать.", Line_Normal);
+	ClearMessage();
+	PlaySE( 0, "s_page", 128, 64 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　昨年、大変ご好評をいただきました雛見沢営林署職員による木彫りマスコットの実演販売も行なわれます。",
+		   NULL, "В этом году Хинамидзавское лесное хозяйство вновь устраивает выставку деревянных скульптур, высоко оценённую селянами в прошлом году.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　保護者の同伴があればお子様にも道具をお貸しできますので、どうか親子の素敵な記念にされてはいかがでしょうか。",
+		   NULL, "При условии присмотра со стороны взрослых мы с удовольствием выдадим детям инструменты и научим, как ими пользоваться. Фигурка, вырезанная вашим ребёнком, — ну разве не отличный подарок на память?", Line_Normal);
+	ClearMessage();
+
+	PlaySE( 0, "s_page", 128, 64 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　さて、××第４次森林施業計画に基づき、本年夏季に山林の伐採を行なうことになりました。",
+		   NULL, "Помимо того сообщаем, что в этом году решено спилить деревья на некоторых горах вокруг деревни в соответствии с XX этапом 4-й Программы развития лесного хозяйства.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　この伐採は、老齢木や枯木を伐採することにより山林の美観を守り、新たに植樹を行なうことで山林の若返りを目的とするものです。",
+		   NULL, "Спиливание деревьев ставит целью поддержание красоты леса посредством удаления и корчевания сухостоя, после которого в целях омоложения лесного массива следует посадка молодых деревьев.", Line_Normal);
+	ClearMessage();
+
+	PlaySE( 0, "s_page", 128, 64 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　営林署では、この伐採作業に参加するボランティアを募集しております。",
+		   NULL, "Лесничеству требуются добровольцы, желающие помочь в данном занятии.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　青空の下での林業体験を通じて、自然の素晴らしさを満喫される貴重な経験をされてはいかがでしょうか。",
+		   NULL, "Предлагаем всем желающим совместить приятное с полезным и познакомиться с красотами природы, участвуя в работах, направленных на её сохранение.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　時期はちょうど夏休みを挟み、お子様との親子での参加も可能です。",
+		   NULL, "Учитывая, что работы начнутся в период летних каникул, допускается брать с собой и детей.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　夏の野山での貴重なボランティア体験を通じて、お子様の健全な育成に貢献できればと思います。",
+		   NULL, "Полагаем, добровольный труд в горах благотворно повлияет на развитие ваших отпрысков — как физическое, так и нравственное.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	FadeOutBGM( 0, 0, FALSE );
+	FadeOutBGM( 2, 0, FALSE );
+	DrawBustshot( 19, "transparent", 0, 100, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 10, 0, TRUE );
+	PlaySE( 0, "s_suzu", 128, 64 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　なお、伐採予定地は高津戸地区、谷河内地区の山林になります。",
+		   NULL, "Работы запланированы в лесах окрестностей Такацудо и Яготи.", Line_Normal);
+	ClearMessage();
+	Wait( 1000 );
+	DrawScene( "black", 1000 );
+}
+

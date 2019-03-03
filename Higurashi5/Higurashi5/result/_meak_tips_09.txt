@@ -1,0 +1,75 @@
+void main()
+{
+	EnableJumpingOfReturnIcon();
+	FadeOutBGM( 0, 0, FALSE );
+	FadeOutBGM( 1, 0, FALSE );
+	FadeOutBGM( 2, 0, FALSE );
+	FadeOutBGM( 3, 0, FALSE );
+	ClearMessage();
+
+	PlayBGM( 0, "Nazo", 120, 0 );
+	DrawScene("background/nort", 1000 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　大石の言う、沙都子の面倒を見るからと園崎家が言い含め、悟史くんを雛見沢から放逐した……というのは、",
+		   NULL, "Поначалу высказывание Ооиси о том, что Сонодзаки, пообещав заботиться о Сатоко, прогнали Сатоши-куна из Хинамидзавы...", Line_WaitForInput);
+	OutputLine(NULL, "最初、こじつけた話だなと思って聞いていた。",
+		   NULL, " показалось мне притянутым за уши.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　だが、後になって考え直して見ると、それは私が馬鹿にするほどズレた話でもない。",
+		   NULL, "Но теперь, в свете открывшихся обстоятельств, начинаешь относиться к нему серьёзно.", Line_Normal);
+	ClearMessage();
+	DrawScene("black", 400 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　だって、北条沙都子は、ひとりになったあと、古手梨花と生活を共にしているのだ。",
+		   NULL, "Ведь Ходзё Сатоко теперь живёт с Фурудэ Рикой.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　古手梨花はただの小娘じゃない。",
+		   NULL, "Фурудэ Рика — не просто какая-то малышка.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　御三家の一角、古手家の頭首でもあるのだ。",
+		   NULL, "Она глава одной из трёх опор госанке, рода Фурудэ.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　その古手梨花は、公由家頭首が保護者になっている。",
+		   NULL, "И её опекает сам глава рода Кимиёси.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　さすがに北条家と対立してきた園崎家は表に出ることはできなかったんだろうが、",
+		   NULL, "Видно, семья Сонодзаки не могла сама за неё вступиться — всё-таки с Ходзё они враждовали,", Line_WaitForInput);
+	OutputLine(NULL, "事実上、北条沙都子は御三家の保護下に入っていた。",
+		   NULL, " — но Три великих семьи взяли Ходзё Сатоко под свою защиту.", Line_Normal);
+	ClearMessage();
+	DrawScene("background/nort", 400 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　ダム戦争中、鬼ヶ淵死守同盟からあれほどまでに攻撃をされた北条家の生き残りが、御三家に保護されているなんて。",
+		   NULL, "Госанке не позволили сгинуть роду, на который из-за дамбовой войны обрушилось столько гонений.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　それはまるで北条家の罪から、沙都子だけが許されたような、そんな感じ。",
+		   NULL, "Как будто одной Сатоко простили вину рода Ходзё.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　どうして悟史くんは許してもらえなかったのに、沙都子だけ？",
+		   NULL, "Почему одну только Сатоко помиловали, но не Сатоши-куна?", Line_Normal);
+	ClearMessage();
+	Wait( 1000 );
+	DrawScene("black", 1000 );
+}
+

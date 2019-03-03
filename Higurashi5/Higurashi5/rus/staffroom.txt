@@ -1,0 +1,309 @@
+void main()
+{
+	//SetStyleOfMessageWindow( 1, 0 );
+	//SetFontOfMessage( 2, 24, 1 );
+	//SetValidityOfSaving( TRUE );
+	//SetValidityOfLoading( TRUE );
+	//SetValidityOfInput( TRUE );
+	//SetValidityOfSkipping( TRUE );
+	//ActivateScreenEffectForcedly( TRUE );
+
+	FadeOutBGM( 0, 0, FALSE );
+	FadeOutBGM( 1, 0, FALSE );
+	FadeOutBGM( 2, 0, FALSE );
+	FadeOutBGM( 3, 0, FALSE );
+	ClearMessage();
+
+	DrawScene( "black", 1000 );
+	SetSpeedOfMessage( FALSE, 0 );
+	DrawScene( "ke_shiryou1_02", 1000 );
+	PlayBGM( 0, "Iru", 120, 0 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　皆さんは人殺しが、動機によっては許されるなんて、思いますか？",
+		   NULL, "Как по-вашему, способен ли повод оправдать убийство?", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　こんにちは、竜騎士07です。",
+		   NULL, "Здравствуйте, с вами говорит Рюкиси07.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　この度は『ひぐらしのなく頃に解』目明し編をお楽しみいただき、誠にありがとうございます。",
+		   NULL, "Позвольте выразить глубокую признательность за прочтение Главы о Раскрытии Тайны в игре «Когда плачут цикады: Ответы».", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　人の死を多く描く『ひぐらし』ですが、描きながら自問することがあります。",
+		   NULL, "Хотя в «Цикадах» я часто показываю людскую смерть, я, бывает, задаюсь вопросом.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　それは、許される殺人はありえるのか、ということです。",
+		   NULL, "А вопрос этот — бывает ли убийство оправданным?", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　私たちの世の中では、殺人は裁かれ、その動機や事情によって罪の軽重が変わります。",
+		   NULL, "В нашем мире убийц судят, и тяжесть наказания зависит от повода и обстоятельств убийства.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　命の対価が罪の重さなら、それは私たちが命の価値に個人差を認めていることになります。",
+		   NULL, "Раз тяжесть преступления означает ценность жизни, значит, мы оцениваем чужие жизни по-разному.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　『ひぐらし』の世界には、殺人を肯定するシーンが描かれる時があります。",
+		   NULL, "В мире «Цикад» некоторые события как бы оправдывают убийцу.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　そこでは、殺される人間の命の価値が薄められることにより、プレイヤーの皆さんの「同意」を得やすくされています。",
+		   NULL, "Чем менее приятна жертва, чем меньше вес её жизни в глазах игроков, тем легче им сопереживать убийце, «согласиться» с ним.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　同意は人によって異なります。",
+		   NULL, "Разные люди соглашаются в разной степени.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　同意した方は一体感とカタルシスを感じ、同意できなかった方は狂気と不快感を感じたと思います。",
+		   NULL, "Те, кто сопереживает убийце, должно быть, торжествовали, чувствовали родство с ним; остальные же, думаю, ощутили неловкость и овладевшее убийцей безумие.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "「祟殺し編」における圭一の評価の二極化が、これを如実に物語るかと思います。",
+		   NULL, "Это ярко показывают разделившиеся мнения о том, как вёл себя Кейти во «Главе о Смертоносном Проклятии».", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　今回の「目明し編」でも、多くの殺人が描かれています。",
+		   NULL, "В новой Главе, «О Раскрытии Тайны», также немало убийств.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　今回の主人公、詩音は個々の殺人に、自分の同意を得ようとしていました。",
+		   NULL, "Нынешняя героиня, Шион, пытается оправдать в собственных глазах каждое из совершённых ею.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　皆さんはどうでしたか？",
+		   NULL, "Что вы ощутили?", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　どこまで同意が出来ましたか？",
+		   NULL, "Насколько вы с ней согласны?", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　ひとつも同意できなかった方は、どうか詩音を殺人鬼と罵ってください。",
+		   NULL, "Если нисколько — то прошу свободно звать её маньячкой-убийцей.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　いくつか同意できた方は、どうか詩音を哀れんでください。",
+		   NULL, "Если же до некоторой степени — прошу ей посочувствовать.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　ほとんど同意できた方も、どうか詩音を哀れんでください。",
+		   NULL, "Если же почти полностью — тоже прошу ей сочувствовать.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　全部、同意できた方は、詩音と一緒に殺人鬼と罵られてください（笑）",
+		   NULL, "Если же вы во всём с ней согласны — прошу считать себя таким же безумным убийцей, как Шион (шучу).", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　竜騎士07はですか？",
+		   NULL, "А что же я, Рюкиси07?", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　………さて、それは内緒。",
+		   NULL, ".........Ну, этого не скажу.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　ところで質問の仕方を逆にしますが、",
+		   NULL, "Давайте-ка переиначим вопрос...", Line_WaitForInput);
+	OutputLine(NULL, "…あなたは殺されるならどんな犯人になら納得できますか？",
+		   NULL, " С каким убийцей вы согласились бы, будь жертвой убийства вы?", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　人の命など何とも思わない快楽犯？",
+		   NULL, "С тем, кто получает от убийств лишь удовольствие и ни во что не ставит людскую жизнь?", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　これは悔しいですよね。",
+		   NULL, "Наверное, вышло бы грустно.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　自分の価値を否定されて殺されるのはとても悲しい。",
+		   NULL, "Очень это грустно, когда тебя убивают вопреки твоим ценностям.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　泣きながら許しを乞う悲劇の犯人？",
+		   NULL, "С убийцей, который со слезами на глазах просит у вас прощения?", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　これも悔しいですよね。",
+		   NULL, "Тоже, думаю, неприятно.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　許しを乞うくらいなら殺したりするな（笑）",
+		   NULL, "Раз просишь прощения, так убивать-то зачем? (Ха-ха.)", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　じゃあ、どんな犯人になら、殺されても納得できますか…？",
+		   NULL, "Ну так с каким убийцей вы согласились бы, убей он вас?..", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　結局、「同意」なんて、その殺人劇を、楽しめるか否かでしかないのかも。",
+		   NULL, "В итоге это «согласие» служит лишь для того, чтоб читать про убийцу было нескучно.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　同意できれば、楽しい。",
+		   NULL, "Коль есть согласие, то и скуки нет.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　同意できなければ、狂ってる。",
+		   NULL, "Без согласия — просто безумие.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　命に元々重さなんてないんです。",
+		   NULL, "Людскую жизнь нельзя оценивать.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　それを測ろうとするのがヒトの罪。",
+		   NULL, "Попытка её оценить — наш, людской, грех.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　殺人は殺人。",
+		   NULL, "Убийство есть убийство.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　それ以上でも以下でもない。",
+		   NULL, "Оно всегда одинаково.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　だから、みんなで仲良く暮らしていけたらいいな、と。",
+		   NULL, "И пускай все живут в мире друг с другом.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　いかがですか？",
+		   NULL, "Как вам такое?", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　あなたはこの話に、同意できますか？",
+		   NULL, "Согласны ли?", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　できなかったなら、",
+		   NULL, "Если нет", Line_ContinueAfterTyping);
+	SetValidityOfInput( FALSE );
+	Wait( 800 );
+	SetValidityOfInput( TRUE );
+	OutputLine(NULL, "………くすくすくすくす。",
+		   NULL, "......... хи-хи-хи-хи.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　この度は『ひぐらしのなく頃に』、「目明し編」をお楽しみくださり、誠にありがとうございました。",
+		   NULL, "Итак, позвольте выразить глубокую признательность за прочтение «Главы о Раскрытии Тайны» из цикла «Когда плачут цикады».", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　皆さんの応援のお陰で、無事に第５話をお届けすることができました。",
+		   NULL, "Благодаря вашей поддержке в свет вышла пятая часть цикла.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　物語はいよいよ結末に向け加速して参ります。",
+		   NULL, "Чем ближе к концу, тем напряжённее и жарче будет повествование.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　どうか今後ともお付き合いいただければこれほど嬉しいことはありません。",
+		   NULL, "Я буду безмерно счастлив, если мы вместе дойдём до конца истории.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　次回シナリオは「罪滅し編」と題しまして、平成１７年夏のコミックマーケット発表を目指しています。",
+		   NULL, "Следующий сценарий называется «Глава об Искуплении». Он вышел в свет на Летнем Комикете 2005-го, а переведён через девять лет и четыре месяца спустя.", Line_WaitForInput);
+	OutputLine(NULL, "　どうか、ちょっぴりでも楽しみにしていただけたら幸いです。",
+		   NULL, "Буду счастлив, если вы горите желанием поскорее прочесть его.", Line_Normal);
+
+
+	ClearMessage();
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　この度は遊んでくださり、本当にありがとうございました。",
+		   NULL, "Итак, позвольте в очередной раз поблагодарить вас от всего сердца за прохождение данной Главы.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　退屈な時間の、ささやかな彩りになりましたら幸いです。",
+		   NULL, "Надеюсь, она хоть немного скрасила ваш досуг.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+	SetSpeedOfMessage( TRUE, 128 );
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　　　　　　　　０７ｔｈ　Ｅｘｐａｎｓｉｏｎ",
+		   NULL, "                               07th Expansion\n", Line_ContinueAfterTyping);
+	SetSpeedOfMessage( FALSE, 0 );
+	SetSpeedOfMessage( TRUE, 128 );
+	OutputLine(NULL, "　　　　　　　　　　　　　　　　　竜騎士07",
+		   NULL, "                                 Рюкиси07", Line_Normal);
+	ClearMessage();
+	SetSpeedOfMessage( FALSE, 0 );
+
+	CallScript( "&eye" );
+	DrawScene( "black", 3000 );
+	SetSpeedOfMessage( FALSE, 0 );
+	FadeOutBGM( 1, 0, FALSE );
+	DrawBustshot( 19, "no_data", 0, 100, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 10, 0, TRUE );
+
+	GetAchievement("HIGURASHI_STORY_EP05_OMAKE");
+}

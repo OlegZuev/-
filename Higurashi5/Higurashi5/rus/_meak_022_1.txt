@@ -1,0 +1,1114 @@
+void main()
+{
+	FadeOutBGM( 0, 0, FALSE );
+	FadeOutBGM( 1, 0, FALSE );
+	FadeOutBGM( 2, 0, FALSE );
+	FadeOutBGM( 3, 0, FALSE );
+	ClearMessage();
+
+	SetValidityOfInput( FALSE );
+	Wait( 2000 );
+	SetValidityOfInput( TRUE );
+	DrawScene( "Moon", 3000 );
+	SetValidityOfInput( FALSE );
+	Wait( 2000 );
+	SetValidityOfInput( TRUE );
+	DrawScene( "black", 400 );
+	SetValidityOfInput( FALSE );
+	Wait( 1000 );
+	SetValidityOfInput( TRUE );
+	PlayBGM( 1, "denwa_m", 120, 0 );
+	SetValidityOfInput( FALSE );
+	Wait( 2000 );
+	SetValidityOfInput( TRUE );
+	FadeOutBGM( 1, 0, FALSE );
+	DrawBustshot( 19, "no_data", 0, 100, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 10, 0, TRUE );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#f5e6d3>圭一の父</color>", NULL, "<color=#f5e6d3>Отец Кейти</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/00/152600001", 128);
+	OutputLine(NULL, "「圭一！",
+		   NULL, "\"Кейти!", Line_WaitForInput);
+	PlayVoice(4, "s06/00/152600002", 128);
+	OutputLine(NULL, "　さっきから呼んでるぞ！",
+		   NULL, " Сколько тебя ещё звать!", Line_WaitForInput);
+	PlayVoice(4, "s06/00/152600003", 128);
+	OutputLine(NULL, "　電話だ。",
+		   NULL, " Тебе звонок.", Line_WaitForInput);
+	PlayVoice(4, "s06/00/152600004", 128);
+	OutputLine(NULL, "……園崎さんから。」",
+		   NULL, " От Сонодзаки-сан......\"", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#956f6e>圭一</color>", NULL, "<color=#956f6e>Кейти</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/01/150100180", 128);
+	OutputLine(NULL, "「そ、園崎さんって……どっち？",
+		   NULL, "\"С-Сонодзаки-сан...... которая?", Line_WaitForInput);
+	PlayVoice(4, "s06/01/150100181", 128);
+	OutputLine(NULL, "　姉？",
+		   NULL, " Младшая?", Line_WaitForInput);
+	PlayVoice(4, "s06/01/150100182", 128);
+	OutputLine(NULL, "　妹…？」",
+		   NULL, " Старшая?..\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#f5e6d3>圭一の父</color>", NULL, "<color=#f5e6d3>Отец Кейти</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/00/152600005", 128);
+	OutputLine(NULL, "「…そんなのは知らん。",
+		   NULL, "\"Не знаю...", Line_WaitForInput);
+	PlayVoice(4, "s06/00/152600006", 128);
+	OutputLine(NULL, "自分で出て聞きなさい。」",
+		   NULL, " Сам спроси.\"", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#956f6e>圭一</color>", NULL, "<color=#956f6e>Кейти</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/01/150100183", 128);
+	OutputLine(NULL, "「………も、",
+		   NULL, "\"......С...", Line_Continue);
+	// (backup) SetValidityOfInput( FALSE );
+	Wait( 800 );
+	// (backup) SetValidityOfInput( TRUE );
+	OutputLine(NULL, "……もしもし。",
+		   NULL, " слушаю......", Line_WaitForInput);
+	PlayVoice(4, "s06/01/150100184", 128);
+	OutputLine(NULL, "……魅音か？",
+		   NULL, " Ты кто, Мион?..", Line_WaitForInput);
+	PlayVoice(4, "s06/01/150100185", 128);
+	OutputLine(NULL, "　…詩音か？」",
+		   NULL, " Или Шион?\"", Line_Normal);
+	ClearMessage();
+	DrawSceneWithMask( "re_tel", "maskup", 1, 0, 1300 );
+	PlayBGM( 0, "Nazo", 120, 0 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>詩音</color>", NULL, "<color=#5ec69a>Шион</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/06/150602163", 128);
+	OutputLine(NULL, "「私です。",
+		   NULL, "\"Да, я.", Line_WaitForInput);
+	PlayVoice(4, "s06/06/150602164", 128);
+	OutputLine(NULL, "…詩音です。",
+		   NULL, " Шион.", Line_WaitForInput);
+	PlayVoice(4, "s06/06/150602165", 128);
+	OutputLine(NULL, "こんばんは。」",
+		   NULL, ".. Вечер добрый.\"", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#956f6e>圭一</color>", NULL, "<color=#956f6e>Кейти</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/01/150100186", 128);
+	OutputLine(NULL, "「詩音！",
+		   NULL, "\"Шион!", Line_WaitForInput);
+	PlayVoice(4, "s06/01/150100187", 128);
+	OutputLine(NULL, "……その、",
+		   NULL, "..... Это", Line_Continue);
+	// (backup) SetValidityOfInput( FALSE );
+	Wait( 600 );
+	// (backup) SetValidityOfInput( TRUE );
+	OutputLine(NULL, "……昨夜は……すまなかった。",
+		   NULL, "...... прости за...... вчерашнее.", Line_WaitForInput);
+	PlayVoice(4, "s06/01/150100188", 128);
+	OutputLine(NULL, "…つい興奮して……。」",
+		   NULL, " Перенервничал...\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　昨日、圭一の愚痴の途中で電話を断ち切ったのが、いい影響を及ぼしているようだった。",
+		   NULL, "Похоже, то, как я вчера не стала слушать его вопли, благотворно повлияло на Кейти.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>詩音</color>", NULL, "<color=#5ec69a>Шион</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/06/150602166", 128);
+	OutputLine(NULL, "「私たちは運命共同体なんです。",
+		   NULL, "\"Мы сейчас товарищи по несчастью.", Line_WaitForInput);
+	PlayVoice(4, "s06/06/150602167", 128);
+	OutputLine(NULL, "互いの無事の確認が、自分たちの安全の唯一の保証なんです。」",
+		   NULL, " Мы можем сберечь себя, только присматривая друг за другом.\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#956f6e>圭一</color>", NULL, "<color=#956f6e>Кейти</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/01/150100189", 128);
+	OutputLine(NULL, "「…あぁ、…それについては同感だ。」",
+		   NULL, "\"Ага... твоя правда...\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>詩音</color>", NULL, "<color=#5ec69a>Шион</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/06/150602168", 128);
+	OutputLine(NULL, "「……だから、私たちは互いの知っている情報を共有する必要があります。",
+		   NULL, "\"......Поэтому мы обязаны делиться друг с другом всем, что нам ведомо.", Line_WaitForInput);
+	PlayVoice(4, "s06/06/150602169", 128);
+	OutputLine(NULL, "……鷹野さんたちみたいな死に方をしないために。」",
+		   NULL, " ......Или закончим как двое других.\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　…ごくり。",
+		   NULL, "«Глыг...»", Line_WaitForInput);
+	OutputLine(NULL, "受話器の向こうで圭一が唾を飲む音が聞こえた気がした。",
+		   NULL, " — кажется, Кейти нервно сглотнул.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>詩音</color>", NULL, "<color=#5ec69a>Шион</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/06/150602170", 128);
+	OutputLine(NULL, "「では……昨日の続きを話します。",
+		   NULL, "\"Итак... я продолжу оттуда, где остановилась вчера.", Line_WaitForInput);
+	PlayVoice(4, "s06/06/150602171", 128);
+	OutputLine(NULL, "……もう怒らないで聞いてくれますよね？」",
+		   NULL, " ......Сможешь выслушать меня без горячки?\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#956f6e>圭一</color>", NULL, "<color=#956f6e>Кейти</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/01/150100190", 128);
+	OutputLine(NULL, "「……あぁ。",
+		   NULL, "\"...Ага......", Line_WaitForInput);
+	PlayVoice(4, "s06/01/150100191", 128);
+	OutputLine(NULL, "…大丈夫だ。」",
+		   NULL, " Смогу.\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　今日の圭一は大人しく私の話に耳を傾けてくれた。",
+		   NULL, "Сегодняшний Кейти тихо меня выслушивал.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　私は昨日の電話と同様に、圭一に、いかに危機的な状況であるかを説明した。",
+		   NULL, "Я вновь объяснила ему опасность.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　悪意ある村の何者かが、鷹野さんたちを襲ったように、自分たちにも襲い掛かるかもしれない、と。",
+		   NULL, "Как некие деревенские злодеи напали на Такано-сан с Томитаке-саном, так они могут напасть и на нас.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　皮肉なのは、注意を喚起している私自身が、村の祟りのシステムに彼を目標として認識させた点なのだが。",
+		   NULL, "Смешило, что я же, призывавшая его не терять бдительности, сделала его мишенью проклятия.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>詩音</color>", NULL, "<color=#5ec69a>Шион</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/06/150602172", 128);
+	OutputLine(NULL, "「……互いに、何か気になることがあったら報告し合いましょう。",
+		   NULL, "\"Будем...... друг другу сообщать, если что-то забеспокоит.", Line_WaitForInput);
+	PlayVoice(4, "s06/06/150602173", 128);
+	OutputLine(NULL, "…互いの持つ小さな断片を合わせていけば、…ひょっとすると、鷹野さんたちを殺した、",
+		   NULL, " Так, кусочек за кусочком... наверное... мы сможем раскрыть убийства той парочки...", Line_Continue);
+	// (backup) SetValidityOfInput( FALSE );
+	Wait( 1000 );
+	// (backup) SetValidityOfInput( TRUE );
+	OutputLine(NULL, "…いえ、今年の事件に限らない。",
+		   NULL, " нет, не только их.", GetGlobalFlag(GLinemodeSp));
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>詩音</color>", NULL, "<color=#5ec69a>Шион</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/06/150602174", 128);
+	OutputLine(NULL, "過去の連続事件を解決するカギが見つかるかもしれません。」",
+		   NULL, " Возможно, мы даже сможем раскрыть все предыдущие звенья цепочки.\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#956f6e>圭一</color>", NULL, "<color=#956f6e>Кейти</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/01/150100192", 128);
+	OutputLine(NULL, "「……ん、……そうだな。",
+		   NULL, "\"......Да...... ты права.", Line_WaitForInput);
+	PlayVoice(4, "s06/01/150100193", 128);
+	OutputLine(NULL, "…確かにそうだ。」",
+		   NULL, " ...Совершенно.\"", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>詩音</color>", NULL, "<color=#5ec69a>Шион</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/06/150602175", 128);
+	OutputLine(NULL, "「……では、まずは言い出した私から行きます。",
+		   NULL, "\"Сама предложила...... поэтому мне начинать.", Line_WaitForInput);
+	PlayVoice(4, "s06/06/150602176", 128);
+	OutputLine(NULL, "…最近、誰かに監視されているような気がします。」",
+		   NULL, " С некоторых пор... такое чувство, что за мной кто-то следит.\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#956f6e>圭一</color>", NULL, "<color=#956f6e>Кейти</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/01/150100194", 128);
+	OutputLine(NULL, "「えぇ…ッ？！？！」",
+		   NULL, "\"Чего-о??!\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　これははったりだった。",
+		   NULL, "Я врала.", Line_WaitForInput);
+	OutputLine(NULL, "こう言うことで、圭一により一層の緊迫感を与えたかっただけだ。",
+		   NULL, " Пускай ещё больше проникнется тем, как всё серьёзно.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>詩音</color>", NULL, "<color=#5ec69a>Шион</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/06/150602177", 128);
+	OutputLine(NULL, "「……と言っても、気のせいかもしれません。",
+		   NULL, "\"......Возможно, впрочем, что воображение пошаливает...", Line_WaitForInput);
+	PlayVoice(4, "s06/06/150602178", 128);
+	OutputLine(NULL, "…でも一応、報告します。",
+		   NULL, " Но сказать всё же надо.", Line_WaitForInput);
+	PlayVoice(4, "s06/06/150602179", 128);
+	OutputLine(NULL, "……今は気のせいだと思っていますけど、…もしも圭ちゃんも同じように、誰かに監視されているように感じるなら……。",
+		   NULL, " ......Это я сейчас говорю — воображение... но коли вдруг и Кей-тяну покажется, что за ним следят......", Line_WaitForInput);
+	PlayVoice(4, "s06/06/150602180", 128);
+	OutputLine(NULL, "……これは気のせいじゃないのかもしれませんから…。」",
+		   NULL, "... тогда дело может быть отнюдь не в нём......\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#956f6e>圭一</color>", NULL, "<color=#956f6e>Кейти</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/01/150100195", 128);
+	OutputLine(NULL, "「そ、…そういうことなら安心しろ。",
+		   NULL, "\"Т... тогда я тебя порадую.", Line_WaitForInput);
+	PlayVoice(4, "s06/01/150100196", 128);
+	OutputLine(NULL, "……少なくとも…俺の方は大丈夫だ。」",
+		   NULL, " Лично я такого чувства не ощущаю...\"", Line_Normal);
+	ClearMessage();
+	DrawScene( "black", 400 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　少なくとも今日一日については、圭一は身辺に何も不審なことは起こらなかった、ということか。",
+		   NULL, "Что ж, по крайней мере сегодня с Кейти ничего не случилось.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　御三家の頭首が消えた今、祟りのシステムはもう崩壊している可能性もある。",
+		   NULL, "Теперь, когда пропали все три главы госанке, возможно, что система проклятия перестала работать.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　…そうだとしたら、圭一が誰にも襲われないのはありえることだ。",
+		   NULL, "В таком случае на Кейти могут и вовсе не напасть.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　だが、圭一を狙う何者かがいるなら、まだシステムの一部が生き残っていることになる。",
+		   NULL, "Но если остался кто-то, кто захочет напасть, значит, часть системы жива.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　それは、私が仇討ちを達成できていないことを示す。",
+		   NULL, "Значит, месть моя ещё не свершилась.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　そう、圭一はリトマス試験紙みたいなものなのだ。",
+		   NULL, "Точно, Кейти — лакмусовая бумажка.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　圭一という餌に敵が食いつくか否かで、私は敵を一掃できたかどうかを知ることができる。",
+		   NULL, "Я узнаю, остались ли ещё враги, по тому, сцапают ли приманку.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　……つくづく使い勝手のいい便利な男だと思った。",
+		   NULL, "......Полезный он человек, и обращаться с ним очень легко.", Line_Normal);
+	ClearMessage();
+	DrawSceneWithMask( "re_tel", "maskdown", 1, 0, 300 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　その後は、圭一の話に合わせる形で、話を進めた。",
+		   NULL, "Я продолжала разговор, подстраиваясь под Кейти.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　魅音の存在を怖がらせ、園崎家を含む御三家への恐怖心を煽った。",
+		   NULL, "Внушила ему, что надо опасаться Мион и как огня бояться Трёх великих родов, особенно Сонодзаки.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　雛見沢という土地が村ぐるみで陰謀に関わる可能性を説明し、オヤシロさまの祟りというシステムの要素のいくつかを説明した。",
+		   NULL, "Разъяснила, что в преступлениях может участвовать вся деревня, и растолковала некоторые части схемы под названием «Проклятие Оясиро-сама».", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　それから、詩音は公由の失踪のことを、よくは知っていないはずという設定を思い出し、それを口にしてみた。",
+		   NULL, "А потом, вспомнив, что Шион не должна много знать об исчезновении Кимиёси, перевела разговор на него.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>詩音</color>", NULL, "<color=#5ec69a>Шион</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/06/150602181", 128);
+	OutputLine(NULL, "「私もついさっき聞いたんですが………、",
+		   NULL, "\"Только что услышала.........", Line_WaitForInput);
+	PlayVoice(4, "s06/06/150602182", 128);
+	OutputLine(NULL, "公由のお爺ちゃんが行方不明になったって…本当ですか？」",
+		   NULL, " Это правда, что... пропал дедушка Кимиёси?\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#956f6e>圭一</color>", NULL, "<color=#956f6e>Кейти</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/01/150100197", 128);
+	OutputLine(NULL, "「村長さんのことか…？",
+		   NULL, "\"Староста, что ли?..", Line_WaitForInput);
+	PlayVoice(4, "s06/01/150100198", 128);
+	OutputLine(NULL, "　…何だ、詩音、",
+		   NULL, " Шион, ты чего...", Line_Continue);
+	// (backup) SetValidityOfInput( FALSE );
+	Wait( 800 );
+	// (backup) SetValidityOfInput( TRUE );
+	OutputLine(NULL, "…聞いてないのか？」",
+		   NULL, " не слыхала?..\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>詩音</color>", NULL, "<color=#5ec69a>Шион</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/06/150602183", 128);
+	OutputLine(NULL, "「何も知らないです！",
+		   NULL, "\"Понятия не имела!", Line_Continue);
+	// (backup) SetValidityOfInput( FALSE );
+	Wait( 600 );
+	// (backup) SetValidityOfInput( TRUE );
+	OutputLine(NULL, "……お父さんが電話でそう話してるのを、また盗み聞いただけですから。」",
+		   NULL, " Я только что подслушала, как папа говорил с кем-то по телефону...\"", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#956f6e>圭一</color>", NULL, "<color=#956f6e>Кейти</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/01/150100199", 128);
+	OutputLine(NULL, "「…あぁ。",
+		   NULL, "\"Ага...", Line_WaitForInput);
+	PlayVoice(4, "s06/01/150100200", 128);
+	OutputLine(NULL, "実はな、…昨夜、会合のあと、家に帰ってこないとかで雛見沢中で大騒ぎになったんだ。",
+		   NULL, " По правде сказать, в Хинамидзаве большущий переполох поднялся, после того как он домой не пришёл прошлой ночью, сходив на собрание.", Line_WaitForInput);
+	PlayVoice(4, "s06/01/150100201", 128);
+	OutputLine(NULL, "村中で捜したみたいだけど、まだ見つかったって話は聞かないな…。",
+		   NULL, " Кажись, его по всей деревне искали, но до сих пор не нашли...", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#956f6e>圭一</color>", NULL, "<color=#956f6e>Кейти</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/01/150100202", 128);
+	OutputLine(NULL, "警察も捜してるはずなんだけど………。」",
+		   NULL, " Полицейские тоже ищут.........\"", Line_Normal);
+	ClearMessage();
+
+	SetSpeedOfMessage( TRUE, 128 );
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>詩音</color>", NULL, "<color=#5ec69a>Шион</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/06/150602184", 128);
+	OutputLine(NULL, "「な、なんでそんな大事な話を先にしてくれなかったんですかッ！！！！！」",
+		   NULL, "\"ПО-ПОЧЕМУ ТЫ СРАЗУ МНЕ ТАКУЮ ВАЖНУЮ ВЕЩЬ НЕ СКАЗАЛ??!!!\"", Line_Continue);
+	StartShakingOfWindow( 248, 40, 0, 2, 4*2, FALSE );
+	StartShakingOfAllObjects( 248, 40, 0, 2, 4*2, TRUE );
+	OutputLineAll(NULL, "", Line_Normal);
+
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#956f6e>圭一</color>", NULL, "<color=#956f6e>Кейти</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/01/150100203", 128);
+	OutputLine(NULL, "「わ、悪ぃ…、",
+		   NULL, "\"Т-так это...", Line_Continue);
+	// (backup) SetValidityOfInput( FALSE );
+	Wait( 600 );
+	// (backup) SetValidityOfInput( TRUE );
+	OutputLine(NULL, "…もう知ってると思ってたんだよ…。",
+		   NULL, " я думал, ты уже знаешь...", Line_WaitForInput);
+	PlayVoice(4, "s06/01/150100204", 128);
+	OutputLine(NULL, "隠す気なんかなかった…！」",
+		   NULL, " Я не думал скрывать!..\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>詩音</color>", NULL, "<color=#5ec69a>Шион</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/06/150602185", 128);
+	OutputLine(NULL, "「…………………………………圭ちゃん、",
+		   NULL, "\"....................................Кей-тян......", Line_Continue);
+	// (backup) SetValidityOfInput( FALSE );
+	Wait( 1000 );
+	// (backup) SetValidityOfInput( TRUE );
+	OutputLine(NULL, "……私、",
+		   NULL, " Что", Line_Continue);
+	// (backup) SetValidityOfInput( FALSE );
+	Wait( 800 );
+	// (backup) SetValidityOfInput( TRUE );
+	OutputLine(NULL, "……………どうしよう……。」",
+		   NULL, "............... я теперь......\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#956f6e>圭一</color>", NULL, "<color=#956f6e>Кейти</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/01/150100205", 128);
+	OutputLine(NULL, "「…どうした。",
+		   NULL, "\"...В чём дело?", Line_WaitForInput);
+	PlayVoice(4, "s06/01/150100206", 128);
+	OutputLine(NULL, "……話せよ。",
+		   NULL, " ......Рассказывай.", Line_WaitForInput);
+	PlayVoice(4, "s06/01/150100207", 128);
+	OutputLine(NULL, "俺たちの間で隠し事はなしだろ…？」",
+		   NULL, " Между нами ведь нету секретов?..\"", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>詩音</color>", NULL, "<color=#5ec69a>Шион</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/06/150602186", 128);
+	OutputLine(NULL, "「……ごめん。",
+		   NULL, "\"......Прости...", Line_WaitForInput);
+	PlayVoice(4, "s06/06/150602187", 128);
+	OutputLine(NULL, "…あの、……隠すつもりはなかったんです。",
+		   NULL, " Я не собиралась ничего скрывать...... вот...", Line_WaitForInput);
+	PlayVoice(4, "s06/06/150602188", 128);
+	OutputLine(NULL, "…ちょっとその、言うのが前後したって言うか、………。」",
+		   NULL, " Но, понимаешь, позабыла кое-что рассказать.........\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#956f6e>圭一</color>", NULL, "<color=#956f6e>Кейти</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/01/150100208", 128);
+	OutputLine(NULL, "「…俺たちは仲間だろ？！",
+		   NULL, "\"Мы друзья или как?!...", Line_WaitForInput);
+	PlayVoice(4, "s06/01/150100209", 128);
+	OutputLine(NULL, "　怒ったりしないから正直に話せよ…。」",
+		   NULL, " Говори напрямую, не разозлюсь...\"", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>詩音</color>", NULL, "<color=#5ec69a>Шион</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/06/150602189", 128);
+	OutputLine(NULL, "「私、",
+		   NULL, "\"Я...", Line_Continue);
+	SetSpeedOfMessage( TRUE, 16 );
+	OutputLine(NULL, "…………",
+		   NULL, ".........", Line_Continue);
+	SetSpeedOfMessage( FALSE, 0 );
+	OutputLine(NULL, "公由のお爺ちゃんに",
+		   NULL, " рассказала", Line_Continue);
+	// (backup) SetValidityOfInput( FALSE );
+	Wait( 1000 );
+	// (backup) SetValidityOfInput( TRUE );
+	OutputLine(NULL, "……打ち明けたんです。」",
+		   NULL, " дедушке Кимиёси......\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#956f6e>圭一</color>", NULL, "<color=#956f6e>Кейти</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/01/150100210", 128);
+	OutputLine(NULL, "「……公由の爺さんってのは、…詩音にとって、相談できる心安い人なんだろ…？」",
+		   NULL, "\"Дедушка Кимиёси, он...... был тебе близким другом, с которым ты могла поговорить по душам, да?..\"", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>詩音</color>", NULL, "<color=#5ec69a>Шион</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/06/150602190", 128);
+	OutputLine(NULL, "「…………はい。",
+		   NULL, "\".........Да......", Line_WaitForInput);
+	PlayVoice(4, "s06/06/150602191", 128);
+	OutputLine(NULL, "……私のこと、………小さい頃から本当に可愛がってくれて…。",
+		   NULL, " Он меня любил очень...... с самых пелёнок...", Line_WaitForInput);
+	PlayVoice(4, "s06/06/150602192", 128);
+	OutputLine(NULL, "……私、いっつも意地悪なことをしてたのに……いつもにこにこと笑って…。",
+		   NULL, "...... Я постоянно приносила неприятности...... а он мне только улыбался......", Line_WaitForInput);
+	PlayVoice(4, "s06/06/150602193", 128);
+	OutputLine(NULL, "……私の言うことは何でも聞いてくれて……。",
+		   NULL, " Слушал всю мою болтовню......", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>詩音</color>", NULL, "<color=#5ec69a>Шион</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/06/150602194", 128);
+	OutputLine(NULL, "……本当にやさしい人だったのに………。」",
+		   NULL, " ......Такой он был добрый.........\"", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#956f6e>圭一</color>", NULL, "<color=#956f6e>Кейти</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/01/150100211", 128);
+	OutputLine(NULL, "「…お、落ち着けよ詩音。",
+		   NULL, "\"Шион, у-успокойся.", Line_WaitForInput);
+	PlayVoice(4, "s06/01/150100212", 128);
+	OutputLine(NULL, "…別に死んでしまったわけじゃないだろ？",
+		   NULL, " Он ведь не то чтобы умер, правда?", Line_WaitForInput);
+	PlayVoice(4, "s06/01/150100213", 128);
+	OutputLine(NULL, "　そんな簡単に諦めるなよ…。」",
+		   NULL, " Ты не сдавайся так скоро...\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　圭一は落ち込んだ風な声の私を勇気付けようと、言葉をかけてくれているのがわかった。",
+		   NULL, "Успокаивающим голосом попытался подбодрить меня Кейти.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　だが、圭一の言葉には何の裏付けもない。",
+		   NULL, "Вот только знал бы он, что с ним на самом деле!", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　それがわかっていると、こんなにも滑稽なものなのか。",
+		   NULL, "Я чуть не рассмеялась.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>詩音</color>", NULL, "<color=#5ec69a>Шион</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/06/150602195", 128);
+	OutputLine(NULL, "「……村長さんに、",
+		   NULL, "\"......Я рассказала старосте,", Line_WaitForInput);
+	PlayVoice(4, "s06/06/150602196", 128);
+	OutputLine(NULL, "……私、あの晩、",
+		   NULL, " что пробралась той ночью", Line_WaitForInput);
+	PlayVoice(4, "s06/06/150602197", 128);
+	OutputLine(NULL, "祭具殿に忍び込んだこと……打ち明けたんです。",
+		   NULL, " в хранилище обрядовых принадлежностей......", Line_WaitForInput);
+	PlayVoice(4, "s06/06/150602198", 128);
+	OutputLine(NULL, "…誰かにそれを見られてて、……私たちを狙っている人がいるって。」",
+		   NULL, " Кто-то увидел... и за нами стали охотиться...\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#956f6e>圭一</color>", NULL, "<color=#956f6e>Кейти</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/01/150100214", 128);
+	OutputLine(NULL, "「…村長さんは、鷹野さんたちがまともじゃない死に方をしたのを知ってるのか…？」",
+		   NULL, "\"Староста знает, какой смертью погибли те двое?..\"", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>詩音</color>", NULL, "<color=#5ec69a>Шион</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/06/150602199", 128);
+	OutputLine(NULL, "「………はい。",
+		   NULL, "\"Да.........", Line_WaitForInput);
+	PlayVoice(4, "s06/06/150602200", 128);
+	OutputLine(NULL, "…知っていました。",
+		   NULL, " Знал.", Line_WaitForInput);
+	PlayVoice(4, "s06/06/150602201", 128);
+	OutputLine(NULL, "……あの２人がオヤシロさまの祟りで死んだから、…私はその怒りを鎮める生贄にされるんじゃないか、って。",
+		   NULL, " Я спросила, стану ли я жертвой богу, раз тех убило Проклятие Оясиро-сама...", Line_WaitForInput);
+	PlayVoice(4, "s06/06/150602202", 128);
+	OutputLine(NULL, "…本当に率直に言いました。」",
+		   NULL, " Прямо в лоб, знаешь ли...\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#956f6e>圭一</color>", NULL, "<color=#956f6e>Кейти</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/01/150100215", 128);
+	OutputLine(NULL, "「………あぁ。",
+		   NULL, "\"Ага.........", Line_WaitForInput);
+	PlayVoice(4, "s06/01/150100216", 128);
+	OutputLine(NULL, "…それで？」",
+		   NULL, " Ну и?..\"", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>詩音</color>", NULL, "<color=#5ec69a>Шион</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/06/150602203", 128);
+	OutputLine(NULL, "「……公由のお爺ちゃん、…怒らなかった。",
+		   NULL, "\"Дедушка Кимиёси...... не рассердился...", Line_WaitForInput);
+	PlayVoice(4, "s06/06/150602204", 128);
+	OutputLine(NULL, "……そして、にっこり笑って、詩音ちゃんがちゃんと反省してるなら、鬼隠しになんかなるものか、…って。",
+		   NULL, " Он лишь улыбнулся... и сказал, что, если Шион-тян раскаивается, ей вовсе не нужно бояться похищения демонами.", Line_WaitForInput);
+	PlayVoice(4, "s06/06/150602205", 128);
+	OutputLine(NULL, "…本当に",
+		   NULL, " Улыбнулся...", Line_Continue);
+	// (backup) SetValidityOfInput( FALSE );
+	Wait( 800 );
+	// (backup) SetValidityOfInput( TRUE );
+	OutputLine(NULL, "……笑いながら……任せなさい…って………。",
+		   NULL, " сердечно так... и сказал: «Позаботится».........", Line_Continue);
+	// (backup) SetValidityOfInput( FALSE );
+	Wait( 1200 );
+	// (backup) SetValidityOfInput( TRUE );
+	OutputLine(NULL, "……ぅぅ…ッ！！」",
+		   NULL, " о-о-о-о!!...\"", Line_Normal);
+	ClearMessage();
+	DrawSceneWithMask( "Moon", "maskdown", 1, 0, 300 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　自分で口にしていて、少し悲しくなった。",
+		   NULL, "Вот тут я по правде немного расстроилась.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　あんなにも頼もしいと思っていた公由のおじいちゃん。",
+		   NULL, "Дедушка Кимиёси казался мне таким надёжным другом.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　…そのおじいちゃんが、詩音を庇うと言ってくれた時、心の底から嬉しかった。",
+		   NULL, "Я искренне радовалась, когда он пообещал защитить Шион...", Line_WaitForInput);
+	OutputLine(NULL, "…嬉しかった…。",
+		   NULL, " Радовалась...", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　……あの後に、……悟史くんを穢すようなことさえ言わなかったなら…！！",
+		   NULL, "......Если б только...... он не произнёс тех гадостей о Сатоши-куне!!...", Line_Normal);
+	ClearMessage();
+	DrawSceneWithMask( "black", "maskup", 1, 0, 300 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>詩音</color>", NULL, "<color=#5ec69a>Шион</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/06/150602206", 128);
+	OutputLine(NULL, "「…………………私のせいです。",
+		   NULL, "\".........Я виновата............", Line_WaitForInput);
+	PlayVoice(4, "s06/06/150602207", 128);
+	OutputLine(NULL, "…私が、…打ち明けてしまったから……。」",
+		   NULL, " Ведь я... ему рассказала......\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#956f6e>圭一</color>", NULL, "<color=#956f6e>Кейти</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/01/150100217", 128);
+	OutputLine(NULL, "「…よせよ詩音…。",
+		   NULL, "\"...Хватит, Шион...", Line_WaitForInput);
+	PlayVoice(4, "s06/01/150100218", 128);
+	OutputLine(NULL, "…詩音のせいじゃないよ。」",
+		   NULL, " Ты не виновата...\"", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>詩音</color>", NULL, "<color=#5ec69a>Шион</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/06/150602208", 128);
+	OutputLine(NULL, "「いいえッ！！",
+		   NULL, "\"НЕТ!!", Line_WaitForInput);
+	PlayVoice(4, "s06/06/150602209", 128);
+	OutputLine(NULL, "　私のせいなんです！！",
+		   NULL, " Я ВИНОВАТА!!", Line_WaitForInput);
+	PlayVoice(4, "s06/06/150602210", 128);
+	OutputLine(NULL, "　私が…打ち明けてしまったから…！",
+		   NULL, " Я ведь... ему рассказала!..", Line_WaitForInput);
+	PlayVoice(4, "s06/06/150602211", 128);
+	OutputLine(NULL, "　公由のお爺ちゃんが…知ってしまったから…！",
+		   NULL, " Поведала ему... нашу тайну!..", Line_WaitForInput);
+	PlayVoice(4, "s06/06/150602212", 128);
+	OutputLine(NULL, "　だから……殺されてしまったに違いないんです！！",
+		   NULL, " Поэтому...... его и убили!!", Line_WaitForInput);
+	PlayVoice(4, "s06/06/150602213", 128);
+	OutputLine(NULL, "　だって、…打ち明けてすぐなんですよ？！",
+		   NULL, " Сразу, как я призналась... понимаешь?!", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>詩音</color>", NULL, "<color=#5ec69a>Шион</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/06/150602214", 128);
+	OutputLine(NULL, "　打ち明けて、…大丈夫って言ってくれたその晩に消えてしまった！！！」",
+		   NULL, " Как только я ему всё выложила... он сказал не волноваться, а в ту же ночь он пропал!!!\"", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　それは不思議な感覚だった。",
+		   NULL, "До чего же странное чувство.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　私は混乱などしていない。",
+		   NULL, "Я не смятена.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　だけれども、混乱を装い、公由の無事を祈るような言葉を口にする内に、そんな感情が同時に芽生えてくるのだ。",
+		   NULL, "Но, изображая смятение и на словах желая, чтоб Кимиёси оказался жив и здоров, я чувствовала что-то похожее.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　圭一を騙すために、激情を装っているだけなのに、",
+		   NULL, "Обманывая Кейти, я изображала прилив чувств,", Line_WaitForInput);
+	OutputLine(NULL, "その装いの感情が逆に溢れ返してきて、…むしろその感情に飲み込まれてしまうような感覚。",
+		   NULL, " однако начинало чудиться, будто они сейчас оживут и захлестнут меня с головой.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　だから、自分の口から出る言葉は…私が意図して言っている言葉じゃない。",
+		   NULL, "И получалось, что всё это... я говорила не нарочно.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　…私を飲み込んでしまった感情が言わせている言葉。",
+		   NULL, "...За меня говорили таки победившие чувства.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　私は何も口にしていないのに、私じゃない誰かが勝手に喋ってしまっている感じ。",
+		   NULL, "Как будто за меня открывает и закрывает рот кто-то другой.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　………私はそれを、少し離れた暗闇の中から、ただ見守っているだけだった…。",
+		   NULL, ".........А я лишь смотрю на это, отодвинувшись в тень...", Line_Normal);
+	ClearMessage();
+	DrawSceneWithMask( "re_tel", "maskdown", 1, 0, 300 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>詩音</color>", NULL, "<color=#5ec69a>Шион</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/06/150602215", 128);
+	OutputLine(NULL, "「話すんじゃなかったッ！！！",
+		   NULL, "\"Не надо было ему говорить!!!", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>詩音</color>", NULL, "<color=#5ec69a>Шион</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/06/150602216", 128);
+	OutputLine(NULL, "　これは全部、…私たち４人の咎だったはず！！",
+		   NULL, "Вина должна была остаться на нас четверых!!...", Line_WaitForInput);
+	PlayVoice(4, "s06/06/150602217", 128);
+	OutputLine(NULL, "　他人に話してはいけないことだったんです！！",
+		   NULL, " Не следовало никому рассказывать!!", Line_WaitForInput);
+	PlayVoice(4, "s06/06/150602218", 128);
+	OutputLine(NULL, "　話したから殺されてしまった！",
+		   NULL, " Его убили, потому что я рассказала!", Line_WaitForInput);
+	PlayVoice(4, "s06/06/150602219", 128);
+	OutputLine(NULL, "　知ったから殺されてしまった！",
+		   NULL, " Он погиб, потому что узнал!", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>詩音</color>", NULL, "<color=#5ec69a>Шион</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/06/150602220", 128);
+	OutputLine(NULL, "　打ち明けたから",
+		   NULL, "Я призналась.", Line_Continue);
+	SetSpeedOfMessage( TRUE, 16 );
+	OutputLine(NULL, "……",
+		   NULL, ".....", Line_Continue);
+	SetSpeedOfMessage( FALSE, 0 );
+	// (backup) SetValidityOfInput( FALSE );
+	Wait( 600 );
+	// (backup) SetValidityOfInput( TRUE );
+	SetSpeedOfMessage( TRUE, 128 );
+
+	OutputLine(NULL, "殺されてしまったッ！",
+		   NULL, " и его убили!!!!", Line_Continue);
+	StartShakingOfWindow( 248, 40, 0, 2, 3*2, FALSE );
+	StartShakingOfAllObjects( 248, 40, 0, 2, 3*2, TRUE );
+
+	SetSpeedOfMessage( FALSE, 0 );
+	OutputLine(NULL, "」",
+		   NULL, "\"", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#956f6e>圭一</color>", NULL, "<color=#956f6e>Кейти</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/01/150100219", 128);
+	OutputLine(NULL, "「おい待てよ！！",
+		   NULL, "\"Подожди-ка!", Line_WaitForInput);
+	PlayVoice(4, "s06/01/150100220", 128);
+	OutputLine(NULL, "　そんなヤツなら、…打ち明けた村長を殺す前に、お前からさきに殺すに決まってるじゃないか！",
+		   NULL, " Если дело в том, нас бы убили до старосты!..", Line_WaitForInput);
+	PlayVoice(4, "s06/01/150100221", 128);
+	OutputLine(NULL, "　順番が違うよ！！",
+		   NULL, " А не в таком порядке!", Line_WaitForInput);
+	PlayVoice(4, "s06/01/150100222", 128);
+	OutputLine(NULL, "　殺されるなら俺か詩音が先！！",
+		   NULL, " Сначала должны были убить меня с тобой!", Line_WaitForInput);
+	PlayVoice(4, "s06/01/150100223", 128);
+	OutputLine(NULL, "　他のヤツらが先に死んだりするものか！！！」",
+		   NULL, " Зачем сперва убивать других?!!\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>詩音</color>", NULL, "<color=#5ec69a>Шион</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/06/150602221", 128);
+	OutputLine(NULL, "「順番はあります！！",
+		   NULL, "\"Порядок правильный!", Line_WaitForInput);
+	PlayVoice(4, "s06/06/150602222", 128);
+	OutputLine(NULL, "　私たちを、一番最後に殺すつもりに違いないんです！！」",
+		   NULL, " Нас хотят убить в последнюю очередь!\"", Line_Normal);
+	ClearMessage();
+	FadeOutBGM( 0, 0, FALSE );
+	FadeOutBGM( 1, 0, FALSE );
+	FadeOutBGM( 2, 0, FALSE );
+	FadeOutBGM( 3, 0, FALSE );
+	DrawBustshot( 19, "no_data", 0, 100, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 10, 0, TRUE );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#956f6e>圭一</color>", NULL, "<color=#956f6e>Кейти</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/01/150100224", 128);
+	OutputLine(NULL, "「…は…？",
+		   NULL, "\"...Э-э?..", Line_WaitForInput);
+	PlayVoice(4, "s06/01/150100225", 128);
+	OutputLine(NULL, "　な、…なんだって？！」",
+		   NULL, " Т-ты о чём?!\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+	PlayBGM( 0, "hig_sample_kyouki", 120, 0 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>詩音</color>", NULL, "<color=#5ec69a>Шион</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/06/150602223", 128);
+	OutputLine(NULL, "「…ひと思いに殺さないで…、親しい人たちから順々に殺していって…、散々悲しい思いをさせた後に殺す、……そういう狙いに違いないんです！！」",
+		   NULL, "\"Они не просто хотят нас убить... они сначала перебьют наших близких, чтобы нас придавило горе... а потом только убьют нас!!.....\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　……………自分で口にして、はっとするような、恐ろしいこと。",
+		   NULL, "............Произнесённое меня саму испугало.", Line_Normal);
+	ClearMessage();
+	DrawSceneWithMask( "re_tel_nega", "mask2", 1, 0, 3000 );
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　親しい人から順々に殺していって、悲しい思いをさせた後に殺す。",
+		   NULL, "Сначала перебьют наших близких, чтобы нас придавило горе, а потом только убьют нас.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　……うをおおをぉおぉおおぉ…、",
+		   NULL, "......Уууу-у-у-у-ух...", Line_ContinueAfterTyping);
+	SetValidityOfInput( FALSE );
+	Wait( 800 );
+	SetValidityOfInput( TRUE );
+	OutputLine(NULL, "ぞくぞくする感覚が背中を登る。",
+		   NULL, " По спине поползли мурашки.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　……すごいすごい、すげえよそれ…。",
+		   NULL, "......Ух, вот это да, ну я выдала...", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　やっぱり私はもう人間じゃないんだ鬼なんだ。",
+		   NULL, "Видать, из человека я окончательно превратилась в демона.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　そんな残酷なこと、人間の身には思いつかないって…！！",
+		   NULL, "Человеку не по уму такая жестокость!!...", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　これはすごいよ、この世の地獄だよ…、",
+		   NULL, "Прекрасно, настоящий ад выйдет...", Line_WaitForInput);
+	OutputLine(NULL, "だって目の前で親しい人たちが次々と、それぞれが筆舌に尽くしがたい拷問で虐め殺されて。",
+		   NULL, " Близкие умирают один за другим после неописуемых пыток.", Line_WaitForInput);
+	OutputLine(NULL, "その挙句の果てに殺されちゃうんだよ…？",
+		   NULL, " А потом убивают и тебя саму...", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　一個しかない命を虐め尽くすのに、これほどの方法があったなんて…！",
+		   NULL, "Ох, едва ль есть на свете что лучше, чтобы сделать жизнь мукой!..", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　しかもさ、この方法が何でゾクゾクするかってぇと、",
+		   NULL, "Почему, спрашиваете, я так развеселилась?..", Line_ContinueAfterTyping);
+	SetValidityOfInput( FALSE );
+	Wait( 1000 );
+	SetValidityOfInput( TRUE );
+	PlayBGM( 1, "yabaisemi", 120, 0 );
+
+	OutputLineAll(NULL, "", Line_WaitForInput);
+
+	SetSpeedOfMessage( TRUE, 16 );
+	OutputLine(NULL, "…私ニハ、スグニ実行可能ナンダヨ、コレ！！",
+		   NULL, " ТАК Я Ж МОГУ ПРЯМО СЕЙЧАС И ПРИСТУПИТЬ!!", Line_ContinueAfterTyping);
+	SetSpeedOfMessage( FALSE, 0 );
+	OutputLineAll(NULL, "", Line_WaitForInput);
+
+	OutputLine(NULL, "　くっくくくくくくく、くっくっくっく！！！",
+		   NULL, " Кхы-хы-хы-хы-хы-хы-хы-хы, ХЫ-ХЫ-ХЫ-ХЫ!!!", Line_Normal);
+	ClearMessage();
+
+	DrawScene( "black", 400 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#956f6e>圭一</color>", NULL, "<color=#956f6e>Кейти</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/01/150100226", 128);
+	OutputLine(NULL, "「…り、………梨花ちゃんッ！！",
+		   NULL, "\"Р... Рика-тян!!.....", Line_WaitForInput);
+	PlayVoice(4, "s06/01/150100227", 128);
+	OutputLine(NULL, "　梨花ちゃんだッ！！！！」",
+		   NULL, " Рика-тян же!!!!\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>詩音</color>", NULL, "<color=#5ec69a>Шион</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/06/150602224", 128);
+	OutputLine(NULL, "「………え？",
+		   NULL, "\".........А?", Line_WaitForInput);
+	PlayVoice(4, "s06/06/150602225", 128);
+	OutputLine(NULL, "　……今、何て言ったんですか…？！」",
+		   NULL, " Что ты сказал?!.....\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#956f6e>圭一</color>", NULL, "<color=#956f6e>Кейти</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/01/150100228", 128);
+	OutputLine(NULL, "「お、…俺も",
+		   NULL, "\"Я...", Line_Continue);
+	// (backup) SetValidityOfInput( FALSE );
+	Wait( 800 );
+	// (backup) SetValidityOfInput( TRUE );
+	OutputLine(NULL, "……実は…、",
+		   NULL, " п-понимаешь...", Line_Continue);
+	// (backup) SetValidityOfInput( FALSE );
+	Wait( 800 );
+	// (backup) SetValidityOfInput( TRUE );
+	OutputLine(NULL, "…う、",
+		   NULL, " п-п", Line_Continue);
+	// (backup) SetValidityOfInput( FALSE );
+	Wait( 900 );
+	// (backup) SetValidityOfInput( TRUE );
+	OutputLine(NULL, "…打ち明けたんだ。",
+		   NULL, "... поговорил с ней...", Line_WaitForInput);
+	PlayVoice(4, "s06/01/150100229", 128);
+	OutputLine(NULL, "…梨花ちゃんに、",
+		   NULL, " с Рикой-тян...", Line_Continue);
+	// (backup) SetValidityOfInput( FALSE );
+	Wait( 1000 );
+	// (backup) SetValidityOfInput( TRUE );
+	OutputLine(NULL, "……今日ッ！！」",
+		   NULL, " сегодня!!.....\"", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>詩音</color>", NULL, "<color=#5ec69a>Шион</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/06/150602226", 128);
+	OutputLine(NULL, "「梨花ちゃんって、…梨花ちゃまのことですか？",
+		   NULL, "\"Рикой-тян... хочешь сказать, Рикой-тяма?", Line_WaitForInput);
+	PlayVoice(4, "s06/06/150602227", 128);
+	OutputLine(NULL, "　古手神社の梨花ちゃま？」",
+		   NULL, " Рикой-тяма из храма Фурудэ?\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#956f6e>圭一</color>", NULL, "<color=#956f6e>Кейти</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/01/150100230", 128);
+	OutputLine(NULL, "「そうだよ、梨花ちゃんだよ！！",
+		   NULL, "\"Вот-вот, с Рикой-тян!!", Line_WaitForInput);
+	PlayVoice(4, "s06/01/150100231", 128);
+	OutputLine(NULL, "　……俺も、…どうしようもなく不安で……打ち明けたんだ。",
+		   NULL, " Я тоже...... перепугался... и рассказал ей.", Line_WaitForInput);
+	PlayVoice(4, "s06/01/150100232", 128);
+	OutputLine(NULL, "…梨花ちゃんに。」",
+		   NULL, " Рике-тян...\"", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>詩音</color>", NULL, "<color=#5ec69a>Шион</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/06/150602228", 128);
+	OutputLine(NULL, "「………そうしたら、………梨花ちゃまはなんて…？」",
+		   NULL, "\".........И...... как Рика-тяма ответила?..\"", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#956f6e>圭一</color>", NULL, "<color=#956f6e>Кейти</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/01/150100233", 128);
+	OutputLine(NULL, "「……猫さんの心配し過ぎなのです。",
+		   NULL, "\"«......Кошка слишком беспокоится по пустякам.", Line_WaitForInput);
+	PlayVoice(4, "s06/01/150100234", 128);
+	OutputLine(NULL, "ボクがきっと、何とかしてあげますですよ。",
+		   NULL, " Я со всем разберусь».", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#956f6e>圭一</color>", NULL, "<color=#956f6e>Кейти</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/01/150100235", 128);
+	OutputLine(NULL, "　って梨花ちゃんはそう言って…！！",
+		   NULL, "Так она сказала!!...", Line_WaitForInput);
+	PlayVoice(4, "s06/01/150100236", 128);
+	OutputLine(NULL, "　……ご、ごめん詩音！",
+		   NULL, " Шион, и-извини!.....", Line_WaitForInput);
+	PlayVoice(4, "s06/01/150100237", 128);
+	OutputLine(NULL, "　お、俺…俺、…ちょっと…梨花ちゃんのことが心配になっちゃって…！！」",
+		   NULL, " Я... я... я... слишком волнуюсь за Рику-тян, понимаешь!!...\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>詩音</color>", NULL, "<color=#5ec69a>Шион</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/06/150602229", 128);
+	OutputLine(NULL, "「あ、はい！　…そんなに心配でしたら、ぜひ電話を。",
+		   NULL, "\"А, конечно! Обязательно ей позвони, раз так волнуешься.", Line_WaitForInput);
+	PlayVoice(4, "s06/06/150602230", 128);
+	OutputLine(NULL, "安否を確認してみて下さい。」",
+		   NULL, " Узнай, в безопасности ли она.\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#956f6e>圭一</color>", NULL, "<color=#956f6e>Кейти</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/01/150100238", 128);
+	OutputLine(NULL, "「…あ、あぁ！！",
+		   NULL, "\"А-ага!!...", Line_WaitForInput);
+	PlayVoice(4, "s06/01/150100239", 128);
+	OutputLine(NULL, "　そうさせてもらう！」",
+		   NULL, " Так и сделаю!\"", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>詩音</color>", NULL, "<color=#5ec69a>Шион</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/06/150602231", 128);
+	OutputLine(NULL, "「また明日も、このくらいの時間に連絡します。",
+		   NULL, "\"Завтра позвоню где-нибудь в это же время.", Line_WaitForInput);
+	PlayVoice(4, "s06/06/150602232", 128);
+	OutputLine(NULL, "それを以て、私の安否確認として下さい。」",
+		   NULL, " Так сказать, и свою безопасность заверю.\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#956f6e>圭一</color>", NULL, "<color=#956f6e>Кейти</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/01/150100240", 128);
+	OutputLine(NULL, "「…わかった。",
+		   NULL, "\"...Хорошо. Жду.", Line_WaitForInput);
+	PlayVoice(4, "s06/01/150100241", 128);
+	OutputLine(NULL, "待ってる。",
+		   NULL, " До связи!", Line_WaitForInput);
+	PlayVoice(4, "s06/01/150100242", 128);
+	OutputLine(NULL, "じゃあな！",
+		   NULL, " Ладно,", Line_WaitForInput);
+	PlayVoice(4, "s06/01/150100243", 128);
+	OutputLine(NULL, "　すまん！　",
+		   NULL, " извини!", Line_WaitForInput);
+	PlayVoice(4, "s06/01/150100244", 128);
+	OutputLine(NULL, "切るぞ！！」",
+		   NULL, " Кладу трубку!!\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　圭一は乱暴に受話器を置いた。",
+		   NULL, "Кейти бесцеремонно грохнул трубкой.", Line_Normal);
+	ClearMessage();
+	DrawScene( "Moon", 400 );
+	PlayBGM( 1, "yabaisemi", 120, 0 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>詩音</color>", NULL, "<color=#5ec69a>Шион</color>", NULL, Line_ContinueAfterTyping); }
+	PlayVoice(4, "s06/06/150602233", 128);
+	OutputLine(NULL, "「…………ぷ。",
+		   NULL, "\".........Пф...", Line_WaitForInput);
+	PlayVoice(4, "s06/06/150602234", 128);
+	OutputLine(NULL, "…あっはっはっはっはっはっは！！！」",
+		   NULL, " Аха-ха-ха-ха-ха-ха!!!\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　圭一との電話は面白い。",
+		   NULL, "Смешной получился разговор.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　何から何まで笑える、実に愉快。",
+		   NULL, "Да тут надо всем посмеяться можно.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　前原圭一。",
+		   NULL, "Давай, Маэбара Кейти,", Line_WaitForInput);
+	OutputLine(NULL, "お前は心の赴くままに好きに足掻けばいい。",
+		   NULL, " трепыхайся, сколько твоей душеньке будет угодно.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　…村のあちこちを好きに駆け回り、祟りが起こらないかどうか試して回ってくれ。",
+		   NULL, "...Хочешь, оббеги всю деревню и проверь, произойдёт ли проклятие.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　私の仇がまだいないかどうか、私に代わって調べておくれ！",
+		   NULL, "Давай, мой хороший, проверь за меня, остались ли ещё враги!", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　一通りケタケタ笑った後、思考を冷却化させる。",
+		   NULL, "Посмеявшись, я привела мысли в порядок.", Line_Normal);
+	ClearMessage();
+	FadeOutBGM( 1, 0, FALSE );
+	DrawBustshot( 19, "no_data", 0, 100, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 10, 0, TRUE );
+	FadeOutBGM( 3, 0, FALSE );
+	DrawBustshot( 19, "no_data", 0, 100, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 10, 0, TRUE );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　うちに乗り付けてきた梨花と沙都子の自転車や履物などはもう始末してある。",
+		   NULL, "Стало быть, от велосипедов с обувью Рики да Сатоко я уже избавилась.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　とりあえずうちは大丈夫。",
+		   NULL, "За поместье можно не волноваться.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　…今後の考えられる展開は…、",
+		   NULL, "Скорее всего...", Line_ContinueAfterTyping);
+	SetValidityOfInput( FALSE );
+	Wait( 1000 );
+	SetValidityOfInput( TRUE );
+	OutputLine(NULL, "圭一が騒ぐ、",
+		   NULL, " Кейти поднимет шум,", Line_ContinueAfterTyping);
+	SetValidityOfInput( FALSE );
+	Wait( 1000 );
+	SetValidityOfInput( TRUE );
+	OutputLine(NULL, "誰かに相談する、",
+		   NULL, " поговорит с кем-нибудь,", Line_ContinueAfterTyping);
+	SetValidityOfInput( FALSE );
+	Wait( 1000 );
+	SetValidityOfInput( TRUE );
+	OutputLine(NULL, "…その辺りのどこかで魅音に相談が来るだろう。",
+		   NULL, " а там и к Мион заявится за помощью.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　それで昨夜同様、青年団で村中を捜すということになるだろうな。",
+		   NULL, "Наверняка вновь соберут молодёжную бригаду и примутся за поиски по всей деревне, как вчера ночью.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　………また今夜も深夜までか、見つからないと分かってる捜し物ほど堪えるものはないと知る。",
+		   NULL, ".........Похоже, опять придётся бродить до полуночи, зная, что никто их не найдёт.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　なら、そう長い時間も経たない内に、連絡が来よう。",
+		   NULL, "Стало быть, вскорости жди звонка.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　私はテレビでも見ながらのんびりと電話が来るまで時間をつぶしていた。",
+		   NULL, "Я скоротала время до него за просмотром телевизора.", Line_Normal);
+	ClearMessage();
+}
