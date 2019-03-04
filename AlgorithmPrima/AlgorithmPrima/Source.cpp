@@ -13,17 +13,17 @@ struct Peak {
     bool isIncluded;
 };
 
-//ToDo: реализовать граф в виде двусвязного списка
+void fillingData(ifstream& fin, vector<vector<char>>& matrix, vector<vector<char>>& mask, vector<Peak*>& peaks);
 
-void fillingData(ifstream& fin, vector<vector<char>>& matrix);
-
-//bool isPeakIncluded(vector<vector<char>>& mask, int x, int y);
+void connectPeak(vector<Peak*> peaks, vector<vector<char>> mask, vector<Edge>& edges, Edge minValue);
 
 bool isAllPeakIncluded(vector<Peak*> peaks);
 
-bool isCycle(Peak* original, Peak* prev, Peak* peak, int length);
+bool isCycle(Peak* prev, Peak* next);
 
 void searchMinPos(vector<vector<char>>& matrix, vector<vector<char>>& mask, bool first, Edge& minValue, vector<Peak*> peaks);
+
+void writeResult(ofstream& fout, vector<vector<char>> matrix, vector<Edge> edges);
 
 void main() {
     string input = "input.txt";
@@ -31,60 +31,33 @@ void main() {
     ifstream fin(input);
     ofstream fout(output);
     vector<vector<char>> matrix;
-    fillingData(fin, matrix);
-
     vector<vector<char>> mask;
-    for (auto& i : matrix) {
-        mask.emplace_back(i.size(), '-');
-    }
     vector<Peak*> peaks;
-    for (int i = 0; i < matrix.size(); ++i) {
-        peaks.push_back(new Peak);
-        peaks[i]->number = i;
-        peaks[i]->isIncluded = false;
-    }
     Edge minValue;
     vector<Edge> edges;
+    fillingData(fin, matrix, mask, peaks);
 
     bool first = true;
     searchMinPos(matrix, mask, first, minValue, peaks); 
-    peaks[minValue.y]->next.push_back(peaks[minValue.x]);
-    peaks[minValue.x]->next.push_back(peaks[minValue.y]);
-    peaks[minValue.x]->isIncluded = true;
-    mask[minValue.y][minValue.x] = '+';
-    mask[minValue.x][minValue.y] = '+';
+    connectPeak(peaks, mask, edges, minValue);
     first = false;
-    edges.push_back(minValue);
 
     while (!isAllPeakIncluded(peaks)) {
         searchMinPos(matrix, mask, first, minValue, peaks);
-        peaks[minValue.y]->next.push_back(peaks[minValue.x]);
-        peaks[minValue.x]->next.push_back(peaks[minValue.y]);
-        peaks[minValue.x]->isIncluded = true;
-        mask[minValue.y][minValue.x] = '+';
-        mask[minValue.x][minValue.y] = '+';
-        if (isCycle(peaks[minValue.y], peaks[minValue.y], peaks[minValue.y], 1)) {
-            peaks[minValue.y]->next.pop_back();
-            peaks[minValue.x]->next.pop_back();
-            //peaks[minValue.x]->isIncluded = false;
+        if (!isCycle(peaks[minValue.y], peaks[minValue.x])) {
+            connectPeak(peaks, mask, edges, minValue);
+        } else {
             mask[minValue.y][minValue.x] = 'x';
             mask[minValue.x][minValue.y] = 'x';
-        } else {
-            edges.push_back(minValue);
         }
     }
 
-    int sum = 0;
-    for (auto element : edges) {
-        sum += matrix[element.y][element.x] - '0';
-    }
-    fout << sum << endl;
-    for (auto element : edges) {
-        fout << element.y + 1 << ' ' << element.x + 1 << endl;
-    }
+    writeResult(fout, matrix, edges);
+    fin.close();
+    fout.close();
 }
 
-void fillingData(ifstream& fin, vector<vector<char>>& matrix) {
+void fillingData(ifstream& fin, vector<vector<char>>& matrix, vector<vector<char>>& mask, vector<Peak*>& peaks) {
     int size;
     fin >> size;
     for (int i = 0; i < size; ++i) {
@@ -95,6 +68,26 @@ void fillingData(ifstream& fin, vector<vector<char>>& matrix) {
             matrix[i].push_back(date);
         }
     }
+    for (auto& i : matrix) {
+        mask.emplace_back(i.size(), '-');
+    }
+    for (int i = 0; i < size; ++i) {
+        peaks.push_back(new Peak);
+        peaks[i]->number = i;
+        peaks[i]->isIncluded = false;
+    }
+}
+
+void connectPeak(vector<Peak*> peaks, vector<vector<char>> mask, vector<Edge>& edges, Edge minValue) {
+    peaks[minValue.y]->next.push_back(peaks[minValue.x]);
+    peaks[minValue.x]->next.push_back(peaks[minValue.y]);
+    peaks[minValue.x]->isIncluded = true;
+    mask[minValue.y][minValue.x] = '+';
+    mask[minValue.x][minValue.y] = '+';
+    if (minValue.y > minValue.x) {
+        swap(minValue.y, minValue.x);
+    }
+    edges.push_back(minValue);
 }
 
 bool isAllPeakIncluded(vector<Peak*> peaks) {
@@ -106,22 +99,8 @@ bool isAllPeakIncluded(vector<Peak*> peaks) {
     return true;
 }
 
-bool isCycle(Peak* original, Peak* prev, Peak* peak, int length) {
-    for (auto& elem : peak->next) {
-        if (prev != original && elem == original) {
-            return length > 2;
-        }
-    }
-    for (int i = 0; i < peak->next.size(); ++i) {
-        bool flag = false;
-        if (peak->next[i] != prev) {
-            flag = isCycle(original, peak, peak->next[i], length + 1);
-        }
-        if (flag) {
-            return true;
-        }
-    }
-    return false;
+bool isCycle(Peak* prev, Peak* next) {
+    return prev->isIncluded && next->isIncluded;
 }
 
 void searchMinPos(vector<vector<char>>& matrix, vector<vector<char>>& mask, bool first, Edge& minValue, vector<Peak*> peaks) {
@@ -152,7 +131,15 @@ void searchMinPos(vector<vector<char>>& matrix, vector<vector<char>>& mask, bool
             }
         }
     }
-    if (minValue.y > minValue.x) {
-        swap(minValue.y, minValue.x);
+}
+
+void writeResult(ofstream& fout, vector<vector<char>> matrix, vector<Edge> edges) {
+    int sum = 0;
+    for (auto element : edges) {
+        sum += matrix[element.y][element.x] - '0';
+    }
+    fout << sum << endl;
+    for (auto element : edges) {
+        fout << element.y + 1 << ' ' << element.x + 1 << endl;
     }
 }
