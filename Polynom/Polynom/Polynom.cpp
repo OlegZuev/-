@@ -72,7 +72,6 @@ int takeNumber(std::string s) {
     return !s.empty() ? number : 1;
 }
 
-
 /**
  * Функция, которая возвращает считанный член полинома.
  * @param fin входной поток
@@ -84,7 +83,11 @@ Polynom* takeTerm(std::ifstream& fin) {
     }
     fin >> std::ws;
     std::string elem;
-    fin >> elem;
+    char c;
+    while (fin.peek() != '-' && fin.peek() != '+' && fin.peek() != ' ' && fin.peek() != EOF) {
+        fin >> c;
+        elem += c;
+    }
     fin >> std::ws;
     int indexOfLid = elem.find('^');
     Polynom* term = new Polynom;

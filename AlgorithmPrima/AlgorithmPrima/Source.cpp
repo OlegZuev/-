@@ -16,7 +16,7 @@ void searchMinEdge(vector<vector<int>>& matrix, vector<Edge>& edges, vector<bool
 void writeResult(ofstream& fout, vector<Edge> edges, int sum);
 
 int main() {
-    string input = "input5.txt";
+    string input = "input.txt";
     string output = "output.txt";
     ifstream fin(input);
     ofstream fout(output);
@@ -31,7 +31,7 @@ int main() {
     peaks[edges.back().y] = true;
     connectPeak(peaks, edges.back());
     sum += matrix[edges.back().y][edges.back().x];
-    
+
     for (int i = 0; i < size - 2; ++i) {
         searchMinEdge(matrix, edges, peaks);
         connectPeak(peaks, edges.back());
