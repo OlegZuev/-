@@ -78,15 +78,17 @@ int takeNumber(std::string s) {
  */
 Polynom* takeTerm(std::ifstream& fin) {
     bool flag = fin.peek() == '-';
-    if (fin.peek() == '-' || fin.peek() == '+') {
+    char c = fin.peek();
+    if (c == '-' || c == '+') {
         fin.ignore();
     }
     fin >> std::ws;
     std::string elem;
-    char c;
-    while (fin.peek() != '-' && fin.peek() != '+' && fin.peek() != ' ' && fin.peek() != EOF) {
+    c = fin.peek();
+    while (c != ' ' && c != '-' && c != '+' && c != '\n' && c != EOF) {
         fin >> c;
         elem += c;
+        c = fin.peek();
     }
     fin >> std::ws;
     int indexOfLid = elem.find('^');
