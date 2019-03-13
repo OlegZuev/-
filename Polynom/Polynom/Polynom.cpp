@@ -130,6 +130,17 @@ bool operator>(const Polynom& oper1, const Polynom& oper2) {
 void calculateExp(Polynom*& head) {
     Polynom* cur = head;
     while (cur != nullptr && cur->next != nullptr) {
+        if (cur->symbol == cur->next->symbol && cur->degree == cur->next->degree) {
+            cur->coefficient += cur->next->coefficient;
+            Polynom* temp = cur->next;
+            cur->next = cur->next->next;
+            delete temp;
+            continue;
+        }
+        cur = cur->next;
+    }
+    cur = head;
+    while (cur != nullptr && cur->next != nullptr) {
         if (head->coefficient == 0) {
             head = head->next;
             delete cur;
@@ -137,13 +148,6 @@ void calculateExp(Polynom*& head) {
             continue;
         }
         if (cur->next->coefficient == 0) {
-            Polynom* temp = cur->next;
-            cur->next = cur->next->next;
-            delete temp;
-            continue;
-        }
-        if (cur->symbol == cur->next->symbol && cur->degree == cur->next->degree) {
-            cur->coefficient += cur->next->coefficient;
             Polynom* temp = cur->next;
             cur->next = cur->next->next;
             delete temp;
