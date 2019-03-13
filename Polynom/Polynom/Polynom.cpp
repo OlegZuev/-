@@ -77,9 +77,9 @@ int takeNumber(std::string s) {
  * @param fin входной поток
  */
 Polynom* takeTerm(std::ifstream& fin) {
-    bool flag = fin.peek() == '-';
     char c = fin.peek();
-    if (c == '-' || c == '+') {
+    bool flag = c == '-';
+    if (c == '+' || c == '-') {
         fin.ignore();
     }
     fin >> std::ws;

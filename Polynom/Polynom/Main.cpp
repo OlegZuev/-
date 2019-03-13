@@ -1,10 +1,8 @@
 #include "Polynom.h"
-#include "windows.h"
 using namespace std;
 
 int main() {
-    SetConsoleCP(1251);
-    SetConsoleOutputCP(1251);
+    setlocale(LC_ALL, "Russian");
     string input;
     cout << "Введите название файла: ";
     cin >> input;
@@ -13,6 +11,9 @@ int main() {
         cout << "Файла не существует или он недоступен. Введите название файла: ";
         cin >> input;
         fin.open(input);
+    }
+    if (fin.peek() == 0xEF) { //Пропуск BOM-метки в начале файле в формате UTF-8 с BOM
+        fin.ignore(3);
     }
     Polynom* head;
     readPolynom(fin, head);
