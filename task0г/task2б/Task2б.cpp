@@ -3,26 +3,22 @@
 #include <list>
 #include <algorithm>
 #include <set>
-#include <vector>
+#include <iterator>
 using namespace std;
 
 set<string> readSentence();
 
-bool comparator(string a, string b) {
-    return a > b;
-}
-
 int main() {
     set<string> sentence1 = readSentence();
     set<string> sentence2 = readSentence();
-    vector<string> result;
-    //sort(sentence1.begin(), sentence1.end());
-    //sort(sentence2.begin(), sentence2.end());
+    set<string> result;
+    result.insert("ssd");
 
-    set_symmetric_difference(sentence1.begin(), sentence1.end(), sentence2.begin(), sentence2.end(), back_inserter(result), comparator);
+    set_symmetric_difference(sentence1.begin(), sentence1.end(), sentence2.begin(), sentence2.end(), result.begin());
     for (string s : result) {
         cout << s << " ";
     }
+    return 0;
 }
 
 set<string> readSentence() {
