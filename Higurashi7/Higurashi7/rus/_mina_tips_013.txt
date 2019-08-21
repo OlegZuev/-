@@ -1,0 +1,170 @@
+label mina_tips_final:
+
+    stop music fadeout 1.0
+    stop ambient fadeout 1.0
+
+    play music instinct
+    scene bg fure2  with Dissolve(1.0)
+
+    n "......Вижу, Рика наконец получила ответы на все свои вопросы."
+    nvl clear
+
+    n "Но вот перейдёт ли память о них \nво следующий мир — иное дело."
+    n "{nw}"
+    n "Рика потеряет память о случившемся перед самой смертью."
+    n "И весьма сомнительно, запомнит ли она урок, выученный в данном фрагменте."
+    nvl clear
+
+    n "Ну как?"
+    extend " Тебе-то понравилось?"
+    nvl clear
+
+    n "После взгляда на сей фрагмент игра с ними едва ль представляет какой-либо интерес."
+    n "{nw}"
+    n "......О, ты так не считаешь?"
+    n "{nw}"
+    n "И правильно."
+    extend " Если ещё разок поскладывать старые, может быть, обнаружатся новые любопытные вещи."
+    nvl clear
+
+    n "Всё равно ведь здесь нету предела времени."
+    n "Если не найти чем развлечься, делать тут, в общем-то, нечего."
+    nvl clear
+
+    n "Выбирать из коробок тоже нисколько не интересно, коль знаешь, что в них."
+    n "{nw}"
+    n "И если ты даже тогда сумеешь развлечь себя, выбирая коробку, — что ж, можешь собой гордиться."
+    nvl clear
+
+    n "А?"
+    extend " Какой игрой развлекаюсь я?"
+    nvl clear
+
+    n "Я не то чтоб играю — скорее просто убиваю время."
+    n "{nw}"
+    n "Мне нравится воображать, что должно произойти с их миром, чтобы Рика и её друзья добились-таки своего идеала."
+    n "{nw}"
+    n "Я пытаюсь придумать свой фрагмент мира, что не оставил бы их несчастливыми."
+    nvl clear
+
+    n "Думаю, ты в целом поняла, как устроены миры, просмотрев данный фрагмент?"
+    n "{nw}"
+    n "Недавно я полюбила раздумывать, что и кто должен был сделать, чтобы Рика не проиграла Такано."
+    nvl clear
+
+    n "Хочешь посмотреть на придуманный мною мир?"
+    nvl clear
+
+    n "Хи-хи, увы и ах."
+    extend " Тебе я не покажу."
+    n "{nw}"
+    n "В нём"
+    extend " Рика с друзьями преодолели всё,"
+    extend " разбили судьбу и пережили июнь пятьдесят восьмого года Сёва."
+    nvl clear
+
+    n "Такой фрагмент, словно бы я хочу потешить себя саму. Мне стыдно его показывать."
+    nvl clear
+
+    n "...Но не сомневаюсь: фрагмент, который вот-вот составит Рика, выйдет куда великолепнее моего."
+    nvl clear
+
+    n "Пусть бы она застряла в 19-м дне июня 58 года Сёва..."
+    n "{nw}"
+    n "Развязка мира Рики затмит все остальные миры."
+    n "{nw}"
+    n "Сколько бы ей ни пришлось перетерпеть,"
+    extend " если она сумеет-таки преодолеть всё, фрагмент её выйдет несказанно великолепным."
+    nvl clear
+
+    n "Думаю, сотканная самой Рикой история намного прекраснее всего, что могу изобразить я."
+    nvl clear
+
+    n "Хочешь знать, что с ней стало?.."
+    nvl clear
+
+    n "Как понимаю, в итоге она вместе с Ханю решила повторить мир ещё раз."
+    nvl clear
+
+    n "Биться до последнего за дарованную ей жизнь."
+    n "Тому научил её покинутый мир."
+    n "{nw}"
+    n "Новый уже начался."
+    nvl clear
+
+    n "Интересно, что ж то за мир?"
+    n "Я думаю пойти на него посмотреть."
+    n "{nw}"
+    n "А ты как — пойдёшь со мной?.."
+    nvl clear
+
+    $ renpy.pause(1.0)
+    stop music fadeout 10.0
+    show white:
+        alpha 0.0 
+        linear 7.0 alpha 1.0 
+    $ renpy.pause(9.0, hard=True)
+    scene black  with Dissolve(1.0)
+
+    call screen tips_mina
+    return
+
+label otsukaresama_minagoroshi:
+
+    show tips_received:
+        xalign 0.5 yalign 0.2 
+    show text "Под конец игр со фрагментами":
+        xalign 0.5 ypos 0.3 yanchor 0.0 
+    with b_left
+    $ renpy.pause(4.0)
+    hide tips_received 
+    hide text 
+    with Dissolve(1.0)
+
+    if not persistent.chapter_mina:
+
+        $ persistent.chapter = persistent.chapter + 1
+        $ persistent.chapter_mina = True
+
+        $ show_button_game_menu = False
+        $ _game_menu_screen = None
+        $ mouse_visible = False
+
+        call omake_between
+        scene omake_staffroom  with spiral5
+        $ renpy.pause(10.0)
+
+        call omake_between
+        scene omake_tips  with spiral5
+        $ renpy.pause(10.0)
+
+        call omake_between
+        scene omake_jump  with spiral5
+        $ renpy.pause(10.0)
+
+        if persistent.chapter == 5:
+            call omake_between
+            scene omake_bgm_kai  with spiral5
+            $ renpy.pause(10.0)
+
+            if persistent.matsuri:
+                call omake_between
+                scene omake_gallery_kai  with spiral5
+                $ renpy.pause(10.0)
+
+        if not persistent.chapter_matu:
+            call omake_between
+            scene omake_unlock_matu  with spiral5
+            $ renpy.pause(10.0)
+
+        scene black  with Dissolve(1.0)
+        $ mouse_visible = True
+        $ renpy.pause(1.0, hard=True)
+        scene expression "efe/haikei_7.jpg"  with Dissolve(1.0)
+
+        show expression "efe/title_kage.png" at truecenter 
+        show expression "efe/prava_disclaimer.png" at central 
+        with Dissolve(1.0)
+    $ renpy.pause(1.0, hard=True)
+
+    $ renpy.full_restart()

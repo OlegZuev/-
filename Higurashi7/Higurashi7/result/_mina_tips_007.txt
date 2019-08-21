@@ -1,0 +1,253 @@
+void main()
+{
+	EnableJumpingOfReturnIcon();
+
+	PlayBGM( 0, "yoru", 56, 0 );
+
+	DrawSceneWithMask( "background/ho_r1", "maskup", 1, 0, 300 );
+
+	ClearMessage();
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　鉄平は、沙都子がもう少し金を持っているだろうと思っていた。",
+		   NULL, "Тэппэй думал, что у Сатоко должно сохраниться ещё чуть-чуть средств.", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	ModDrawCharacterWithFiltering(2, 4, "sprite/normal/sa1a_muhyou_a1_", "0", "maskright", 1, 160, 0, FALSE, 0, 0, 0, 0, 0, 10, 300, TRUE );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　だが実際には沙都子は無一文だった。",
+		   NULL, "Однако на самом деле у той не было ни гроша.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　今までどうやって生活してきたのかと聞くと、",
+		   NULL, "Спросив, как она тогда до сих пор пробавлялась,", Line_WaitForInput);
+	OutputLine(NULL, "同居してた友人に世話になっていたので、自分はお金が必要なかったと返事が返ってきた。",
+		   NULL, " Тэппэй услыхал, что, живя у подруги, та не нуждалась в деньгах.", Line_Normal);
+	ClearMessage();
+
+	DrawSceneWithMask( "black", "maskdown", 1, 0, 300 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　鉄平は、賭場などで悪いお金を多少は稼いでいた。",
+		   NULL, "Тэппэй сколотил кое-какие деньжата в игорных залах.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　その蓄えが多少はあったから当分は問題なかったが、",
+		   NULL, "На некоторое время тех денег хватило бы,", Line_WaitForInput);
+	OutputLine(NULL, "そもそも鉄平にとってその金は軍資金兼、遊興費であり、生活費に回すなど不愉快極まりないことだった。",
+		   NULL, " однако Тэппэй вовсе не собирался растрачивать их на проживание, считая их капиталом на развлечения и последующие ловкие схемы.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　だが、沙都子が金を持っていないはずがない。",
+		   NULL, "Но у Сатоко не могло не быть денег.", Line_WaitForInput);
+	OutputLine(NULL, "鉄平はそう考えた。",
+		   NULL, " Так подумал Тэппэй.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　鉄平の妻、つまり沙都子の叔母は、事故で死んだ沙都子の両親からかなりの金の入った預金通帳を奪っているはずだった。",
+		   NULL, "Жена Тэппэя — она же тётка Сатоко — вроде бы забрала себе банковскую книжку с приличной суммой, оставшуюся от мёртвых родителей Сатоко.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　その叔母は去年死に、悟史も失踪。",
+		   NULL, "Её убили в прошлом году, а заодно пропал Сатоши.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　だとしたら、その通帳は最後のひとりの沙都子が持っているに違いなかった。",
+		   NULL, "Стало быть, кроме как у Сатоко, книжке храниться негде.", Line_Normal);
+	ClearMessage();
+
+	ModDrawCharacter(0, 4, "sprite/normal/sa1b_muhyou_b2_", "2", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 5, 0, FALSE );
+	DrawScene( "background/ho_r1", 400 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　だが、沙都子をいくら脅しても、そんなものを受け取っていないと繰り返すのみだった。",
+		   NULL, "Однако, сколько бы он ни грозился, Сатоко лишь твердила, что ничего такого не видела.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　きっと隠してるに違いないと思い、鉄平が納得行くように沙都子を詰問してみた。",
+		   NULL, "Окончательно убеждённый, что та прячет книжку, Тэппэй попробовал вывести Сатоко на чистую воду.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　沙都子自身に暴力を加えると傷が残り、女教師や相談所に疑われる。",
+		   NULL, "Битьё оставило бы синяки, а тогда у центра и той училки появились бы подозрения.", Line_Normal);
+	ClearMessage();
+
+	DrawScene( "black", 400 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　だから沙都子は殴らない。",
+		   NULL, "Поэтому тронуть Сатоко Тэппэй не посмел.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　言葉や暴言で殴り、物や家具を殴ったり壊したりして見せた。",
+		   NULL, "Вместо ударов он засыпал её злобной бранью. Ломал и бил на её глазах мебель и прочие вещи.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	DisableWindow();
+	PlaySE( 0, "s_furu", 56, 64 );
+	SetValidityOfInput( FALSE );
+	Wait( 400 );
+	SetValidityOfInput( TRUE );
+	PlaySE( 0, "s_tataku", 56, 64 );
+	SetValidityOfInput( FALSE );
+	Wait( 400 );
+	SetValidityOfInput( TRUE );
+	PlaySE( 0, "s_Down", 56, 64 );
+	SetValidityOfInput( FALSE );
+	Wait( 600 );
+	SetValidityOfInput( TRUE );
+	PlaySE( 0, "s_furu", 56, 64 );
+	SetValidityOfInput( FALSE );
+	Wait( 400 );
+	SetValidityOfInput( TRUE );
+	PlaySE( 0, "s_tataku", 56, 64 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　こういう脅し方ももちろん鉄平の得意とするものだ。",
+		   NULL, "Конечно же, Тэппэй отлично умел пугать и вот так.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　だが、沙都子は持っていない知らないと半狂乱になって答えるのみで、本当に持っていなさそうだった。",
+		   NULL, "Однако Сатоко лишь без перерыва повторяла, что ничего не видела, ничего не знает, — и похоже было, что книжки у неё действительно нет.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　沙都子の怯えた小動物のような仕草に、鉄平は居間をひとつ、完全に荒らしきった後、ようやく納得するのだった。",
+		   NULL, "При виде дрожащей, похожей на напуганную зверюшку племянницы Тэппэй, разгромивший в пух и прах целую гостиную, наконец поверил, что та не врёт.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　……となれば、通帳はどこに？",
+		   NULL, "......Тогда где она может быть?", Line_WaitForInput);
+	OutputLine(NULL, "　鉄平は２つ考えた。",
+		   NULL, " У Тэппэя появились две догадки.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　１つは叔母がへそくりのようにどこかに未だ隠し持っていること。",
+		   NULL, "Первая — что жена где-то спрятала заветную книжицу, а место унесла с собою в могилу.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　もう１つは、叔母が死んだ後、それを悟史が奪い、やはりどこかに隠し持っていること。",
+		   NULL, "Вторая — что после смерти тётки Сатоши забрал книжку и опять же спрятал невесть где.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　どちらにせよ、この家のどこかに隠されているだろうという結論に至った。",
+		   NULL, "Тэппэй пришёл к выводу, что как бы там ни было, а деньги должны быть спрятаны где-то в доме.", Line_Normal);
+	ClearMessage();
+
+	DrawScene( "background/ho_r1", 400 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　沙都子には自分で荒らした居間の片付けを命じ、鉄平は二階建ての狭くない家の中を彷徨い始めた。",
+		   NULL, "Приказав Сатоко убрать устроенный им бардак, Тэппэй начал шарить по довольно-таки немаленькому двухэтажному дому.", Line_Normal);
+	ClearMessage();
+
+	DrawSceneWithMask( "black", "maskright", 1, 0, 300 );
+	DrawSceneWithMask( "background/ho_2", "maskright", 1, 0, 300 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　……実は、この頃には鉄平は沙都子を持て余し始めていた。",
+		   NULL, "......В общем-то, как раз тогда Тэппэю начала надоедать Сатоко.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　風の噂では、沙都子の両親は相当の金を残していたはずだ。",
+		   NULL, "Ежели верить сплетням, её родители оставили после себя приличное состояние.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　そしてそれを叔母は全て独り占めしていた。",
+		   NULL, "И жена присвоила всё себе.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　守銭奴だったから、犬が何でも持ち帰って律儀に取って置くように、多分、通帳も手付かずで丸々残っているはずだ。",
+		   NULL, "Так как она была скаредна донельзя и, как собака, прилежно хранила на чёрный день всё, что притаскивала домой, денег на счету, верно, так и не тронула.", Line_Normal);
+	ClearMessage();
+
+	DrawSceneWithMask( "black", "maskright", 1, 0, 300 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　まとまった金が手に入ったら、どこか別の土地へ行くのも悪くないと思い始めていた。",
+		   NULL, "А с денежками — почему бы и не перебраться куда-то ещё.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　穀倉の辺りの賭場には多少のツテもある。",
+		   NULL, "Он знал кое-кого из игорного притона рядом со станцией Гогура.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　昔世話したヤツらがまだヤサにしてたはずだ。",
+		   NULL, "Там должны ещё околачиваться те, кому он в своё время помог.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　当時の恩でゴネて転がりこむか。",
+		   NULL, "Не откажут же должнички?", Line_WaitForInput);
+	OutputLine(NULL, "寝床くらいは貸してくれるはずだ。",
+		   NULL, " Уж переночевать-то дадут небось.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　確かに沙都子に家事を任せる気楽さはあるが、学校や児童相談所から監視を受けており、窮屈さは否めない。",
+		   NULL, "Конечно, хорошо, что Сатоко делает за него всю работу по дому, но под присмотром центра и школы он ощущал себя не в своей тарелке.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　自らを暴力の塊であると認める鉄平にとって、今後も沙都子に暴行しない保証など、自分に対してすら出せるわけがなかった。",
+		   NULL, "Для Тэппэя, признававшего, что в насилии — весь он, невозможность бить Сатоко была что кость в горле.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	PlayBGM( 1, "semi_r", 56, 0 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　…そう思えば思うほどに、無抵抗な沙都子を思い切りぶん殴ってやりたい衝動に駆られるのだった。",
+		   NULL, "Чем больше он размышлял, тем сильнее хотелось в кровь измочалить Сатоко, не оказывавшую ни малейшего сопротивления.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　抵抗する相手を屈服させる愉しみしか知らなかった鉄平にとって、",
+		   NULL, "Тэппэю, не знавшему иного наслаждения, кроме торжества над сломленным противником,", Line_WaitForInput);
+	OutputLine(NULL, "無抵抗の沙都子がどこまで乱暴すれば抵抗してくれるかを試すことは、最後に試してみたい愉しみだった。",
+		   NULL, " хотелось напоследок увидеть, сколько Сатоко собралась терпеть насилие, прежде чем сорвётся и даст отпор.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　知恵が訪問して以来の不愉快さは未だ消えず、",
+		   NULL, "Его до сих пор жгло раздражение от приезда Тиэ,", Line_WaitForInput);
+	OutputLine(NULL, "ここを出る時にその鬱憤を晴らすために沙都子を滅茶苦茶にしてやろうというルールが、いつの間にか鉄平の内側に作られていたのである……。",
+		   NULL, " и Тэппэй бессознательно пообещал себе, перед тем как свалит отсюда, отыграться на Сатоко, раздавив её, изничтожив.", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	Wait( 1000 );
+	DrawScene( "black", 1000 );
+}
+

@@ -1,0 +1,809 @@
+void main()
+{
+
+	DrawScene( "white", 1000 );
+	FadeOutBGM( 0, 1000, FALSE );
+	FadeOutBGM( 1, 1000, FALSE );
+	FadeOutBGM( 2, 1000, FALSE );
+	DrawScene( "white", 2000 );
+	PlayBGM( 0, "higurashi", 56, 0 );
+	DrawScene( "background/sora2", 1000 );
+	SetValidityOfInput( FALSE );
+	Wait( 1000 );
+	SetValidityOfInput( TRUE );
+	DrawScene( "white", 1000 );
+	DrawSceneWithMask( "background/sinryou_soto1_02", "maskup", 1, 0, 1300 );
+	SetValidityOfInput( FALSE );
+	Wait( 1000 );
+	SetValidityOfInput( TRUE );
+	DrawSceneWithMask( "black", "maskleft", 1, 0, 1300 );
+	DrawSceneWithMask( "background/sinryou_sinsatu1", "maskright", 1, 0, 1300 );
+
+	SetSpeedOfMessage( FALSE, 0 );
+
+	ClearMessage();
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　富竹たちの死については、もちろん入江の耳にも入っていた。",
+		   NULL, "Конечно же, Ириэ знал о гибели тех двоих.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　そして、入江が電話している様子を見る限り、東京も診療所も混乱しているように見えた。",
+		   NULL, "И, судя по его виду во время телефонного разговора, как в Токио, так и в клинике жутко переполошились.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　……自分たちの研究のためには人の命などどうとも思わないくせに、内部の人間の死には大騒ぎするのが何だか皮肉だった。",
+		   NULL, "......Довольно-таки забавно, какой шум они поднимают по поводу смерти своих, тогда как чужие жизни ради своих изысканий не ставят ни во что.", Line_Normal);
+	ClearMessage();
+
+	ModDrawCharacter(1, 14, "sprite/normal/oko_def_", "0", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 0, 0, FALSE );
+	DrawSceneWithMask( "background/sinryou_sinsatu3", "maskleft", 1, 0, 300 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　そして部屋には、鷹野の部下の小此木の姿もあった。",
+		   NULL, "Ещё в кабинете присутствовал Оконоги, подчинённый Такано.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　小此木は山狗の隊長だ。",
+		   NULL, "Оконоги командует Ямаину.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　……この男が今も私の警護をしてくれているのかの確認が最大の目的だった。",
+		   NULL, "......Главная цель моего прихода — убедиться, что меня всё ещё защищают.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　過去の場合、上司の鷹野が死ぬと、彼らは私に構わなくなってしまうことがほとんどだ。",
+		   NULL, "Раньше после смерти начальницы Ямаину, Такано, я становилась им безразлична.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#6972c1>梨花</color>", NULL, "<color=#6972c1>Рика</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 5, "ps3/s12/05/280500097", 256, TRUE);
+	OutputLine(NULL, "「……小此木。",
+		   NULL, "\"...Оконоги...", Line_WaitForInput);
+	ModPlayVoiceLS(4, 5, "ps3/s12/05/280500098", 256, TRUE);
+	OutputLine(NULL, "鷹野が死んでしまいましたが、ボクは大丈夫なのですか…？」",
+		   NULL, " Такано погибла, но со мной-то ничего не случится?..\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#f5e6d3>小此木</color>", NULL, "<color=#f5e6d3>Оконоги</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 14, "ps3/s12/14/283400008", 256, TRUE);
+	OutputLine(NULL, "「大丈夫ですよ梨花さん。",
+		   NULL, "\"Не извольте переживать, Рика-сан.", Line_WaitForInput);
+	ModPlayVoiceLS(4, 14, "ps3/s12/14/283400009", 256, TRUE);
+	OutputLine(NULL, "我々が今後も厳重に警護してますんね。",
+		   NULL, " Мы продолжим нести бдительную охрану.", Line_WaitForInput);
+	ModPlayVoiceLS(4, 14, "ps3/s12/14/283400010", 256, TRUE);
+	OutputLine(NULL, "…ですから、警察に頼ろうとしなくても問題ないです。」",
+		   NULL, " Можете не прибегать к услугам полиции.\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　…厳重に警護というのはこういう意味か。",
+		   NULL, "...Вон что значит бдительная охрана?", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　私が大石と話していたことは彼らに聞かれていたようだった。",
+		   NULL, "Похоже, о моём разговоре с Ооиси знали.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#6972c1>梨花</color>", NULL, "<color=#6972c1>Рика</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 5, "ps3/s12/05/280500099", 256, TRUE);
+	OutputLine(NULL, "「……大石に聞きました。",
+		   NULL, "\"......Ооиси сказал...", Line_WaitForInput);
+	ModPlayVoiceLS(4, 5, "ps3/s12/05/280500100", 256, TRUE);
+	OutputLine(NULL, "鷹野が実は死んでいないというのは本当ですか？」",
+		   NULL, " Это правда, что Такано вовсе не мертва?\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#f5e6d3>小此木</color>", NULL, "<color=#f5e6d3>Оконоги</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 14, "ps3/s12/14/283400011", 256, TRUE);
+	OutputLine(NULL, "「まさか。",
+		   NULL, "\"Шо вы.", Line_WaitForInput);
+	ModPlayVoiceLS(4, 14, "ps3/s12/14/283400012", 256, TRUE);
+	OutputLine(NULL, "岐阜県警の正式な発表ですんね。",
+		   NULL, " Полицейский штаб Гифу заявил офиц-ально.", Line_WaitForInput);
+	ModPlayVoiceLS(4, 14, "ps3/s12/14/283400013", 256, TRUE);
+	OutputLine(NULL, "大石という刑事は今年で定年、オヤシロさまの祟りを何とか解決したい一心で、何でも話をおかしくしようとするクセがありよります。",
+		   NULL, " Детектив Ооиси у этом году в отставку идёт, и от желания раскрыть Проклятие Оясиро-сама у него появилась привычка во всём находить скрытый смысл.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#f5e6d3>小此木</color>", NULL, "<color=#f5e6d3>Оконоги</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 14, "ps3/s12/14/283400014", 256, TRUE);
+	OutputLine(NULL, "あいつの言うことに耳を貸さん方がいいでしょう。」",
+		   NULL, " Советую пропускать его слова мимо ушей.\"", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　…確かにそれは言うとおりだった。",
+		   NULL, "...Что ж, его правда.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　昭和５８年の大石は定年前のラストチャンス。",
+		   NULL, "58-й год Сёва — последняя надежда Ооиси.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　溺れる者は藁をも掴むの故事どおり、どんなデマにも飛びつく悪癖があった。",
+		   NULL, "Как известно, утопающий хватается за соломинку, и он охотно схватится за любой слух.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#6972c1>梨花</color>", NULL, "<color=#6972c1>Рика</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 5, "ps3/s12/05/280500101", 256, TRUE);
+	OutputLine(NULL, "「……では、小此木はこの事件をどう見ていますですか…？」",
+		   NULL, "\"......Ну а как по-вашему, Оконоги?..\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#f5e6d3>小此木</color>", NULL, "<color=#f5e6d3>Оконоги</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 14, "ps3/s12/14/283400015", 256, TRUE);
+	OutputLine(NULL, "「現在、上が調査してますんね、いい加減なことは言えません。",
+		   NULL, "\"Поостерегусь делать поспешные выводы, пока расследование идёт.", Line_WaitForInput);
+	ModPlayVoiceLS(4, 14, "ps3/s12/14/283400016", 256, TRUE);
+	OutputLine(NULL, "殺された二人の関係を知る以上、内部犯行の可能性が極めて高いちゅうんは、間違いないんじゃないかと。」",
+		   NULL, " Зная взаимоотношения убитых, более чем уверен, шо тут поработал не посторонний.\"", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　その話を聞きながら入江の様子を見る。",
+		   NULL, "Слушая его, я перевела взгляд на Ириэ.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　……どうやら、富竹たちを殺した嫌疑は入江に掛けられているようで、入江は濡れ衣を晴らそうと必死だった。",
+		   NULL, "......Как видно, в убийствах подозревали его, и тот в поте лица пытался доказать свою невиновность.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　やがて電話が終わった。",
+		   NULL, "Наконец он положил трубку.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　献身的に働いてきたのに、真っ先に自分が疑われるとは思わず、入江は少し憤慨していた。",
+		   NULL, "Ириэ, не ожидавший стать первым подозреваемым в награду за всю многолетнюю работу, был раздражён.", Line_Normal);
+	ClearMessage();
+
+	ModDrawCharacter(2, 10, "sprite/normal/iri2_def2_", "2", 160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 10, 0, FALSE );
+	DrawSceneWithMask( "background/sinryou_sinsatu1", "maskleft", 1, 0, 300 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#c89a80>入江</color>", NULL, "<color=#c89a80>Ириэ</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 10, "ps3/s12/10/281000030", 256, TRUE);
+	OutputLine(NULL, "「あぁ梨花ちゃん。",
+		   NULL, "\"Ах, Рика-тян.", Line_WaitForInput);
+	ModPlayVoiceLS(4, 10, "ps3/s12/10/281000031", 256, TRUE);
+	OutputLine(NULL, "すみませんね、だいぶお待たせして。」",
+		   NULL, " Прости, разговор затянулся.\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#6972c1>梨花</color>", NULL, "<color=#6972c1>Рика</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 5, "ps3/s12/05/280500102", 256, TRUE);
+	OutputLine(NULL, "「……入江も大変なことになったようなのです。」",
+		   NULL, "\"......Похоже, с Ириэ тоже случилась беда.\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	DisableWindow();
+	ModDrawCharacter(2, 10, "sprite/normal/iri2_majime_", "2", 160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 10, 200, TRUE );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#c89a80>入江</color>", NULL, "<color=#c89a80>Ириэ</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 10, "ps3/s12/10/281000032", 256, TRUE);
+	OutputLine(NULL, "「お聞きになったとおりです。",
+		   NULL, "\"Всё как вы слышали.", Line_WaitForInput);
+	ModPlayVoiceLS(4, 10, "ps3/s12/10/281000033", 256, TRUE);
+	OutputLine(NULL, "……富竹さんたちの死は何かの陰謀による可能性が非常に高いです。",
+		   NULL, " ......Весьма вероятно, что к их гибели привёл некий сговор.", Line_WaitForInput);
+	ModPlayVoiceLS(4, 10, "ps3/s12/10/281000034", 256, TRUE);
+	OutputLine(NULL, "そして、東京はその黒幕が私であると思っているようです。",
+		   NULL, " И в Токио, похоже, считают, что я в нём главный.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#c89a80>入江</color>", NULL, "<color=#c89a80>Ириэ</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 10, "ps3/s12/10/281000035", 256, TRUE);
+	OutputLine(NULL, "……まったく、どうしてそういう方向になるのか大いに疑問です！」",
+		   NULL, " ......С чего бы — да чёрт их разберёт!\"", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　入江は珍しく感情を露にしていた。",
+		   NULL, "Ириэ, против обыкновения, горячился.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　自分の功績が認められず、恩を仇で返されたような気持ちなのだろう。",
+		   NULL, "Должно быть, в нём кипела обида: не признают заслуг, да ещё и платят чёрной неблагодарностью.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　だが、入江は研究の縮小に伴う予算の削減に頑強に抵抗していた経緯があった。",
+		   NULL, "Однако Ириэ действительно изо всех сил противился сокращению финансирования, влекущему за собой сокращение научной деятельности.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　研究者である入江にとっては当然の主張でも、東京はそうは思っていなかったということなのかもしれない。",
+		   NULL, "Возможно, какими бы очевидными ни казались учёному собственные доводы, в Токио полагали обратное.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　……どの道、みんなみんな胡散臭い連中だ。",
+		   NULL, "......Кого ни возьми, все такие подозрительные...", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	ModDrawCharacter(2, 10, "sprite/normal/iri2_def1_", "0", 160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 10, 200, TRUE );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#c89a80>入江</color>", NULL, "<color=#c89a80>Ириэ</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 10, "ps3/s12/10/281000036", 256, TRUE);
+	OutputLine(NULL, "「梨花ちゃんの心配はわかってます。",
+		   NULL, "\"Понимаю ваше беспокойство, Рика-тян.", Line_WaitForInput);
+	ModPlayVoiceLS(4, 10, "ps3/s12/10/281000037", 256, TRUE);
+	OutputLine(NULL, "鷹野さんたちを殺した何者かが次にあなたを狙わないとは限らないですからね。",
+		   NULL, " Вполне возможно, что их убийцы решат заняться вами.", Line_WaitForInput);
+	ModPlayVoiceLS(4, 10, "ps3/s12/10/281000038", 256, TRUE);
+	OutputLine(NULL, "東京もそこは特に気にしていました。」",
+		   NULL, " В Токио тоже озабочены.\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	ModDrawCharacter(1, 14, "sprite/normal/oko_def_", "0", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 0, 0, FALSE );
+	DrawSceneWithMask( "background/sinryou_sinsatu3", "maskright", 1, 0, 300 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#f5e6d3>小此木</color>", NULL, "<color=#f5e6d3>Оконоги</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 14, "ps3/s12/14/283400017", 256, TRUE);
+	OutputLine(NULL, "「山狗にも、あなたの警護体制を最高にするよう命令が来ています。",
+		   NULL, "\"Нам поступил приказ охранять вас так, шоб мышь не проскочила.", Line_WaitForInput);
+	ModPlayVoiceLS(4, 14, "ps3/s12/14/283400018", 256, TRUE);
+	OutputLine(NULL, "ご安心してくださいんね。」",
+		   NULL, " Просьба не беспокоиться.\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#6972c1>梨花</color>", NULL, "<color=#6972c1>Рика</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 5, "ps3/s12/05/280500103", 256, TRUE);
+	OutputLine(NULL, "「……それが聞ければ、ボクは少し安心なのです。」",
+		   NULL, "\"......Ваши слова немного меня успокоили же.\"", Line_Normal);
+	ClearMessage();
+
+	DrawSceneWithMask( "black", "maskdown", 1, 0, 300 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　山狗たちにそういう命令が来ていると直接聞けたのは初めての経験だった。",
+		   NULL, "Я впервые слышала, чтоб Ямаину поступал подобный приказ.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　今までは、疑惑の目を向けられた入江の監視に体制が移り、私は無視されることがほとんどだった。",
+		   NULL, "До сих пор, переключившись на слежку за Ириэ, ко мне теряли весь интерес.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　だから、富竹たちの死は防げなくても、今回の世界はかなり有利な条件であることを確認できた。",
+		   NULL, "Так что, хотя гибель Такано и Томитаке не получилось предотвратить, обстоятельства всё-таки складываются благоприятно.", Line_Normal);
+	ClearMessage();
+
+	DrawSceneWithMask( "background/sinryou_sinsatu1", "maskup", 1, 0, 300 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#6972c1>梨花</color>", NULL, "<color=#6972c1>Рика</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 5, "ps3/s12/05/280500104", 256, TRUE);
+	OutputLine(NULL, "「……鷹野たちを殺した犯人に、心当たりはないのですか？」",
+		   NULL, "\"......Есть ли у вас догадки, кто их убил?\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	DisableWindow();
+	ModDrawCharacterWithFiltering(1, 10, "sprite/normal/iri2_majime2_", "0", "maskleft", 1, -160, 0, FALSE, 0, 0, 0, 0, 0, 0, 300, TRUE );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#c89a80>入江</color>", NULL, "<color=#c89a80>Ириэ</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 10, "ps3/s12/10/281000039", 256, TRUE);
+	OutputLine(NULL, "「東京の皆さんも調べられています。",
+		   NULL, "\"В Токио ведут расследование.", Line_WaitForInput);
+	ModPlayVoiceLS(4, 10, "ps3/s12/10/281000040", 256, TRUE);
+	OutputLine(NULL, "状況を見る限り、内部事情に精通した人間の仕業です。",
+		   NULL, " Исходя из обстоятельств, здесь поработал кто-то из своих.", Line_WaitForInput);
+	ModPlayVoiceLS(4, 10, "ps3/s12/10/281000041", 256, TRUE);
+	OutputLine(NULL, "……はははは、どうやら真っ先に疑われたのは私のようです。」",
+		   NULL, " ......Ха-ха-ха-ха, и, судя по всему, первый подозреваемый — я.\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#6972c1>梨花</color>", NULL, "<color=#6972c1>Рика</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 5, "ps3/s12/05/280500105", 256, TRUE);
+	OutputLine(NULL, "「……富竹にああいう死に方をさせられるのは入江だけなのです。」",
+		   NULL, "\"......Только вы могли убить его подобным образом же.\"", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	ModDrawCharacter(1, 10, "sprite/normal/iri2_majime_", "2", -160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 0, 200, TRUE );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#c89a80>入江</color>", NULL, "<color=#c89a80>Ириэ</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 10, "ps3/s12/10/281000042", 256, TRUE);
+	OutputLine(NULL, "「そ、そんなことはありません。",
+		   NULL, "\"Д-да вы что.", Line_WaitForInput);
+	ModPlayVoiceLS(4, 10, "ps3/s12/10/281000043", 256, TRUE);
+	OutputLine(NULL, "恐らく東京の方もH173の話をしているのでしょうが。",
+		   NULL, " Вероятно, и в Токио склоняются к Аш-173.", Line_WaitForInput);
+	ModPlayVoiceLS(4, 10, "ps3/s12/10/281000044", 256, TRUE);
+	OutputLine(NULL, "あれは危険な目的での研究が中止された時、全て破棄されたはずです。",
+		   NULL, " Но ведь мы уничтожили все образцы, когда прекратили разработки не в мирных целях.", Line_WaitForInput);
+	ModPlayVoiceLS(4, 10, "ps3/s12/10/281000045", 256, TRUE);
+	OutputLine(NULL, "あんなことは不可能だ…！」",
+		   NULL, " И речи быть не может!..\"", Line_Normal);
+	ClearMessage();
+
+	ModDrawCharacter(1, 14, "sprite/normal/oko_def_", "0", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 0, 0, FALSE );
+	DrawSceneWithMask( "background/sinryou_sinsatu3", "maskright", 1, 0, 300 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#f5e6d3>小此木</color>", NULL, "<color=#f5e6d3>Оконоги</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 14, "ps3/s12/14/283400019", 256, TRUE);
+	OutputLine(NULL, "「ですんが所長。",
+		   NULL, "\"Однако, дирехтор,", Line_WaitForInput);
+	ModPlayVoiceLS(4, 14, "ps3/s12/14/283400020", 256, TRUE);
+	OutputLine(NULL, "こういうことが起こってしまった以上、東京は疑わざるを得ません。",
+		   NULL, " после такого в Токио не могут вас не заподозрить.", Line_WaitForInput);
+	ModPlayVoiceLS(4, 14, "ps3/s12/14/283400021", 256, TRUE);
+	OutputLine(NULL, "それに富竹氏には予防薬が予め与えられていたはず。",
+		   NULL, " Помимо того, Томитаке-си заранее получил прививку.", Line_WaitForInput);
+	ModPlayVoiceLS(4, 14, "ps3/s12/14/283400022", 256, TRUE);
+	OutputLine(NULL, "にもかかわらず発症したんです。」",
+		   NULL, " Тем не менее болезнь у него развилась.\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	ModDrawCharacter(2, 10, "sprite/normal/iri2_majime2_", "0", 160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 10, 0, FALSE );
+	DrawSceneWithMask( "background/sinryou_sinsatu1", "maskleft", 1, 0, 300 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#c89a80>入江</color>", NULL, "<color=#c89a80>Ириэ</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 10, "ps3/s12/10/281000046", 256, TRUE);
+	OutputLine(NULL, "「天文学的低確率で起こった偶然だとしか言えません…。",
+		   NULL, "\"Остаётся лишь говорить про исключительный случай, один на миллиард...", Line_WaitForInput);
+	ModPlayVoiceLS(4, 10, "ps3/s12/10/281000047", 256, TRUE);
+	OutputLine(NULL, "とにかく、絶対そんなことはありえないんです…！」",
+		   NULL, " Как бы то ни было, такого не могло произойти!..\"", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　…入江は普段は落ち着きのある人間なのだが。",
+		   NULL, "Обыкновенно Ириэ спокоен.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　…東京から疑いの目を向けられる綿流し以降は、落ち着きを失ってしまうことがほとんどだった。",
+		   NULL, "Однако после Ватанагаси, попав под подозрение Токио, практически всегда теряет всяческое спокойствие.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#6972c1>梨花</color>", NULL, "<color=#6972c1>Рика</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 5, "ps3/s12/05/280500106", 256, TRUE);
+	OutputLine(NULL, "「……鷹野が犯人、ということはありませんですか？",
+		   NULL, "\"......А не может ли быть, что виновна Такано?", Line_WaitForInput);
+	ModPlayVoiceLS(4, 5, "ps3/s12/05/280500107", 256, TRUE);
+	OutputLine(NULL, "　鷹野なら内部の人間です。」",
+		   NULL, " Она ведь из ваших.\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#c89a80>入江</color>", NULL, "<color=#c89a80>Ириэ</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 10, "ps3/s12/10/281000048", 256, TRUE);
+	OutputLine(NULL, "「鷹野さんが…？",
+		   NULL, "\"Такано-сан?..", Line_WaitForInput);
+	ModPlayVoiceLS(4, 10, "ps3/s12/10/281000049", 256, TRUE);
+	OutputLine(NULL, "　ま、まさか……。」",
+		   NULL, " Д-да ну, как это......\"", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　とは言いつつも、鷹野が犯人だったら全ての理由は説明できることに入江は気付きつつあった。",
+		   NULL, "Всё же Ириэ осознавал: да, будь виновна Такано, тогда бы всё встало на свои места.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　……ただ、その仮説に自信を持たせる動機がまったく思いつかなかった。",
+		   NULL, "......Только повода, подкрепляющего данное предположение, на ум не приходило.", Line_Normal);
+	ClearMessage();
+
+	DrawScene( "black", 1000 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　人は動機を求める生き物だ。",
+		   NULL, "Такие уж создания люди — повод им нужен.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　誰がやったかよりも、どうしてやったかを知りたがる。",
+		   NULL, "Сильнее хотят знать не то, кто совершил, а то, зачем совершал.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　……よくよく考えればそれはとても取るに足らないことかもしれない。",
+		   NULL, "......Если очень вдумчиво поразмыслить, возможно, то вовсе не имеет значения.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　動機なんて、犯人が打ち明けるまでわからない。",
+		   NULL, "Повод не узнаешь, покуда преступник не расколется.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　それを他人が想像して至ろうという時点で無意味だ。",
+		   NULL, "Пытаться его разгадать — бессмысленная трата времени.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　だから、動機がわからないから鷹野が犯人ではありえないという入江の考え方はきっと間違っていた。",
+		   NULL, "Так что Ириэ, из-за неизвестности повода отметающий всякую мысль, что Такано может быть виновата, конечно, неправ.", Line_Normal);
+	ClearMessage();
+
+	DrawScene( "background/ke5", 400 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#f5e6d3>小此木</color>", NULL, "<color=#f5e6d3>Оконоги</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 14, "ps3/s12/14/283400023", 256, TRUE);
+	OutputLine(NULL, "「梨花さん、確証もないことを言っちゃあいけませんね…。",
+		   NULL, "\"Рика-сан, вы бы не говорили всякое без веских улик...", Line_WaitForInput);
+	ModPlayVoiceLS(4, 14, "ps3/s12/14/283400024", 256, TRUE);
+	OutputLine(NULL, "あれだけ親切にしてくれたんじゃあないんですか。",
+		   NULL, " Она ж с большим добром к вам относилась.", Line_WaitForInput);
+	ModPlayVoiceLS(4, 14, "ps3/s12/14/283400025", 256, TRUE);
+	OutputLine(NULL, "それを疑っちゃあ悪いですんね。」",
+		   NULL, " Нехорошо за добро платить подозрением.\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　小此木が、まるで恩知らずだとでも言いたそうな嫌味っぽい目で笑いながら私に言った。",
+		   NULL, "Произнёс Оконоги, едко усмехаясь и глядя неодобрительным взглядом, так и порицающим за неблагодарность.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#6972c1>梨花</color>", NULL, "<color=#6972c1>Рика</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 5, "ps3/s12/05/280500108", 256, TRUE);
+	OutputLine(NULL, "「…………………。」",
+		   NULL, "\".....................\"", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　確かに私は鷹野にたくさん世話になった。",
+		   NULL, "Действительно, я не раз доставляла Такано хлопоты.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　それを思えば疑うのは恩知らずかもしれない。",
+		   NULL, "Возможно, подозревать её и вправду неблагодарность.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　でも、……だからといって、疑いから外すことはまだできない。",
+		   NULL, "Но... всё-таки я не могла отделаться от подозрения.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　それとも、私も大石と同じ悪い癖に取り憑かれているのか？",
+		   NULL, "Или я разделяю дурную привычку Ооиси?", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　何とか自分の運命から逃れたいと足掻くあまり、異説奇説に飛び付きたがっているのか…？",
+		   NULL, "Одержимая желанием сбежать от судьбы, цепляюсь за любую чушь?..", Line_Normal);
+	ClearMessage();
+
+	FadeOutBGM( 1000, 0, FALSE );
+	ModDrawCharacter(0, 10, "sprite/normal/iri2_majime_", "2", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 5, 0, FALSE );
+	DrawScene( "background/sinryou_sinsatu1", 1000 );
+	PlayBGM( 0, "Nazo", 56, 0 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#c89a80>入江</color>", NULL, "<color=#c89a80>Ириэ</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 10, "ps3/s12/10/281000050", 256, TRUE);
+	OutputLine(NULL, "「とにかく、私たちの身近で、何かよくないことが起こりつつあるのは間違いありません。",
+		   NULL, "\"Так или иначе, рядом с нами несомненно происходит что-то дурное.", Line_WaitForInput);
+	ModPlayVoiceLS(4, 10, "ps3/s12/10/281000051", 256, TRUE);
+	OutputLine(NULL, "用心するに越したことはないでしょう。」",
+		   NULL, " Осторожность не бывает лишней, не правда ли?\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	ModDrawCharacter(1, 14, "sprite/normal/oko_def_", "0", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 0, 0, FALSE );
+	DrawSceneWithMask( "background/sinryou_sinsatu3", "maskright", 1, 0, 300 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#f5e6d3>小此木</color>", NULL, "<color=#f5e6d3>Оконоги</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 14, "ps3/s12/14/283400026", 256, TRUE);
+	OutputLine(NULL, "「ご心配なく。",
+		   NULL, "\"Не волнуйтесь.", Line_WaitForInput);
+	ModPlayVoiceLS(4, 14, "ps3/s12/14/283400027", 256, TRUE);
+	OutputLine(NULL, "所長に対する警護体制も最高にするよう命令を受けておりますんね。」",
+		   NULL, " Нам поступил приказ обеспечить первоклассную охрану и вам.\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　入江が苦笑いする。",
+		   NULL, "Ириэ кисло усмехнулся.", Line_WaitForInput);
+	OutputLine(NULL, "…きっと、警護でなく監視の間違いだと胸の中で苦笑しているだろう。",
+		   NULL, " Про себя он, должно быть, горько смеётся над тем, как окрестили слежку.", Line_Normal);
+	ClearMessage();
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#f5e6d3>小此木</color>", NULL, "<color=#f5e6d3>Оконоги</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 14, "ps3/s12/14/283400028", 256, TRUE);
+	OutputLine(NULL, "「梨花さんも警察には不用意なことをしゃべらないようにお願いしますん。",
+		   NULL, "\"Рика-сан, попрошу вас быть осторожнее в разговорах с полицией.", Line_WaitForInput);
+	ModPlayVoiceLS(4, 14, "ps3/s12/14/283400029", 256, TRUE);
+	OutputLine(NULL, "……わかってると思いますが、場合によっては機密保持のため、厄介なことになるかもしれませんので。」",
+		   NULL, " ......Думаю, понимаете, шо получилось бы нехорошо, затронь вы сведения не для посторонних...\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　それは私が不用意なことをしゃべった相手を消すという意味だ。",
+		   NULL, "Подразумевалось, что человека, узнавшего лишнее, устранят.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　……そんなのは今この場で改めて言われることでもない。",
+		   NULL, "......Мог бы не напоминать.", Line_Normal);
+	ClearMessage();
+
+	DrawScene( "background/aka1", 1000 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　ただ、",
+		   NULL, "Впрочем...", Line_ContinueAfterTyping);
+	SetValidityOfInput( FALSE );
+	Wait( 800 );
+	SetValidityOfInput( TRUE );
+	OutputLine(NULL, "………もし本当に鷹野が犯人なら。",
+		   NULL, "...... а если Такано и правда преступница?", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode) == 0) { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　鷹野の部下である小此木もその一味に違いなかった。",
+		   NULL, "Тогда её подчинённый, Оконоги, точно заодно с ней.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　…そう考えれば、小此木が鷹野が犯人かもしれないというとすぐに否定したがるのも納得がいった。",
+		   NULL, "И понятно, почему Оконоги немедленно возражает на предположение о её виновности.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　でも、もしもそうならば恐ろしい。",
+		   NULL, "Но в таком случае кровь стынет в жилах.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　鷹野が敵で、",
+		   NULL, "Такано — враг,", Line_WaitForInput);
+	OutputLine(NULL, "山狗も敵なら、",
+		   NULL, " Ямаину — враги...", Line_WaitForInput);
+	OutputLine(NULL, "…つまりこの診療所は丸ごと敵の巣だということになる。",
+		   NULL, " Тогда ведь клиника получается вражеским логовом.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　入江は所詮、所長という名を冠した単なる研究者に過ぎないから、何があっても知りはしないだろう。",
+		   NULL, "Ириэ, в конце концов, просто учёный, занимающий должность директора, и вряд ли во что-либо посвящён.", Line_Normal);
+	ClearMessage();
+
+	DrawScene( "background/aka2", 1000 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　でも考えれば考えるほどにわからない。",
+		   NULL, "Чем больше думаю, тем больше запутываюсь.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　……鷹野がどうしてそんなことをしなくてはいけないのか？",
+		   NULL, "......Зачем Такано понадобилось так поступать?", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　…あぁもう、動機なんか何の意味もないとわかっているのに考えてしまう人としての身が憎い。",
+		   NULL, "Ах, чёрт бы тебя побрал, сама ведь знаешь, что повод не имеет значения, и всё же по-человечески размышляешь о нём...", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　鷹野は本当に犯人なのか。",
+		   NULL, "Действительно ли Такано виновна?", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　それとも、私も大石に感化されて妙な妄想に取り憑かれているのか。",
+		   NULL, "Или же я заразилась бредом Ооиси?", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　こう考えると、",
+		   NULL, "Если подумать...", Line_ContinueAfterTyping);
+	SetValidityOfInput( FALSE );
+	Wait( 800 );
+	SetValidityOfInput( TRUE );
+	OutputLine(NULL, "……山狗の警護はむしろ、",
+		   NULL, " возможно, Ямаину в роли охранников", Line_ContinueAfterTyping);
+	SetValidityOfInput( FALSE );
+	Wait( 900 );
+	SetValidityOfInput( TRUE );
+	OutputLine(NULL, "羊の番を狼にさせるようなものなのかもしれない。",
+		   NULL, " подобны волкам, стерегущим овец.", Line_Normal);
+	ClearMessage();
+
+	DrawScene( "black", 1000 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　私は今日までの百年間。",
+		   NULL, "Я прожила целый век.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　…自分を殺す何者かの正体を掴めず、自分の守りを固めるために入江機関に媚を売ってきた。",
+		   NULL, "Не понимая, кто меня убивает, заискивала перед Институтом Ириэ, чтобы охраняли получше.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　…それがそもそもの間違いなのだとしたら…？",
+		   NULL, "...Ну а если в этом и крылась ошибка?..", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　………いや、",
+		   NULL, "......Нет...", Line_ContinueAfterTyping);
+	SetValidityOfInput( FALSE );
+	Wait( 800 );
+	SetValidityOfInput( TRUE );
+	OutputLine(NULL, "……入江に悪意も下心もないのは間違いない。",
+		   NULL, " у Ириэ определённо нет ни злого умысла, ни тайных намерений.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　数多の世界で彼の真摯な姿を見てきた。",
+		   NULL, "Прошлые миры показали всю его честность.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　だから入江だけは信用できる。",
+		   NULL, "И ему одному доверять можно.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　……問題は頼りにならないことだけだ。",
+		   NULL, "......Правда вот, полагаться на него бесполезно, в том и беда.", Line_Normal);
+	ClearMessage();
+
+	ModDrawCharacter(1, 14, "sprite/normal/oko_def_", "0", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 0, 0, FALSE );
+	DrawSceneWithMask( "background/sinryou_sinsatu3", "maskup", 1, 0, 1300 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　小此木と目が合う。",
+		   NULL, "Мой взгляд встретил глаза Оконоги.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　大船に乗った気でいてくださいんね、と胸を叩き余裕をアピールする笑みは、今の私には悪意が篭っているように見えてならない。",
+		   NULL, "Грохнув по груди кулаком, тот заверил, что заботиться не о чем, — и теперь я не смогла отделаться от ощущения, будто в его улыбке сквозит коварство.", Line_Normal);
+	ClearMessage();
+
+	DrawSceneWithMask( "black", "maskdown", 1, 0, 1300 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　………私も、いつの間にか雛見沢症候群を発症させてしまい、疑心暗鬼に取り憑かれてしまったか……？",
+		   NULL, ".........Что, и у меня когда-то развился Хинамидзавский синдром, напустивший на меня паранойю?.....", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　何が何やらわからない。",
+		   NULL, "Ничего не пойму.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　誰が味方で誰が敵かわからなくなる。",
+		   NULL, "Кто враг, кто союзник — не понимаю больше.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　……いや、そんな情けないことを言うな。",
+		   NULL, "......Тьфу, да что за чушь ты несёшь.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　数多の世界で知ってきた、信頼を寄せるべき相手を信じるんだ。",
+		   NULL, "Доверяй тому, кому можно, в ком убедилась по прожитым жизням.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　確実に私の敵じゃないのは、",
+		   NULL, "Кто мне точно не враг", Line_ContinueAfterTyping);
+	SetSpeedOfMessage( TRUE, 128 );
+	OutputLine(NULL, "…",
+		   NULL, "...", Line_ContinueAfterTyping);
+	SetValidityOfInput( FALSE );
+	Wait( 300 );
+	SetValidityOfInput( TRUE );
+	OutputLine(NULL, "…",
+		   NULL, "...", Line_ContinueAfterTyping);
+	SetValidityOfInput( FALSE );
+	Wait( 300 );
+	SetValidityOfInput( TRUE );
+	OutputLine(NULL, "入江、",
+		   NULL, " так это Ириэ,", Line_ContinueAfterTyping);
+	SetValidityOfInput( FALSE );
+	Wait( 500 );
+	SetValidityOfInput( TRUE );
+	OutputLine(NULL, "大石。",
+		   NULL, " Ооиси...", Line_ContinueAfterTyping);
+	SetSpeedOfMessage( FALSE, 0 );
+	OutputLineAll(NULL, "", Line_WaitForInput);
+
+	OutputLine(NULL, "……そして、私の仲間たち。",
+		   NULL, "... и, наконец, друзья.", Line_Normal);
+	ClearMessage();
+
+	DrawScene( "background/aka1", 1000 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　だが、小此木が鷹野の手先なら、鷹野を疑い始めている私を厳重に監視してくるだろう。",
+		   NULL, "Но, если Оконоги заодно с Такано, после сомнений в ней за мной будут строго следить.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　下手な接触を悟られれば、彼らの本来任務に従い、あっさり消されてしまうかもしれない。",
+		   NULL, "Допусти оплошность — небось устранят в два счёта, выполняя главную свою задачу.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　……………私はこの世界が再び始まった時、何て残り少ない時間の世界だろうと嘆いたが。",
+		   NULL, "............Начиная очередную жизнь, я сетовала, что времени — кот наплакал.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　…そんなことはない。",
+		   NULL, "...Неправда.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　……なんて長く濃密な２週間なのか。",
+		   NULL, "......Насколько же долгие, насыщенные две недели прошли...", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　そして多分、私が迎える命日までもう何日もないだろう。",
+		   NULL, "Пожалуй, до рокового числа осталось всего несколько дней.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　私に何ができる？",
+		   NULL, "Что мне под силу сделать?", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　何が足掻ける？",
+		   NULL, "Как бороться?", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　……羽入が諦めるようにやはり今回も駄目なのか？",
+		   NULL, "......Ужель всё опять пропало, как обречённо считает Ханю?", Line_Normal);
+	ClearMessage();
+
+	CallScript( "&eye" );
+	FadeOutBGM( 0, 1000, TRUE );
+
+}
+

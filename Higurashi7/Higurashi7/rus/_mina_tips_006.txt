@@ -1,0 +1,25 @@
+label mina_tips_06:
+
+    stop music fadeout 1.0
+    stop ambient fadeout 1.0
+
+    scene black  with dissolve_04
+    play ambient lsys20
+    n "{b}Номер{w=0.8}{/b}\n{space=340}года эры Сёва\n{space=80}{i}(число){/i}{space=20}{i}(месяца){/i}\n\n"
+    n "{b}По делу{/b}:{space=77}Дело Ходзё Сатоко-сан."
+    n "{b}Посетители{/b}:{space=40}Маэбара Кейти{space=20}и ещё 4 (друзья)."
+    n "{nw}"
+    n "- {i}Просят взять Ходзё Сатоко-сан под временную защиту, так как дядя жестоко с ней обращается.{/i}"
+    extend " ({i}Работа по делу не закончена?{/i})"
+    n "{nw}"
+    n "- {i}Сегодня мою холодильник. Прошу до наступления вечера убрать из него ваши личные вещи.{/i}"
+    nvl clear
+
+    play sound wa_021
+
+    $ renpy.pause(1.0)
+    stop ambient fadeout 1.0
+    scene black  with Dissolve(1.0)
+
+    call screen tips_mina
+    return

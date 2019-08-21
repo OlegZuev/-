@@ -1,0 +1,60 @@
+label mina_tips_04:
+
+    stop music fadeout 1.0
+    stop ambient fadeout 1.0
+
+    scene bg si_heya2  with dissolve_04
+    play ambient lsys12
+    n "\"Вот билет на самолёт."
+    extend " Не опоздай."
+    extend " Остальное получишь на месте.\""
+    n "\"Ай, спасибо, родной."
+    extend " Так, Мамия, энто тебе.\""
+    nvl clear
+
+    scene bg hoteru 
+    show rina si_wa at central 
+    with left_03
+    n "\"Кхя-ха-ха-ха, {i}сенкъю{/i}!"
+    extend " Помню, хотела я побывать в Саппоро хоть разок.\""
+    n "\"......Этот говнюк Ходзё тя точно не заподозрил?\""
+    show rina si_def  with dissolve_02
+    n "\"Будь спокоен."
+    extend " Болван он."
+    show rina si_wa  with dissolve_02
+    extend " Хорош только на словах да ещё {i}где-то{/i}.\""
+    n "\"Хе-ха-ха-ха, вот как?\""
+    nvl clear
+
+    play ambient lsys15
+    n "И тогда-то неожиданно для всех послышался пронзительный визг шин нескольких подъезжающих автомобилей."
+    nvl clear
+
+    scene black  with right_03
+    n "Когда один из мужчин испуганно выглянул в щёлочку между штор, он увидел три резко затормозивших передо зданием чёрных автомобиля."
+    n "{nw}"
+    n "Из машин высыпали люди очень недоброй наружности."
+    nvl clear
+
+    n "Некоторые подняли глаза на окно."
+    n "Мигом отпрянув, мужчина торопливо задёрнул шторы."
+    nvl clear
+
+    scene bg si_heya2  with dissolve_02
+    n "\"Блядь, пронюхали!!"
+    extend " Валим!!\""
+    n "\"Погодь... чё, серьёзно?!"
+    extend " Но как?! Ещё и дня не прошло!\""
+    n "\"Мамия, шевели задницей!!"
+    extend " Поймают — усё, каюк!!!\""
+    nvl clear
+
+    n "С пожарной лестницы доносились топот и разъярённые голоса. Ещё немного, и они доберутся до цели."
+    nvl clear
+
+    $ renpy.pause(1.0)
+    stop ambient fadeout 1.0
+    scene black  with Dissolve(1.0)
+
+    call screen tips_mina
+    return

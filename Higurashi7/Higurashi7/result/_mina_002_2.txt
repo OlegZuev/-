@@ -1,0 +1,422 @@
+void main()
+{
+
+	DisableWindow();
+	FadeBustshotWithFiltering( 0, "mask00" , 0, FALSE, 0, 0, 400, TRUE );
+	ModDrawCharacter(1, 3, "sprite/normal/me2_tohoho_a1_", "0", -160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 0, 400, FALSE );
+	ModDrawCharacter(2, 1, "sprite/normal/kei2_warai_", "2", 160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 10, 400, TRUE );
+
+	ClearMessage();
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　魅音は真っ赤になりながら、自分にはこんな女の子っぽいのは似合わない、レナにあげた方がいいんじゃない？と、心にもないことをまくし立てていた。",
+		   NULL, "Мион, покраснев до корней волос, понесла очевидную чепуху: «Да ты что, мне такое не идёт, лучше бы ты Рэне отдал».", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　その様子は、もはや圭一にも完全にわかるらしくて、魅音が本当は欲しくて欲しくて仕方がないくせに素直になれないことを完全に見抜いていた。",
+		   NULL, "Её вид ясно сказал всем — теперь и до Кейти дошло, — что на самом деле Мион жутко хотела куклу, но прямо сказать стеснялась.", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	ModDrawCharacter(1, 3, "sprite/normal/me2_odoroki_a1_", "1", -160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 0, 200, TRUE );
+
+	SetSpeedOfMessage( TRUE, 128 );
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>魅音</color>", NULL, "<color=#5ec69a>Мион</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 3, "ps3/s12/03/180300033", 256, TRUE);
+	OutputLine(NULL, "「だだ、",
+		   NULL, "\"Н-ну п-по-", Line_Continue);
+	// (backup) SetValidityOfInput( FALSE );
+	Wait( 800 );
+	// (backup) SetValidityOfInput( TRUE );
+	OutputLine(NULL, "だからさおじさん、",
+		   NULL, "понимаешь, Дядька Мион считает,", Line_Continue);
+	// (backup) SetValidityOfInput( FALSE );
+	Wait( 1500 );
+	// (backup) SetValidityOfInput( TRUE );
+	OutputLine(NULL, "こういう可愛いお人形はさ、",
+		   NULL, " такие нарядные куколки, они это,", Line_Continue);
+	// (backup) SetValidityOfInput( FALSE );
+	Wait( 1700 );
+	// (backup) SetValidityOfInput( TRUE );
+	OutputLine(NULL, "ちゃんとした可愛い女の子に渡した方が似合うと思うんだよね！",
+		   NULL, " больше идут нормальным, милым девочкам!", Line_Continue);
+	SetSpeedOfMessage( FALSE, 0 );
+	OutputLineAll(NULL, "", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	DisableWindow();
+	ModDrawCharacter(1, 3, "sprite/normal/me2_hau_a1_", "2", -160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 0, 200, TRUE );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>魅音</color>", NULL, "<color=#5ec69a>Мион</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 3, "ps3/s12/03/180300034", 256, TRUE);
+	OutputLine(NULL, "私みたいな男女に渡してもほら、人形の方が可哀想というか、あはははは…！」",
+		   NULL, " А дарить такой, как я, хулиганке — эх, бедная кукла, пропадёт ведь, аха-ха-ха-ха!..\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	DisableWindow();
+	ModDrawCharacter(2, 1, "sprite/normal/kei2_def1_", "0", 160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 10, 200, TRUE );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#956f6e>圭一</color>", NULL, "<color=#956f6e>Кейти</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 1, "ps3/s12/01/180100135", 256, TRUE);
+	OutputLine(NULL, "「欲しいくせにー！",
+		   NULL, "\"Но тебе ж она нравится!", Line_WaitForInput);
+	ModPlayVoiceLS(4, 1, "ps3/s12/01/180100136", 256, TRUE);
+	OutputLine(NULL, "　顔に書いてあるじゃねぇかよ。",
+		   NULL, " На лбу прям написано.", Line_WaitForInput);
+	ModPlayVoiceLS(4, 1, "ps3/s12/01/180100137", 256, TRUE);
+	OutputLine(NULL, "あははははは。」",
+		   NULL, " А-ха-ха-ха-ха-ха.\"", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	ModDrawCharacter(1, 3, "sprite/normal/me2_odoroki_a1_", "1", -160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 0, 200, TRUE );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>魅音</color>", NULL, "<color=#5ec69a>Мион</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 3, "ps3/s12/03/180300035", 256, TRUE);
+	OutputLine(NULL, "「違うー！",
+		   NULL, "\"НЕПРАВДА!", Line_WaitForInput);
+	ModPlayVoiceLS(4, 3, "ps3/s12/03/180300036", 256, TRUE);
+	OutputLine(NULL, "　書いてなんかないよー！！",
+		   NULL, " Ничего у меня не написано!!", Line_WaitForInput);
+	ModPlayVoiceLS(4, 3, "ps3/s12/03/180300037", 256, TRUE);
+	OutputLine(NULL, "　嘘吐きー、意地悪ー！！」",
+		   NULL, " Обмааанщик, бяяяяка!!\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　魅音は真っ赤になりながら、さもお人形に興味がないふりをしながらぶんぶんと振り回して見せていた。",
+		   NULL, "С малинового цвета физиономией Мион отчаянно трясла головой, делая вид, будто ей ну ни капельки не хочется куклу.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　知らぬは本人ばかりとはまさにこのことだ。",
+		   NULL, "Живой пример поговорки про «хоть кол на голове теши, а ей невдомёк».", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　今や圭一を含め、この場の全員が素直になれない魅音の狼狽っぷりをにやにやと笑いながら眺めていた。",
+		   NULL, "Все присутствующие озорно улыбались, поглядывая на негодующую Мион.", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	ModDrawCharacter(2, 1, "sprite/normal/kei2_warai_", "2", 160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 10, 200, TRUE );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#956f6e>圭一</color>", NULL, "<color=#956f6e>Кейти</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 1, "ps3/s12/01/180100138", 256, TRUE);
+	OutputLine(NULL, "「おいおい、別に女の子じゃないと人形は渡せないとか、そういう考え方じゃねぇぞ！",
+		   NULL, "\"Эй, не говори, будто куклу нельзя подарить, раз не девочка!", Line_WaitForInput);
+	ModPlayVoiceLS(4, 1, "ps3/s12/01/180100139", 256, TRUE);
+	OutputLine(NULL, "　こいつは俺と今日の部活で熱いにらみ合いをしてくれた親友への贈り物なんだぜ？」",
+		   NULL, " Она — подарок другу в знак признательности за сегодняшний жаркий бой!\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	DisableWindow();
+	ModDrawCharacter(1, 3, "sprite/normal/me2_tohoho_a1_", "0", -160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 0, 200, TRUE );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>魅音</color>", NULL, "<color=#5ec69a>Мион</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 3, "ps3/s12/03/180300038", 256, TRUE);
+	OutputLine(NULL, "「そ、そうなの？！",
+		   NULL, "\"П-правда?!", Line_WaitForInput);
+	ModPlayVoiceLS(4, 3, "ps3/s12/03/180300039", 256, TRUE);
+	OutputLine(NULL, "　圭ちゃんは男の子の友達にも人形を渡すわけ？！」",
+		   NULL, " Так ты и мальчишке отдал бы куклу?!\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	DisableWindow();
+	ModDrawCharacter(2, 1, "sprite/normal/kei2_majime_", "0", 160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 10, 200, TRUE );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#956f6e>圭一</color>", NULL, "<color=#956f6e>Кейти</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 1, "ps3/s12/01/180100140", 256, TRUE);
+	OutputLine(NULL, "「まぁ…確かに選べる範囲があるなら、わざわざ人形は選ばねぇな。",
+		   NULL, "\"Ну... да, будь у меня выбор, я бы подарил что-то другое.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	DisableWindow();
+	ModDrawCharacter(2, 1, "sprite/normal/kei2_def2_", "0", 160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 10, 200, TRUE );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#956f6e>圭一</color>", NULL, "<color=#956f6e>Кейти</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 1, "ps3/s12/01/180100141", 256, TRUE);
+	OutputLine(NULL, "でもよ、男の世界じゃ、相手に悪意がない限り、贈り物は拒まねぇぜ？",
+		   NULL, " Но, знаешь, мужчина не откажется от подарка — ежели его не делает что-то замышляющий враг.", Line_WaitForInput);
+	ModPlayVoiceLS(4, 1, "ps3/s12/01/180100142", 256, TRUE);
+	OutputLine(NULL, "　相手の気持ちなんだからよ、変に断られるとかえって男気がないよな！」",
+		   NULL, " От чистого сердца хотят сделать подарок — ну так бери, отказываться не по-мужски!\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	DisableWindow();
+	ModDrawCharacter(1, 3, "sprite/normal/me2_hau_a1_", "2", -160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 0, 200, TRUE );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>魅音</color>", NULL, "<color=#5ec69a>Мион</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 3, "ps3/s12/03/180300040", 256, TRUE);
+	OutputLine(NULL, "「ふ、…ふ〜ん？",
+		   NULL, "\"Хм... хммм?", Line_WaitForInput);
+	ModPlayVoiceLS(4, 3, "ps3/s12/03/180300041", 256, TRUE);
+	OutputLine(NULL, "　じゃあ、その、女の子でなくても……人形を受け取ってもいいんだ…？」",
+		   NULL, " Значит, получается, даже совсем не девочке...... не зазорно принять куклу?..\"", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　魅音のやり取りがおかしくて、もう堪えきれないらしい。",
+		   NULL, "Настолько смешно выглядел их разговор, что дальше держаться никаких сил не осталось.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　レナはもう、くすくす笑いを隠しきれないようだった。",
+		   NULL, "Рэна уже вовсю, не таясь, хихикала.", Line_WaitForInput);
+	OutputLine(NULL, "それに釣られ、私も沙都子も笑い出してしまう。",
+		   NULL, " Не удержавшись, рассмеялись и мы — я и Сатоко.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　魅音も自分が笑われてることに気付き、なお一層赤面した。",
+		   NULL, "Заметив, что над нею смеются, Мион запылала ещё сильнее.", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	ModDrawCharacter(2, 1, "sprite/normal/kei2_warai_", "2", 160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 10, 200, TRUE );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#956f6e>圭一</color>", NULL, "<color=#956f6e>Кейти</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 1, "ps3/s12/01/180100143", 256, TRUE);
+	OutputLine(NULL, "「男が仲間に贈ったもんだぜ！",
+		   NULL, "\"И это мужской подарок тебе, как другу!", Line_WaitForInput);
+	ModPlayVoiceLS(4, 1, "ps3/s12/01/180100144", 256, TRUE);
+	OutputLine(NULL, "　大事にしなかったら承知しないぞ！」",
+		   NULL, " Гляди же относись к нему бережно!\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	DisableWindow();
+	ModDrawCharacter(1, 3, "sprite/normal/me2_odoroki_a1_", "1", -160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 0, 200, TRUE );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>魅音</color>", NULL, "<color=#5ec69a>Мион</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 3, "ps3/s12/03/180300042", 256, TRUE);
+	OutputLine(NULL, "「う、",
+		   NULL, "\"Х......", Line_Continue);
+	// (backup) SetValidityOfInput( FALSE );
+	Wait( 1000 );
+	// (backup) SetValidityOfInput( TRUE );
+	OutputLine(NULL, "……うん…。",
+		   NULL, " хорошо...", Line_WaitForInput);
+	ModPlayVoiceLS(4, 3, "ps3/s12/03/180300043", 256, TRUE);
+	OutputLine(NULL, "あ、あの！",
+		   NULL, " И, и это!", Line_WaitForInput);
+	ModPlayVoiceLS(4, 3, "ps3/s12/03/180300044", 256, TRUE);
+	OutputLine(NULL, "　おじさんがこの人形が欲しいからもらうんじゃないよ？！",
+		   NULL, " Ты учти, Дядька Мион берёт её не потому, что хочет куклу!", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	DisableWindow();
+	ModDrawCharacter(1, 3, "sprite/normal/me2_hau_a1_", "2", -160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 0, 200, TRUE );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>魅音</color>", NULL, "<color=#5ec69a>Мион</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 3, "ps3/s12/03/180300045", 256, TRUE);
+	OutputLine(NULL, "圭ちゃんが仲間に贈るって言ったから……",
+		   NULL, " Раз ты говоришь, что даришь по-дружески...", Line_Continue);
+	// (backup) SetValidityOfInput( FALSE );
+	Wait( 2800 );
+	// (backup) SetValidityOfInput( TRUE );
+	OutputLine(NULL, "圭ちゃんの顔を立てるために受け取るんだからね？！」",
+		   NULL, " я возьму её, чтобы не оскорблять тебя!!\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+	DrawScene( "black", 1000 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　羽入も堪えきれないようだった。",
+		   NULL, "Уже и Ханю не сдерживалась.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　この微笑ましいやり取りに、自分の笑い声は聞こえないのをいいことに、声を隠すことなく笑う。",
+		   NULL, "Она громко, весело заливалась, зная, что её не услышат.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　でも、男友達に渡す贈り物ということでいいんだろうか？",
+		   NULL, "Вот только правильно ли Кейти уладил всё?", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　…確か以前の世界では、圭一に女の子扱いしてもらえなくって話がおかしくなったんじゃなかったっけ…？",
+		   NULL, "...Я-то думала, в тех мирах беда приключилась оттого, что Кейти обращался с нею не так, как подобает обращаться с девочкой?..", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　お人形は確かにもらえたけど、相変わらず圭一に女の子扱いはしてもらっていないように思うのだが…。",
+		   NULL, "Конечно, куклу она получила, но всё равно не похоже, чтобы Кейти видел в ней девочку...", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　でも、魅音の嬉しそうな顔を見る限り、それは微細な問題のようだった。",
+		   NULL, "Впрочем, судя по радости на лице Мион, про то можно спокойно забыть.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　あのお人形、魅音は絶対今晩、抱きながら寝るに違いない。",
+		   NULL, "Небось Мион ляжет сегодня спать в обнимку с подарком.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　お休みのキスもする。",
+		   NULL, "Ещё и поцелует на ночь.", Line_WaitForInput);
+	OutputLine(NULL, "賭けてもいい。",
+		   NULL, " Об заклад побиться готова.", Line_WaitForInput);
+	OutputLine(NULL, "そう顔に書いてあるから間違いない。",
+		   NULL, " Именно так говорит вся её физиономия.", Line_Normal);
+	ClearMessage();
+
+	ModDrawCharacter(0, 1, "sprite/normal/kei2_def1_", "0", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 5, 0, FALSE );
+	DrawScene( "background/mati_o1", 400 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#956f6e>圭一</color>", NULL, "<color=#956f6e>Кейти</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 1, "ps3/s12/01/180100145", 256, TRUE);
+	OutputLine(NULL, "「ようやく受け取ってくれたぜ。",
+		   NULL, "\"Ну наконец-то уговорил.", Line_WaitForInput);
+	ModPlayVoiceLS(4, 1, "ps3/s12/01/180100146", 256, TRUE);
+	OutputLine(NULL, "人形一個渡すのに手間のかかるやつだぜ。」",
+		   NULL, " Что за девчонка, даже куклу без труда не всучить.\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　圭一が私たちの方へ振り返り、笑いながら悪態をついた。",
+		   NULL, "Кейти, чертыхаясь с улыбкой на лице, обернулся к нам.", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	ModDrawCharacterWithFiltering(2, 2, "sprite/normal/re2a_warai_a1_", "2", "maskright", 1, 240, 0, FALSE, 0, 0, 0, 0, 0, 10, 300, TRUE );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#f0953d>レナ</color>", NULL, "<color=#f0953d>Рэна</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 2, "ps3/s12/02/180200024", 256, TRUE);
+	OutputLine(NULL, "「あはははは、圭一くん、百点満点かな、かな！」",
+		   NULL, "\"А-ха-ха-ха-ха, Кейти-кун, справился на отлично, отлично!\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#6972c1>梨花</color>", NULL, "<color=#6972c1>Рика</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 5, "ps3/s12/05/180500169", 256, TRUE);
+	OutputLine(NULL, "「……ボクもそう思いますです。",
+		   NULL, "\"......Согласна.", Line_WaitForInput);
+	ModPlayVoiceLS(4, 5, "ps3/s12/05/180500170", 256, TRUE);
+	OutputLine(NULL, "あの意地っ張りの魅音によくお人形を渡せましたです。」",
+		   NULL, " Ловко ты отдал этой упрямице Мион куклу.\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	DisableWindow();
+	ModDrawCharacterWithFiltering(1, 4, "sprite/normal/sa2a_akuwarai_a1_", "2", "maskleft", 1, -240, 0, FALSE, 0, 0, 0, 0, 0, 0, 300, TRUE );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#fcdb77>沙都子</color>", NULL, "<color=#fcdb77>Сатоко</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 4, "ps3/s12/04/180400070", 256, TRUE);
+	OutputLine(NULL, "「魅音さんも笑っちゃいますわね。",
+		   NULL, "\"Ох и смешная же была Мион-сан!", Line_WaitForInput);
+	ModPlayVoiceLS(4, 4, "ps3/s12/04/180400071", 256, TRUE);
+	OutputLine(NULL, "欲しいってあんなに顔に書いてあるのに痩せ我慢なんかしちゃって！」",
+		   NULL, " На лице написано, что ей хочется, а сама упорствует!\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	DisableWindow();
+	ModDrawCharacter(0, 1, "sprite/normal/kei2_warai_", "2", 0, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 5, 200, TRUE );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#956f6e>圭一</color>", NULL, "<color=#956f6e>Кейти</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 1, "ps3/s12/01/180100147", 256, TRUE);
+	OutputLine(NULL, "「違いねぇな！",
+		   NULL, "\"И не говори!", Line_WaitForInput);
+	ModPlayVoiceLS(4, 1, "ps3/s12/01/180100148", 256, TRUE);
+	OutputLine(NULL, "　あははははははは！」",
+		   NULL, " А-ха-ха-ха-ха-ха-ха-ха!\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	DrawSceneWithMask( "black", "maskleft", 1, 0, 300 );
+	ModDrawCharacter(1, 3, "sprite/normal/me2_odoroki_a1_", "1", -160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 0, 0, FALSE );
+	DrawSceneWithMask( "background/mati_o1", "maskright", 1, 0, 300 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>魅音</color>", NULL, "<color=#5ec69a>Мион</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 3, "ps3/s12/03/180300046", 256, TRUE);
+	OutputLine(NULL, "「ここ、こらぁ！！",
+		   NULL, "\"Э, э-эй, вы!!", Line_WaitForInput);
+	ModPlayVoiceLS(4, 3, "ps3/s12/03/180300047", 256, TRUE);
+	OutputLine(NULL, "　おじさんの陰口を言ってるでしょー！",
+		   NULL, " Гадости там, что ль, про Дядьку Мион болтаете?!", Line_WaitForInput);
+	ModPlayVoiceLS(4, 3, "ps3/s12/03/180300048", 256, TRUE);
+	OutputLine(NULL, "　こらぁー！」",
+		   NULL, " Уж я вам!\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#f0953d>レナ</color>", NULL, "<color=#f0953d>Рэна</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 2, "ps3/s12/02/180200025", 256, TRUE);
+	OutputLine(NULL, "「魅ぃちゃん、バイト急がなくていいの？",
+		   NULL, "\"Мии-тян, а тебе не пора на работу?", Line_WaitForInput);
+	ModPlayVoiceLS(4, 2, "ps3/s12/02/180200026", 256, TRUE);
+	OutputLine(NULL, "　遅刻しちゃうよ〜ぅ。」",
+		   NULL, " Опоздаааешь ведь.\"", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	DisableWindow();
+	ModDrawCharacter(1, 3, "sprite/normal/me2_tohoho_a1_", "0", -160, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 0, 200, TRUE );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>魅音</color>", NULL, "<color=#5ec69a>Мион</color>", NULL, Line_ContinueAfterTyping); }
+	ModPlayVoiceLS(4, 3, "ps3/s12/03/180300049", 256, TRUE);
+	OutputLine(NULL, "「もー！！　覚えてなよー？！」",
+		   NULL, "\"У-у!! Ничего, я вам ещё задам!\"", Line_Normal);
+	ClearMessage();
+
+	DisableWindow();
+	FadeBustshotWithFiltering( 1, "maskright" , 1, FALSE, 0, 0, 300, TRUE );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　魅音は名残を惜しんでいたが、腕時計とみんなの顔を見比べると、別れの挨拶をして走り去っていった。",
+		   NULL, "Мион не хотелось уезжать, но, пометавшись взглядом между лицами друзей и часами, она махнула нам и была такова.", Line_Normal);
+	ClearMessage();
+	DrawScene( "white", 1000 );
+	DrawSceneWithMask( "background/sora", "maskm1", 1, 0, 1300 );
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　笑い合うみんなの笑顔。",
+		   NULL, "Все улыбались.", Line_WaitForInput);
+	OutputLine(NULL, "楽しかった今日の興奮が覚めない。",
+		   NULL, " Дневное веселье не оставило ещё нас.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　誰もが文句なしに楽しかった一日で、誰もが傷つかなかった一日。",
+		   NULL, "Для всех день прошёл в чистом, ничем не омрачённом веселье, и никому не было больно.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　何度も経験した世界のいくつかをなぞり直しているはずなのに。",
+		   NULL, "Хотя вроде бы я проживала заново прожитое столько раз......", Line_WaitForInput);
+	OutputLine(NULL, "……今回は何かが違う。",
+		   NULL, " теперь что-то пошло иначе.", Line_Normal);
+	ClearMessage();
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　サイコロを振ったら６が出て、",
+		   NULL, "Мне словно бы выпала шестёрка,", Line_WaitForInput);
+	OutputLine(NULL, "…もう一度運試しに振ったらまた６が出たような気持ち。",
+		   NULL, " а там ещё одна, когда я попытала удачу повторно.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n\n", Line_ContinueAfterTyping); }
+
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　それが幸運が重なっただけなのか、そうなるべくしてなったのかはわからないけれど。",
+		   NULL, "Не знаю, просто ли мне повезло, или же так должно было случиться.", GetGlobalFlag(GLinemodeSp));
+	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
+
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
+	OutputLine(NULL, "　まるで運命の神さまが、私が戦おうと決めた決意を祝福してくれているような、そんな幸先の良さを感じるのだった……。",
+		   NULL, "Но я чувствовала внутри ликование и уверенность, словно сама богиня судьбы благословляла моё решение драться......", Line_Normal);
+	ClearMessage();
+
+	CallScript( "&eyeCamp" );
+	FadeOutBGM( 0, 1000, FALSE );
+	FadeOutBGM( 1, 1000, FALSE );
+	FadeOutBGM( 2, 1000, TRUE );
+	SetValidityOfSkipping( FALSE );
+	DrawSceneWithMask( "tips/gettip_mina002", "mask1900", 7, 0, 400 );
+	Wait( 5000 );
+	DrawSceneWithMask( "black", "mask1900", 7, 0, 400 );
+	SetValidityOfSkipping( TRUE );
+
+}
+
