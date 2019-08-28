@@ -32,6 +32,7 @@ int main()
     SetConsoleCP(CP_UTF8);
     SetConsoleOutputCP(CP_UTF8);
     fillNamesEng();
+	fillNamesRus();
 
     string pathEng = "./eng";
     for (fs::directory_iterator it(pathEng), end; it != end; ++it) {
