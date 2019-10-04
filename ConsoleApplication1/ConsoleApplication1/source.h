@@ -1,0 +1,17 @@
+#pragma once
+#include <iostream>
+#include <random>
+#include <Windows.h>
+#include <cstdlib>
+#include <tchar.h>
+#include <windowsx.h>
+#include <string>
+#include <sstream>
+#include <fstream>
+#include "variables.h"
+#include "utilities.h"
+#include "fwinapi.h"
+#include "fmapping.h"
+#include "iosettings.h"
+#include "myfstream.h"
+#include "myfopen.h"

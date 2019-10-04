@@ -1,26 +1,18 @@
-#include <iostream>
-#include <Windows.h>
-#include <cstdlib>
-#include <tchar.h>
-#include <windowsx.h>
-#include <string>
-#include <sstream>
+#include "source.h"
 
 const wchar_t* clName = _T("MyClassName");
 const wchar_t* clWinName = _T("MyWindowName");
-int height;
-int width;
-wchar_t* iconName = new wchar_t[256];
-wchar_t* iconType = new wchar_t[256];
-int N;
 const int SHUTDOWN_WINDOW = 1;
 const int RUN_NOTEPAD = 2;
 const int CHANGE_COLOR = 3;
-HPEN hPenCell;
-HPEN hPenCircle;
-HBRUSH hBrushBackground;
-HBRUSH hBrushCircle;
+
 bool** board;
+
+HPEN hPenCircle;
+HBRUSH hBrushCircle;
+COLORREF color;
+
+Settings settings;
 
 void runEditor() {
 	STARTUPINFO startUpInfo;
@@ -32,8 +24,8 @@ void runEditor() {
 }
 
 void cellClicked(HWND wnd, int x, int y) {
-	int column = x / ((double)width / N);
-	int row = y / ((double)height / N);
+	int column = x / ((double)settings.width / settings.N);
+	int row = y / ((double)settings.height / settings.N);
 	board[row][column] ^= true;
 	InvalidateRect(wnd, nullptr, true);
 }
@@ -49,10 +41,10 @@ LRESULT CALLBACK WinProc(HWND wnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 		UnregisterHotKey(wnd, SHUTDOWN_WINDOW);
 		UnregisterHotKey(wnd, CHANGE_COLOR);
 		UnregisterHotKey(wnd, RUN_NOTEPAD);
-		DeleteObject(hPenCell);
+		DeleteObject(settings.hPenCell);
 		DeleteObject(hPenCircle);
 		DeleteObject(hBrushCircle);
-		DeleteObject(hBrushBackground);
+		DeleteObject(settings.hBrushBackground);
 		PostQuitMessage(0); //Код возврата приложения
 		return 0;
 	}
@@ -64,17 +56,17 @@ LRESULT CALLBACK WinProc(HWND wnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 		ZeroMemory(&rect, sizeof(RECT));
 		GetClientRect(wnd, &rect);
 
-		HPEN hOldPen = (HPEN)SelectObject(hdc, hPenCell);
+		HPEN hOldPen = (HPEN)SelectObject(hdc, settings.hPenCell);
 
 		double height = rect.bottom;
 		double width = rect.right;
 
-		for (int i = 1; i < N; i++) {
-			double x = width / N * i;
+		for (int i = 1; i < settings.N; i++) {
+			double x = width / settings.N * i;
 			MoveToEx(hdc, x, 0, nullptr);
 			LineTo(hdc, x, height);
 
-			double y = height / N * i;
+			double y = height / settings.N * i;
 			MoveToEx(hdc, 0, y, nullptr);
 			LineTo(hdc, width, y);
 		}
@@ -82,13 +74,13 @@ LRESULT CALLBACK WinProc(HWND wnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 		SelectObject(hdc, hPenCircle);
 		HBRUSH hOldBrush = (HBRUSH)SelectObject(hdc, hBrushCircle);
 
-		for (int i = 0; i < N; i++) {
-			for (int j = 0; j < N; j++) {
+		for (int i = 0; i < settings.N; i++) {
+			for (int j = 0; j < settings.N; j++) {
 				if (board[j][i]) {
-					double left = i * width / N+ width / N * 0.2;
-					double top = j * height / N + height / N * 0.2;
-					double right = width / N * 0.6;
-					double bottom = height / N * 0.6;
+					double left = i * width / settings.N + width / settings.N * 0.2;
+					double top = j * height / settings.N + height / settings.N * 0.2;
+					double right = width / settings.N * 0.6;
+					double bottom = height / settings.N * 0.6;
 					Ellipse(hdc, left, top, left + right, top + bottom);
 				}
 			}
@@ -110,13 +102,14 @@ LRESULT CALLBACK WinProc(HWND wnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 			break;
 		}
 		case CHANGE_COLOR: {
-			int r = rand() % 256;
-			int g = rand() % 256;
-			int b = rand() % 256;
-			HBRUSH hBrushRandom = CreateSolidBrush(RGB(r, g, b));
+			std::random_device rd;
+			std::mt19937 generator(rd());
+ 			std::uniform_int_distribution<DWORD> dist(0, 16777215);
+		    color = dist(generator);
+			HBRUSH hBrushRandom = CreateSolidBrush(color);
 			SetClassLongPtr(wnd, GCLP_HBRBACKGROUND, (LONG)hBrushRandom);
-			DeleteObject(hBrushBackground);
-			hBrushBackground = hBrushRandom;
+			DeleteObject(settings.hBrushBackground);
+			settings.hBrushBackground = hBrushRandom;
 			InvalidateRect(wnd, nullptr, true);
 			break;
 		}
@@ -140,86 +133,24 @@ LRESULT CALLBACK WinProc(HWND wnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 		RECT rect;
 		ZeroMemory(&rect, sizeof(RECT));
 		GetClientRect(wnd, &rect);
-		width = rect.right;
-		height = rect.bottom;
+		settings.width = rect.right;
+		settings.height = rect.bottom;
 		break;
 	}
 	}
 	return DefWindowProc(wnd, msg, wParam, lParam);
 }
 
-void loadSettings() {
-	const wchar_t* name = _T("setting.inf");
 
-	HANDLE file = CreateFileW(name, GENERIC_READ, FILE_SHARE_READ, nullptr, OPEN_ALWAYS, FILE_ATTRIBUTE_NORMAL, nullptr);
-	if (file == INVALID_HANDLE_VALUE) {
-		std::cout << "Error: INVALID_HANDLE_VALUE";
-	}
 
-	int fileSize = GetFileSize(file, nullptr);
-	char* text = new char[fileSize];
-	ZeroMemory(text, sizeof(char) * fileSize);
-
-	if (!ReadFile(file, text, fileSize, nullptr, nullptr)) {
-		DWORD error = GetLastError();
-		printf("Error %lu\n", error);
-	}
-	CloseHandle(file);
-
-	std::wstringstream wss;
-	COLORREF color;
-	wss << text;
-	wss >> N >> width >> height >> color;
-	hBrushBackground = CreateSolidBrush(color);
-	int iStyle, cWidth;
-	wss >> iStyle >> cWidth >> color;
-	hPenCell = CreatePen(iStyle, cWidth, color);
-	wss >> iconName >> iconType;
-	delete[] text;
-}
-
-void saveSettings() {
-	const wchar_t* name = _T("setting.inf");
-
-	HANDLE file = CreateFileW(name, GENERIC_WRITE, FILE_SHARE_READ, nullptr, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, nullptr);
-	if (file == INVALID_HANDLE_VALUE) {
-		std::cout << "Error: INVALID_HANDLE_VALUE";
-	}
-
-	std::wstringstream wss;
-	wss << N << "\r\n" << width << " " << height << "\r\n";
-	LOGBRUSH iBrush;
-	GetObject(hBrushBackground, sizeof(LOGBRUSH), &iBrush);
-	wss << iBrush.lbColor << "\r\n";
-	LOGPEN iPen;
-	GetObject(hPenCell, sizeof(LOGPEN), &iPen);
-	wss << iPen.lopnStyle << " " << iPen.lopnWidth.x << " " << iPen.lopnColor << "\r\n" << iconName << " " << iconType << "\r\n";
-	char* text = new char[wss.str().length() + 1];
-	size_t outSize;
-	wcstombs_s(&outSize, text, wss.str().length() + 1, wss.str().c_str(), wss.str().length());
-	WriteFile(file, text, wss.str().length(), nullptr, nullptr);
-	CloseHandle(file);
-	delete[] text;
-}
-
-void initBoard() {
-	board = new bool*[N];
-	for (int i = 0; i < N; i++) {
-		board[i] = new bool[N];
-		ZeroMemory(board[i], sizeof(bool) * N);
-	}
-}
-
-int main() {
+int main(int argc, char* argv[]) {
 	HINSTANCE hThisInstance = GetModuleHandle(nullptr);
 
-	loadSettings();
-	initBoard();
+	loadSettings(settings, argv[1]);
+	initBoard(settings, board);
 
-	//hPenCell = CreatePen(PS_SOLID, 5, RGB(255, 0, 0));
 	hPenCircle = CreatePen(PS_SOLID, 5, RGB(255, 200, 30));
 	hBrushCircle = CreateSolidBrush(RGB(255, 200, 30));
-	//hBrushBackground = CreateSolidBrush(RGB(0, 0, 255));
 
 	WNDCLASSEX wincl; //WNDCLASSEX нужно использовать
 	wincl.cbSize = sizeof(WNDCLASSEX);
@@ -228,8 +159,8 @@ int main() {
 	wincl.cbClsExtra = 0;
 	wincl.cbWndExtra = 0;
 	wincl.hInstance = hThisInstance; //Ссылка на хандлер
-	wincl.hIcon = LoadIcon(hThisInstance, iconName);
-	wincl.hbrBackground = hBrushBackground;
+	wincl.hIcon = LoadIcon(hThisInstance, settings.iconName);
+	wincl.hbrBackground = settings.hBrushBackground;
 	wincl.hCursor = LoadCursor(nullptr, IDC_ARROW);
 	wincl.lpszMenuName = nullptr;
 	wincl.lpszClassName = clName;
@@ -248,8 +179,8 @@ int main() {
 		WS_OVERLAPPEDWINDOW,
 		CW_USEDEFAULT,
 		CW_USEDEFAULT,
-		width,
-		height,
+		settings.width,
+		settings.height,
 		HWND_DESKTOP,
 		nullptr,
 		hThisInstance,
@@ -277,12 +208,12 @@ int main() {
 		DispatchMessage(&msg);
 	}
 
-	saveSettings();
+	saveSettings(settings, argv[1]);
 	DestroyWindow(wnd);
 	UnregisterClass(clName, hThisInstance);
-	delete[] iconName;
-	delete[] iconType;
-	for (int i = 0; i < N; ++i) {
+	delete[] settings.iconName;
+	delete[] settings.iconType;
+	for (int i = 0; i < settings.N; ++i) {
 		delete[] board[i];
 	}
 	delete[] board;
