@@ -9,9 +9,11 @@ void inputSettings(Settings& settings, wchar_t* text) {
 	int iStyle, cWidth;
 	wss >> iStyle >> cWidth >> color;
 	settings.hPenCell = CreatePen(iStyle, cWidth, color);
-	settings.iconName = new wchar_t[256];
-	settings.iconType = new wchar_t[256];
-	wss >> settings.iconName >> settings.iconType;
+	std::wstring buff;
+	wss >> buff;
+	settings.iconName = wstringConvertToWChar_t(buff);
+	wss >> buff;
+	settings.iconType = wstringConvertToWChar_t(buff);
 }
 
 void outputSettings(Settings& settings, std::wstringstream& wss) {
