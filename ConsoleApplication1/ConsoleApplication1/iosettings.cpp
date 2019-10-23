@@ -1,5 +1,12 @@
 #include "iosettings.h"
 
+const wchar_t* name = _T("C:\\C++\\ConsoleApplication1\\ConsoleApplication1\\setting.inf");
+char* IOMethod;
+
+void setIOMethod(char* arg) {
+	IOMethod = arg;
+}
+
 void inputSettings(Settings& settings, wchar_t* text) {
 	std::wstringstream wss;
 	COLORREF color;
@@ -27,9 +34,11 @@ void outputSettings(Settings& settings, std::wstringstream& wss) {
 	wss << iPen.lopnStyle << " " << iPen.lopnWidth.x << " " << iPen.lopnColor << divider << settings.iconName << " " << settings.iconType;
 }
 
-void loadSettings(Settings& settings, char* arg) {
-	const wchar_t* name = _T("setting.inf");
-	int id = strtod(arg, nullptr);
+void loadSettings(Settings& settings) {
+	int id = 0;
+	if (IOMethod != nullptr) {
+		id = strtod(IOMethod, nullptr);
+	}
 	switch (id) {
 	case 0:
 		loadSettingsWinAPI(settings, name);
@@ -46,9 +55,11 @@ void loadSettings(Settings& settings, char* arg) {
 	}
 }
 
-void saveSettings(Settings& settings, char* arg) {
-	const wchar_t* name = _T("setting.inf");
-	int id = strtod(arg, nullptr);
+void saveSettings(Settings& settings) {
+	int id = 0;
+	if (IOMethod != nullptr) {
+		id = strtod(IOMethod, nullptr);
+	}
 	switch (id) {
 	case 0:
 		saveSettingsWinAPI(settings, name);

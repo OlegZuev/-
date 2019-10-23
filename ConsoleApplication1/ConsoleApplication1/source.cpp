@@ -6,11 +6,12 @@ const int SHUTDOWN_WINDOW = 1;
 const int RUN_NOTEPAD = 2;
 const int CHANGE_COLOR = 3;
 
-bool** board;
+Grid** board;
 
 HPEN hPenCircle;
 HBRUSH hBrushCircle;
 COLORREF color;
+Image image[3];
 
 Settings settings;
 
@@ -26,7 +27,10 @@ void runEditor() {
 void cellClicked(HWND wnd, int x, int y) {
 	int column = x / ((double)settings.width / settings.N);
 	int row = y / ((double)settings.height / settings.N);
-	board[row][column] ^= true;
+	board[row][column].isFilled ^= true;
+	if (!board[row][column].isFilled) {
+		board[row][column].imageNumber = 0;
+	}
 	InvalidateRect(wnd, nullptr, true);
 }
 
@@ -38,6 +42,7 @@ LRESULT CALLBACK WinProc(HWND wnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 		break;
 	}
 	case WM_DESTROY: {
+		saveSettings(settings);
 		UnregisterHotKey(wnd, SHUTDOWN_WINDOW);
 		UnregisterHotKey(wnd, CHANGE_COLOR);
 		UnregisterHotKey(wnd, RUN_NOTEPAD);
@@ -76,12 +81,24 @@ LRESULT CALLBACK WinProc(HWND wnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 
 		for (int i = 0; i < settings.N; i++) {
 			for (int j = 0; j < settings.N; j++) {
-				if (board[j][i]) {
+				if (board[j][i].isFilled) {
 					double left = i * width / settings.N + width / settings.N * 0.2;
 					double top = j * height / settings.N + height / settings.N * 0.2;
 					double right = width / settings.N * 0.6;
 					double bottom = height / settings.N * 0.6;
-					Ellipse(hdc, left, top, left + right, top + bottom);
+					//Ellipse(hdc, left, top, left + right, top + bottom);
+					if (board[j][i].imageNumber == 0) {
+						std::random_device rd;
+						std::mt19937 generator(rd());
+						std::uniform_int_distribution<int> dist(1, 2);
+						board[j][i].imageNumber = dist(generator);
+					}
+					int index = board[j][i].imageNumber;
+					HDC tempDC = CreateCompatibleDC(hdc);
+					SelectObject(tempDC, image[index].buffer);
+					//bool result = BitBlt(hdc, left, top, right, bottom, tempDC, 0, 0, SRCCOPY);
+					bool result = TransparentBlt(hdc, left, top, right, bottom, tempDC, 0, 0, image[index].width, image[index].height, RGB(0, 0, 0));
+					DeleteDC(tempDC);
 				}
 			}
 		}
@@ -146,8 +163,13 @@ LRESULT CALLBACK WinProc(HWND wnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 int main(int argc, char* argv[]) {
 	HINSTANCE hThisInstance = GetModuleHandle(nullptr);
 
-	loadSettings(settings, argv[1]);
+	setIOMethod(argv[1]);
+	loadSettings(settings);
 	initBoard(settings, board);
+
+
+	image[1] = readJpegImage("circle.jpg");	
+	image[2] = readJpegImage("crest.jpg");	
 
 	hPenCircle = CreatePen(PS_SOLID, 5, RGB(255, 200, 30));
 	hBrushCircle = CreateSolidBrush(RGB(255, 200, 30));
@@ -208,7 +230,6 @@ int main(int argc, char* argv[]) {
 		DispatchMessage(&msg);
 	}
 
-	saveSettings(settings, argv[1]);
 	DestroyWindow(wnd);
 	UnregisterClass(clName, hThisInstance);
 	delete[] settings.iconName;
@@ -217,6 +238,8 @@ int main(int argc, char* argv[]) {
 		delete[] board[i];
 	}
 	delete[] board;
+	delete[] image[1].buffer;
+	delete[] image[2].buffer;
 
 	return msg.lParam;
 }

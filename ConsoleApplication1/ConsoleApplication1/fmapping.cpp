@@ -18,7 +18,6 @@ void loadSettingsMapping(Settings& settings, const wchar_t* name) {
 		printf("Error %lu\n", error);
 		return;
 	}
-	int length = GetFileSize(file, nullptr);
 
 	inputSettings(settings, (wchar_t*)lpFileMap);
 	UnmapViewOfFile(lpFileMap);
