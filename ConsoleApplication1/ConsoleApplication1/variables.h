@@ -18,6 +18,6 @@ struct Image {
 };
 
 struct Grid {
-	bool isFilled;
-	int imageNumber;
+	bool* isFilled;
+	int* imageNumber;
 };

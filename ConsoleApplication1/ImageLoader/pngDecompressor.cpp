@@ -100,31 +100,6 @@ unsigned char* readPngFile(char* filename, int& height, int& width) {
 		}
 	}
 
-	//png_read_image(png, row_pointers);
-
-	// const auto size = sizeof(png_byte) * height * png_get_rowbytes(png, info);
-	// output = new unsigned char[size];
-	//
-	// const auto rowPointers = new png_bytep[height];
-	// for (auto i = 0u; i < height; ++i) {
-	// 	rowPointers[i] = output + png_get_rowbytes(png, info) * i;
-	// }
-	//
-	// // TODO: Can cause problems in number of channels differs from 4.
-	// png_read_image(png, rowPointers);
-	//
-	// png_destroy_read_struct(&png, &info, nullptr);
-	//
-	// // Swap R and B values.
-	// for (auto i = 0u; i < height * width * 4; i += 4) {
-	// 	auto swap = [](auto& a, auto& b) {
-	// 		auto c = a;
-	// 		a = b;
-	// 		b = c;
-	// 	};
-	// 	swap(output[i + 0], output[i + 2]);
-	// }
-
 	fclose(infile);
 
 	png_destroy_read_struct(&png, &info, nullptr);

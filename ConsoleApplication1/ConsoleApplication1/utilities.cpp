@@ -10,11 +10,20 @@ wchar_t* wstringConvertToWChar_t(std::wstring& wstr) {
 	return wc;
 }
 
-void initBoard(Settings& settings, Grid**& array) {
-	array = new Grid* [settings.N];
+void initBoard(Settings& settings, Grid**& board, LPVOID& sharedGrid) {
+	board = new Grid* [settings.N];
 	for (int i = 0; i < settings.N; i++) {
-		array[i] = new Grid[settings.N];
-		ZeroMemory(array[i], sizeof(Grid) * settings.N);
+		board[i] = new Grid[settings.N];
+		ZeroMemory(board[i], sizeof(Grid) * settings.N);
+	}
+	bool* temp = (bool*)sharedGrid; //Связываю поле с разделяемой памятью
+	int k = 0;
+	for (int i = 0; i < settings.N; ++i) {
+		for (int j = 0; j < settings.N; ++j) {
+			board[i][j].isFilled = temp + k * 5;
+			board[i][j].imageNumber = (int*)(temp + k * 5 + 1);
+			k++;
+		}
 	}
 }
 
@@ -78,4 +87,66 @@ BOOL WINAPI Crest(_In_ HDC hdc, _In_ int left, _In_ int top, _In_ int right, _In
 	LineTo(hdc, left, bottom);
 
 	return TRUE;
+}
+
+bool inputGridInMapping(Grid** board, const Settings& settings) {
+	HANDLE fileMap = CreateFileMappingW(INVALID_HANDLE_VALUE, nullptr, PAGE_READONLY, 0, sizeof(Grid) * settings.N * settings.N, _T("Grid"));
+	if (fileMap == nullptr) {
+		DWORD error = GetLastError();
+		printf("InputGridInMapping: Error %lu\n", error);
+		return false;
+	}
+	LPVOID lpFileMap = MapViewOfFile(fileMap, FILE_MAP_READ, 0, 0, 0);
+	if (lpFileMap == nullptr) {
+		DWORD error = GetLastError();
+		printf("InputGridInMapping: Error %lu\n", error);
+		return false;
+	}
+
+	inputGridInStream(board, settings.N, (wchar_t*)lpFileMap);
+	UnmapViewOfFile(lpFileMap);
+	CloseHandle(fileMap);
+	return true;
+}
+
+bool outputGridInMapping(Grid** board, const Settings& settings) {
+	std::wstringstream wss;
+	outputGridInStream(board, settings.N, wss);
+
+	HANDLE fileMap = CreateFileMappingW(INVALID_HANDLE_VALUE, nullptr, PAGE_READWRITE, 0, wss.str().length() * sizeof(wchar_t), _T("Grid"));
+	if (fileMap == nullptr) {
+		DWORD error = GetLastError();
+		printf("OutputGridInMapping: Error %lu\n", error);
+		return false;
+	}
+	LPVOID lpFileMap = MapViewOfFile(fileMap, FILE_MAP_WRITE, 0, 0, wss.str().length() * sizeof(wchar_t));
+	if (lpFileMap == nullptr) {
+		DWORD error = GetLastError();
+		printf("OutputGridInMapping: Error %lu\n", error);
+		return false;
+	}
+
+	wcscpy_s((wchar_t*)lpFileMap, wss.str().length() + 1, wss.str().c_str());
+	UnmapViewOfFile(lpFileMap);
+	CloseHandle(fileMap);
+	return true;
+}
+
+LPVOID openSharedGrid(const Settings& settings, HANDLE& fileMap) {
+    fileMap = OpenFileMappingW(FILE_MAP_ALL_ACCESS, FALSE, _T("Grid"));
+	if (fileMap == nullptr) {
+		fileMap = CreateFileMappingW(INVALID_HANDLE_VALUE, nullptr, PAGE_READWRITE, 0, sizeof(Grid) * settings.N * settings.N, _T("Grid"));
+	}
+	if (fileMap == nullptr) {
+		DWORD error = GetLastError();
+		printf("OpenSharedGrid: Error %lu\n", error);
+		return nullptr;
+	}
+	LPVOID lpFileMap = MapViewOfFile(fileMap, FILE_MAP_ALL_ACCESS, 0, 0, sizeof(Grid) * settings.N * settings.N);
+	if (lpFileMap == nullptr) {
+		DWORD error = GetLastError();
+		printf("OpenSharedGrid: Error %lu\n", error);
+		return nullptr;
+	}
+	return lpFileMap;
 }

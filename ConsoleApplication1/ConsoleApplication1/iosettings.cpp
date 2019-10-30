@@ -75,3 +75,29 @@ void saveSettings(Settings& settings) {
 		break;
 	}
 }
+
+void inputGrid(Grid** board, int size, std::wstringstream& wss) {
+	for (int i = 0; i < size; ++i) {
+		for (int j = 0; j < size; ++j) {
+			wss >> *board[i][j].isFilled >> *board[i][j].imageNumber;
+		}
+	}
+}
+
+void inputGridInStream(Grid** board, int size, wchar_t* file) {
+	std::wstringstream wss;
+	wss << file;
+	for (int i = 0; i < size; ++i) {
+		for (int j = 0; j < size; ++j) {
+			wss >> *board[i][j].isFilled >> *board[i][j].imageNumber;
+		}
+	}
+}
+
+void outputGridInStream(Grid** board, int size, std::wstringstream& wss) {
+	for (int i = 0; i < size; ++i) {
+		for (int j = 0; j < size; ++j) {
+			wss << board[i][j].isFilled << " " << board[i][j].imageNumber << " ";
+		}
+	}
+}

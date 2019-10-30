@@ -6,6 +6,8 @@ const int SHUTDOWN_WINDOW = 1;
 const int RUN_NOTEPAD = 2;
 const int CHANGE_COLOR = 3;
 
+UINT WM_CELLCLICKED = RegisterWindowMessageA("WM_CELLCLICKED");
+
 Grid** board;
 
 HPEN hPenCircle;
@@ -27,18 +29,26 @@ void runEditor() {
 void cellClicked(HWND wnd, int x, int y) {
 	int column = (int)(x / ((double)settings.width / settings.N));
 	int row = (int)(y / ((double)settings.height / settings.N));
-	board[row][column].isFilled ^= true;
-	if (!board[row][column].isFilled) {
-		board[row][column].imageNumber = 0;
+	*board[row][column].isFilled ^= true;
+	if (!*board[row][column].isFilled) {
+		*board[row][column].imageNumber = 0;
 	}
 	InvalidateRect(wnd, nullptr, true);
 }
 
 //Свой обработчик
 LRESULT CALLBACK WinProc(HWND wnd, UINT msg, WPARAM wParam, LPARAM lParam) {
+	if (msg == WM_CELLCLICKED) {
+		InvalidateRect(wnd, nullptr, true);
+	}
 	switch (msg) {
 	case WM_LBUTTONDOWN: {
 		cellClicked(wnd, GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam));
+		SendMessageA(HWND_BROADCAST, WM_CELLCLICKED, 0, 0);
+		break;
+	}
+	case WM_CREATE: {
+		WM_CELLCLICKED = RegisterWindowMessageA("WM_CELLCLICKED");
 		break;
 	}
 	case WM_DESTROY: {
@@ -81,18 +91,18 @@ LRESULT CALLBACK WinProc(HWND wnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 
 		for (int i = 0; i < settings.N; i++) {
 			for (int j = 0; j < settings.N; j++) {
-				if (board[j][i].isFilled) {
+				if (*board[j][i].isFilled) {
 					const int left = (int)(i * width / settings.N + width / settings.N * 0.2);
 					const int top = (int)(j * height / settings.N + height / settings.N * 0.2);
 					const int right = (int)(width / settings.N * 0.6);
 					const int bottom = (int)(height / settings.N * 0.6);
-					if (board[j][i].imageNumber == 0) {
+					if (*board[j][i].imageNumber == 0) {
 						std::random_device rd;
 						std::mt19937 generator(rd());
 						std::uniform_int_distribution<int> dist(1, 2);
-						board[j][i].imageNumber = dist(generator);
+						*board[j][i].imageNumber = dist(generator);
 					}
-					int index = board[j][i].imageNumber;
+					int index = *board[j][i].imageNumber;
 					HDC tempDC = CreateCompatibleDC(hdc);
 				    auto oldImage = SelectObject(tempDC, image[index].hBuffer);
 					BLENDFUNCTION blendFn = {};
@@ -176,10 +186,13 @@ int main(int argc, char* argv[]) {
 
 	setIOMethod(argv[1]);
 	loadSettings(settings);
-	initBoard(settings, board);
 	
 	image[1] = readPngImage(settings.circleIconName);	
 	image[2] = readJpegImage(settings.crestIconName);
+
+	HANDLE fileMap;
+	LPVOID sharedGrid = openSharedGrid(settings, fileMap);
+	initBoard(settings, board, sharedGrid);
 
 	hPenCircle = CreatePen(PS_SOLID, 5, RGB(255, 200, 30));
 	hBrushCircle = CreateSolidBrush(RGB(255, 200, 30));
@@ -244,12 +257,16 @@ int main(int argc, char* argv[]) {
 	UnregisterClass(clName, hThisInstance);
 	delete[] settings.circleIconName;
 	delete[] settings.crestIconName;
+
+	DeleteObject(image[1].hBuffer);
+	DeleteObject(image[2].hBuffer);
+	UnmapViewOfFile(sharedGrid);
+	CloseHandle(fileMap);
+
 	for (int i = 0; i < settings.N; ++i) {
 		delete[] board[i];
 	}
 	delete[] board;
-	DeleteObject(image[1].hBuffer);
-	DeleteObject(image[2].hBuffer);
 
 	return msg.lParam;
 }
