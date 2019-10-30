@@ -11,7 +11,7 @@ void loadSettingsStream(Settings& settings, const wchar_t* name) {
 	}
 	std::locale loc = fin.imbue(std::locale(fin.getloc(), new std::codecvt_utf16<wchar_t, 1114111UL, std::little_endian>));
 	fin.seekg(0, std::ios::end);
-	size_t size = fin.tellg();
+	size_t size = (size_t)fin.tellg();
 	fin.seekg(0, std::ios::beg);
 	wchar_t* text = new wchar_t[size / sizeof(wchar_t) + 1];
 	text[size / sizeof(wchar_t)] = _T('\0');

@@ -93,9 +93,10 @@ JPEGDECOMPRESSOR_API unsigned char* readJpegFile(const char* filename, int& heig
 	 * requires it in order to read binary files.
 	 */
 
-	if ((infile = fopen(filename, "rb")) == NULL) {
-		fprintf(stderr, "can't open %s\n", filename);
-		return 0;
+	fopen_s(&infile, filename, "rb");
+	if (infile == nullptr) {
+		fprintf(stderr, "Can't open %s\n", filename);
+		return nullptr;
 	}
 
 	/* Step 1: allocate and initialize JPEG decompression object */
@@ -175,11 +176,11 @@ JPEGDECOMPRESSOR_API unsigned char* readJpegFile(const char* filename, int& heig
 		size_t position = (cinfo.output_scanline - 1) * cinfo.output_width * 4;
 		for (size_t i = 0; i < cinfo.output_width; ++i) {
 			size_t offsetDest = i * 4;
-			size_t offsetSource = i * 3;
+			size_t offsetSource = i * cinfo.num_components;
 			output[position + offsetDest] = buffer[0][offsetSource + 2];
 			output[position + offsetDest + 1] = buffer[0][offsetSource + 1];
 			output[position + offsetDest + 2] = buffer[0][offsetSource];
-			output[position + offsetDest + 3] = 0;
+			output[position + offsetDest + 3] = 255;
 		}
 	}
 

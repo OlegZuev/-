@@ -7,18 +7,14 @@ struct Settings {
 	int width;
 	HPEN hPenCell;
 	HBRUSH hBrushBackground;
-	wchar_t* iconName;
-	wchar_t* iconType;
+	wchar_t* circleIconName;
+	wchar_t* crestIconName;
 };
 
 struct Image {
 	int height;
 	int width;
-	HBITMAP buffer;
-
-	// ~Image() {
-	// 	DeleteObject(buffer);
-	// }
+	HBITMAP hBuffer;
 };
 
 struct Grid {

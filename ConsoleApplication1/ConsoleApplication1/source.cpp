@@ -13,7 +13,7 @@ HBRUSH hBrushCircle;
 COLORREF color;
 Image image[3];
 
-Settings settings;
+Settings settings;\
 
 void runEditor() {
 	STARTUPINFO startUpInfo;
@@ -25,8 +25,8 @@ void runEditor() {
 }
 
 void cellClicked(HWND wnd, int x, int y) {
-	int column = x / ((double)settings.width / settings.N);
-	int row = y / ((double)settings.height / settings.N);
+	int column = (int)(x / ((double)settings.width / settings.N));
+	int row = (int)(y / ((double)settings.height / settings.N));
 	board[row][column].isFilled ^= true;
 	if (!board[row][column].isFilled) {
 		board[row][column].imageNumber = 0;
@@ -67,13 +67,13 @@ LRESULT CALLBACK WinProc(HWND wnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 		double width = rect.right;
 
 		for (int i = 1; i < settings.N; i++) {
-			double x = width / settings.N * i;
+			int x = (int)(width / settings.N * i);
 			MoveToEx(hdc, x, 0, nullptr);
-			LineTo(hdc, x, height);
+			LineTo(hdc, x, (int)height);
 
-			double y = height / settings.N * i;
+			int y = (int)(height / settings.N * i);
 			MoveToEx(hdc, 0, y, nullptr);
-			LineTo(hdc, width, y);
+			LineTo(hdc, (int)width, y);
 		}
 
 		SelectObject(hdc, hPenCircle);
@@ -82,11 +82,10 @@ LRESULT CALLBACK WinProc(HWND wnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 		for (int i = 0; i < settings.N; i++) {
 			for (int j = 0; j < settings.N; j++) {
 				if (board[j][i].isFilled) {
-					double left = i * width / settings.N + width / settings.N * 0.2;
-					double top = j * height / settings.N + height / settings.N * 0.2;
-					double right = width / settings.N * 0.6;
-					double bottom = height / settings.N * 0.6;
-					//Ellipse(hdc, left, top, left + right, top + bottom);
+					const int left = (int)(i * width / settings.N + width / settings.N * 0.2);
+					const int top = (int)(j * height / settings.N + height / settings.N * 0.2);
+					const int right = (int)(width / settings.N * 0.6);
+					const int bottom = (int)(height / settings.N * 0.6);
 					if (board[j][i].imageNumber == 0) {
 						std::random_device rd;
 						std::mt19937 generator(rd());
@@ -95,9 +94,23 @@ LRESULT CALLBACK WinProc(HWND wnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 					}
 					int index = board[j][i].imageNumber;
 					HDC tempDC = CreateCompatibleDC(hdc);
-					SelectObject(tempDC, image[index].buffer);
-					//bool result = BitBlt(hdc, left, top, right, bottom, tempDC, 0, 0, SRCCOPY);
-					bool result = TransparentBlt(hdc, left, top, right, bottom, tempDC, 0, 0, image[index].width, image[index].height, RGB(0, 0, 0));
+				    auto oldImage = SelectObject(tempDC, image[index].hBuffer);
+					BLENDFUNCTION blendFn = {};
+					blendFn.BlendOp = AC_SRC_OVER;
+					blendFn.BlendFlags = 0;
+					blendFn.SourceConstantAlpha = 255;
+					blendFn.AlphaFormat = AC_SRC_ALPHA;
+					bool result = AlphaBlend(hdc, left, top, right, bottom, tempDC, 0, 0, image[index].width, image[index].height, blendFn);
+					//bool result = TransparentBlt(hdc, left, top, right, bottom, tempDC, 0, 0, image[index].width, image[index].height, RGB(0, 0, 0));
+					if (!result) {
+						if (index == 1) {
+							Ellipse(hdc, left, top, left + right, top + bottom);
+						}
+						if (index == 2) {
+							Crest(hdc, left, top, left + right, top + bottom);
+						}
+					}
+					SelectObject(tempDC, oldImage);
 					DeleteDC(tempDC);
 				}
 			}
@@ -158,18 +171,15 @@ LRESULT CALLBACK WinProc(HWND wnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 	return DefWindowProc(wnd, msg, wParam, lParam);
 }
 
-
-
 int main(int argc, char* argv[]) {
 	HINSTANCE hThisInstance = GetModuleHandle(nullptr);
 
 	setIOMethod(argv[1]);
 	loadSettings(settings);
 	initBoard(settings, board);
-
-
-	image[1] = readJpegImage("circle.jpg");	
-	image[2] = readJpegImage("crest.jpg");	
+	
+	image[1] = readPngImage(settings.circleIconName);	
+	image[2] = readJpegImage(settings.crestIconName);
 
 	hPenCircle = CreatePen(PS_SOLID, 5, RGB(255, 200, 30));
 	hBrushCircle = CreateSolidBrush(RGB(255, 200, 30));
@@ -181,7 +191,7 @@ int main(int argc, char* argv[]) {
 	wincl.cbClsExtra = 0;
 	wincl.cbWndExtra = 0;
 	wincl.hInstance = hThisInstance; //—сылка на хандлер
-	wincl.hIcon = LoadIcon(hThisInstance, settings.iconName);
+	wincl.hIcon = LoadIcon(hThisInstance, settings.circleIconName);
 	wincl.hbrBackground = settings.hBrushBackground;
 	wincl.hCursor = LoadCursor(nullptr, IDC_ARROW);
 	wincl.lpszMenuName = nullptr;
@@ -232,14 +242,14 @@ int main(int argc, char* argv[]) {
 
 	DestroyWindow(wnd);
 	UnregisterClass(clName, hThisInstance);
-	delete[] settings.iconName;
-	delete[] settings.iconType;
+	delete[] settings.circleIconName;
+	delete[] settings.crestIconName;
 	for (int i = 0; i < settings.N; ++i) {
 		delete[] board[i];
 	}
 	delete[] board;
-	delete[] image[1].buffer;
-	delete[] image[2].buffer;
+	DeleteObject(image[1].hBuffer);
+	DeleteObject(image[2].hBuffer);
 
 	return msg.lParam;
 }

@@ -1,6 +1,5 @@
 #pragma once
 
-#include <cstdio>
 #include "jpeglib.h"
 #include <csetjmp>
 

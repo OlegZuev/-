@@ -18,9 +18,9 @@ void inputSettings(Settings& settings, wchar_t* text) {
 	settings.hPenCell = CreatePen(iStyle, cWidth, color);
 	std::wstring buff;
 	wss >> buff;
-	settings.iconName = wstringConvertToWChar_t(buff);
+	settings.circleIconName = wstringConvertToWChar_t(buff);
 	wss >> buff;
-	settings.iconType = wstringConvertToWChar_t(buff);
+	settings.crestIconName = wstringConvertToWChar_t(buff);
 }
 
 void outputSettings(Settings& settings, std::wstringstream& wss) {
@@ -31,13 +31,13 @@ void outputSettings(Settings& settings, std::wstringstream& wss) {
 	wss << iBrush.lbColor << divider;
 	LOGPEN iPen;
 	GetObject(settings.hPenCell, sizeof(LOGPEN), &iPen);
-	wss << iPen.lopnStyle << " " << iPen.lopnWidth.x << " " << iPen.lopnColor << divider << settings.iconName << " " << settings.iconType;
+	wss << iPen.lopnStyle << " " << iPen.lopnWidth.x << " " << iPen.lopnColor << divider << settings.circleIconName << divider << settings.crestIconName;
 }
 
 void loadSettings(Settings& settings) {
 	int id = 0;
 	if (IOMethod != nullptr) {
-		id = strtod(IOMethod, nullptr);
+		id = (int)strtod(IOMethod, nullptr);
 	}
 	switch (id) {
 	case 0:
@@ -58,7 +58,7 @@ void loadSettings(Settings& settings) {
 void saveSettings(Settings& settings) {
 	int id = 0;
 	if (IOMethod != nullptr) {
-		id = strtod(IOMethod, nullptr);
+		id = (int)strtod(IOMethod, nullptr);
 	}
 	switch (id) {
 	case 0:
