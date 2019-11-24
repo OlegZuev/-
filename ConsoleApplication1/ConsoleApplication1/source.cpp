@@ -8,9 +8,17 @@ const int SHUTDOWN_WINDOW = 1;
 const int RUN_NOTEPAD = 2;
 const int CHANGE_COLOR = 3;
 const int FREEZE_DRAW_BOARD_THREAD = 4;
+const int IDLE_THREAD_PRIORITY = 5;
+const int LOWEST_THREAD_PRIORITY = 6;
+const int BELOW_NORMAL_THREAD_PRIORITY = 7;
+const int NORMAL_THREAD_PRIORITY = 8;
+const int ABOVE_NORMAL_THREAD_PRIORITY = 9;
+const int HIGHEST_THREAD_PRIORITY = 10;
+const int TIME_CRITICAL_THREAD_PRIORITY = 11;
 bool threadFrozen = false;
 
-UINT WM_CELLCLICKED = RegisterWindowMessageA("WM_CELLCLICKED");
+UINT WM_RESTART = RegisterWindowMessageA("WM_RESTART");
+UINT MY_WM_DESTROY = RegisterWindowMessageA("MY_WM_DESTROY");
 
 Grid* grid;
 
@@ -22,7 +30,7 @@ Settings* settings;
 
 std::atomic_bool drawBoardFlag;
 
-std::future<void> result;
+std::thread drawBoardThread;
 
 HANDLE workingSemaphore;
 
@@ -37,13 +45,20 @@ void runEditor() {
 
 //Свой обработчик
 LRESULT CALLBACK WinProc(HWND wnd, UINT msg, WPARAM wParam, LPARAM lParam) {
+	if (msg == WM_RESTART) {
+		grid->clearBoard();
+		return 0;
+	}
+	if (msg == MY_WM_DESTROY) {
+		PostQuitMessage(0);
+	}
 	switch (msg) {
-	case WM_LBUTTONDOWN: {
-		grid->cellClicked(settings, GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam));
+	case WM_LBUTTONDOWN:
+	case WM_RBUTTONDOWN: {
+		grid->cellClicked(wnd, settings, GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam), msg);
 		break;
 	}
 	case WM_CREATE: {
-		WM_CELLCLICKED = RegisterWindowMessageA("WM_CELLCLICKED");
 		grid = new Grid(settings->N);
 		drawBoardFlag = true;
 		std::vector<std::string> filenames;
@@ -55,14 +70,16 @@ LRESULT CALLBACK WinProc(HWND wnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 		}		
 		background.images = readPngImages(&filenames[0], background.size);
 	    workingSemaphore = CreateSemaphoreA(nullptr, 1, 1, nullptr);
-		result = std::async(std::launch::async, &Grid::drawBoard, grid, wnd, settings, image, std::ref(background), std::ref(drawBoardFlag), workingSemaphore);
+		drawBoardThread = std::thread(&Grid::drawBoard, grid, wnd, settings, image, std::ref(background), std::ref(drawBoardFlag), workingSemaphore);
 		break;
 	}
 	case WM_DESTROY: {
 		drawBoardFlag = false;
-		result.get();
+		ReleaseSemaphore(workingSemaphore, 1, nullptr);
+		drawBoardThread.join();
 		delete settings;
 		delete grid;
+		CloseHandle(workingSemaphore);
 		UnregisterHotKey(wnd, SHUTDOWN_WINDOW);
 		UnregisterHotKey(wnd, CHANGE_COLOR);
 		UnregisterHotKey(wnd, RUN_NOTEPAD);
@@ -91,6 +108,7 @@ LRESULT CALLBACK WinProc(HWND wnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 			SetClassLongPtr(wnd, GCLP_HBRBACKGROUND, (LONG)hBrushRandom);
 			DeleteObject(settings->hBrushBackground);
 			settings->hBrushBackground = hBrushRandom;
+			//SendMessageA(wnd, STM_SETIMAGE, IMAGE_BITMAP, (LPARAM)background.images[background.current].hBuffer);
 			InvalidateRect(wnd, nullptr, true);
 			break;
 		}
@@ -104,6 +122,41 @@ LRESULT CALLBACK WinProc(HWND wnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 			}
 			break;
 		}
+		case IDLE_THREAD_PRIORITY: {
+			bool res = SetThreadPriority(drawBoardThread.native_handle(), THREAD_PRIORITY_IDLE);
+			std::cout << res << " " << THREAD_PRIORITY_IDLE << std::endl;
+			break;
+		}
+		case LOWEST_THREAD_PRIORITY: {
+			bool res = SetThreadPriority(drawBoardThread.native_handle(), THREAD_PRIORITY_LOWEST);
+			std::cout << res << " " << THREAD_PRIORITY_LOWEST << std::endl;
+			break;
+		}
+		case BELOW_NORMAL_THREAD_PRIORITY: {
+			bool res = SetThreadPriority(drawBoardThread.native_handle(), THREAD_PRIORITY_BELOW_NORMAL);
+			std::cout << res << " " << THREAD_PRIORITY_BELOW_NORMAL << std::endl;
+			break;
+		}
+		case NORMAL_THREAD_PRIORITY: {
+			bool res = SetThreadPriority(drawBoardThread.native_handle(), THREAD_PRIORITY_NORMAL);
+			std::cout << res << " " << THREAD_PRIORITY_NORMAL << std::endl;
+			break;
+		}
+		case ABOVE_NORMAL_THREAD_PRIORITY: {
+			bool res = SetThreadPriority(drawBoardThread.native_handle(), THREAD_PRIORITY_ABOVE_NORMAL);
+			std::cout << res << " " << THREAD_PRIORITY_ABOVE_NORMAL << std::endl;
+			break;
+		}
+		case HIGHEST_THREAD_PRIORITY: {
+			bool res = SetThreadPriority(drawBoardThread.native_handle(), THREAD_PRIORITY_HIGHEST);
+			std::cout << res << " " << THREAD_PRIORITY_HIGHEST << std::endl;
+			break;
+		}
+		case TIME_CRITICAL_THREAD_PRIORITY: {
+			bool res = SetThreadPriority(drawBoardThread.native_handle(), THREAD_PRIORITY_TIME_CRITICAL);
+			std::cout << res << " " << THREAD_PRIORITY_TIME_CRITICAL << std::endl;
+			break;
+		}
 		}
 		break;
 	}
@@ -113,6 +166,13 @@ LRESULT CALLBACK WinProc(HWND wnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 		RegisterHotKey(wnd, RUN_NOTEPAD, MOD_SHIFT | MOD_NOREPEAT, 'C');
 		RegisterHotKey(wnd, CHANGE_COLOR, NULL, VK_RETURN);
 		RegisterHotKey(wnd, FREEZE_DRAW_BOARD_THREAD, NULL, VK_SPACE);
+		RegisterHotKey(wnd, IDLE_THREAD_PRIORITY, NULL, '1');
+		RegisterHotKey(wnd, LOWEST_THREAD_PRIORITY, NULL, '2');
+		RegisterHotKey(wnd, BELOW_NORMAL_THREAD_PRIORITY, NULL, '3');
+		RegisterHotKey(wnd, NORMAL_THREAD_PRIORITY, NULL, '4');
+		RegisterHotKey(wnd, ABOVE_NORMAL_THREAD_PRIORITY, NULL, '5');
+		RegisterHotKey(wnd, HIGHEST_THREAD_PRIORITY, NULL, '6');
+		RegisterHotKey(wnd, TIME_CRITICAL_THREAD_PRIORITY, NULL, '7');
 		break;
 	}
 	case WM_KILLFOCUS: {
@@ -120,13 +180,20 @@ LRESULT CALLBACK WinProc(HWND wnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 		UnregisterHotKey(wnd, CHANGE_COLOR);
 		UnregisterHotKey(wnd, RUN_NOTEPAD);
 		UnregisterHotKey(wnd, FREEZE_DRAW_BOARD_THREAD);
+		UnregisterHotKey(wnd, IDLE_THREAD_PRIORITY);
+		UnregisterHotKey(wnd, LOWEST_THREAD_PRIORITY);
+		UnregisterHotKey(wnd, BELOW_NORMAL_THREAD_PRIORITY);
+		UnregisterHotKey(wnd, NORMAL_THREAD_PRIORITY);
+		UnregisterHotKey(wnd, ABOVE_NORMAL_THREAD_PRIORITY);
+		UnregisterHotKey(wnd, HIGHEST_THREAD_PRIORITY);
+		UnregisterHotKey(wnd, TIME_CRITICAL_THREAD_PRIORITY);
 		break;
 	}
 	case WM_SIZE: {
 		RECT rect;
-		GetClientRect(wnd, &rect);
-		settings->width = rect.right;
-		settings->height = rect.bottom;
+		GetWindowRect(wnd, &rect);
+		settings->width = rect.right - rect.left;
+		settings->height = rect.bottom - rect.top;
 		break;
 	}
 	}
@@ -183,7 +250,7 @@ int main(int argc, char* argv[]) {
 	ShowWindow(wnd, SW_SHOW);
 
 	//Обработчик событий
-	BOOL bOk = FALSE;
+	BOOL bOk;
 	MSG msg;
 
 	while ((bOk = GetMessage(&msg, nullptr, 0, 0))) {

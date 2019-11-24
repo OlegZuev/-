@@ -2,11 +2,19 @@
 #include "utilities.h"
 
 Grid::Grid(int n) {  // NOLINT(hicpp-member-init)
+	namedCellMutex = CreateMutexA(nullptr, FALSE, "CellMutex");
+	sharedCount = (std::atomic<UINT>*)openSharedStructure("Count", sizeof(std::atomic_int), sharedCountFile);
+	sharedPreviousClick = (std::atomic<UINT>*)Grid::openSharedStructure("SharedPreviousClick", sizeof(std::atomic<UINT>), sharedPreviousClickFile);
 	sharedGrid = openSharedStructure("Grid", sizeof(Cell) * n * n, sharedGridFile);
 	initBoard(n, sharedGrid);
 }
 
 Grid::~Grid() {
+	CloseHandle(namedCellMutex);
+	UnmapViewOfFile(sharedCount);
+	CloseHandle(sharedCountFile);
+	UnmapViewOfFile(sharedPreviousClick);
+	CloseHandle(sharedPreviousClickFile);
 	UnmapViewOfFile(sharedGrid);
 	CloseHandle(sharedGridFile);
 }
@@ -22,6 +30,17 @@ void Grid::initBoard(int n, LPVOID& sharedGrid) {
 			temp++;
 		}
 	}
+}
+
+void Grid::clearBoard() {
+	WaitForSingleObject(namedCellMutex, INFINITE);
+	for (auto& i : arr) {
+		for (auto& j : i) {
+			j->imageNumber = 0;
+			j->isFilled = false;
+		}
+	}
+	ReleaseMutex(namedCellMutex);
 }
 
 void Grid::drawGrid(Settings* settings, HDC hdc, double height, double width) {
@@ -61,6 +80,11 @@ void Grid::drawBoard(HWND wnd, Settings* settings, Image* images, Animation& bac
 
 		drawGrid(settings, hdc, height, width);
 
+		std::vector<HDC> imagesHdc;
+		imagesHdc.push_back(CreateCompatibleDC(hdc));
+		DeleteObject(SelectObject(imagesHdc[0], images[1].hBuffer));
+		imagesHdc.push_back(CreateCompatibleDC(hdc));
+		DeleteObject(SelectObject(imagesHdc[1], images[2].hBuffer));
 		for (int i = 0; i < settings->N; i++) {
 			for (int j = 0; j < settings->N; j++) {
 				if (arr[j][i]->isFilled) {
@@ -68,14 +92,10 @@ void Grid::drawBoard(HWND wnd, Settings* settings, Image* images, Animation& bac
 					const int top = (int)(j * height / settings->N + height / settings->N * 0.2);
 					const int right = (int)(width / settings->N * 0.6);
 					const int bottom = (int)(height / settings->N * 0.6);
-					if (arr[j][i]->imageNumber == 0) {
-						std::random_device rd;
-						std::mt19937 generator(rd());
-						std::uniform_int_distribution<int> dist(1, 2);
-						arr[j][i]->imageNumber = dist(generator);
-					}
+					WaitForSingleObject(namedCellMutex, INFINITE);
 					int index = arr[j][i]->imageNumber;
-					bool result = showPicture(images[index], hdc, left, top, right, bottom);
+					ReleaseMutex(namedCellMutex);
+					bool result = replacePicture(hdc, left, top, right, bottom, imagesHdc[index - 1], images[index].width, images[index].height);
 					if (!result) {
 						SelectObject(hdc, settings->hPenFigure);
 						HBRUSH hOldBrush = (HBRUSH)SelectObject(hdc, settings->hBrushFigure);
@@ -90,6 +110,8 @@ void Grid::drawBoard(HWND wnd, Settings* settings, Image* images, Animation& bac
 				}
 			}
 		}
+		DeleteDC(imagesHdc[0]);
+		DeleteDC(imagesHdc[1]);
 
 		SelectObject(hdc, hOldPen);
 		ReleaseDC(wnd, hdc);
@@ -98,17 +120,107 @@ void Grid::drawBoard(HWND wnd, Settings* settings, Image* images, Animation& bac
 	}
 }
 
-void Grid::cellClicked(Settings* settings, int x, int y) {
+void Grid::cellClicked(HWND wnd, Settings* settings, int x, int y, UINT currentClick) {
 	int column = (int)(x / ((double)settings->width / settings->N));
 	int row = (int)(y / ((double)settings->height / settings->N));
-	arr[row][column]->isFilled = arr[row][column]->isFilled ^ true;
 	if (!arr[row][column]->isFilled) {
-		arr[row][column]->imageNumber = 0;
+		WaitForSingleObject(namedCellMutex, INFINITE);
+		arr[row][column]->isFilled = true;
+		if (currentClick == WM_LBUTTONDOWN && *sharedPreviousClick != WM_LBUTTONDOWN) {
+			arr[row][column]->imageNumber = 1;
+		} else if (currentClick == WM_RBUTTONDOWN && *sharedPreviousClick != WM_RBUTTONDOWN) {
+			arr[row][column]->imageNumber = 2;
+		} else {
+			MessageBoxA(wnd, "This turn is not your!", "Error", MB_OK);
+			arr[row][column]->isFilled = false;
+		}
+		ReleaseMutex(namedCellMutex);
+		*sharedPreviousClick = currentClick;
+		++*sharedCount;
+	}
+	if (isWinner()) {
+		MessageBoxA(wnd, "You are a winner!", "Congratulation!", MB_OK);
+		if (MessageBoxA(wnd, "Do you want to try again?", "Continue", MB_YESNO) == IDYES) {
+			UINT WM_RESTART = RegisterWindowMessageA("WM_RESTART");
+			*sharedPreviousClick = 0;
+			*sharedCount = 0;
+			SendMessageA(HWND_BROADCAST, WM_RESTART, 0, 0);
+		} else {
+			UINT MY_WM_DESTROY = RegisterWindowMessageA("MY_WM_DESTROY");
+			SendMessageA(HWND_BROADCAST, MY_WM_DESTROY, 0, 0);
+		}
+	}
+	if (*sharedCount == arr.size() * arr.size()) {
+		MessageBoxA(wnd, "It is a draw!", "Draw!", MB_OK);
+		if (MessageBoxA(wnd, "Do you want to try again?", "Continue", MB_YESNO) == IDYES) {
+			UINT WM_RESTART = RegisterWindowMessageA("WM_RESTART");
+			*sharedPreviousClick = 0;
+			*sharedCount = 0;
+			SendMessageA(HWND_BROADCAST, WM_RESTART, 0, 0);
+		} else {
+			UINT MY_WM_DESTROY = RegisterWindowMessageA("MY_WM_DESTROY");
+			SendMessageA(HWND_BROADCAST, MY_WM_DESTROY, 0, 0);
+		}
 	}
 }
 
-void Grid::isWinner() {
-	
+bool Grid::isWinner() {
+	int circleNumber = 1;
+	int crestNumber = 2;
+	size_t crestCountHorizontal = 0;
+	size_t crestCountVertical = 0;
+	size_t crestCountDiagonalLeft = 0;
+	size_t crestCountDiagonalRight = 0;
+	size_t circleCountHorizontal = 0;
+	size_t circleCountVertical = 0;
+	size_t circleCountDiagonalLeft = 0;
+	size_t circleCountDiagonalRight = 0;
+	for (size_t i = 0; i < arr.size(); ++i) {
+		for (size_t j = 0; j < arr[i].size(); ++j) {
+			if (arr[i][j]->imageNumber == crestNumber) {
+				crestCountHorizontal++;
+			}
+			if (arr[j][i]->imageNumber == crestNumber) {
+				crestCountVertical++;
+			}
+			if (i == j && arr[i][j]->imageNumber == crestNumber) {
+				crestCountDiagonalLeft++;
+			}
+			if (i == j && arr[i][arr[i].size() - j - 1]->imageNumber == crestNumber) {
+				crestCountDiagonalRight++;
+			}
+
+			if (arr[i][j]->imageNumber == circleNumber) {
+				circleCountHorizontal++;
+			}
+			if (arr[j][i]->imageNumber == circleNumber) {
+				circleCountVertical++;
+			}
+			if (i == j && arr[i][j]->imageNumber == circleNumber) {
+				circleCountDiagonalLeft++;
+			}
+			if (i == j && arr[i][arr[i].size() - j - 1]->imageNumber == circleNumber) {
+				circleCountDiagonalRight++;
+			}
+		}
+		if (crestCountHorizontal == arr.size() ||
+			crestCountVertical == arr.size() ||
+			crestCountDiagonalLeft == arr.size() ||
+			crestCountDiagonalRight == arr.size()) {
+			return true;
+		}
+		if (circleCountHorizontal == arr.size() ||
+			circleCountVertical == arr.size() ||
+			circleCountDiagonalLeft == arr.size() ||
+			circleCountDiagonalRight == arr.size()) {
+			return true;
+		}
+		crestCountHorizontal = 0;
+		crestCountVertical = 0;
+		circleCountHorizontal = 0;
+		circleCountVertical = 0;
+	}
+	return false;
 }
 
 LPVOID Grid::openSharedStructure(const std::string& name, size_t size, HANDLE& fileMap) {

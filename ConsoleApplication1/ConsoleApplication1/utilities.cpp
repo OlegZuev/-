@@ -100,3 +100,13 @@ bool showPicture(Image& image, HDC& hdc, const int left, const int top, const in
 	DeleteDC(tempDC);
 	return result;
 }
+
+bool replacePicture(HDC destHdc, const int left, const int top, const int right, const int bottom, HDC scrHdc, const int width, const int height) {
+	BLENDFUNCTION blendFn;
+	blendFn.BlendOp = AC_SRC_OVER;
+	blendFn.BlendFlags = 0;
+	blendFn.SourceConstantAlpha = 255;
+	blendFn.AlphaFormat = AC_SRC_ALPHA;
+	const bool result = AlphaBlend(destHdc, left, top, right, bottom, scrHdc, 0, 0, width, height, blendFn);
+	return result;
+}
