@@ -1,6 +1,6 @@
 #pragma once
-#include "source.h"
+#include "settings.h"
 
-void loadSettingsMapping(Settings& settings, const wchar_t* name);
+void loadSettingsMapping(Settings* settings, const wchar_t* name);
 
-void saveSettingsMapping(Settings& settings, const wchar_t* name);
+void saveSettingsMapping(Settings* settings, const wchar_t* name);

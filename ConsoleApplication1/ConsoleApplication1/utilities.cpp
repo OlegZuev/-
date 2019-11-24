@@ -1,4 +1,5 @@
 #include "utilities.h"
+#include "iomanip"
 
 // ReSharper disable once CppInconsistentNaming
 wchar_t* wstringConvertToWChar_t(std::wstring& wstr) {
@@ -8,23 +9,6 @@ wchar_t* wstringConvertToWChar_t(std::wstring& wstr) {
 	}
 	wc[wstr.length()] = '\0';
 	return wc;
-}
-
-void initBoard(Settings& settings, Grid**& board, LPVOID& sharedGrid) {
-	board = new Grid* [settings.N];
-	for (int i = 0; i < settings.N; i++) {
-		board[i] = new Grid[settings.N];
-		ZeroMemory(board[i], sizeof(Grid) * settings.N);
-	}
-	bool* temp = (bool*)sharedGrid; //Связываю поле с разделяемой памятью
-	int k = 0;
-	for (int i = 0; i < settings.N; ++i) {
-		for (int j = 0; j < settings.N; ++j) {
-			board[i][j].isFilled = temp + k * 5;
-			board[i][j].imageNumber = (int*)(temp + k * 5 + 1);
-			k++;
-		}
-	}
 }
 
 Image readJpegImage(const wchar_t* wFilename) {
@@ -79,6 +63,20 @@ Image readPngImage(const std::string& filename) {
 	return image;
 }
 
+Image* readPngImages(const std::string* filename, int size) {
+	HMODULE imageLoader = LoadLibraryA("ImageLoader");
+	unsigned char* (*readJPEG)(const char*, int*, int*);
+	(FARPROC&)readJPEG = GetProcAddress(imageLoader, "readPngFile");
+	Image* image = new Image[size];
+	for (int i = 0; i < size; ++i) {
+		unsigned char* buffer = (*readJPEG)(filename[i].c_str(), &image[i].height, &image[i].width);
+		image[i].hBuffer = CreateBitmap(image[i].width, image[i].height, 1, 32, buffer);
+		delete buffer;
+	}
+	FreeLibrary(imageLoader);
+	return image;
+}
+
 BOOL WINAPI Crest(_In_ HDC hdc, _In_ int left, _In_ int top, _In_ int right, _In_ int bottom) {
 	MoveToEx(hdc, left, top, nullptr);
 	LineTo(hdc, right, bottom);
@@ -89,64 +87,16 @@ BOOL WINAPI Crest(_In_ HDC hdc, _In_ int left, _In_ int top, _In_ int right, _In
 	return TRUE;
 }
 
-bool inputGridInMapping(Grid** board, const Settings& settings) {
-	HANDLE fileMap = CreateFileMappingW(INVALID_HANDLE_VALUE, nullptr, PAGE_READONLY, 0, sizeof(Grid) * settings.N * settings.N, _T("Grid"));
-	if (fileMap == nullptr) {
-		DWORD error = GetLastError();
-		printf("InputGridInMapping: Error %lu\n", error);
-		return false;
-	}
-	LPVOID lpFileMap = MapViewOfFile(fileMap, FILE_MAP_READ, 0, 0, 0);
-	if (lpFileMap == nullptr) {
-		DWORD error = GetLastError();
-		printf("InputGridInMapping: Error %lu\n", error);
-		return false;
-	}
-
-	inputGridInStream(board, settings.N, (wchar_t*)lpFileMap);
-	UnmapViewOfFile(lpFileMap);
-	CloseHandle(fileMap);
-	return true;
-}
-
-bool outputGridInMapping(Grid** board, const Settings& settings) {
-	std::wstringstream wss;
-	outputGridInStream(board, settings.N, wss);
-
-	HANDLE fileMap = CreateFileMappingW(INVALID_HANDLE_VALUE, nullptr, PAGE_READWRITE, 0, wss.str().length() * sizeof(wchar_t), _T("Grid"));
-	if (fileMap == nullptr) {
-		DWORD error = GetLastError();
-		printf("OutputGridInMapping: Error %lu\n", error);
-		return false;
-	}
-	LPVOID lpFileMap = MapViewOfFile(fileMap, FILE_MAP_WRITE, 0, 0, wss.str().length() * sizeof(wchar_t));
-	if (lpFileMap == nullptr) {
-		DWORD error = GetLastError();
-		printf("OutputGridInMapping: Error %lu\n", error);
-		return false;
-	}
-
-	wcscpy_s((wchar_t*)lpFileMap, wss.str().length() + 1, wss.str().c_str());
-	UnmapViewOfFile(lpFileMap);
-	CloseHandle(fileMap);
-	return true;
-}
-
-LPVOID openSharedGrid(const Settings& settings, HANDLE& fileMap) {
-    fileMap = OpenFileMappingW(FILE_MAP_ALL_ACCESS, FALSE, _T("Grid"));
-	if (fileMap == nullptr) {
-		fileMap = CreateFileMappingW(INVALID_HANDLE_VALUE, nullptr, PAGE_READWRITE, 0, sizeof(Grid) * settings.N * settings.N, _T("Grid"));
-	}
-	if (fileMap == nullptr) {
-		DWORD error = GetLastError();
-		printf("OpenSharedGrid: Error %lu\n", error);
-		return nullptr;
-	}
-	LPVOID lpFileMap = MapViewOfFile(fileMap, FILE_MAP_ALL_ACCESS, 0, 0, sizeof(Grid) * settings.N * settings.N);
-	if (lpFileMap == nullptr) {
-		DWORD error = GetLastError();
-		printf("OpenSharedGrid: Error %lu\n", error);
-		return nullptr;
-	}
-	return lpFileMap;
+bool showPicture(Image& image, HDC& hdc, const int left, const int top, const int right, const int bottom) {
+	HDC tempDC = CreateCompatibleDC(hdc);
+	HGDIOBJ oldImage = SelectObject(tempDC, image.hBuffer);
+	BLENDFUNCTION blendFn;
+	blendFn.BlendOp = AC_SRC_OVER;
+	blendFn.BlendFlags = 0;
+	blendFn.SourceConstantAlpha = 255;
+	blendFn.AlphaFormat = AC_SRC_ALPHA;
+	const bool result = AlphaBlend(hdc, left, top, right, bottom, tempDC, 0, 0, image.width, image.height, blendFn);
+	SelectObject(tempDC, oldImage);
+	DeleteDC(tempDC);
+	return result;
 }

@@ -1,6 +1,6 @@
 #pragma once
-#include "source.h"
+#include "settings.h"
 
-void loadSettingsStream(Settings& settings, const wchar_t* name);
+void loadSettingsStream(Settings* settings, const wchar_t* name);
 
-void saveSettingsStream(Settings& settings, const wchar_t* name);
+void saveSettingsStream(Settings* settings, const wchar_t* name);

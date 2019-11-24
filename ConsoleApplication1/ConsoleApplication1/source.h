@@ -1,5 +1,7 @@
 #pragma once
 #include <iostream>
+#include <mutex>
+#include <vector>
 #include <random>
 #include <Windows.h>
 #include <cstdlib>
@@ -8,10 +10,4 @@
 #include <string>
 #include <sstream>
 #include <fstream>
-#include "variables.h"
-#include "utilities.h"
-#include "fwinapi.h"
-#include "fmapping.h"
-#include "iosettings.h"
-#include "myfstream.h"
-#include "myfopen.h"
+#include <future>

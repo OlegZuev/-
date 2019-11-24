@@ -1,10 +1,10 @@
 #include "fwinapi.h"
 
-void loadSettingsWinAPI(Settings& settings, const wchar_t* name) {
+void loadSettingsWinAPI(Settings* settings, const wchar_t* name) {
 	HANDLE file = CreateFileW(name, GENERIC_READ, FILE_SHARE_READ, nullptr, OPEN_ALWAYS, FILE_ATTRIBUTE_NORMAL, nullptr);
 	if (file == INVALID_HANDLE_VALUE) {
-		std::cout << "Error: INVALID_HANDLE_VALUE";
-		return;
+		std::string message = "Error" + std::to_string(GetLastError());
+		throw std::exception(message.c_str());
 	}
 
 	int fileSize = GetFileSize(file, nullptr);
@@ -12,25 +12,26 @@ void loadSettingsWinAPI(Settings& settings, const wchar_t* name) {
 	ZeroMemory(text, sizeof(char) * (fileSize / sizeof(wchar_t) + 1));
 
 	if (!ReadFile(file, text, fileSize, nullptr, nullptr)) {
-		DWORD error = GetLastError();
-		printf("Error %lu\n", error);
+		std::string message = "Error" + std::to_string(GetLastError());
+		throw std::exception(message.c_str());
 	}
 	text[fileSize / sizeof(wchar_t)] = _T('\0');
 	CloseHandle(file);
 
-	inputSettings(settings, text);
+	settings->inputSettings(text);
 
 	delete[] text;
 }
 
-void saveSettingsWinAPI(Settings& settings, const wchar_t* name) {
+void saveSettingsWinAPI(Settings* settings, const wchar_t* name) {
     HANDLE file = CreateFileW(name, GENERIC_WRITE, FILE_SHARE_READ, nullptr, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, nullptr);
 	if (file == INVALID_HANDLE_VALUE) {
-		std::cout << "Error: INVALID_HANDLE_VALUE";
+		std::string message = "Error" + std::to_string(GetLastError());
+		throw std::exception(message.c_str());
 	}
 
 	std::wstringstream wss;
-	outputSettings(settings, wss);
+	settings->outputSettings(wss);
 	WriteFile(file, wss.str().c_str(), wss.str().length() * sizeof(wchar_t), nullptr, nullptr);
 	CloseHandle(file);
 }

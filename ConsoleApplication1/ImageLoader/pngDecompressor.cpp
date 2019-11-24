@@ -81,6 +81,10 @@ unsigned char* readPngFile(char* filename, int& height, int& width) {
 		color_type == PNG_COLOR_TYPE_GRAY_ALPHA)
 		png_set_gray_to_rgb(png);
 
+	// RGB -> BGR
+	if (color_type & PNG_COLOR_MASK_COLOR)
+		png_set_bgr(png);
+
 	png_read_update_info(png, info);
 
 	int a = png_get_channels(png, info);
@@ -90,13 +94,8 @@ unsigned char* readPngFile(char* filename, int& height, int& width) {
 		png_read_row(png, buffer, nullptr);
 	
 		size_t position = y * width * 4;
-		for (int i = 0; i < width; ++i) {
-			size_t offsetDest = i * 4;
-			size_t offsetSource = i * 4;
-			output[position + offsetDest] = buffer[offsetSource + 2];
-			output[position + offsetDest + 1] = buffer[offsetSource + 1];
-			output[position + offsetDest + 2] = buffer[offsetSource + 0];
-			output[position + offsetDest + 3] = buffer[offsetSource + 3];
+		for (int i = 0; i < width * 4; ++i) {
+			output[position + i] = buffer[i];
 		}
 	}
 
