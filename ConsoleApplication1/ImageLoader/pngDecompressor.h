@@ -3,6 +3,8 @@
 #include <cstdlib>
 #include "png.h"
 
+#define PNGDECOMPRESSOR_EXPORTS
+
 #ifdef PNGDECOMPRESSOR_EXPORTS
 #define PNGDECOMPRESSOR_API __declspec(dllexport)
 #else

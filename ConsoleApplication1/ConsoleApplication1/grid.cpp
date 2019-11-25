@@ -3,13 +3,32 @@
 
 Grid::Grid(int n) {  // NOLINT(hicpp-member-init)
 	namedCellMutex = CreateMutexA(nullptr, FALSE, "CellMutex");
+	sharedFirstPlayer = (std::atomic_bool*)openSharedStructure("firstPlayer", sizeof(std::atomic_bool), sharedFirstPlayerFile);
+	WaitForSingleObject(namedCellMutex, INFINITE);
+	if (!*sharedFirstPlayer) {
+		*sharedFirstPlayer = true;
+		firstPlayer = true;
+		playerName = "Crosses";
+	} else {
+		firstPlayer = false;
+		playerName = "Noughts";
+	}
+	ReleaseMutex(namedCellMutex);
 	sharedCount = (std::atomic<UINT>*)openSharedStructure("Count", sizeof(std::atomic_int), sharedCountFile);
-	sharedPreviousClick = (std::atomic<UINT>*)Grid::openSharedStructure("SharedPreviousClick", sizeof(std::atomic<UINT>), sharedPreviousClickFile);
+	sharedPreviousClick = (std::atomic<UINT>*)openSharedStructure("SharedPreviousClick", sizeof(std::atomic<UINT>), sharedPreviousClickFile);
+	if (*sharedPreviousClick == 0) {
+		*sharedPreviousClick = 1;
+	}
 	sharedGrid = openSharedStructure("Grid", sizeof(Cell) * n * n, sharedGridFile);
 	initBoard(n, sharedGrid);
 }
 
 Grid::~Grid() {
+	if (firstPlayer) {
+		*sharedFirstPlayer = false;
+	}
+	UnmapViewOfFile(sharedFirstPlayer);
+	CloseHandle(sharedFirstPlayerFile);
 	CloseHandle(namedCellMutex);
 	UnmapViewOfFile(sharedCount);
 	CloseHandle(sharedCountFile);
@@ -34,6 +53,8 @@ void Grid::initBoard(int n, LPVOID& sharedGrid) {
 
 void Grid::clearBoard() {
 	WaitForSingleObject(namedCellMutex, INFINITE);
+	*sharedPreviousClick = 1;
+	*sharedCount = 0;
 	for (auto& i : arr) {
 		for (auto& j : i) {
 			j->imageNumber = 0;
@@ -55,15 +76,23 @@ void Grid::drawGrid(Settings* settings, HDC hdc, double height, double width) {
 	}
 }
 
-void Grid::drawBackground(Animation& background, HDC hdc, double height, double width) {
-	if (background.current == 40) {
-		background.current = 0;
+void Grid::drawBackground(Animation* background, HDC hdc, double height, double width) {
+	if (background->current == background->size) {
+		background->current = 0;
 	}
-	showPicture(background.images[background.current], hdc, 0, 0, (int)width, (int)height);
-	++background.current;
+	showPicture(background->images[background->current], hdc, 0, 0, (int)width, (int)height);
+	++background->current;
 }
 
-void Grid::drawBoard(HWND wnd, Settings* settings, Image* images, Animation& background, std::atomic_bool& flag, HANDLE workingSemaphore) {
+void Grid::drawPlayerSign(Image* images, HDC hdc, double height, double width) const {
+	if (firstPlayer) {
+		showPicture(images[2], hdc, 0, 0, (int)(width * 0.05), (int)(height * 0.05));
+	} else {
+		showPicture(images[1], hdc, 0, 0, (int)(width * 0.05), (int)(height * 0.05));
+	}
+}
+
+void Grid::drawBoard(HWND wnd, Settings* settings, Image* images, Animation* background, std::atomic_bool& flag, HANDLE workingSemaphore) {
 	while (flag) {
 		WaitForSingleObject(workingSemaphore, INFINITE);
 		HDC hdc = GetDC(wnd);
@@ -77,6 +106,8 @@ void Grid::drawBoard(HWND wnd, Settings* settings, Image* images, Animation& bac
 		double width = rect.right;
 
 		drawBackground(background, hdc, height, width);
+
+		drawPlayerSign(images, hdc, height, width);
 
 		drawGrid(settings, hdc, height, width);
 
@@ -92,9 +123,7 @@ void Grid::drawBoard(HWND wnd, Settings* settings, Image* images, Animation& bac
 					const int top = (int)(j * height / settings->N + height / settings->N * 0.2);
 					const int right = (int)(width / settings->N * 0.6);
 					const int bottom = (int)(height / settings->N * 0.6);
-					WaitForSingleObject(namedCellMutex, INFINITE);
 					int index = arr[j][i]->imageNumber;
-					ReleaseMutex(namedCellMutex);
 					bool result = replacePicture(hdc, left, top, right, bottom, imagesHdc[index - 1], images[index].width, images[index].height);
 					if (!result) {
 						SelectObject(hdc, settings->hPenFigure);
@@ -115,47 +144,44 @@ void Grid::drawBoard(HWND wnd, Settings* settings, Image* images, Animation& bac
 
 		SelectObject(hdc, hOldPen);
 		ReleaseDC(wnd, hdc);
-	    std::this_thread::sleep_for(std::chrono::milliseconds(35));
+	    std::this_thread::sleep_for(std::chrono::milliseconds(30));
 		ReleaseSemaphore(workingSemaphore, 1, nullptr);
 	}
+	KillTimer(wnd, 123);
 }
 
-void Grid::cellClicked(HWND wnd, Settings* settings, int x, int y, UINT currentClick) {
+void Grid::cellClicked(HWND wnd, Settings* settings, int x, int y) {
 	int column = (int)(x / ((double)settings->width / settings->N));
 	int row = (int)(y / ((double)settings->height / settings->N));
-	if (!arr[row][column]->isFilled) {
-		WaitForSingleObject(namedCellMutex, INFINITE);
-		arr[row][column]->isFilled = true;
-		if (currentClick == WM_LBUTTONDOWN && *sharedPreviousClick != WM_LBUTTONDOWN) {
-			arr[row][column]->imageNumber = 1;
-		} else if (currentClick == WM_RBUTTONDOWN && *sharedPreviousClick != WM_RBUTTONDOWN) {
-			arr[row][column]->imageNumber = 2;
-		} else {
-			MessageBoxA(wnd, "This turn is not your!", "Error", MB_OK);
-			arr[row][column]->isFilled = false;
-		}
-		ReleaseMutex(namedCellMutex);
-		*sharedPreviousClick = currentClick;
-		++*sharedCount;
+	if (arr[row][column]->isFilled) {
+		return;
 	}
+	if (firstPlayer && *sharedPreviousClick != 2) {
+		arr[row][column]->imageNumber = 2;
+		*sharedPreviousClick = 2;
+		++*sharedCount;
+	} else if (!firstPlayer && *sharedPreviousClick != 1) {
+		arr[row][column]->imageNumber = 1;
+		*sharedPreviousClick = 1;
+		++*sharedCount;
+	} else {
+		MessageBoxA(wnd, "This turn is not your!", "Error", MB_OK);
+		return;
+	}
+	arr[row][column]->isFilled = true;
 	if (isWinner()) {
-		MessageBoxA(wnd, "You are a winner!", "Congratulation!", MB_OK);
+		MessageBoxA(wnd, playerName.append(" are a winner!").c_str(), "Congratulation!", MB_OK);
 		if (MessageBoxA(wnd, "Do you want to try again?", "Continue", MB_YESNO) == IDYES) {
 			UINT WM_RESTART = RegisterWindowMessageA("WM_RESTART");
-			*sharedPreviousClick = 0;
-			*sharedCount = 0;
 			SendMessageA(HWND_BROADCAST, WM_RESTART, 0, 0);
 		} else {
 			UINT MY_WM_DESTROY = RegisterWindowMessageA("MY_WM_DESTROY");
 			SendMessageA(HWND_BROADCAST, MY_WM_DESTROY, 0, 0);
 		}
-	}
-	if (*sharedCount == arr.size() * arr.size()) {
+	} else if (*sharedCount == arr.size() * arr.size()) {
 		MessageBoxA(wnd, "It is a draw!", "Draw!", MB_OK);
 		if (MessageBoxA(wnd, "Do you want to try again?", "Continue", MB_YESNO) == IDYES) {
 			UINT WM_RESTART = RegisterWindowMessageA("WM_RESTART");
-			*sharedPreviousClick = 0;
-			*sharedCount = 0;
 			SendMessageA(HWND_BROADCAST, WM_RESTART, 0, 0);
 		} else {
 			UINT MY_WM_DESTROY = RegisterWindowMessageA("MY_WM_DESTROY");

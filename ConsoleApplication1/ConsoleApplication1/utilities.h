@@ -1,6 +1,6 @@
 #pragma once
-#include "settings.h"
 #include "variables.h"
+#include <string>
 
 wchar_t* wstringConvertToWChar_t(std::wstring& wstr);
 

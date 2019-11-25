@@ -5,7 +5,7 @@
 png_byte color_type;
 png_byte bit_depth;
 
-unsigned char* readPngFile(char* filename, int& height, int& width) {
+PNGDECOMPRESSOR_API unsigned char* readPngFile(char* filename, int& height, int& width) {
 	FILE* infile;
 	fopen_s(&infile, filename, "rb");
 

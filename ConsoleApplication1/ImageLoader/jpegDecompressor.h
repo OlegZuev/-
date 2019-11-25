@@ -3,6 +3,8 @@
 #include "jpeglib.h"
 #include <csetjmp>
 
+#define JPEGDECOMPRESSOR_EXPORTS
+
 #ifdef JPEGDECOMPRESSOR_EXPORTS
 #define JPEGDECOMPRESSOR_API __declspec(dllexport)
 #else

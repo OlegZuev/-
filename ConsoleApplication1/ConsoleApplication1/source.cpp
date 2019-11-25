@@ -1,9 +1,10 @@
 #include "source.h"
 #include "grid.h"
 #include "utilities.h"
+#include "animation.h"
 
 const wchar_t* clName = _T("MyClassName");
-const wchar_t* clWinName = _T("MyWindowName");
+const wchar_t* clWinName = _T("Noughts and Crosses");
 const int SHUTDOWN_WINDOW = 1;
 const int RUN_NOTEPAD = 2;
 const int CHANGE_COLOR = 3;
@@ -24,7 +25,7 @@ Grid* grid;
 
 Image image[3];
 
-Animation background;
+Animation* background;
 
 Settings* settings;
 
@@ -33,6 +34,7 @@ std::atomic_bool drawBoardFlag;
 std::thread drawBoardThread;
 
 HANDLE workingSemaphore;
+HANDLE numberPlayersSemaphore;
 
 void runEditor() {
 	STARTUPINFO startUpInfo;
@@ -53,33 +55,33 @@ LRESULT CALLBACK WinProc(HWND wnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 		PostQuitMessage(0);
 	}
 	switch (msg) {
-	case WM_LBUTTONDOWN:
-	case WM_RBUTTONDOWN: {
-		grid->cellClicked(wnd, settings, GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam), msg);
+	case WM_LBUTTONDOWN: {
+		grid->cellClicked(wnd, settings, GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam));
 		break;
 	}
 	case WM_CREATE: {
 		grid = new Grid(settings->N);
 		drawBoardFlag = true;
 		std::vector<std::string> filenames;
-		background.size = 40;
-		background.current = 0;
-		filenames.reserve(background.size);
-		for (int i = 0; i < background.size; ++i) {
-			filenames.push_back("Animation\\layer (" + std::to_string(i + 1) + ").png");
-		}		
-		background.images = readPngImages(&filenames[0], background.size);
+		background = new Animation("Animation\\layer", "png", 40);
 	    workingSemaphore = CreateSemaphoreA(nullptr, 1, 1, nullptr);
+		numberPlayersSemaphore = CreateSemaphoreA(nullptr, 2, 2, "numberPlayers");
+		if (WaitForSingleObject(numberPlayersSemaphore, 0) == WAIT_TIMEOUT) {
+			MessageBoxA(wnd, "Exceeded the number of players.", "Error", MB_OK);
+			PostQuitMessage(0);
+		}
 		drawBoardThread = std::thread(&Grid::drawBoard, grid, wnd, settings, image, std::ref(background), std::ref(drawBoardFlag), workingSemaphore);
 		break;
 	}
 	case WM_DESTROY: {
 		drawBoardFlag = false;
+		ReleaseSemaphore(numberPlayersSemaphore, 1, nullptr);
 		ReleaseSemaphore(workingSemaphore, 1, nullptr);
 		drawBoardThread.join();
 		delete settings;
 		delete grid;
 		CloseHandle(workingSemaphore);
+		CloseHandle(numberPlayersSemaphore);
 		UnregisterHotKey(wnd, SHUTDOWN_WINDOW);
 		UnregisterHotKey(wnd, CHANGE_COLOR);
 		UnregisterHotKey(wnd, RUN_NOTEPAD);
@@ -108,7 +110,6 @@ LRESULT CALLBACK WinProc(HWND wnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 			SetClassLongPtr(wnd, GCLP_HBRBACKGROUND, (LONG)hBrushRandom);
 			DeleteObject(settings->hBrushBackground);
 			settings->hBrushBackground = hBrushRandom;
-			//SendMessageA(wnd, STM_SETIMAGE, IMAGE_BITMAP, (LPARAM)background.images[background.current].hBuffer);
 			InvalidateRect(wnd, nullptr, true);
 			break;
 		}

@@ -1,7 +1,7 @@
 #pragma once
 #include "source.h"
 #include "settings.h"
-#include "variables.h"
+#include "animation.h"
 
 class Grid {
 	std::vector<std::vector<Cell*>> arr;
@@ -12,6 +12,10 @@ class Grid {
 	HANDLE sharedCountFile;
 	std::atomic<UINT>* sharedPreviousClick;
 	HANDLE sharedPreviousClickFile;
+	std::atomic_bool* sharedFirstPlayer;
+	HANDLE sharedFirstPlayerFile;
+	std::string playerName;
+	bool firstPlayer;
 
 public:
 	explicit Grid(int n);
@@ -24,11 +28,13 @@ public:
 
 	static void drawGrid(Settings* settings, HDC hdc, double height, double width);
 
-	static void drawBackground(Animation& background, HDC hdc, double height, double width);
+	static void drawBackground(Animation* background, HDC hdc, double height, double width);
 
-	void drawBoard(HWND wnd, Settings* settings, Image* images, Animation& background, std::atomic_bool& flag, HANDLE workingSemaphore);
+	void drawPlayerSign(Image* images, HDC hdc, double height, double width) const;
 
-	void cellClicked(HWND wnd, Settings* settings, int x, int y, UINT currentClick);
+	void drawBoard(HWND wnd, Settings* settings, Image* images, Animation* background, std::atomic_bool& flag, HANDLE workingSemaphore);
+
+	void cellClicked(HWND wnd, Settings* settings, int x, int y);
 
 	bool isWinner();
 

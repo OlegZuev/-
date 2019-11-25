@@ -1,5 +1,5 @@
 #include "utilities.h"
-#include "iomanip"
+#include "windows.h"
 
 // ReSharper disable once CppInconsistentNaming
 wchar_t* wstringConvertToWChar_t(std::wstring& wstr) {
