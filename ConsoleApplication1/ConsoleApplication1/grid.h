@@ -15,9 +15,12 @@ class Grid {
 	std::atomic_bool* sharedFirstPlayer;
 	HANDLE sharedFirstPlayerFile;
 	std::string playerName;
-	bool firstPlayer;
+	HANDLE endGame;
 
 public:
+	bool firstPlayer;
+	bool winner;
+
 	explicit Grid(int n);
 
 	~Grid();
@@ -37,6 +40,10 @@ public:
 	void cellClicked(HWND wnd, Settings* settings, int x, int y);
 
 	bool isWinner();
+
+	void lose(HWND wnd) const;
+
+	void win(HWND wnd) const;
 
 	static LPVOID openSharedStructure(const std::string& name, size_t size, HANDLE& fileMap);
 };

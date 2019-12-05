@@ -3,6 +3,7 @@
 
 Grid::Grid(int n) {  // NOLINT(hicpp-member-init)
 	namedCellMutex = CreateMutexA(nullptr, FALSE, "CellMutex");
+	endGame = CreateSemaphoreA(nullptr, 2, 2, "endGame");
 	sharedFirstPlayer = (std::atomic_bool*)openSharedStructure("firstPlayer", sizeof(std::atomic_bool), sharedFirstPlayerFile);
 	WaitForSingleObject(namedCellMutex, INFINITE);
 	if (!*sharedFirstPlayer) {
@@ -36,6 +37,7 @@ Grid::~Grid() {
 	CloseHandle(sharedPreviousClickFile);
 	UnmapViewOfFile(sharedGrid);
 	CloseHandle(sharedGridFile);
+	CloseHandle(endGame);
 }
 
 void Grid::initBoard(int n, LPVOID& sharedGrid) {
@@ -53,6 +55,7 @@ void Grid::initBoard(int n, LPVOID& sharedGrid) {
 
 void Grid::clearBoard() {
 	WaitForSingleObject(namedCellMutex, INFINITE);
+	winner = false;
 	*sharedPreviousClick = 1;
 	*sharedCount = 0;
 	for (auto& i : arr) {
@@ -144,10 +147,9 @@ void Grid::drawBoard(HWND wnd, Settings* settings, Image* images, Animation* bac
 
 		SelectObject(hdc, hOldPen);
 		ReleaseDC(wnd, hdc);
-	    std::this_thread::sleep_for(std::chrono::milliseconds(30));
+		std::this_thread::sleep_for(std::chrono::milliseconds(35));
 		ReleaseSemaphore(workingSemaphore, 1, nullptr);
 	}
-	KillTimer(wnd, 123);
 }
 
 void Grid::cellClicked(HWND wnd, Settings* settings, int x, int y) {
@@ -170,7 +172,9 @@ void Grid::cellClicked(HWND wnd, Settings* settings, int x, int y) {
 	}
 	arr[row][column]->isFilled = true;
 	if (isWinner()) {
-		MessageBoxA(wnd, playerName.append(" are a winner!").c_str(), "Congratulation!", MB_OK);
+		winner = true;
+		UINT WM_EXIT = RegisterWindowMessageA("WM_EXIT");
+		PostMessageA(HWND_BROADCAST, WM_EXIT, 0, 0);
 		if (MessageBoxA(wnd, "Do you want to try again?", "Continue", MB_YESNO) == IDYES) {
 			UINT WM_RESTART = RegisterWindowMessageA("WM_RESTART");
 			SendMessageA(HWND_BROADCAST, WM_RESTART, 0, 0);
@@ -247,6 +251,14 @@ bool Grid::isWinner() {
 		circleCountVertical = 0;
 	}
 	return false;
+}
+
+void Grid::lose(HWND wnd) const {
+	MessageBoxA(wnd, (playerName + " are a loser!").c_str(), "Condolences.", MB_OK);
+}
+
+void Grid::win(HWND wnd) const {
+	MessageBoxA(wnd, (playerName + " are a winner!").c_str(), "Congratulation!", MB_OK);
 }
 
 LPVOID Grid::openSharedStructure(const std::string& name, size_t size, HANDLE& fileMap) {

@@ -20,6 +20,7 @@ bool threadFrozen = false;
 
 UINT WM_RESTART = RegisterWindowMessageA("WM_RESTART");
 UINT MY_WM_DESTROY = RegisterWindowMessageA("MY_WM_DESTROY");
+UINT WM_EXIT = RegisterWindowMessageA("WM_EXIT");
 
 Grid* grid;
 
@@ -45,14 +46,32 @@ void runEditor() {
 	CloseHandle(processInfo.hThread);
 }
 
+void runNoughtsAndCrosses() {
+	STARTUPINFO startUpInfo;
+	ZeroMemory(&startUpInfo, sizeof(STARTUPINFO));
+	PROCESS_INFORMATION processInfo;
+	CreateProcess(_T(".\\ConsoleApplication1.exe"), nullptr, nullptr, nullptr, FALSE, NULL, nullptr, nullptr, &startUpInfo, &processInfo);
+	CloseHandle(processInfo.hProcess);
+	CloseHandle(processInfo.hThread);
+}
+
 //Свой обработчик
 LRESULT CALLBACK WinProc(HWND wnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 	if (msg == WM_RESTART) {
 		grid->clearBoard();
+
 		return 0;
 	}
 	if (msg == MY_WM_DESTROY) {
 		PostQuitMessage(0);
+	}
+	if (msg == WM_EXIT) {
+		if (!grid->winner) {
+			grid->lose(wnd);
+		} else {
+			grid->win(wnd);
+		}
+		return 0;
 	}
 	switch (msg) {
 	case WM_LBUTTONDOWN: {
@@ -71,6 +90,10 @@ LRESULT CALLBACK WinProc(HWND wnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 			PostQuitMessage(0);
 		}
 		drawBoardThread = std::thread(&Grid::drawBoard, grid, wnd, settings, image, std::ref(background), std::ref(drawBoardFlag), workingSemaphore);
+		if (grid->firstPlayer && WaitForSingleObject(numberPlayersSemaphore, 0) != WAIT_TIMEOUT) {
+			ReleaseSemaphore(numberPlayersSemaphore, 1, nullptr);
+			runNoughtsAndCrosses();
+		}
 		break;
 	}
 	case WM_DESTROY: {
